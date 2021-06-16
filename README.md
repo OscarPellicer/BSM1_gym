@@ -96,9 +96,9 @@ res.result_data.description[res.keys().index('time')]
 
 ## 3. Creating an OpenAI Gym environment and training a Reinforecement Learning agent on it
  - Install OpenAI Gym: `conda install -c conda-forge gym`
- - Note that `gym` might not work properly if its not run from the base Anaconda environment, which is a bug. If this happens to you, you might want to install all necessary packages in the base environment, althgough it should not be generally necessary.
+ - Note that `gym` might not work properly if it's not run from the base Anaconda environment, which is a bug. If this happens to you, you might want to install all necessary packages in the base environment, althgough it should not be generally necessary.
  - If you intend to use the deep learning agents, you might want to install pytorch too. You can follow the instructions here: https://pytorch.org/get-started/locally/
- - An example of setting up an environment (BSM1), and training an agent to optimizar operation cost on it can be found in [Training.ipynb](Training.ipynb)
+ - An example of setting up an environment (BSM1), and training an agent to optimize operation cost on it can be found in [Training.ipynb](Training.ipynb)
  - Obviously, to run the Notebook, Jupyter Notebook must be first installed: `conda install jupyter`.
  - To adapt it to your own needs, you should first implement a class similar to `BSM1Env` found in `BSM1Envs/bsm1_env.py`. This class implements the `ModelicaEnv` class, which, in turn inherits from `gym.Env`, which is the parent class for all Gym environments.
  - You should also modify some of the varaibles in [Training.ipynb](Training.ipynb), such as `base_path`, `model_name`, `action_names`, `env_name`, `entry_point`, `output_names` to adapt them to your own model.
