@@ -3,7 +3,7 @@ data/*
 Training_BACKUP.ipynb
 Training_BACKUP2.ipynb
 BSM1.fmu
-*.html
+README.html
 *.fmu
 .Rhistory
 *_log.txt
