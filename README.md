@@ -1,7 +1,7 @@
 # BSM1_gym
 Transform a Modelica model (BSM1) into a Python OpenAI Gym environment, and optimize operation cost using reinforcement learning agents.
 
-Although the code here was developed to simulate the [Modelica implementation of the Wastewater Treatment Plant Benchmark Simulation Model No. 1](https://www.iea.lth.se/publications/Reports/LTH-IEA-7229.pdf) (BSM1), which unfortunately cannot yet be publicly released, it provides with the tools and instructions to adapt any Modelica model to be integrated within the OpenAI Gym API, and be used for training reinforcement learning agents on it.
+Imporant note: The code here was developed to simulate a Modelica implementation of the [Wastewater Treatment Plant Benchmark Simulation Model No. 1](https://www.iea.lth.se/publications/Reports/LTH-IEA-7229.pdf) (BSM1), which unfortunately cannot *yet* be publicly released. Still, it provides with the tools and instructions to adapt any Modelica model to be integrated within the OpenAI Gym API and be used for training reinforcement learning agents on it.
 
 This README provides the general instructions on how to:
 
