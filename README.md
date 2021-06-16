@@ -25,7 +25,7 @@ cd BSM1_gym
  
 
 ## 1. Interacting with OpenModelica models through OMPython
- - Download and install OpenModelica: https://www.openmodelica.org/download
+ - Download and install OpenModelica: https://www.openmodelica.org/
  - To run Modelica models from Python (non-interactively), we can install and use the OMPython library:
  - Install: `python -m pip install -U https://github.com/OpenModelica/OMPython/archive/master.zip`
  - We have created a simplified runner for OpenModelica commands in Python, `Runner`, which can be found in `utils.py`. Testing on the bouncing ball model:
