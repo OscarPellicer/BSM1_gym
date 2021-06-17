@@ -1,10 +1,7 @@
 #Custom
 data/*
-Training_BACKUP.ipynb
-Training_BACKUP2.ipynb
-BSM1.fmu
+Training_BACKUP*.ipynb
 README.html
-*.fmu
 .Rhistory
 *_log.txt
 Training-Copy*.ipynb

@@ -1,15 +1,13 @@
 # BSM1_gym
 Transform a Modelica model (BSM1) into a Python OpenAI Gym environment, and optimize operation cost using reinforcement learning agents.
 
-Imporant note: The code here was developed to simulate a Modelica implementation of the [Wastewater Treatment Plant Benchmark Simulation Model No. 1](https://www.iea.lth.se/publications/Reports/LTH-IEA-7229.pdf) (BSM1), which unfortunately cannot *yet* be publicly released. Still, it provides with the tools and instructions to adapt any Modelica model to be integrated within the OpenAI Gym API and be used for training reinforcement learning agents on it.
+**Imporant note:** The code here was developed to simulate a Modelica implementation of the [Wastewater Treatment Plant Benchmark Simulation Model No. 1](https://www.iea.lth.se/publications/Reports/LTH-IEA-7229.pdf) (BSM1), which unfortunately cannot *yet* be publicly released. However, its compiled FMU has been made available in this repository, so it can still be used within a Windows 64bits system (in which it was compiled). Even if this is a limitation, this repository provides with the tools and instructions to adapt any Modelica model to be integrated within the OpenAI Gym API and be used for training reinforcement learning agents on it.
 
 This README provides the general instructions on how to:
 
  1. Run a Modelica model using [Open Modelica](https://www.openmodelica.org/) from Python ([OMPython](https://github.com/OpenModelica/OMPython))
  1. Convert the model to the [FMU](https://fmi-standard.org/) format and simulate it directly within Python using [PyFMI](https://github.com/modelon-community/PyFMI)
  1. Create an OpenAI environment for the FMU, and use a Reinforcement Learning agent to interact with the model
- 
-All the steps were tested on Windows 10 64bits, but they should work for other OSs as well.
 
 ## 0. Preparation steps
  - Download and install Miniconda for Python 3.7: https://docs.conda.io/en/latest/miniconda.html
