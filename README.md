@@ -102,9 +102,10 @@ res.result_data.description[res.keys().index('time')]
  - Install OpenAI Gym: `conda install -c conda-forge gym`
  - If you intend to use the deep learning agents, you might want to install pytorch too. You can follow the instructions here: https://pytorch.org/get-started/locally/
  - An example of setting up an environment (BSM1), and training an agent to optimize operation cost on it can be found in [Training.ipynb](Training.ipynb)
- - Obviously, to run the Notebook, Jupyter Notebook must be first installed. In case you did not install it before (see above).
+ - Obviously, to run the Notebook, Jupyter Notebook must be first installed (see [above](#interacting_with_openmodelica_models_through_ompython)).
  - To adapt it to your own needs, you should first implement a class similar to `BSM1Env` found in `BSM1Envs/bsm1_env.py`. This class implements the `ModelicaEnv` class, which, in turn inherits from `gym.Env`, which is the parent class for all Gym environments.
  - You should also modify some of the varaibles in [Training.ipynb](Training.ipynb), such as `base_path`, `model_name`, `action_names`, `env_name`, `entry_point`, `output_names` to adapt them to your own model.
+ - Create a data directory: `mkdir data` to store generated data by the notebook.
  - The rest of the Python files in the repository are used by [Training.ipynb](Training.ipynb), and provide the following functionality:
    - `agents.py`: This file contains the implementation of some of the most common Q-like agents, using
 pytorch for the deep agents.
