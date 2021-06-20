@@ -105,6 +105,7 @@ res.result_data.description[res.keys().index('time')]
  - Obviously, to run the Notebook, Jupyter Notebook must be first installed. In case you did not install it before (see above).
  - To adapt it to your own needs, you should first implement a class similar to `BSM1Env` found in `BSM1Envs/bsm1_env.py`. This class implements the `ModelicaEnv` class, which, in turn inherits from `gym.Env`, which is the parent class for all Gym environments.
  - You should also modify some of the varaibles in [Training.ipynb](Training.ipynb), such as `base_path`, `model_name`, `action_names`, `env_name`, `entry_point`, `output_names` to adapt them to your own model.
+ - Create a data directory: `mkdir data` to store generated data by the notebook.
  - The rest of the Python files in the repository are used by [Training.ipynb](Training.ipynb), and provide the following functionality:
    - `agents.py`: This file contains the implementation of some of the most common Q-like agents, using
 pytorch for the deep agents.
