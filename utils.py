@@ -19,75 +19,78 @@
 This file contains some utilities that do not match any concrete category
 '''
 import numpy as np
-from pyfmi.common import core
+
 def patch_pyfmi_interpolator():
     '''
         Running this function, the internal pyFMI interpolator is hot-patched to use
         TrajectoryInterpolation instead
     '''
-    core.TrajectoryLinearInterpolation= TrajectoryInterpolation
-
-from scipy import interpolate
-class TrajectoryInterpolation(core.Trajectory):
-    def __init__(self, abscissa, ordinate, *args, kind='slinear', extrapolate=True, **kwargs):
-        '''
-            General interpolator for use within the PyFMI library
-            
-            Parameters
-            ---------
-            abscissa: array
-                1D numpy array of T time steps
-            ordinate: array
-                T x F (features) numpy array with the values of the F features at each
-                time step provided in `abscissa`
-            kind: str, default 'slinear'
-                Specifies the kind of interpolation as a string or as an integer 
-                specifying the order of the spline interpolator to use. The string has 
-                to be one of ‘linear’, ‘nearest’, ‘nearest-up’, ‘zero’, ‘slinear’, 
-                ‘quadratic’, ‘cubic’, ‘previous’, or ‘next’. ‘zero’, ‘slinear’, 
-                ‘quadratic’ and ‘cubic’ refer to a spline interpolation of zeroth, 
-                first, second or third order; ‘previous’ and ‘next’ simply return 
-                the previous or next value of the point; ‘nearest-up’ and ‘nearest’ 
-                differ when interpolating half-integers (e.g. 0.5, 1.5) in that 
-                ‘nearest-up’ rounds up and ‘nearest’ rounds down. Default is ‘linear’.
-            extrapolate: bool, default True
-                If True, perform extrapolation. If False, hold first/last value
-            
-            NOTE: To keep the original TrajectoryLinearInterpolation behaviour, set:
-            kind='linear' & extrapolate=False. Different setups lead to different speeds
-            and behaviours depeding on the problem and the data.
-        '''
-        #Check inputs
-        if abscissa.shape[0] == 0:
-            raise ValueError('Inputs are empty')
-        elif abscissa.shape[0] == 1:
-            self._f= lambda x: ordinate
-        else:
-            if extrapolate:
-                self._f= interpolate.interp1d(abscissa, ordinate, kind=kind, copy=False, 
-                                              axis=0, assume_sorted=True, fill_value='extrapolate')
-            else:
-                fill_value= (ordinate[0], ordinate[-1])
-                self._f= interpolate.interp1d(abscissa, ordinate, kind=kind, copy=False, 
-                                              axis=0, assume_sorted=True, bounds_error=False,
-                                              fill_value=fill_value)
-        super().__init__(abscissa, ordinate, *args, **kwargs)
+        
+    from pyfmi.common import core
+    from scipy import interpolate
     
-    def eval(self, t):
-        """
-            Evaluate the trajectory at the specifed abscissa(s).
+    class TrajectoryInterpolation(core.Trajectory):
+        def __init__(self, abscissa, ordinate, *args, kind='slinear', extrapolate=True, **kwargs):
+            '''
+                General interpolator for use within the PyFMI library
 
-            Parameters
-            ----------
-            t: array, int
-                1D numpy array, or scalar number, containing N abscissa value(s).
+                Parameters
+                ---------
+                abscissa: array
+                    1D numpy array of T time steps
+                ordinate: array
+                    T x F (features) numpy array with the values of the F features at each
+                    time step provided in `abscissa`
+                kind: str, default 'slinear'
+                    Specifies the kind of interpolation as a string or as an integer 
+                    specifying the order of the spline interpolator to use. The string has 
+                    to be one of ‘linear’, ‘nearest’, ‘nearest-up’, ‘zero’, ‘slinear’, 
+                    ‘quadratic’, ‘cubic’, ‘previous’, or ‘next’. ‘zero’, ‘slinear’, 
+                    ‘quadratic’ and ‘cubic’ refer to a spline interpolation of zeroth, 
+                    first, second or third order; ‘previous’ and ‘next’ simply return 
+                    the previous or next value of the point; ‘nearest-up’ and ‘nearest’ 
+                    differ when interpolating half-integers (e.g. 0.5, 1.5) in that 
+                    ‘nearest-up’ rounds up and ‘nearest’ rounds down. Default is ‘linear’.
+                extrapolate: bool, default True
+                    If True, perform extrapolation. If False, hold first/last value
 
-            Returns
-            -------
-            2D N x F array containing the ordinate values corresponding to t.
-        """        
-        t_arr= np.array(t, copy=False)
-        return self._f(t_arr if t_arr.ndim == 2 else t_arr[None])
+                NOTE: To keep the original TrajectoryLinearInterpolation behaviour, set:
+                kind='linear' & extrapolate=False. Different setups lead to different speeds
+                and behaviours depeding on the problem and the data.
+            '''
+            #Check inputs
+            if abscissa.shape[0] == 0:
+                raise ValueError('Inputs are empty')
+            elif abscissa.shape[0] == 1:
+                self._f= lambda x: ordinate
+            else:
+                if extrapolate:
+                    self._f= interpolate.interp1d(abscissa, ordinate, kind=kind, copy=False, 
+                                                  axis=0, assume_sorted=True, fill_value='extrapolate')
+                else:
+                    fill_value= (ordinate[0], ordinate[-1])
+                    self._f= interpolate.interp1d(abscissa, ordinate, kind=kind, copy=False, 
+                                                  axis=0, assume_sorted=True, bounds_error=False,
+                                                  fill_value=fill_value)
+            super().__init__(abscissa, ordinate, *args, **kwargs)
+
+        def eval(self, t):
+            """
+                Evaluate the trajectory at the specifed abscissa(s).
+
+                Parameters
+                ----------
+                t: array, int
+                    1D numpy array, or scalar number, containing N abscissa value(s).
+
+                Returns
+                -------
+                2D N x F array containing the ordinate values corresponding to t.
+            """        
+            t_arr= np.array(t, copy=False)
+            return self._f(t_arr if t_arr.ndim == 2 else t_arr[None])
+    
+    core.TrajectoryLinearInterpolation= TrajectoryInterpolation
     
 class MatHandler():
     '''
