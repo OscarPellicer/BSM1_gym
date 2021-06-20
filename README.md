@@ -107,6 +107,5 @@ pytorch for the deep agents.
 with different kinds of agents.
    - `training.py`: This file contains all the code for letting an agent interact and learn from the evironment
 as well as to plot the evolution of the values of the variables over time.
- - Please note that the Notebook will not run as is, since the required FMU has ot been uploaded to this repository (yet).
 
 This work is part of my end-of-degree project for my Computer Science degree at [UNED University](https://www.uned.es/), which can be found at [*not yet available*]() (in spanish).
