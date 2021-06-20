@@ -1,13 +1,13 @@
 # BSM1_gym
 Transform a Modelica model (BSM1) into a Python OpenAI Gym environment, and optimize operation cost using reinforcement learning agents.
 
-**Imporant note:** The code here was developed to simulate a Modelica implementation of the [Wastewater Treatment Plant Benchmark Simulation Model No. 1](https://www.iea.lth.se/publications/Reports/LTH-IEA-7229.pdf) (BSM1), which unfortunately cannot *yet* be publicly released. However, its compiled FMU has been made available in this repository, so it can still be used within a Windows 64bits system (in which it was compiled). Even if this is a limitation, this repository provides with the tools and instructions to adapt any Modelica model to be integrated within the OpenAI Gym API and be used for training reinforcement learning agents on it.
-
 This README provides the general instructions on how to:
 
  1. Run a Modelica model using [Open Modelica](https://www.openmodelica.org/) from Python ([OMPython](https://github.com/OpenModelica/OMPython))
  1. Convert the model to the [FMU](https://fmi-standard.org/) format and simulate it directly within Python using [PyFMI](https://github.com/modelon-community/PyFMI)
  1. Create an OpenAI environment for the FMU, and use a Reinforcement Learning agent to interact with the model
+
+The code here was developed to simulate a Modelica implementation of the [Wastewater Treatment Plant Benchmark Simulation Model No. 1](https://www.iea.lth.se/publications/Reports/LTH-IEA-7229.pdf) (BSM1), which can be found in the [./WasteWaterResearch/BSM1/](./WasteWaterResearch/BSM1/) directory within this repository. Furthremore, its compiled FMU has been made available in this repository ([BSM1.BSM1.fmu](./BSM1.BSM1.fmu)), which can be used directly under a Windows 64bits system (in which it was compiled) without the need of recompiling it (in any case, the instrucions for generating the FMU have been included in this README). Finally, even if the BSM1 is of no interest to the user, this repository provides with the tools and instructions to adapt any Modelica model to be integrated within the OpenAI Gym API and be used for training reinforcement learning agents on it.
 
 ## 0. Preparation steps
  - Download and install Miniconda for Python 3.7: https://docs.conda.io/en/latest/miniconda.html
@@ -105,7 +105,6 @@ res.result_data.description[res.keys().index('time')]
  - Obviously, to run the Notebook, Jupyter Notebook must be first installed (see [above](#interacting_with_openmodelica_models_through_ompython)).
  - To adapt it to your own needs, you should first implement a class similar to `BSM1Env` found in `BSM1Envs/bsm1_env.py`. This class implements the `ModelicaEnv` class, which, in turn inherits from `gym.Env`, which is the parent class for all Gym environments.
  - You should also modify some of the varaibles in [Training.ipynb](Training.ipynb), such as `base_path`, `model_name`, `action_names`, `env_name`, `entry_point`, `output_names` to adapt them to your own model.
- - Create a data directory: `mkdir data` to store generated data by the notebook.
  - The rest of the Python files in the repository are used by [Training.ipynb](Training.ipynb), and provide the following functionality:
    - `agents.py`: This file contains the implementation of some of the most common Q-like agents, using
 pytorch for the deep agents.
