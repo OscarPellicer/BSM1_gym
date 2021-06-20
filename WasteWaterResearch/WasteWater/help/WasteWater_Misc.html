@@ -1,0 +1,266 @@
+<HTML>
+<HEAD>
+<META name="HTML-Generator" content="Dymola"><TITLE>WasteWater</TITLE></HEAD>
+<BODY><P>
+<H2><A NAME="WasteWater.Misc"></A><A HREF="WasteWater.html#WasteWater"
+>WasteWater</A>.Misc</H2>
+<B>miscellaneous</B>
+<P>
+<A HREF="WasteWater_Misc.html#WasteWater.Misc.TwoPoint"
+><IMG SRC="WasteWater.Misc.TwoPointI.png" ALT="WasteWater.Misc.TwoPoint" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_Misc.html#WasteWater.Misc.ReturnController"
+><IMG SRC="WasteWater.Misc.ReturnControllerI.png" ALT="WasteWater.Misc.ReturnController" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_Misc.html#WasteWater.Misc.RecycleController1"
+><IMG SRC="WasteWater.Misc.RecycleController1I.png" ALT="WasteWater.Misc.RecycleController1" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_Misc.html#WasteWater.Misc.RecycleController2"
+><IMG SRC="WasteWater.Misc.RecycleController2I.png" ALT="WasteWater.Misc.RecycleController2" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This package provides a collection of &quot;conrollers&quot; that are needed for the
+complex wastewater treatment plant example.
+</font></PRE>
+<PRE><font face="Times New Roman" size="3"><b>Main Author:</b><i>
+<span lang="de"> </span></i>
+&nbsp;<i><span lang="de">         </span></i>Gerald Reichl
+<span lang="de">         </span> Technische Universitaet Ilmenau
+<span lang="de">          </span>Faculty of Informatics and Automation
+<span lang="de">          </span>Department Dynamics and Simulation of ecological Systems
+<span lang="de">          </span>P.O. Box 10 05 65
+<span lang="de">          </span>98684 Ilmenau
+<span lang="de">          </span>Germany
+<span lang="de">          email</span>: <a href="mailto:gerald.reichl@tu-ilmenau.de">gerald.reichl@tu-ilmenau.de</a>
+
+&nbsp;
+<b>Copyright (C) 2000 - 2003, </b>Gerald Reichl</font></PRE>
+
+<p><i>
+The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the<span lang="de"> </span>accompanying <b>disclaimer</b> in the documentation of package 
+Modelica in file "Modelica/package.mo".
+</i></p>
+<PRE>
+</PRE><P>
+<HR>
+<H2><IMG SRC="WasteWater.Misc.TwoPointI.png" ALT="WasteWater.Misc.TwoPoint" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.Misc.TwoPoint"></A><A HREF="WasteWater_Misc.html#WasteWater.Misc"
+>WasteWater.Misc</A>.TwoPoint</H2>
+<B>On-Off controller with hysteresis</B><p>
+<IMG SRC="WasteWater.Misc.TwoPointD.png" ALT="WasteWater.Misc.TwoPoint" width="157" height="125">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This is an on-off (two-point) controller with hysteresis.
+The hysteresis is the difference beetween the parameter on and off.
+When the input signal exceeds the &quot;on&quot; value, the output signal
+is &quot;out_on&quot; and when the input signal drops below the
+&quot;off&quot; value, the output signal is &quot;out_off&quot;.</font></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>on</TD><TD>1.0</TD><TD>&nbsp;</TD></TR>
+<TR><TD>off</TD><TD>0.0</TD><TD>&nbsp;</TD></TR>
+<TR><TD>out_on</TD><TD>1.0</TD><TD>&nbsp;</TD></TR>
+<TR><TD>out_off</TD><TD>0.0</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> TwoPoint <font color="darkgreen">&quot;On-Off controller with hysteresis&quot;</font> 
+  <font color="darkgreen">//Two-point controller </font>
+  <font color="blue">parameter </font>Real on=1.0;
+  <font color="blue">parameter </font>Real off=0.0;
+  <font color="blue">parameter </font>Real out_on=1.0;
+  <font color="blue">parameter </font>Real out_off=0.0;
+  Boolean mode;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> e(<font color="blue">final </font>n=1);
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
+>Modelica.Blocks.Interfaces.OutPort</A> u(<font color="blue">final </font>n=1);
+<font color="blue">algorithm </font>
+  <font color="darkgreen">// 0: Controller is off</font>
+  <font color="darkgreen">// 1: Controller is on</font>
+  <font color="darkgreen"></font>
+  <font color="blue">when </font><font color="red">initial</font>()<font color="blue"> then</font>
+    mode := <font color="blue">if </font>e.signal[1] &gt;= on<font color="blue"> then </font>true<font color="blue"> else </font>false;
+  <font color="blue">end when</font>;
+  <font color="darkgreen"></font>
+  <font color="blue">when </font>e.signal[1] &gt;= on<font color="blue"> and </font>mode == false<font color="blue"> then</font>
+    mode := true;
+  <font color="blue">end when</font>;
+  <font color="darkgreen"></font>
+  <font color="blue">when </font>e.signal[1] &lt;= off<font color="blue"> and </font>mode == true<font color="blue"> then</font>
+    mode := false;
+  <font color="blue">end when</font>;
+  <font color="darkgreen"></font>
+  u.signal[1] := <font color="blue">if </font>mode == true<font color="blue"> then </font>out_on<font color="blue"> else </font>out_off;
+<font color="blue">end </font>TwoPoint;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.Misc.ReturnControllerI.png" ALT="WasteWater.Misc.ReturnController" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.Misc.ReturnController"></A><A HREF="WasteWater_Misc.html#WasteWater.Misc"
+>WasteWater.Misc</A>.ReturnController</H2>
+<B>Return Sludge Controller</B><p>
+<IMG SRC="WasteWater.Misc.ReturnControllerD.png" ALT="WasteWater.Misc.ReturnController" width="157" height="127">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">Input signal is a flow measurement.
+Output is a control signal between -1 and 1.
+
+This component is only used for the complex plant example.
+Therefore no further documentation.</font></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Qmin</TD><TD>500</TD><TD>minimal allowed return acticated sludge (RAS) flow [m3/h]</TD></TR>
+<TR><TD>Qdry</TD><TD>1200</TD><TD>flow until dry weather is assumed [m3/h]</TD></TR>
+<TR><TD>Qrain</TD><TD>1500</TD><TD>maximum RAS flow during rain situation [m3/h]</TD></TR>
+<TR><TD>Qmax</TD><TD>2520</TD><TD>maximum flow the treatment plant can handle [m3/h]</TD></TR>
+<TR><TD>RAS_ratio</TD><TD>120</TD><TD>RAS/Inflow ratio  during dry weather [%]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> ReturnController <font color="darkgreen">&quot;Return Sludge Controller&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font>Real Qmin=500 <font color="darkgreen">&quot;Minimum RAS flow [m3/h]&quot;</font>;
+  <font color="blue">parameter </font>Real Qdry=1200 <font color="darkgreen">
+    &quot;Dry weather inflow until RAS is ratio dependent [m3/h]&quot;</font>;
+  <font color="blue">parameter </font>Real Qrain=1500 <font color="darkgreen">&quot;Maximum RAS flow during rain situation [m3/h]&quot;</font>;
+  <font color="blue">parameter </font>Real Qmax=2520 <font color="darkgreen">&quot;Maximum wastewater flow to WWTP [m3/h]&quot;</font>;
+  <font color="blue">parameter </font>Real RAS_ratio=120 <font color="darkgreen">&quot;RAS/Inflow ratio [%]&quot;</font>;
+  <font color="darkgreen"></font>
+  Real u1;
+  Real u2;
+  Real u3;
+  <font color="darkgreen"></font>
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> in1(<font color="blue">final </font>n=1);
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
+>Modelica.Blocks.Interfaces.OutPort</A> out(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  u1 = Qmin;
+  u2 = in1.signal[1]/24*RAS_ratio/100;
+  u3 = Qdry*RAS_ratio/100 + (Qrain - Qdry*RAS_ratio/100)/(Qmax - Qdry)*(in1.
+    signal[1]/24 - Qdry);
+  <font color="darkgreen"></font>
+  out.signal[1] = 2*<font color="red">min</font>(<font color="red">max</font>(u1, u2), u3)/Qmax - 1;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>ReturnController;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.Misc.RecycleController1I.png" ALT="WasteWater.Misc.RecycleController1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.Misc.RecycleController1"></A><A HREF="WasteWater_Misc.html#WasteWater.Misc"
+>WasteWater.Misc</A>.RecycleController1</H2>
+<B>Recycle Sludge Controller1</B><p>
+<IMG SRC="WasteWater.Misc.RecycleController1D.png" ALT="WasteWater.Misc.RecycleController1" width="157" height="124">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">Input signal is a nitrate measurement,
+output is a control signal between -1 and 1
+<span lang="de">and is calculated in two discrete steps between NO3max</span>
+<span lang="de">and NO3min.</span>
+
+This component is only used for the complex plant example.
+Therefore no further documentation.</font></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>NO3max</TD><TD>2.0</TD><TD>[mg/l]</TD></TR>
+<TR><TD>NO3min</TD><TD>1.0</TD><TD>[mg/l]</TD></TR>
+<TR><TD>Pref</TD><TD>70</TD><TD>Reference pumppower between NO3max and NO3min [%]</TD></TR>
+<TR><TD>dNO3max</TD><TD>30</TD><TD>Reduction of the ref. pumppower at
+  NO3-max by x [%]</TD></TR>
+<TR><TD>dNO3min</TD><TD>30</TD><TD>Increase of the ref. pumppower at NO3-min
+  by x [%]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> RecycleController1 <font color="darkgreen">&quot;Recycle Sludge Controller1&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font>Real NO3max=2.0 <font color="darkgreen">&quot;[mg/l]&quot;</font>;
+  <font color="blue">parameter </font>Real NO3min=1.0 <font color="darkgreen">&quot;[mg/l]&quot;</font>;
+  <font color="blue">parameter </font>Real Pref=70 <font color="darkgreen">&quot;Reference pumppower between NO3max and NO3min [%]&quot;</font>;
+  <font color="blue">parameter </font>Real dNO3max=30 <font color="darkgreen">&quot;Reduction of the ref. pumppower at
+  NO3-max by x [%]&quot;</font>;
+  <font color="blue">parameter </font>Real dNO3min=30 <font color="darkgreen">&quot;Increase of the ref. pumppower at NO3-min
+  by x [%]&quot;</font>;
+  <font color="darkgreen"></font>
+  Real u1;
+  Real u2;
+  Real u3;
+  <font color="darkgreen"></font>
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> in1(<font color="blue">final </font>n=1);
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
+>Modelica.Blocks.Interfaces.OutPort</A> out(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">//red = Pp*dNO3max/100;</font>
+  <font color="darkgreen">//[%]</font>
+  <font color="darkgreen">//inc = Pp*dNO3min/100;</font>
+  <font color="darkgreen">//[%]</font>
+  u1 = 2*(Pref + dNO3min)/100 - 1;
+  u2 = 2*Pref/100 - 1;
+  u3 = 2*(Pref - dNO3max)/100 - 1;
+  out.signal[1] = <font color="blue">if </font>in1.signal[1] &lt; NO3min<font color="blue"> then </font>u1<font color="blue"> else </font><font color="blue">if </font>in1.signal[1] &lt; 
+    NO3max<font color="blue"> then </font>u2<font color="blue"> else </font>u3;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>RecycleController1;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.Misc.RecycleController2I.png" ALT="WasteWater.Misc.RecycleController2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.Misc.RecycleController2"></A><A HREF="WasteWater_Misc.html#WasteWater.Misc"
+>WasteWater.Misc</A>.RecycleController2</H2>
+<B>Recycle Sludge Controller2</B><p>
+<IMG SRC="WasteWater.Misc.RecycleController2D.png" ALT="WasteWater.Misc.RecycleController2" width="157" height="125">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">Input signal is a Nitrate measurement
+Output is a control signal between -1 and 1
+<span lang="de">and is linear interpolated between NO3min and NO3 max.</span>
+
+This component is only used for the complex plant example.
+Therefore no further documentation.</font>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>NO3max</TD><TD>2.0</TD><TD>[mg/l]</TD></TR>
+<TR><TD>NO3min</TD><TD>1.0</TD><TD>[mg/l]</TD></TR>
+<TR><TD>Pref</TD><TD>70</TD><TD>Reference pumppower between NO3max and NO3min [%]</TD></TR>
+<TR><TD>dNO3max</TD><TD>30</TD><TD>Reduction of the ref. pumppower at
+  NO3-max by x [%]</TD></TR>
+<TR><TD>dNO3min</TD><TD>30</TD><TD>Increase of the ref. pumppower at NO3-min
+  by x [%]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> RecycleController2 <font color="darkgreen">&quot;Recycle Sludge Controller2&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font>Real NO3max=2.0 <font color="darkgreen">&quot;[mg/l]&quot;</font>;
+  <font color="blue">parameter </font>Real NO3min=1.0 <font color="darkgreen">&quot;[mg/l]&quot;</font>;
+  <font color="blue">parameter </font>Real Pref=70 <font color="darkgreen">&quot;Reference pumppower between NO3max and NO3min [%]&quot;</font>;
+  <font color="blue">parameter </font>Real dNO3max=30 <font color="darkgreen">&quot;Reduction of the ref. pumppower at
+  NO3-max by x [%]&quot;</font>;
+  <font color="blue">parameter </font>Real dNO3min=30 <font color="darkgreen">&quot;Increase of the ref. pumppower at NO3-min
+  by x [%]&quot;</font>;
+  <font color="darkgreen"></font>
+  Real u1;
+  Real u2;
+  Real u3;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> in1(<font color="blue">final </font>n=1);
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
+>Modelica.Blocks.Interfaces.OutPort</A> out(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">//red = Pp*dNO3max/100;</font>
+  <font color="darkgreen">//[%]</font>
+  <font color="darkgreen">//inc = Pp*dNO3min/100;</font>
+  <font color="darkgreen">//[%]</font>
+  u1 = 2*(Pref + dNO3min)/100 - 1;
+  <font color="darkgreen">//u2 = 2*Pref/100 - 1;</font>
+  u2 = 2*((Pref + dNO3min)/100 - ((dNO3max + dNO3min)/100)/(NO3max - NO3min)*(
+    in1.signal[1] - NO3min)) - 1;
+  u3 = 2*(Pref - dNO3max)/100 - 1;
+  out.signal[1] = <font color="blue">if </font>in1.signal[1] &lt; NO3min<font color="blue"> then </font>u1<font color="blue"> else </font><font color="blue">if </font>in1.signal[1] &lt; 
+    NO3max<font color="blue"> then </font>u2<font color="blue"> else </font>u3;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>RecycleController2;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Aug 18 11:14:50 2003
+.
+</address></BODY>
+</HTML>

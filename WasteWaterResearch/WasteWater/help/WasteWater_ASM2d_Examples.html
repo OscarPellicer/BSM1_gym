@@ -1,0 +1,841 @@
+<HTML>
+<HEAD>
+<META name="HTML-Generator" content="Dymola"><TITLE>WasteWater</TITLE></HEAD>
+<BODY><P>
+<H2><A NAME="WasteWater.ASM2d.Examples"></A><A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d"
+>WasteWater.ASM2d</A>.Examples</H2>
+<B>Demonstration examples of the components of the ASM2d library</B>
+<P>
+<A HREF="WasteWater_ASM2d_Examples.html#WasteWater.ASM2d.Examples.SmallPlant"
+><IMG SRC="WasteWater.ASM2d.Examples.SmallPlantI.png" ALT="WasteWater.ASM2d.Examples.SmallPlant" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d_Examples.html#WasteWater.ASM2d.Examples.BenchPlant"
+><IMG SRC="WasteWater.ASM2d.Examples.BenchPlantI.png" ALT="WasteWater.ASM2d.Examples.BenchPlant" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d_Examples.html#WasteWater.ASM2d.Examples.ComplexPlant"
+><IMG SRC="WasteWater.ASM2d.Examples.ComplexPlantI.png" ALT="WasteWater.ASM2d.Examples.ComplexPlant" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d_Examples.html#WasteWater.ASM2d.Examples.JenaSecClarModTakacs"
+><IMG SRC="WasteWater.ASM2d.Examples.JenaSecClarModTakacsI.png" ALT="WasteWater.ASM2d.Examples.JenaSecClarModTakacs" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This package contains example ASM2d wastewater treatment plant models to demonstrate
+the usage of the WasteWater.ASM2d library.
+Open the models and simulate them according to the description provided in the models.
+
+<b>The following demo models are present:</b>
+
+</font></PRE>
+
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="1035" id="AutoNumber1">
+  <tr>
+    <td width="107">
+<PRE><font face="Times New Roman" size="3">   <a href="#WasteWater.ASM2d.Examples.SmallPlant">SmallPlant</a> </font></PRE>
+
+    </td>
+    <td width="925">
+<PRE><font face="Times New Roman" size="3"> - example model with a small number of equations </font></PRE>
+
+    </td>
+  </tr>
+  <tr>
+    <td width="107">
+<PRE><font face="Times New Roman" size="3">   <a href="#WasteWater.ASM2d.Examples.BenchPlant">BenchPlant</a> </font></PRE>
+
+    </td>
+    <td width="925">
+<PRE><font face="Times New Roman" size="3"> - corresponds to the COST simulation benchmark</font></PRE>
+
+    </td>
+  </tr>
+  <tr>
+    <td width="107">
+<PRE><font face="Times New Roman" size="3">   <a href="#WasteWater.ASM2d.Examples.ComplexPlant">ComplexPlant</a> </font></PRE>
+
+    </td>
+    <td width="925">
+<PRE><font face="Times New Roman" size="3"> - models a real municipal wastewater treatment plant </font></PRE>
+
+    </td>
+  </tr>
+</table>
+<PRE><font face="Times New Roman" size="3">
+
+<b>Main Author:</b><i>
+<span lang="de"> </span></i>
+&nbsp;<i><span lang="de">         </span></i>Gerald Reichl
+<span lang="de">         </span> Technische Universitaet Ilmenau
+<span lang="de">          </span>Faculty of Informatics and Automation
+<span lang="de">          </span>Department Dynamics and Simulation of ecological Systems
+<span lang="de">          </span>P.O. Box 10 05 65
+<span lang="de">          </span>98684 Ilmenau
+<span lang="de">          </span>Germany
+<span lang="de">          email</span>: <a href="mailto:gerald.reichl@tu-ilmenau.de">gerald.reichl@tu-ilmenau.de</a>
+&nbsp;
+&nbsp;
+<b>Copyright (C) 2003, </b>Gerald Reichl</font></PRE>
+
+<p><i>
+The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the<span lang="de"> </span>accompanying <b>disclaimer</b> in the documentation of package 
+Modelica in file "Modelica/package.mo".
+</i></p>
+<P>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.Examples.SmallPlantI.png" ALT="WasteWater.ASM2d.Examples.SmallPlant" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.Examples.SmallPlant"></A><A HREF="WasteWater_ASM2d_Examples.html#WasteWater.ASM2d.Examples"
+>WasteWater.ASM2d.Examples</A>.SmallPlant</H2>
+<B>Small WWTP <span lang="de">c</span>onfiguration</B><p>
+<IMG SRC="WasteWater.ASM2d.Examples.SmallPlantD.png" ALT="WasteWater.ASM2d.Examples.SmallPlant" width="384" height="331">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This fictitious plant provides an ASM2d example model with a small number of equations.
+It consists of one denitrification and 2 nitrification tanks and a settler.
+
+Change into the directory ../ASM2d and translate the model.
+Before simulating the model load initial values from the script file small_asm2d.mos
+that is provided besides the model.<span lang="de"> </span>A 14 days dynamic influent data file is provided<span lang="de">, too</span>. 
+So you may simulate up to 14 days.<span lang="de"> </span>But start with 1 day as it may take some time for simulation.
+After simulation you may have a look at internal concentrations but most interesting
+are the relevant concentrations at the effluent of a plant which can be viewed via the 
+sensors at the effluent of the secondary clarifier.</font></PRE>
+<PRE><font face="Times New Roman" size="3"><b>Main Author:</b><i><span lang="de"> </span></i>
+&nbsp;<i><span lang="de">         </span></i>Gerald Reichl
+<span lang="de">         </span> Technische Universitaet Ilmenau
+<span lang="de">          </span>Faculty of Informatics and Automation
+<span lang="de">          </span>Department Dynamics and Simulation of ecological Systems
+<span lang="de">          </span>P.O. Box 10 05 65
+<span lang="de">          </span>98684 Ilmenau
+<span lang="de">          </span>Germany
+<span lang="de">          email</span>: <a href="mailto:gerald.reichl@tu-ilmenau.de">gerald.reichl@tu-ilmenau.de</a></font>
+
+</PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">class</font> SmallPlant <font color="darkgreen">&quot;Small WWTP Configuration&quot;</font> 
+  <font color="blue">import </font><A HREF="WasteWater.html#WasteWater"
+>WasteWater</A>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">//Q_air=12100.99290780142 is equal to a Kla of 3.5 h^-1 from COST benchmark</font>
+  <font color="blue">extends </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">//Q_air=34574.2654508612 is equal to a Kla of 10 h^-1 from COST benchmark</font>
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.EffluentSink"
+>ASM2d.EffluentSink</A> Effluent;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.SludgeSink"
+>ASM2d.SludgeSink</A> WasteSludge;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.divider2"
+>ASM2d.divider2</A> divider;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.nitri"
+>ASM2d.nitri</A> tank3(V=1333);
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.nitri"
+>ASM2d.nitri</A> tank2(V=1333);
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.deni"
+>ASM2d.deni</A> tank1(V=3000);
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.mixer3"
+>ASM2d.mixer3</A> mixer;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/ModelicaAdditions/help/ModelicaAdditions_Tables.html#ModelicaAdditions.Tables.CombiTableTime"
+>ModelicaAdditions.Tables.CombiTableTime</A> CombiTableTime(
+    tableName=&quot;Inf_dry&quot;, 
+    fileName=&quot;Inf_dry.txt&quot;, 
+    icol={21,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20});
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.WWSource"
+>ASM2d.WWSource</A> WWSource;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.blower"
+>ASM2d.blower</A> blower1(Q_max=34574.2654508612);
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.blower"
+>ASM2d.blower</A> blower2(Q_max=34574.2654508612);
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_O2"
+>ASM2d.sensor_O2</A> sensor_O2;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Feedback"
+>Modelica.Blocks.Math.Feedback</A> Feedback;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.PI"
+>Modelica.Blocks.Continuous.PI</A> PI1(k={500}, T={0.001});
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> Constant1;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.pump"
+>ASM2d.pump</A> RecyclePump(Q_max=46115);
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.pump"
+>ASM2d.pump</A> ReturnPump(Q_max=9223);
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.pump"
+>ASM2d.pump</A> WastePump(Q_max=193);
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> Constant2;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> Temperature(k={15});
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_NH"
+>sensor_NH</A> sensor_NH1;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_NO"
+>WasteWater.ASM2d.sensor_NO</A> sensor_NO1;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_TKN"
+>WasteWater.ASM2d.sensor_TKN</A> sensor_TKN1;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_COD"
+>WasteWater.ASM2d.sensor_COD</A> sensor_COD1;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> OxygenSetpoint(height={1.5});
+  <A HREF="WasteWater_ASM2d_SecClar_Krebs.html#WasteWater.ASM2d.SecClar.Krebs.SecClarModKrebs"
+>WasteWater.ASM2d.SecClar.Krebs.SecClarModKrebs</A> Settler;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(tank3.Out, divider.In);
+  <font color="red">connect</font>(tank2.Out, tank3.In);
+  <font color="red">connect</font>(mixer.Out, tank1.In);
+  <font color="red">connect</font>(mixer.In1, WWSource.Out);
+  <font color="red">connect</font>(CombiTableTime.outPort, WWSource.data);
+  <font color="red">connect</font>(blower1.AirOut, tank2.AirIn);
+  <font color="red">connect</font>(blower2.AirOut, tank3.AirIn);
+  <font color="red">connect</font>(tank3.MeasurePort, sensor_O2.In);
+  <font color="red">connect</font>(Feedback.outPort, PI1.inPort);
+  <font color="red">connect</font>(PI1.outPort, blower2.u);
+  <font color="red">connect</font>(divider.Out2, RecyclePump.In);
+  <font color="red">connect</font>(RecyclePump.Out, mixer.In3);
+  <font color="red">connect</font>(ReturnPump.Out, mixer.In2);
+  <font color="red">connect</font>(sensor_O2.So, Feedback.inPort2);
+  <font color="red">connect</font>(Temperature.outPort, tank1.T);
+  <font color="red">connect</font>(Temperature.outPort, tank2.T);
+  <font color="red">connect</font>(Temperature.outPort, tank3.T);
+  <font color="red">connect</font>(OxygenSetpoint.outPort, Feedback.inPort1);
+  <font color="red">connect</font>(blower1.u, Constant1.outPort);
+  <font color="red">connect</font>(WastePump.Out, WasteSludge.In);
+  <font color="red">connect</font>(WastePump.u, Constant2.outPort);
+  <font color="red">connect</font>(tank1.Out, tank2.In);
+  <font color="red">connect</font>(RecyclePump.u, Constant1.outPort);
+  <font color="red">connect</font>(divider.Out1, Settler.Feed);
+  <font color="red">connect</font>(Settler.Effluent, Effluent.In);
+  <font color="red">connect</font>(Settler.Return, ReturnPump.In);
+  <font color="red">connect</font>(WastePump.In, Settler.Waste);
+  <font color="red">connect</font>(sensor_NH1.In, Settler.Effluent);
+  <font color="red">connect</font>(sensor_NO1.In, Settler.Effluent);
+  <font color="red">connect</font>(sensor_TKN1.In, Settler.Effluent);
+  <font color="red">connect</font>(sensor_COD1.In, Settler.Effluent);
+  <font color="red">connect</font>(Constant2.outPort, ReturnPump.u);
+  <font color="darkgreen"></font>
+<font color="blue">end </font>SmallPlant;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.Examples.BenchPlantI.png" ALT="WasteWater.ASM2d.Examples.BenchPlant" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.Examples.BenchPlant"></A><A HREF="WasteWater_ASM2d_Examples.html#WasteWater.ASM2d.Examples"
+>WasteWater.ASM2d.Examples</A>.BenchPlant</H2>
+<B>COST <span lang="de">b</span>enchmark WWTP <span lang="de">c</span>onfiguration</B><p>
+<IMG SRC="WasteWater.ASM2d.Examples.BenchPlantD.png" ALT="WasteWater.ASM2d.Examples.BenchPlant" width="391" height="331">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This ASM2d example plant consists of 2 denitrification tanks (tank1 and tank2),
+3 nitrification tanks (tank3 - tank5) and a secondary clarifier by Takacs.
+Furthermore there are 2 control loops modelled.
+
+This configuration corresponds to the COST simulation benchmark [1].
+
+Change into the directory ../ASM2d and translate the model.
+Before simulating the model load initial values from the script file bench_asm2d.mos
+that is provided besides the model.<span lang="de"> </span>A 14 days dynamic influent data file is provided<span lang="de">, too</span>. 
+So you may simulate up to 14 days.<span lang="de"> </span>But start with 1 day as it may take some time for simulation.
+After simulation you may have a look at internal concentrations but most interesting
+are the relevant concentrations at the effluent of a plant which can be viewed via the 
+sensors at the effluent of the secondary clarifier.
+
+<b>References: </b>
+
+[1] <span lang="de"> </span>J.B. Copp: The COST Simulation Benchmark. 2000. <a href="http://www.ensic.u-nancy.fr/COSTWWTP/">http://www.ensic.u-nancy.fr/COSTWWTP/</a>
+</font></PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">class</font> BenchPlant <font color="darkgreen">&quot;COST Benchmark WWTP Configuration&quot;</font> 
+  <font color="blue">import </font><A HREF="WasteWater.html#WasteWater"
+>WasteWater</A>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">//Q_air=12100.99290780142 is equal to a Kla of 3.5 h^-1 from COST benchmark</font>
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="darkgreen">//Q_air=34574.2654508612 is equal to a Kla of 10 h^-1 from COST benchmark</font>
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.EffluentSink"
+>ASM2d.EffluentSink</A> Effluent;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.SludgeSink"
+>ASM2d.SludgeSink</A> WasteSludge;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.SecClarModTakacs"
+>ASM2d.SecClarModTakacs</A> Settler;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.divider2"
+>ASM2d.divider2</A> divider;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.nitri"
+>ASM2d.nitri</A> tank5(V=1333);
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.nitri"
+>ASM2d.nitri</A> tank4(V=1333);
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.nitri"
+>ASM2d.nitri</A> tank3(V=1333);
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.deni"
+>ASM2d.deni</A> tank2;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.deni"
+>ASM2d.deni</A> tank1;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.mixer3"
+>ASM2d.mixer3</A> mixer;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/ModelicaAdditions/help/ModelicaAdditions_Tables.html#ModelicaAdditions.Tables.CombiTableTime"
+>ModelicaAdditions.Tables.CombiTableTime</A> CombiTableTime(
+    tableName=&quot;Inf_dry&quot;, 
+    fileName=&quot;Inf_dry.txt&quot;, 
+    icol={2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20});
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.WWSource"
+>ASM2d.WWSource</A> WWSource;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_NO"
+>ASM2d.sensor_NO</A> sensor_NO;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.blower"
+>ASM2d.blower</A> blower1(Q_max=34574.2654508612);
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.blower"
+>ASM2d.blower</A> blower2(Q_max=34574.2654508612);
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.blower"
+>ASM2d.blower</A> blower3(Q_max=34574.2654508612);
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_O2"
+>ASM2d.sensor_O2</A> sensor_O2;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Feedback"
+>Modelica.Blocks.Math.Feedback</A> Feedback;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.PI"
+>Modelica.Blocks.Continuous.PI</A> PI1(k={500}, T={0.001});
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> Constant1;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.pump"
+>ASM2d.pump</A> RecyclePump(Q_max=92230);
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.PI"
+>Modelica.Blocks.Continuous.PI</A> PI2(k={15000}, T={0.05});
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> NitrogenSetpoint;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Feedback"
+>Modelica.Blocks.Math.Feedback</A> Feedback1;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear.Limiter"
+>Modelica.Blocks.Nonlinear.Limiter</A> Limiter1(uMax={10}, uMin={0.1});
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.pump"
+>ASM2d.pump</A> ReturnPump(Q_max=18446);
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.pump"
+>ASM2d.pump</A> WastePump(Q_max=385);
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> Constant2;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> Temperature(k={15});
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/ModelicaAdditions/help/ModelicaAdditions_Blocks_Nonlinear.html#ModelicaAdditions.Blocks.Nonlinear.FixedDelay"
+>ModelicaAdditions.Blocks.Nonlinear.FixedDelay</A> FixedDelay1(delayTime=1/6/24<span lang="de">)</span>;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_NH"
+>sensor_NH</A> sensor_NH1;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_NO"
+>WasteWater.ASM2d.sensor_NO</A> sensor_NO1;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_TKN"
+>WasteWater.ASM2d.sensor_TKN</A> sensor_TKN1;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_COD"
+>WasteWater.ASM2d.sensor_COD</A> sensor_COD1;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> OxygenSetpoint(height={2});
+<font color="blue">equation </font>
+  <font color="red">connect</font>(tank5.Out, divider.In);
+  <font color="red">connect</font>(tank4.Out, tank5.In);
+  <font color="red">connect</font>(tank3.Out, tank4.In);
+  <font color="red">connect</font>(tank3.In, tank2.Out);
+  <font color="red">connect</font>(tank1.Out, tank2.In);
+  <font color="red">connect</font>(mixer.Out, tank1.In);
+  <font color="red">connect</font>(mixer.In1, WWSource.Out);
+  <font color="red">connect</font>(CombiTableTime.outPort, WWSource.data);
+  <font color="red">connect</font>(sensor_NO.In, tank2.MeasurePort);
+  <font color="red">connect</font>(blower1.AirOut, tank3.AirIn);
+  <font color="red">connect</font>(blower2.AirOut, tank4.AirIn);
+  <font color="red">connect</font>(blower3.AirOut, tank5.AirIn);
+  <font color="red">connect</font>(tank5.MeasurePort, sensor_O2.In);
+  <font color="red">connect</font>(Feedback.outPort, PI1.inPort);
+  <font color="red">connect</font>(PI1.outPort, blower3.u);
+  <font color="red">connect</font>(divider.Out2, RecyclePump.In);
+  <font color="red">connect</font>(RecyclePump.Out, mixer.In3);
+  <font color="red">connect</font>(Feedback1.outPort, PI2.inPort);
+  <font color="red">connect</font>(NitrogenSetpoint.outPort, Feedback1.inPort1);
+  <font color="red">connect</font>(PI2.outPort, RecyclePump.u);
+  <font color="red">connect</font>(Limiter1.outPort, Feedback1.inPort2);
+  <font color="red">connect</font>(Settler.Return, ReturnPump.In);
+  <font color="red">connect</font>(ReturnPump.Out, mixer.In2);
+  <font color="red">connect</font>(sensor_O2.So, Feedback.inPort2);
+  <font color="red">connect</font>(Temperature.outPort, tank1.T);
+  <font color="red">connect</font>(Temperature.outPort, tank2.T);
+  <font color="red">connect</font>(Temperature.outPort, tank3.T);
+  <font color="red">connect</font>(Temperature.outPort, tank4.T);
+  <font color="red">connect</font>(Temperature.outPort, tank5.T);
+  <font color="red">connect</font>(sensor_NO.Sno, FixedDelay1.inPort);
+  <font color="red">connect</font>(FixedDelay1.outPort, Limiter1.inPort);
+  <font color="red">connect</font>(OxygenSetpoint.outPort, Feedback.inPort1);
+  <font color="red">connect</font>(Constant1.outPort, blower1.u);
+  <font color="red">connect</font>(blower2.u, Constant1.outPort);
+  <font color="red">connect</font>(WastePump.Out, WasteSludge.In);
+  <font color="red">connect</font>(WastePump.In, Settler.Waste);
+  <font color="red">connect</font>(WastePump.u, Constant2.outPort);
+  <font color="red">connect</font>(sensor_NH1.In, Settler.Effluent);
+  <font color="red">connect</font>(sensor_NO1.In, Settler.Effluent);
+  <font color="red">connect</font>(sensor_TKN1.In, Settler.Effluent);
+  <font color="red">connect</font>(sensor_COD1.In, Settler.Effluent);
+  <font color="red">connect</font>(Constant2.outPort, ReturnPump.u);
+  <font color="red">connect</font>(divider.Out1, Settler.Feed);
+  <font color="red">connect</font>(Effluent.In, Settler.Effluent);
+  <font color="darkgreen"></font>
+<font color="blue">end </font>BenchPlant;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.Examples.ComplexPlantI.png" ALT="WasteWater.ASM2d.Examples.ComplexPlant" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.Examples.ComplexPlant"></A><A HREF="WasteWater_ASM2d_Examples.html#WasteWater.ASM2d.Examples"
+>WasteWater.ASM2d.Examples</A>.ComplexPlant</H2>
+<B>Complex ASM2d WWTP</B><p>
+<IMG SRC="WasteWater.ASM2d.Examples.ComplexPlantD.png" ALT="WasteWater.ASM2d.Examples.ComplexPlant" width="647" height="394">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This ASM2d example plant configuration is from a real municipal wastewater treatment
+plant<span lang="de"> </span>with a size of 145.000 p.e. It is a cascade-type continuous flow plant for a mean 
+dry<span lang="de"> </span>weather inflow of 28.500 m3/d. It consists of a preclarifier, an anaerobic tank,
+3 denitrification and 3 nitrification tanks and a secondary settler.
+This model is an example for the Wastewater library and is not adapted with its parameters
+to the reality, therefore simulation results do not reflect the real plant behaviour.
+
+Change into the directory ../ASM2d and translate the model.
+Before simulating the model load initial values from the script file complex_asm2d.mos
+that is provided besides the model.<span lang="de"> </span>A 14 days dynamic influent data file is provided<span lang="de">, too</span>. 
+So you may simulate up to 14 days.<span lang="de"> </span>But start with 1 day as it may take some time for simulation.
+After simulation you may have a look at internal concentrations but most interesting
+are the relevant concentrations at the effluent of a plant which can be viewed via the 
+sensors at the effluent of the secondary clarifier.
+
+
+<b>Main Author:</b><i><span lang="de"> </span></i>
+&nbsp;<i><span lang="de">         </span></i>Gerald Reichl
+<span lang="de">         </span> Technische Universitaet Ilmenau
+<span lang="de">          </span>Faculty of Informatics and Automation
+<span lang="de">          </span>Department Dynamics and Simulation of ecological Systems
+<span lang="de">          </span>P.O. Box 10 05 65
+<span lang="de">          </span>98684 Ilmenau
+<span lang="de">          </span>Germany
+<span lang="de">          email</span>: <a href="mailto:gerald.reichl@tu-ilmenau.de">gerald.reichl@tu-ilmenau.de</a></font>
+</PRE>
+<H3><font face="Times New Roman" size="3"><br>
+</font>Modelica definition</H3>
+<PRE><font color="blue">model</font> ComplexPlant <font color="darkgreen">&quot;Complex ASM2d WWTP&quot;</font> 
+  <font color="blue">import </font><A HREF="WasteWater.html#WasteWater"
+>WasteWater</A>;
+  <font color="blue">extends </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.ControlledDivider2"
+>ControlledDivider2</A> cdivider1;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> Constant2(k={0.8});
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.blower"
+>blower</A> blower1(Q_max=162816) <font color="darkgreen">
+    &quot;there exist 4 blowers of 4240 Nm3/h each, Q_max adusted according active aerated tanks&quot;</font>
+    ;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.nitri"
+>nitri</A> nitri2(
+    V=2772, 
+    alpha=0.305, 
+    de=5.24, 
+    R_air=20);
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.deni"
+>deni</A> anaerob(V=1287);
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.deni"
+>deni</A> deni1(V=2772);
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.deni"
+>deni</A> deni3(V=2772);
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.deni"
+>deni</A> deni2(V=2772);
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.nitri"
+>nitri</A> nitri3(
+    V=5602, 
+    alpha=0.305, 
+    de=5.24, 
+    R_air=21);
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.blower"
+>blower</A> blower2(Q_max=81408) <font color="darkgreen">
+    &quot;there exist 4 blowers of 4240 Nm3/h each, Q_max adjusted according active aerated tanks&quot;</font>
+    ;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.pump"
+>pump</A> ReturnPump(Q_max=60480);
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.pump"
+>pump</A> RecyclePump(Q_max=60480);
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.pump"
+>pump</A> WastePump(Q_max=1920);
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.ControlledDivider2"
+>ControlledDivider2</A> cdivider2;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.EffluentSink"
+>EffluentSink</A> Effluent;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.SludgeSink"
+>SludgeSink</A> WasteSludge;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.mixer2"
+>mixer2</A> mixer2_1;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.mixer2"
+>mixer2</A> mixer2_2;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.mixer3"
+>mixer3</A> mixer3_1;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.mixer2"
+>mixer2</A> mixer2_5;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.divider2"
+>divider2</A> divider2_1;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.ControlledDivider2"
+>ControlledDivider2</A> cdivider3;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> Constant4(k={0.5});
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.nitri"
+>nitri</A> nitri1(
+    V=5602, 
+    alpha=0.305, 
+    de=5.24, 
+    R_air=21);
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.blower"
+>blower</A> blower3(Q_max=162816) <font color="darkgreen">
+    &quot;there exist 4 blowers of max 4240 Nm3/h, Q_max adusted according active aerated tanks&quot;</font>;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> Constant7(k={0.56});
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.mixer2"
+>mixer2</A> mixer2_3;
+  <A HREF="WasteWater_ASM2d_PreClar.html#WasteWater.ASM2d.PreClar.preclar3"
+>PreClar.preclar3</A> Preclaryfier(
+    V=1372, 
+    aSi=2.5/100, 
+    aSf=5/100, 
+    aSa=10/100, 
+    aXi=48.5/100, 
+    aXs=34/100, 
+    aXh=0/100, 
+    n_corr=2.138);
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.FlowSource"
+>FlowSource</A> FlowInput;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.ControlledDivider2"
+>ControlledDivider2</A> ControlledDivider2_1;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> Constant6;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_NO"
+>sensor_NO</A> sensor_NO1;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_NO"
+>sensor_NO</A> sensor_NO3;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_NH"
+>sensor_NH</A> sensor_NH2;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_TSS"
+>sensor_TSS</A> sensor_TSS1;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> Temperature(k={11.5});
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.precipitation"
+>precipitation</A> precipitation1(V=22, beta=8);
+  <A HREF="WasteWater_Misc.html#WasteWater.Misc.RecycleController2"
+>WasteWater.Misc.RecycleController2</A> RecycleController1(NO3min=1.5);
+  <A HREF="WasteWater_Misc.html#WasteWater.Misc.ReturnController"
+>WasteWater.Misc.ReturnController</A> ReturnController1;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_Q"
+>sensor_Q</A> sensor_Q1;
+  <A HREF="WasteWater_Misc.html#WasteWater.Misc.TwoPoint"
+>WasteWater.Misc.TwoPoint</A> TwoPoint1(
+    on=4.5, 
+    off=4.0, 
+    out_on=2.5, 
+    out_off=1.5);
+  <A HREF="WasteWater_Misc.html#WasteWater.Misc.TwoPoint"
+>WasteWater.Misc.TwoPoint</A> TwoPoint2(
+    on=4.5, 
+    off=4.0, 
+    out_on=2.5, 
+    out_off=1.5);
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_NH"
+>WasteWater.ASM2d.sensor_NH</A> sensor_NH1;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Feedback"
+>Modelica.Blocks.Math.Feedback</A> Feedback1;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Feedback"
+>Modelica.Blocks.Math.Feedback</A> Feedback2;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_O2"
+>WasteWater.ASM2d.sensor_O2</A> sensor_O2_1;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_O2"
+>WasteWater.ASM2d.sensor_O2</A> sensor_O2_2;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_COD"
+>WasteWater.ASM2d.sensor_COD</A> sensor_COD1;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_COD"
+>WasteWater.ASM2d.sensor_COD</A> sensor_COD2;
+  <A HREF="WasteWater_ASM2d_Examples.html#WasteWater.ASM2d.Examples.JenaSecClarModTakacs"
+>WasteWater.ASM2d.Examples.JenaSecClarModTakacs</A> Settler(hsc=3.46, Asc=3704)     <font color="darkgreen">
+    &quot;The depth is calculated based on V and A of the settler and not the true depth.&quot;</font>;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_TP"
+>WasteWater.ASM2d.sensor_TP</A> sensor_TP1;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_TKN"
+>WasteWater.ASM2d.sensor_TKN</A> sensor_TKN1;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_TP"
+>WasteWater.ASM2d.sensor_TP</A> sensor_TP2;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_TP"
+>WasteWater.ASM2d.sensor_TP</A> sensor_TP3;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/ModelicaAdditions/help/ModelicaAdditions_Tables.html#ModelicaAdditions.Tables.CombiTableTime"
+>ModelicaAdditions.Tables.CombiTableTime</A> CombiTableTime1(
+    tableName=&quot;drysim130303&quot;, 
+    fileName=&quot;drysim130303.txt&quot;, 
+    icol={2});
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/ModelicaAdditions/help/ModelicaAdditions_Tables.html#ModelicaAdditions.Tables.CombiTableTime"
+>ModelicaAdditions.Tables.CombiTableTime</A> CombiTableTime2(
+    tableName=&quot;drysim130303&quot;, 
+    fileName=&quot;drysim130303.txt&quot;, 
+    icol={3,4,5,6});
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/ModelicaAdditions/help/ModelicaAdditions_Blocks_Nonlinear.html#ModelicaAdditions.Blocks.Nonlinear.FixedDelay"
+>ModelicaAdditions.Blocks.Nonlinear.FixedDelay</A> FixedDelay1(delayTime=1/24/6);
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Feedback"
+>Modelica.Blocks.Math.Feedback</A> Feedback3;
+  <A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_O2"
+>WasteWater.ASM2d.sensor_O2</A> sensor_O2_3;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Gain"
+>Modelica.Blocks.Math.Gain</A> Gain1(k={500});
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Gain"
+>Modelica.Blocks.Math.Gain</A> Gain2(k={500});
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Math.html#Modelica.Blocks.Math.Gain"
+>Modelica.Blocks.Math.Gain</A> Gain3(k={500});
+  <A HREF="WasteWater_Misc.html#WasteWater.Misc.TwoPoint"
+>WasteWater.Misc.TwoPoint</A> TwoPoint3(
+    on=4.5, 
+    off=4.0, 
+    out_on=2.0, 
+    out_off=1.0);
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Modelica.Blocks.Sources.Step</A> Step1(
+    height={0.125}, 
+    offset={-0.5}, 
+    startTime={2.375});
+<font color="blue">equation </font>
+  <font color="red">connect</font>(deni3.Out, nitri2.In);
+  <font color="red">connect</font>(nitri2.Out, nitri3.In);
+  <font color="red">connect</font>(nitri3.Out, divider2_1.In);
+  <font color="red">connect</font>(mixer2_5.Out, mixer3_1.In3);
+  <font color="red">connect</font>(Constant4.outPort, cdivider3.u);
+  <font color="red">connect</font>(nitri1.Out, mixer2_2.In2);
+  <font color="red">connect</font>(deni2.Out, nitri1.In);
+  <font color="red">connect</font>(cdivider2.Out1, mixer2_2.In1);
+  <font color="red">connect</font>(cdivider3.Out2, mixer2_5.In1);
+  <font color="red">connect</font>(Constant7.outPort, cdivider2.u);
+  <font color="red">connect</font>(cdivider3.In, ReturnPump.Out);
+  <font color="red">connect</font>(cdivider3.Out1, mixer2_3.In2);
+  <font color="red">connect</font>(cdivider1.Out2, mixer2_3.In1);
+  <font color="red">connect</font>(WastePump.Out, WasteSludge.In);
+  <font color="red">connect</font>(ControlledDivider2_1.Out2, mixer2_1.In2);
+  <font color="red">connect</font>(ControlledDivider2_1.Out1, mixer2_5.In2);
+  <font color="red">connect</font>(Constant6.outPort, ControlledDivider2_1.u);
+  <font color="red">connect</font>(Preclaryfier.In, cdivider1.Out1);
+  <font color="red">connect</font>(mixer2_2.Out, deni3.In);
+  <font color="red">connect</font>(sensor_NO1.In, deni2.MeasurePort);
+  <font color="red">connect</font>(Temperature.outPort, anaerob.T);
+  <font color="red">connect</font>(Temperature.outPort, deni1.T);
+  <font color="red">connect</font>(Temperature.outPort, deni2.T);
+  <font color="red">connect</font>(Temperature.outPort, nitri1.T);
+  <font color="red">connect</font>(Temperature.outPort, deni3.T);
+  <font color="red">connect</font>(Temperature.outPort, nitri2.T);
+  <font color="red">connect</font>(Temperature.outPort, nitri3.T);
+  <font color="red">connect</font>(precipitation1.In, divider2_1.Out1);
+  <font color="red">connect</font>(precipitation1.T, Temperature.outPort);
+  <font color="red">connect</font>(RecycleController1.out, RecyclePump.u);
+  <font color="red">connect</font>(sensor_Q1.Q, ReturnController1.in1);
+  <font color="red">connect</font>(sensor_NH1.In, nitri3.MeasurePort);
+  <font color="red">connect</font>(sensor_O2_2.In, nitri1.MeasurePort);
+  <font color="red">connect</font>(Feedback1.inPort2, sensor_O2_2.So);
+  <font color="red">connect</font>(sensor_O2_1.In, nitri3.MeasurePort);
+  <font color="red">connect</font>(Feedback2.inPort2, sensor_O2_1.So);
+  <font color="red">connect</font>(sensor_NH1.Snh, TwoPoint1.e);
+  <font color="red">connect</font>(TwoPoint2.e, sensor_NH1.Snh);
+  <font color="red">connect</font>(sensor_COD2.In, Preclaryfier.In);
+  <font color="red">connect</font>(sensor_NO3.In, Settler.Effluent);
+  <font color="red">connect</font>(sensor_NH2.In, Settler.Effluent);
+  <font color="red">connect</font>(precipitation1.Out, Settler.Feed);
+  <font color="red">connect</font>(WastePump.In, Settler.Waste);
+  <font color="red">connect</font>(Settler.Return, ReturnPump.In);
+  <font color="red">connect</font>(sensor_TSS1.In, Settler.Return);
+  <font color="red">connect</font>(sensor_TP1.In, Preclaryfier.Out);
+  <font color="red">connect</font>(sensor_TKN1.In, Settler.Effluent);
+  <font color="red">connect</font>(sensor_TP2.In, Preclaryfier.In);
+  <font color="red">connect</font>(Preclaryfier.MeasurePort, CombiTableTime2.outPort);
+  <font color="red">connect</font>(FixedDelay1.inPort, sensor_NO1.Sno);
+  <font color="red">connect</font>(sensor_O2_3.In, nitri2.MeasurePort);
+  <font color="red">connect</font>(sensor_Q1.Out, cdivider1.In);
+  <font color="red">connect</font>(cdivider2.Out2, mixer3_1.In1);
+  <font color="red">connect</font>(mixer3_1.Out, deni1.In);
+  <font color="red">connect</font>(FixedDelay1.outPort, RecycleController1.in1);
+  <font color="red">connect</font>(Feedback2.inPort1, TwoPoint2.u);
+  <font color="red">connect</font>(TwoPoint1.u, Feedback1.inPort1);
+  <font color="red">connect</font>(mixer2_3.Out, anaerob.In);
+  <font color="red">connect</font>(Gain1.inPort, Feedback1.outPort);
+  <font color="red">connect</font>(Gain2.inPort, Feedback2.outPort);
+  <font color="red">connect</font>(Feedback3.outPort, Gain3.inPort);
+  <font color="red">connect</font>(sensor_O2_3.So, Feedback3.inPort2);
+  <font color="red">connect</font>(TwoPoint3.u, Feedback3.inPort1);
+  <font color="red">connect</font>(TwoPoint3.e, sensor_NH1.Snh);
+  <font color="red">connect</font>(Step1.outPort, WastePump.u);
+  <font color="red">connect</font>(blower3.AirOut, nitri1.AirIn);
+  <font color="red">connect</font>(blower1.AirOut, nitri3.AirIn);
+  <font color="red">connect</font>(Constant2.outPort, cdivider1.u);
+  <font color="red">connect</font>(Gain1.outPort, blower3.u);
+  <font color="red">connect</font>(Gain3.outPort, blower2.u);
+  <font color="red">connect</font>(blower1.u, Gain2.outPort);
+  <font color="red">connect</font>(CombiTableTime1.outPort, FlowInput.data);
+  <font color="red">connect</font>(sensor_Q1.In, FlowInput.Out);
+  <font color="red">connect</font>(ReturnPump.u, ReturnController1.out);
+  <font color="red">connect</font>(ControlledDivider2_1.In, RecyclePump.Out);
+  <font color="red">connect</font>(divider2_1.Out2, RecyclePump.In);
+  <font color="red">connect</font>(mixer2_1.In1, deni1.Out);
+  <font color="red">connect</font>(mixer2_1.Out, deni2.In);
+  <font color="red">connect</font>(mixer3_1.In2, anaerob.Out);
+  <font color="red">connect</font>(cdivider2.In, Preclaryfier.Out);
+  <font color="red">connect</font>(blower2.AirOut, nitri2.AirIn);
+  <font color="red">connect</font>(Settler.Effluent, sensor_COD1.In);
+  <font color="red">connect</font>(Effluent.In, Settler.Effluent);
+  <font color="red">connect</font>(sensor_TP3.In, Settler.Effluent);
+  <font color="darkgreen"></font>
+<font color="blue">end </font>ComplexPlant;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.Examples.JenaSecClarModTakacsI.png" ALT="WasteWater.ASM2d.Examples.JenaSecClarModTakacs" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.Examples.JenaSecClarModTakacs"></A><A HREF="WasteWater_ASM2d_Examples.html#WasteWater.ASM2d.Examples"
+>WasteWater.ASM2d.Examples</A>.JenaSecClarModTakacs</H2>
+<B>Secondary Clarifier Model based on Takacs prepared for a special plant</B><p>
+<IMG SRC="WasteWater.ASM2d.Examples.JenaSecClarModTakacsD.png" ALT="WasteWater.ASM2d.Examples.JenaSecClarModTakacs" width="368" height="332">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component models an ASM2d 10 - layer secondary clarifier with 6 layers 
+above the feed_layer (including top_layer)<span lang="de"> </span>and 3 layers below the feed_layer 
+(including bottom_layer).
+</font></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>hsc</TD><TD>4.0</TD><TD>height of secondary clarifier [m]</TD></TR>
+<TR><TD>n</TD><TD>10</TD><TD>number of layers of SC model</TD></TR>
+<TR><TD>zm</TD><TD>hsc/(1.0*n)</TD><TD>height of m-th secondary clarifier layer [m]</TD></TR>
+<TR><TD>Asc</TD><TD>1500.0</TD><TD>area of secondary clarifier [m2]</TD></TR>
+<TR><TD>Xt</TD><TD>3000.0</TD><TD>threshold for X [mg/l]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> JenaSecClarModTakacs <font color="darkgreen">
+  &quot;Secondary Clarifier Model based on Takacs prepared for a special plant&quot;</font>
+   
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.SecClar"
+>WasteWater.Icons.SecClar</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM2d_SecClar_Takacs_Interfaces.html#WasteWater.ASM2d.SecClar.Takacs.Interfaces.ratios"
+>ASM2d.SecClar.Takacs.Interfaces.ratios</A>;
+  <font color="blue">package</font> SCP = <A HREF="WasteWater_ASM2d_SecClar_Takacs.html#WasteWater.ASM2d.SecClar.Takacs"
+>ASM2d.SecClar.Takacs</A>;
+  <font color="blue">package</font> SI = <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">package</font> WI = <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces"
+>ASM2d.Interfaces</A>;
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> hsc=4.0 <font color="darkgreen">&quot;height of secondary clarifier&quot;</font>;
+  <font color="blue">parameter </font>Integer n=10 <font color="darkgreen">&quot;number of layers of SC model&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> zm=hsc/(1.0*n) <font color="darkgreen">&quot;height of m-th secondary clarifier layer&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> Asc=1500.0 <font color="darkgreen">&quot;area of secondary clarifier&quot;</font>;
+  <font color="blue">parameter </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xt=3000.0 <font color="darkgreen">&quot;threshold for X&quot;</font>;
+  <font color="darkgreen">// total sludge concentration in clarifier feed</font>
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xf;
+  <font color="darkgreen">// layers 1 to 10</font>
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>WI.WWFlowAsm2din</A> Feed;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>WI.WWFlowAsm2dout</A> Effluent;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>WI.WWFlowAsm2dout</A> Return;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>WI.WWFlowAsm2dout</A> Waste;
+  <A HREF="WasteWater_ASM2d_SecClar_Takacs.html#WasteWater.ASM2d.SecClar.Takacs.bottom_layer"
+>SCP.bottom_layer</A> S1(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf, 
+    rXi=rXi, 
+    rXs=rXs, 
+    rXh=rXh, 
+    rXpao=rXpao, 
+    rXpp=rXpp, 
+    rXpha=rXpha, 
+    rXa=rXa, 
+    rXmeoh=rXmeoh, 
+    rXmep=rXmep);
+  <A HREF="WasteWater_ASM2d_SecClar_Takacs.html#WasteWater.ASM2d.SecClar.Takacs.lower_layer"
+>SCP.lower_layer</A> S2(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf);
+  <A HREF="WasteWater_ASM2d_SecClar_Takacs.html#WasteWater.ASM2d.SecClar.Takacs.lower_layer"
+>SCP.lower_layer</A> S3(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf);
+  <A HREF="WasteWater_ASM2d_SecClar_Takacs.html#WasteWater.ASM2d.SecClar.Takacs.feed_layer"
+>SCP.feed_layer</A> S4(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf);
+  <A HREF="WasteWater_ASM2d_SecClar_Takacs.html#WasteWater.ASM2d.SecClar.Takacs.upper_layer"
+>SCP.upper_layer</A> S5(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf, 
+    Xt=Xt);
+  <A HREF="WasteWater_ASM2d_SecClar_Takacs.html#WasteWater.ASM2d.SecClar.Takacs.upper_layer"
+>SCP.upper_layer</A> S6(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf, 
+    Xt=Xt);
+  <A HREF="WasteWater_ASM2d_SecClar_Takacs.html#WasteWater.ASM2d.SecClar.Takacs.upper_layer"
+>SCP.upper_layer</A> S7(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf, 
+    Xt=Xt);
+  <A HREF="WasteWater_ASM2d_SecClar_Takacs.html#WasteWater.ASM2d.SecClar.Takacs.upper_layer"
+>SCP.upper_layer</A> S8(
+    zm=zm, 
+    Asc=Asc, 
+    Xt=Xt, 
+    Xf=Xf);
+  <A HREF="WasteWater_ASM2d_SecClar_Takacs.html#WasteWater.ASM2d.SecClar.Takacs.upper_layer"
+>SCP.upper_layer</A> S9(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf, 
+    Xt=Xt);
+  <A HREF="WasteWater_ASM2d_SecClar_Takacs.html#WasteWater.ASM2d.SecClar.Takacs.top_layer"
+>SCP.top_layer</A> S10(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf, 
+    Xt=Xt, 
+    rXi=rXi, 
+    rXs=rXs, 
+    rXh=rXh, 
+    rXpao=rXpao, 
+    rXpp=rXpp, 
+    rXpha=rXpha, 
+    rXa=rXa, 
+    rXmeoh=rXmeoh, 
+    rXmep=rXmep);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  <font color="red">connect</font>(S1.Up, S2.Dn);
+  <font color="red">connect</font>(S2.Up, S3.Dn);
+  <font color="red">connect</font>(S7.Up, S8.Dn);
+  <font color="red">connect</font>(S9.Up, S10.Dn);
+  <font color="red">connect</font>(S8.Up, S9.Dn);
+  <font color="red">connect</font>(S1.PQw, Waste);
+  <font color="red">connect</font>(S10.Out, Effluent);
+  <font color="red">connect</font>(S1.PQr, Return);
+  <font color="red">connect</font>(S4.Dn, S3.Up);
+  <font color="red">connect</font>(S4.Up, S5.Dn);
+  <font color="red">connect</font>(S5.Up, S6.Dn);
+  <font color="red">connect</font>(S6.Up, S7.Dn);
+  <font color="red">connect</font>(Feed, S4.In);
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// total sludge concentration in clarifier feed</font>
+  Xf = Feed.Xtss;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// ratios of solid components</font>
+  rXi = Feed.Xi/Xf;
+  rXs = Feed.Xs/Xf;
+  rXh = Feed.Xh/Xf;
+  rXpao = Feed.Xpao/Xf;
+  rXpp = Feed.Xpp/Xf;
+  rXpha = Feed.Xpha/Xf;
+  rXa = Feed.Xa/Xf;
+  rXmeoh = Feed.Xmeoh/Xf;
+  rXmep = Feed.Xmep/Xf;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>JenaSecClarModTakacs;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Aug 18 11:15:27 2003
+.
+</address></BODY>
+</HTML>

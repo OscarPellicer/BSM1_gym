@@ -1,0 +1,224 @@
+<HTML>
+<HEAD>
+<META name="HTML-Generator" content="Dymola"><TITLE>WasteWater</TITLE></HEAD>
+<BODY><P>
+<H2><A NAME="WasteWater.ASM3.SecClar.Krebs"></A><A HREF="WasteWater_ASM3_SecClar.html#WasteWater.ASM3.SecClar"
+>WasteWater.ASM3.SecClar</A>.Krebs</H2>
+<B>Secondary settling tank modelling by Krebs (ASM3)</B>
+<P>
+<A HREF="WasteWater_ASM3_SecClar_Krebs_Interfaces.html#WasteWater.ASM3.SecClar.Krebs.Interfaces"
+><IMG SRC="WasteWater.ASM3.SecClar.Krebs.InterfacesI.png" ALT="WasteWater.ASM3.SecClar.Krebs.Interfaces" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM3_SecClar_Krebs.html#WasteWater.ASM3.SecClar.Krebs.SecClarModKrebs"
+><IMG SRC="WasteWater.ASM3.SecClar.Krebs.SecClarModKrebsI.png" ALT="WasteWater.ASM3.SecClar.Krebs.SecClarModKrebs" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This package contains an ASM3 secondary clarifier model and an Interfaces sub-library
+based on Krebs conceptional model [1].
+The settler model consists of two compartments, a &quot;sludge-bed&quot; and a clear water zone above.
+</font></PRE>
+<PRE><font face="Times New Roman" size="3"><b>Main Author:</b><i>
+<span lang="de"> </span></i>
+&nbsp;<i><span lang="de">         </span></i>Gerald Reichl
+<span lang="de">         </span> Technische Universitaet Ilmenau
+<span lang="de">          </span>Faculty of Informatics and Automation
+<span lang="de">          </span>Department Dynamics and Simulation of ecological Systems
+<span lang="de">          </span>P.O. Box 10 05 65
+<span lang="de">          </span>98684 Ilmenau
+<span lang="de">          </span>Germany
+<span lang="de">          email</span>: <a href="mailto:gerald.reichl@tu-ilmenau.de">gerald.reichl@tu-ilmenau.de</a></font></PRE>
+<PRE><font face="Times New Roman" size="3">
+<b>References:</b>
+
+[1] <span lang="de"> </span>P. Krebs and M. Armbruster and W. Rodi: Numerische Nachklaerbeckenmodelle. Korrespondenz Abwasser. 47 (7)
+  <span lang="de">  </span>  2000. pp 985-999.
+</font></PRE>
+<PRE><font face="Times New Roman" size="3"><b><span lang="de">C</span>opyright (C) 200<span lang="de">2</span> - 2003, </b>Gerald Reichl</font></PRE>
+
+<p><i>
+The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the<span lang="de"> </span>accompanying <b>disclaimer</b> in the documentation of package 
+Modelica in file "Modelica/package.mo".
+</i><br>
+</p>
+<P>
+<HR>
+<H2><IMG SRC="WasteWater.ASM3.SecClar.Krebs.SecClarModKrebsI.png" ALT="WasteWater.ASM3.SecClar.Krebs.SecClarModKrebs" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM3.SecClar.Krebs.SecClarModKrebs"></A><A HREF="WasteWater_ASM3_SecClar_Krebs.html#WasteWater.ASM3.SecClar.Krebs"
+>WasteWater.ASM3.SecClar.Krebs</A>.SecClarModKrebs</H2>
+<B>ASM3 Secondary Settling Tank Model based on Krebs</B><p>
+<IMG SRC="WasteWater.ASM3.SecClar.Krebs.SecClarModKrebsD.png" ALT="WasteWater.ASM3.SecClar.Krebs.SecClarModKrebs" width="146" height="126">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component models an ASM3 secondary clarifier based on Krebs conceptional model.
+It consists of two compartments: a &quot;sludge-bed&quot; and a clear water zone above.
+</font></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>f_Si</TD><TD>0.0</TD><TD>Production of Si in hydrolysis [g COD_Si/(g COD_Xs)]</TD></TR>
+<TR><TD>Y_STO_O</TD><TD>0.85</TD><TD>Aerobic yield of stored product per Ss [g COD_Xsto/(g COD_Ss)]</TD></TR>
+<TR><TD>Y_STO_NOX</TD><TD>0.80</TD><TD>Anoxic yield of stored product per Ss [g OD_Xsto/(g COD_Ss)]</TD></TR>
+<TR><TD>Y_H_O</TD><TD>0.63</TD><TD>Aerobic yield of heterotrophic biomass [g COD_Xh/(g COD_Xsto)]</TD></TR>
+<TR><TD>Y_H_NOX</TD><TD>0.54</TD><TD>Anoxic yield of heterotrophic biomass [g COD_Xh/(g COD_Xsto)]</TD></TR>
+<TR><TD>Y_A</TD><TD>0.24</TD><TD>Yield of autotrophic biomass per NO3-N [g COD_Xa/(g N_Snox)]</TD></TR>
+<TR><TD>f_Xi</TD><TD>0.20</TD><TD>Production of Xi in endog. respiration [g COD_Xi/(g COD_Xbm)]</TD></TR>
+<TR><TD>i_N_Si</TD><TD>0.01</TD><TD>N content of Si [g N/(g COD_Si)]</TD></TR>
+<TR><TD>i_N_Ss</TD><TD>0.03</TD><TD>N content of Ss [g N/(g COD_Ss)]</TD></TR>
+<TR><TD>i_N_Xi</TD><TD>0.02</TD><TD>N content of Xi [g N/(g COD_Xi)]</TD></TR>
+<TR><TD>i_N_Xs</TD><TD>0.04</TD><TD>N content of Xs [g N/(g COD_Xs)]</TD></TR>
+<TR><TD>i_N_BM</TD><TD>0.07</TD><TD>N content of biomass Xh,Xa [g N/(g COD_bm)]</TD></TR>
+<TR><TD>i_SS_Xi</TD><TD>0.75</TD><TD>SS to COD ratio for Xi [g SS/(g COD_Xi)]</TD></TR>
+<TR><TD>i_SS_Xs</TD><TD>0.75</TD><TD>SS to COD ratio for Xs [g SS/(g COD_Xs)]</TD></TR>
+<TR><TD>i_SS_BM</TD><TD>0.90</TD><TD>SS to COD ratio for biomass Xh,Xa [g SS/(g COD_Xbm)]</TD></TR>
+<TR><TD>hsc</TD><TD>4.0</TD><TD>height of secondary clarifier [m]</TD></TR>
+<TR><TD>Asc</TD><TD>1500.0</TD><TD>area of secondary clarifier [m2]</TD></TR>
+<TR><TD>ISV</TD><TD>130</TD><TD>Sludge Volume Index [ml/g]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> SecClarModKrebs <font color="darkgreen">
+  &quot;ASM3 Secondary Settling Tank Model based on Krebs&quot;</font> 
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.SecClarKrebs"
+>WasteWater.Icons.SecClarKrebs</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM3_Interfaces.html#WasteWater.ASM3.Interfaces.stoichiometry"
+>WasteWater.ASM3.Interfaces.stoichiometry</A>;
+  <font color="blue">package</font> WWSC = <A HREF="WasteWater_ASM3_SecClar_Krebs_Interfaces.html#WasteWater.ASM3.SecClar.Krebs.Interfaces"
+>WasteWater.ASM3.SecClar.Krebs.Interfaces</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM3_SecClar_Krebs_Interfaces.html#WasteWater.ASM3.SecClar.Krebs.Interfaces.SCVar"
+>WWSC.SCVar</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM3_SecClar_Krebs_Interfaces.html#WasteWater.ASM3.SecClar.Krebs.Interfaces.ratios"
+>WWSC.ratios</A>;
+  <font color="blue">package</font> SI = <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">package</font> WI = <A HREF="WasteWater_ASM3_Interfaces.html#WasteWater.ASM3.Interfaces"
+>WasteWater.ASM3.Interfaces</A>;
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> hsc=4.0 <font color="darkgreen">&quot;height of secondary clarifier&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> Asc=1500.0 <font color="darkgreen">&quot;area of secondary clarifier&quot;</font>;
+  <font color="blue">parameter </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.SludgeVolumeIndex"
+>WWU.SludgeVolumeIndex</A> ISV=130 <font color="darkgreen">&quot;Sludge Volume Index&quot;</font>;
+  Real te <font color="darkgreen">&quot;thickening time in sludge layer in [d]&quot;</font>;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> hs <font color="darkgreen">&quot;height of sludge layer&quot;</font>;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> he <font color="darkgreen">&quot;height of excess layer&quot;</font>;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_ASM3_Interfaces.html#WasteWater.ASM3.Interfaces.WWFlowAsm3in"
+>WI.WWFlowAsm3in</A> Feed;
+  <A HREF="WasteWater_ASM3_Interfaces.html#WasteWater.ASM3.Interfaces.WWFlowAsm3out"
+>WI.WWFlowAsm3out</A> Effluent;
+  <A HREF="WasteWater_ASM3_Interfaces.html#WasteWater.ASM3.Interfaces.WWFlowAsm3out"
+>WI.WWFlowAsm3out</A> Return;
+  <A HREF="WasteWater_ASM3_Interfaces.html#WasteWater.ASM3.Interfaces.WWFlowAsm3out"
+>WI.WWFlowAsm3out</A> Waste;
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// total sludge concentration in clarifier feed</font>
+  Xf = i_SS_Xi*Feed.Xi + i_SS_Xs*Feed.Xs + i_SS_BM*Feed.Xh + 0.60*Feed.Xsto + 
+    i_SS_BM*Feed.Xa;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// ratios of solid components</font>
+  rXi = Feed.Xi/Xf;
+  rXs = Feed.Xs/Xf;
+  rXh = Feed.Xh/Xf;
+  rXsto = Feed.Xsto/Xf;
+  rXa = Feed.Xa/Xf;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">
+  //following expression is only for steady state initial equation of XB and is necessary</font>
+<font color="darkgreen">  //to calculate hs, if there would be problems with &quot;initial()&quot; in your modelica version </font>
+  <font color="darkgreen">//leave out this term and initial XB (or hs) manually e.g. via script-file</font>
+  <font color="blue">if </font><font color="red">initial</font>()<font color="blue"> then</font>
+    XB = Feed.Q/(0.7*(-(Return.Q + Waste.Q)))*Xf;
+  <font color="blue">end if</font>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">//thickening time in sludge layer in [d]</font>
+  te = 5/7*Asc*hs/(-(Return.Q + Waste.Q));
+  <font color="darkgreen"></font>
+  <font color="darkgreen">//sludge concentration in sludge layer (unit of time in [h]) in [g/m3]</font>
+  XB = (1000/ISV*((te*24)^(1/3)))*1000;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">//sludge concentration of return</font>
+  XR = 0.7*XB;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">//ODE of height of sludge layer</font>
+  <font color="red">der</font>(hs) = (Feed.Q*Xf - (-(Return.Q + Waste.Q))*XR)/(Asc/2*XB);
+  <font color="darkgreen"></font>
+  <font color="darkgreen">//height of excess layer</font>
+  he = hsc - hs;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// ODE of soluble components in first stirrer tank of the excess layer</font>
+  <font color="red">der</font>(So1) = (Feed.Q*Feed.So - (-Effluent.Q)*So1 - (-(Waste.Q + Return.Q))*So1)/(Asc*he/2);
+  <font color="red">der</font>(Si1) = (Feed.Q*Feed.Si - (-Effluent.Q)*Si1 - (-(Waste.Q + Return.Q))*Si1)/(Asc*he/2);
+  <font color="red">der</font>(Ss1) = (Feed.Q*Feed.Ss - (-Effluent.Q)*Ss1 - (-(Waste.Q + Return.Q))*Ss1)/(Asc*he/2);
+  <font color="red">der</font>(Snh1) = (Feed.Q*Feed.Snh - (-Effluent.Q)*Snh1 - (-(Waste.Q + Return.Q))*Snh1)/(Asc*he/2);
+  <font color="red">der</font>(Sn2_1) = (Feed.Q*Feed.Sn2 - (-Effluent.Q)*Sn2_1 - (-(Waste.Q + Return.Q))*Sn2_1)/(Asc*he/2);
+  <font color="red">der</font>(Snox1) = (Feed.Q*Feed.Snox - (-Effluent.Q)*Snox1 - (-(Waste.Q + Return.Q))*Snox1)/(Asc*he/2);
+  <font color="red">der</font>(Salk1) = (Feed.Q*Feed.Salk - (-Effluent.Q)*Salk1 - (-(Waste.Q + Return.Q))*Salk1)/(Asc*he/2);
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// ODE of soluble components in second stirrer tank of the excess layer</font>
+  <font color="red">der</font>(So2) = ((-Effluent.Q)*So1 - (-Effluent.Q)*So2)/(Asc*he/2);
+  <font color="red">der</font>(Si2) = ((-Effluent.Q)*Si1 - (-Effluent.Q)*Si2)/(Asc*he/2);
+  <font color="red">der</font>(Ss2) = ((-Effluent.Q)*Ss1 - (-Effluent.Q)*Ss2)/(Asc*he/2);
+  <font color="red">der</font>(Snh2) = ((-Effluent.Q)*Snh1 - (-Effluent.Q)*Snh2)/(Asc*he/2);
+  <font color="red">der</font>(Sn2_2) = ((-Effluent.Q)*Sn2_1 - (-Effluent.Q)*Sn2_2)/(Asc*he/2);
+  <font color="red">der</font>(Snox2) = ((-Effluent.Q)*Snox1 - (-Effluent.Q)*Snox2)/(Asc*he/2);
+  <font color="red">der</font>(Salk2) = ((-Effluent.Q)*Salk1 - (-Effluent.Q)*Salk2)/(Asc*he/2);
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// volume flow rates</font>
+  Feed.Q + Effluent.Q + Return.Q + Waste.Q = 0;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// effluent, solid and soluble components (ASM3)</font>
+  Effluent.So = So2;
+  Effluent.Si = Si2;
+  Effluent.Ss = Ss2;
+  Effluent.Snh = Snh2;
+  Effluent.Sn2 = Sn2_2;
+  Effluent.Snox = Snox2;
+  Effluent.Salk = Salk2;
+  Effluent.Xi = 0.0*XR;
+  Effluent.Xs = 0.0*XR;
+  Effluent.Xh = 0.0*XR;
+  Effluent.Xa = 0.0*XR;
+  Effluent.Xsto = 0.0*XR;
+  Effluent.Xss = 0.0*XR;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// return sludge flow, solid and soluble components (ASM3)</font>
+  Return.So = So1;
+  Return.Si = Si1;
+  Return.Ss = Ss1;
+  Return.Snh = Snh1;
+  Return.Sn2 = Sn2_1;
+  Return.Snox = Snox1;
+  Return.Salk = Salk1;
+  Return.Xi = rXi*XR;
+  Return.Xs = rXs*XR;
+  Return.Xh = rXh*XR;
+  Return.Xa = rXa*XR;
+  Return.Xsto = rXsto*XR;
+  Return.Xss = XR;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// waste sludge flow, solid and soluble components (ASM3)</font>
+  Waste.So = So1;
+  Waste.Si = Si1;
+  Waste.Ss = Ss1;
+  Waste.Snh = Snh1;
+  Waste.Sn2 = Sn2_1;
+  Waste.Snox = Snox1;
+  Waste.Salk = Salk1;
+  Waste.Xi = rXi*XR;
+  Waste.Xs = rXs*XR;
+  Waste.Xh = rXh*XR;
+  Waste.Xa = rXa*XR;
+  Waste.Xsto = rXsto*XR;
+  Waste.Xss = XR;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>SecClarModKrebs;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Aug 18 11:16:08 2003
+.
+</address></BODY>
+</HTML>

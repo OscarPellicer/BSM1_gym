@@ -5,6 +5,9 @@ README.html
 .Rhistory
 *_log.txt
 Training-Copy*.ipynb
+*.makefile
+*.libs
+BSM1.fmu
 
 #General: https://github.com/github/gitignore/blob/master/Python.gitignore
 # Byte-compiled / optimized / DLL files

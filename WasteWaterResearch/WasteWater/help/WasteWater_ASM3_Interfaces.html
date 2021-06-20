@@ -1,0 +1,604 @@
+HTML>
+<HEAD>
+<META name="HTML-Generator" content="Dymola"><TITLE>WasteWater</TITLE></HEAD>
+<BODY><P>
+<H2><A NAME="WasteWater.ASM3.Interfaces"></A><A HREF="WasteWater_ASM3.html#WasteWater.ASM3"
+>WasteWater.ASM3</A>.Interfaces</H2>
+<B>Connectors and partial ASM3 model for Wastewater Treatment Modelling</B>
+<P>
+<A HREF="WasteWater_ASM3_Interfaces.html#WasteWater.ASM3.Interfaces.WWFlowAsm3in"
+><IMG SRC="WasteWater.ASM3.Interfaces.WWFlowAsm3inI.png" ALT="WasteWater.ASM3.Interfaces.WWFlowAsm3in" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM3_Interfaces.html#WasteWater.ASM3.Interfaces.WWFlowAsm3out"
+><IMG SRC="WasteWater.ASM3.Interfaces.WWFlowAsm3outI.png" ALT="WasteWater.ASM3.Interfaces.WWFlowAsm3out" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM3_Interfaces.html#WasteWater.ASM3.Interfaces.AirFlow"
+><IMG SRC="WasteWater.ASM3.Interfaces.AirFlowI.png" ALT="WasteWater.ASM3.Interfaces.AirFlow" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM3_Interfaces.html#WasteWater.ASM3.Interfaces.stoichiometry"
+><IMG SRC="WasteWater.ASM3.Interfaces.stoichiometryI.png" ALT="WasteWater.ASM3.Interfaces.stoichiometry" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM3_Interfaces.html#WasteWater.ASM3.Interfaces.ASM3base"
+><IMG SRC="WasteWater.ASM3.Interfaces.ASM3baseI.png" ALT="WasteWater.ASM3.Interfaces.ASM3base" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This package contains connectors and interfaces (partial models) for wastewater treatment
+components based on the Acticated Sludge Model No.3 (ASM3).
+</font></PRE>
+<PRE><font face="Times New Roman" size="3"><b>Main Author:</b><i>
+<span lang="de"> </span></i>
+&nbsp;<i><span lang="de">         </span></i>Gerald Reichl
+<span lang="de">         </span> Technische Universitaet Ilmenau
+<span lang="de">          </span>Faculty of Informatics and Automation
+<span lang="de">          </span>Department Dynamics and Simulation of ecological Systems
+<span lang="de">          </span>P.O. Box 10 05 65
+<span lang="de">          </span>98684 Ilmenau
+<span lang="de">          </span>Germany
+<span lang="de">          email</span>: <a href="mailto:gerald.reichl@tu-ilmenau.de">gerald.reichl@tu-ilmenau.de</a>
+</font></PRE>
+<PRE><font face="Times New Roman" size="3"><b><span lang="de">C</span>opyright (C) 200<span lang="de">2</span> - 2003, </b>Gerald Reichl</font></PRE>
+
+<p><i>
+The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the<span lang="de"> </span>accompanying <b>disclaimer</b> in the documentation of package 
+Modelica in file "Modelica/package.mo".
+</i></p>
+<P>
+<HR>
+<H2><IMG SRC="WasteWater.ASM3.Interfaces.ASM3baseI.png" ALT="WasteWater.ASM3.Interfaces.ASM3base" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM3.Interfaces.ASM3base"></A><A HREF="WasteWater_ASM3_Interfaces.html#WasteWater.ASM3.Interfaces"
+>WasteWater.ASM3.Interfaces</A>.ASM3base</H2>
+<B>Base class of WWTP modelling by ASM3</B><p>
+<IMG SRC="WasteWater.ASM3.Interfaces.ASM3baseD.png" ALT="WasteWater.ASM3.Interfaces.ASM3base" width="101" height="37">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This partial model provides connectors and equations that are needed in the biological 
+components (nitrification and denitrification tank) for ASM3 wastewater treatment plant models.
+Parameters are coded according the ASM3 [1] standard distribution.
+Changes to this parameters are subject to the modeller.
+
+<b>
+References:</b>
+
+[1]  M. Henze and W.Gujer and T. Mino and. M.v. Loosdrecht: Activated Sludge
+      Models ASM1, ASM2, ASM2d, and ASM3. IWA Task Group on Mathematical Modelling
+      for Design and Operation of Biological Wastewater Treatment, 2000.
+</font></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>f_Si</TD><TD>0.0</TD><TD>Production of Si in hydrolysis [g COD_Si/(g COD_Xs)]</TD></TR>
+<TR><TD>Y_STO_O</TD><TD>0.85</TD><TD>Aerobic yield of stored product per Ss [g COD_Xsto/(g COD_Ss)]</TD></TR>
+<TR><TD>Y_STO_NOX</TD><TD>0.80</TD><TD>Anoxic yield of stored product per Ss [g OD_Xsto/(g COD_Ss)]</TD></TR>
+<TR><TD>Y_H_O</TD><TD>0.63</TD><TD>Aerobic yield of heterotrophic biomass [g COD_Xh/(g COD_Xsto)]</TD></TR>
+<TR><TD>Y_H_NOX</TD><TD>0.54</TD><TD>Anoxic yield of heterotrophic biomass [g COD_Xh/(g COD_Xsto)]</TD></TR>
+<TR><TD>Y_A</TD><TD>0.24</TD><TD>Yield of autotrophic biomass per NO3-N [g COD_Xa/(g N_Snox)]</TD></TR>
+<TR><TD>f_Xi</TD><TD>0.20</TD><TD>Production of Xi in endog. respiration [g COD_Xi/(g COD_Xbm)]</TD></TR>
+<TR><TD>i_N_Si</TD><TD>0.01</TD><TD>N content of Si [g N/(g COD_Si)]</TD></TR>
+<TR><TD>i_N_Ss</TD><TD>0.03</TD><TD>N content of Ss [g N/(g COD_Ss)]</TD></TR>
+<TR><TD>i_N_Xi</TD><TD>0.02</TD><TD>N content of Xi [g N/(g COD_Xi)]</TD></TR>
+<TR><TD>i_N_Xs</TD><TD>0.04</TD><TD>N content of Xs [g N/(g COD_Xs)]</TD></TR>
+<TR><TD>i_N_BM</TD><TD>0.07</TD><TD>N content of biomass Xh,Xa [g N/(g COD_bm)]</TD></TR>
+<TR><TD>i_SS_Xi</TD><TD>0.75</TD><TD>SS to COD ratio for Xi [g SS/(g COD_Xi)]</TD></TR>
+<TR><TD>i_SS_Xs</TD><TD>0.75</TD><TD>SS to COD ratio for Xs [g SS/(g COD_Xs)]</TD></TR>
+<TR><TD>i_SS_BM</TD><TD>0.90</TD><TD>SS to COD ratio for biomass Xh,Xa [g SS/(g COD_Xbm)]</TD></TR>
+<TR><TD>x1</TD><TD>1 - f_Si</TD><TD>&nbsp;</TD></TR>
+<TR><TD>x2</TD><TD>-(1 - Y_STO_O)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>x3</TD><TD>-(1 - Y_STO_NOX)/2.86</TD><TD>&nbsp;</TD></TR>
+<TR><TD>x4</TD><TD>-(1 - Y_H_O)/Y_H_O</TD><TD>&nbsp;</TD></TR>
+<TR><TD>x5</TD><TD>-(1 - Y_H_NOX)/(2.86*Y_H_NOX)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>x6</TD><TD>-(1 - f_Xi)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>x7</TD><TD>-(1 - f_Xi)/2.86</TD><TD>&nbsp;</TD></TR>
+<TR><TD>x8</TD><TD>-1</TD><TD>&nbsp;</TD></TR>
+<TR><TD>x9</TD><TD>-1/2.86</TD><TD>&nbsp;</TD></TR>
+<TR><TD>x10</TD><TD>-(4.57 - Y_A)/Y_A</TD><TD>&nbsp;</TD></TR>
+<TR><TD>x11</TD><TD>-(1 - f_Xi)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>x12</TD><TD>-(1 - f_Xi)/2.86</TD><TD>&nbsp;</TD></TR>
+<TR><TD>y1</TD><TD>i_N_Xs - i_N_Si*f_Si - i_N_Ss*(1 - f_Si)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>y2</TD><TD>i_N_Ss</TD><TD>&nbsp;</TD></TR>
+<TR><TD>y3</TD><TD>i_N_Ss</TD><TD>&nbsp;</TD></TR>
+<TR><TD>y4</TD><TD>-i_N_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>y6</TD><TD>i_N_BM - f_Xi*i_N_Xi</TD><TD>&nbsp;</TD></TR>
+<TR><TD>y7</TD><TD>i_N_BM - f_Xi*i_N_Xi</TD><TD>&nbsp;</TD></TR>
+<TR><TD>y10</TD><TD>-1/Y_A - i_N_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>y11</TD><TD>i_N_BM - f_Xi*i_N_Xi</TD><TD>&nbsp;</TD></TR>
+<TR><TD>y12</TD><TD>i_N_BM - f_Xi*i_N_Xi</TD><TD>&nbsp;</TD></TR>
+<TR><TD>z1</TD><TD>(i_N_Xs - i_N_Si*f_Si - i_N_Ss*(1 - f_Si))/14</TD><TD>&nbsp;</TD></TR>
+<TR><TD>z2</TD><TD>i_N_Ss/14</TD><TD>&nbsp;</TD></TR>
+<TR><TD>z3</TD><TD>i_N_Ss/14 + (1 - Y_STO_NOX)/(14*2.86)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>z4</TD><TD>-i_N_BM/14</TD><TD>&nbsp;</TD></TR>
+<TR><TD>z5</TD><TD>-i_N_BM/14 + (1 - Y_H_NOX)/(14*2.86*Y_H_NOX)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>z6</TD><TD>i_N_BM/14 - f_Xi*i_N_Xi/14</TD><TD>&nbsp;</TD></TR>
+<TR><TD>z7</TD><TD>i_N_BM/14 - f_Xi*i_N_Xi/14 + (1 - f_Xi)/(14*2.86)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>z9</TD><TD>1/(2.86*14)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>z10</TD><TD>-1/(7*Y_A) - i_N_BM/14</TD><TD>&nbsp;</TD></TR>
+<TR><TD>z11</TD><TD>i_N_BM/14 - f_Xi*i_N_Xi/14</TD><TD>&nbsp;</TD></TR>
+<TR><TD>z12</TD><TD>i_N_BM/14 - f_Xi*i_N_Xi/14 + (1 - f_Xi)/(14*2.86)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>t2</TD><TD>0.6*Y_STO_O</TD><TD>&nbsp;</TD></TR>
+<TR><TD>t3</TD><TD>0.6*Y_STO_NOX</TD><TD>&nbsp;</TD></TR>
+<TR><TD>t4</TD><TD>-0.6/Y_H_O + i_SS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>t5</TD><TD>-0.6/Y_H_NOX + i_SS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>t6</TD><TD>f_Xi*i_SS_Xi - i_SS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>t7</TD><TD>f_Xi*i_SS_Xi - i_SS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>t8</TD><TD>-0.6</TD><TD>&nbsp;</TD></TR>
+<TR><TD>t9</TD><TD>-0.6</TD><TD>&nbsp;</TD></TR>
+<TR><TD>t10</TD><TD>i_SS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>t11</TD><TD>f_Xi*i_SS_Xi - i_SS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>t12</TD><TD>f_Xi*i_SS_Xi - i_SS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>k_H_T</TD><TD>3.0</TD><TD>Hydrolysis rate constant at T=20 deg C [g COD_Xs/(g COD_Xh)/d]</TD></TR>
+<TR><TD>K_X</TD><TD>1.0</TD><TD>Hydrolysis saturation constant [g COD_Xs/(g COD_Xh)/d]</TD></TR>
+<TR><TD>k_STO_T</TD><TD>5.0</TD><TD>Storage rate constant at T=20 deg C [g COD_Ss/(g COD_Xh)/d]</TD></TR>
+<TR><TD>eta_NOX</TD><TD>0.6</TD><TD>Anoxic reduction factor [-]</TD></TR>
+<TR><TD>K_O</TD><TD>0.2</TD><TD>Saturation constant for Sno [g O2/m^3]</TD></TR>
+<TR><TD>K_NOX</TD><TD>0.5</TD><TD>Saturation constant for Snox [g NO3-N/m^3]</TD></TR>
+<TR><TD>K_S</TD><TD>2.0</TD><TD>Saturation constant for Substrate Ss [g COD_Ss/m^3]</TD></TR>
+<TR><TD>K_STO</TD><TD>1.0</TD><TD>Saturation constant for Xsto [g COD_Xsto/(g COD_Xh)]</TD></TR>
+<TR><TD>mu_H_T</TD><TD>2.0</TD><TD>Heterotrophic max. growth rate of Xh at T=20 deg C [1/d]</TD></TR>
+<TR><TD>K_NH</TD><TD>0.01</TD><TD>Saturation constant for ammonium Snh [g N/m^3]</TD></TR>
+<TR><TD>K_ALK</TD><TD>0.1</TD><TD>Saturation constant for alkalinity for Xh [mole HCO3 /m^3]</TD></TR>
+<TR><TD>b_H_O_T</TD><TD>0.2</TD><TD>Aerobic endogenous respiration rate of Xh at T=20 deg C [1/d]</TD></TR>
+<TR><TD>b_H_NOX_T</TD><TD>0.1</TD><TD>Anoxic endogenous respiration rate of Xh at T=20 deg C[1/d]</TD></TR>
+<TR><TD>b_STO_O_T</TD><TD>0.2</TD><TD>Aerobic respiration rate for Xsto at T=20 deg C [1/d]</TD></TR>
+<TR><TD>b_STO_NOX_T</TD><TD>0.1</TD><TD>Anoxic respiration rate for Xsto at T=20 deg C [1/d]</TD></TR>
+<TR><TD>mu_A_T</TD><TD>1.0</TD><TD>Autotrophic max growth rate of Xa at T=20 deg C [1/d]</TD></TR>
+<TR><TD>K_A_NH</TD><TD>1.0</TD><TD>Ammonium substrate saturation for Xa [g N/m^3]</TD></TR>
+<TR><TD>K_A_O</TD><TD>0.5</TD><TD>Oxygen saturation for nitrifiers [g O2/m^3]</TD></TR>
+<TR><TD>K_A_NOX</TD><TD>0.5</TD><TD>Saturation constant for Snox (similar to K_NOX) [g NO3-N/m^3]</TD></TR>
+<TR><TD>K_A_ALK</TD><TD>0.5</TD><TD>Bicarbonate saturation for nitrifiers [mole HCO3/m^3]</TD></TR>
+<TR><TD>b_A_O_T</TD><TD>0.15</TD><TD>Aerobic endogenous respiration rate of Xa at T=20 deg C [1/d]</TD></TR>
+<TR><TD>b_A_NOX_T</TD><TD>0.5</TD><TD>Anoxic endogenous respiration rate of Xa at T=20 deg C [1/d]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">partial </font><font color="blue">model</font> ASM3base <font color="darkgreen">&quot;Base class of WWTP modelling by ASM3&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM3_Interfaces.html#WasteWater.ASM3.Interfaces.stoichiometry"
+>Interfaces.stoichiometry</A>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Stoichio. matrix coefficents x(So,Ss,Sn2,Snox),y(Snh),z(Salk),t(Xss)</font>
+  <font color="blue">parameter </font>Real x1=1 - f_Si;
+  <font color="blue">parameter </font>Real x2=-(1 - Y_STO_O);
+  <font color="blue">parameter </font>Real x3=-(1 - Y_STO_NOX)/2.86;
+  <font color="blue">parameter </font>Real x4=-(1 - Y_H_O)/Y_H_O;
+  <font color="blue">parameter </font>Real x5=-(1 - Y_H_NOX)/(2.86*Y_H_NOX);
+  <font color="blue">parameter </font>Real x6=-(1 - f_Xi);
+  <font color="blue">parameter </font>Real x7=-(1 - f_Xi)/2.86;
+  <font color="blue">parameter </font>Real x8=-1;
+  <font color="blue">parameter </font>Real x9=-1/2.86;
+  <font color="blue">parameter </font>Real x10=-(4.57 - Y_A)/Y_A;
+  <font color="blue">parameter </font>Real x11=-(1 - f_Xi);
+  <font color="blue">parameter </font>Real x12=-(1 - f_Xi)/2.86;
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font>Real y1=i_N_Xs - i_N_Si*f_Si - i_N_Ss*(1 - f_Si);
+  <font color="blue">parameter </font>Real y2=i_N_Ss;
+  <font color="blue">parameter </font>Real y3=i_N_Ss;
+  <font color="blue">parameter </font>Real y4=-i_N_BM;
+  <font color="blue">parameter </font>Real y6=i_N_BM - f_Xi*i_N_Xi;
+  <font color="blue">parameter </font>Real y7=i_N_BM - f_Xi*i_N_Xi;
+  <font color="blue">parameter </font>Real y10=-1/Y_A - i_N_BM;
+  <font color="blue">parameter </font>Real y11=i_N_BM - f_Xi*i_N_Xi;
+  <font color="blue">parameter </font>Real y12=i_N_BM - f_Xi*i_N_Xi;
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font>Real z1=(i_N_Xs - i_N_Si*f_Si - i_N_Ss*(1 - f_Si))/14;
+  <font color="blue">parameter </font>Real z2=i_N_Ss/14;
+  <font color="blue">parameter </font>Real z3=i_N_Ss/14 + (1 - Y_STO_NOX)/(14*2.86);
+  <font color="blue">parameter </font>Real z4=-i_N_BM/14;
+  <font color="blue">parameter </font>Real z5=-i_N_BM/14 + (1 - Y_H_NOX)/(14*2.86*Y_H_NOX);
+  <font color="blue">parameter </font>Real z6=i_N_BM/14 - f_Xi*i_N_Xi/14;
+  <font color="blue">parameter </font>Real z7=i_N_BM/14 - f_Xi*i_N_Xi/14 + (1 - f_Xi)/(14*2.86);
+  <font color="blue">parameter </font>Real z9=1/(2.86*14);
+  <font color="blue">parameter </font>Real z10=-1/(7*Y_A) - i_N_BM/14;
+  <font color="blue">parameter </font>Real z11=i_N_BM/14 - f_Xi*i_N_Xi/14;
+  <font color="blue">parameter </font>Real z12=i_N_BM/14 - f_Xi*i_N_Xi/14 + (1 - f_Xi)/(14*2.86);
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font>Real t2=0.6*Y_STO_O;
+  <font color="blue">parameter </font>Real t3=0.6*Y_STO_NOX;
+  <font color="blue">parameter </font>Real t4=-0.6/Y_H_O + i_SS_BM;
+  <font color="blue">parameter </font>Real t5=-0.6/Y_H_NOX + i_SS_BM;
+  <font color="blue">parameter </font>Real t6=f_Xi*i_SS_Xi - i_SS_BM;
+  <font color="blue">parameter </font>Real t7=f_Xi*i_SS_Xi - i_SS_BM;
+  <font color="blue">parameter </font>Real t8=-0.6;
+  <font color="blue">parameter </font>Real t9=-0.6;
+  <font color="blue">parameter </font>Real t10=i_SS_BM;
+  <font color="blue">parameter </font>Real t11=f_Xi*i_SS_Xi - i_SS_BM;
+  <font color="blue">parameter </font>Real t12=f_Xi*i_SS_Xi - i_SS_BM;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Typical values of kinetic parameters ( T = 20 deg C )</font>
+  <font color="blue">parameter </font>Real k_H_T=3.0 <font color="darkgreen">
+    &quot;Hydrolysis rate constant at T=20 deg C [g COD_Xs/(g COD_Xh)/d]&quot;</font>;
+  <font color="blue">parameter </font>Real K_X=1.0 <font color="darkgreen">
+    &quot;Hydrolysis saturation constant [g COD_Xs/(g COD_Xh)/d]&quot;</font>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Heterotrophic organisms Xh, aerobic and denitrifying activity    </font>
+  <font color="blue">parameter </font>Real k_STO_T=5.0 <font color="darkgreen">
+    &quot;Storage rate constant at T=20 deg C [g COD_Ss/(g COD_Xh)/d]&quot;</font>;
+  <font color="blue">parameter </font>Real eta_NOX=0.6 <font color="darkgreen">&quot;Anoxic reduction factor [-]&quot;</font>;
+  <font color="blue">parameter </font>Real K_O=0.2 <font color="darkgreen">&quot;Saturation constant for Sno [g O2/m^3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_NOX=0.5 <font color="darkgreen">&quot;Saturation constant for Snox [g NO3-N/m^3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_S=2.0 <font color="darkgreen">&quot;Saturation constant for Substrate Ss [g COD_Ss/m^3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_STO=1.0 <font color="darkgreen">
+    &quot;Saturation constant for Xsto [g COD_Xsto/(g COD_Xh)]&quot;</font>;
+  <font color="blue">parameter </font>Real mu_H_T=2.0 <font color="darkgreen">
+    &quot;Heterotrophic max. growth rate of Xh at T=20 deg C [1/d]&quot;</font>;
+  <font color="blue">parameter </font>Real K_NH=0.01 <font color="darkgreen">&quot;Saturation constant for ammonium Snh [g N/m^3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_ALK=0.1 <font color="darkgreen">
+    &quot;Saturation constant for alkalinity for Xh [mole HCO3 /m^3]&quot;</font>;
+  <font color="blue">parameter </font>Real b_H_O_T=0.2 <font color="darkgreen">
+    &quot;Aerobic endogenous respiration rate of Xh at T=20 deg C [1/d]&quot;</font>;
+  <font color="blue">parameter </font>Real b_H_NOX_T=0.1 <font color="darkgreen">
+    &quot;Anoxic endogenous respiration rate of Xh at T=20 deg C[1/d]&quot;</font>;
+  <font color="blue">parameter </font>Real b_STO_O_T=0.2 <font color="darkgreen">
+    &quot;Aerobic respiration rate for Xsto at T=20 deg C [1/d]&quot;</font>;
+  <font color="blue">parameter </font>Real b_STO_NOX_T=0.1 <font color="darkgreen">
+    &quot;Anoxic respiration rate for Xsto at T=20 deg C [1/d]&quot;</font>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Autotrophic organisms Xa, nitrifying activity</font>
+  <font color="blue">parameter </font>Real mu_A_T=1.0 <font color="darkgreen">
+    &quot;Autotrophic max growth rate of Xa at T=20 deg C [1/d]&quot;</font>;
+  <font color="blue">parameter </font>Real K_A_NH=1.0 <font color="darkgreen">&quot;Ammonium substrate saturation for Xa [g N/m^3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_A_O=0.5 <font color="darkgreen">&quot;Oxygen saturation for nitrifiers [g O2/m^3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_A_NOX=0.5 <font color="darkgreen">
+    &quot;Saturation constant for Snox (similar to K_NOX) [g NO3-N/m^3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_A_ALK=0.5 <font color="darkgreen">
+    &quot;Bicarbonate saturation for nitrifiers [mole HCO3/m^3]&quot;</font>;
+  <font color="blue">parameter </font>Real b_A_O_T=0.15 <font color="darkgreen">
+    &quot;Aerobic endogenous respiration rate of Xa at T=20 deg C [1/d]&quot;</font>;
+  <font color="blue">parameter </font>Real b_A_NOX_T=0.5 <font color="darkgreen">
+    &quot;Anoxic endogenous respiration rate of Xa at T=20 deg C [1/d]&quot;</font>;
+  <font color="darkgreen"></font>
+  Real k_H <font color="darkgreen">&quot;Hydrolysis rate constant [g COD_Xs/(g COD_Xh)/d]&quot;</font>;
+  Real k_STO <font color="darkgreen">&quot;Storage rate constant [g COD_Ss/(g COD_Xh)/d]&quot;</font>;
+  Real mu_H <font color="darkgreen">&quot;Heterotrophic max. growth rate of Xh [1/d]&quot;</font>;
+  Real b_H_O <font color="darkgreen">&quot;Aerobic endogenous respiration rate of Xh [1/d]&quot;</font>;
+  Real b_H_NOX <font color="darkgreen">&quot;Aerobic endogenous respiration rate of Xh [1/d]&quot;</font>;
+  Real b_STO_O <font color="darkgreen">&quot;Aerobic respiration rate for Xsto [1/d]&quot;</font>;
+  Real b_STO_NOX <font color="darkgreen">&quot;Anoxic respiration rate for Xsto [1/d]&quot;</font>;
+  Real mu_A <font color="darkgreen">&quot;Autotrophic max growth rate of Xa [1/d]&quot;</font>;
+  Real b_A_O <font color="darkgreen">&quot;Aerobic endogenous respiration rate of Xa [1/d]&quot;</font>;
+  Real b_A_NOX <font color="darkgreen">&quot;Anoxic endogenous respiration rate of Xa [1/d]&quot;</font>;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> So <font color="darkgreen">&quot;Dissolved oxygen&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Si <font color="darkgreen">&quot;Soluble inert organics&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Ss <font color="darkgreen">&quot;Readily biodegradable substrates&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snh <font color="darkgreen">&quot;Ammonium&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sn2 <font color="darkgreen">&quot;Dinitrogen, released by nitrification&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snox <font color="darkgreen">&quot;Nitrite plus nitrate&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.Alkalinity"
+>WWU.Alkalinity</A> Salk <font color="darkgreen">&quot;Alkalinity, bicarbonate&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xi <font color="darkgreen">&quot;Inert particulate organics&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xs <font color="darkgreen">&quot;Slowly biodegradable substrates&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xh <font color="darkgreen">&quot;Heterotrophic biomass&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xsto <font color="darkgreen">&quot;Organics stored by heterotrphs&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xa <font color="darkgreen">&quot;Autotrophic nitrifying biomass&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xss <font color="darkgreen">&quot;Total suspend solids&quot;</font>;
+  <font color="darkgreen"></font>
+  Real p1;
+  Real p2;
+  Real p3;
+  Real p4;
+  Real p5;
+  Real p6;
+  Real p7;
+  Real p8;
+  Real p9;
+  Real p10;
+  Real p11;
+  Real p12;
+  <font color="darkgreen"></font>
+  Real r1;
+  Real r2;
+  Real r3;
+  Real r4;
+  Real r5;
+  Real r6;
+  Real r7;
+  Real r8;
+  Real r9;
+  Real r10;
+  Real r11;
+  Real r12;
+  Real r13;
+  <font color="darkgreen"></font>
+  Real inputSo;
+  Real inputSi;
+  Real inputSs;
+  Real inputSnh;
+  Real inputSn2;
+  Real inputSnox;
+  Real inputSalk;
+  Real inputXi;
+  Real inputXs;
+  Real inputXh;
+  Real inputXsto;
+  Real inputXa;
+  Real inputXss;
+  Real aeration;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_ASM3_Interfaces.html#WasteWater.ASM3.Interfaces.WWFlowAsm3in"
+>Interfaces.WWFlowAsm3in</A> In;
+  <A HREF="WasteWater_ASM3_Interfaces.html#WasteWater.ASM3.Interfaces.WWFlowAsm3out"
+>Interfaces.WWFlowAsm3out</A> Out;
+  <A HREF="WasteWater_ASM3_Interfaces.html#WasteWater.ASM3.Interfaces.WWFlowAsm3out"
+>Interfaces.WWFlowAsm3out</A> MeasurePort;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> T(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Temperature dependent Kinetic parameters based on 20 deg C</font>
+  k_H = k_H_T*<font color="red">exp</font>(0.040549*(T.signal[1] - 20));
+  k_STO = k_STO_T*<font color="red">exp</font>(0.069301*(T.signal[1] - 20));
+  mu_H = mu_H_T*<font color="red">exp</font>(0.069301*(T.signal[1] - 20));
+  b_H_O = b_H_O_T*<font color="red">exp</font>(0.069301*(T.signal[1] - 20));
+  b_H_NOX = b_H_NOX_T*<font color="red">exp</font>(0.069301*(T.signal[1] - 20));
+  b_STO_O = b_STO_O_T*<font color="red">exp</font>(0.069301*(T.signal[1] - 20));
+  b_STO_NOX = b_STO_NOX_T*<font color="red">exp</font>(0.069301*(T.signal[1] - 20));
+  mu_A = mu_A_T*<font color="red">exp</font>(0.104984*(T.signal[1] - 20));
+  b_A_O = b_A_O_T*<font color="red">exp</font>(0.109849*(T.signal[1] - 20));
+  b_A_NOX = b_A_NOX_T*<font color="red">exp</font>(0.091646*(T.signal[1] - 20));
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Process Rates</font>
+  p1 <span lang="de"> </span>= k_H*(Xs/Xh)/(K_X + (Xs/Xh))*Xh;
+  p2 <span lang="de"> </span>= k_STO*So/(K_O + So)*Ss/(K_S + Ss)*Xh;
+  p3 <span lang="de"> </span>= k_STO*eta_NOX*K_O/(K_O + So)*Snox/(K_NOX + Snox)*Ss/(K_S + Ss)*Xh;
+  p4 <span lang="de"> </span>= mu_H*So/(K_O + So)*Snh/(K_NH + Snh)*Salk/(K_ALK + Salk)*(Xsto/Xh)/(K_STO
+    <span lang="de">  </span> + (Xsto/Xh))*Xh;
+  p5 <span lang="de"> </span>= mu_H*eta_NOX*K_O/(K_O + So)*Snox/(K_NOX + Snox)*Snh/(K_NH + Snh)
+<span lang="de">       </span>*Salk/(K_ALK + Salk)*(Xsto/Xh)/(K_STO + (Xsto/Xh))*Xh;
+  p6 <span lang="de"> </span>= b_H_O*So/(K_O + So)*Xh;
+  p7 <span lang="de"> </span>= b_H_NOX*K_O/(K_O + So)*Snox/(K_NOX + Snox)*Xh;
+  p8 <span lang="de"> </span>= b_STO_O*So/(K_O + So)*Xsto;
+  p9 <span lang="de"> </span>= b_STO_NOX*K_O/(K_O + So)*Snox/(Snox + K_NOX)*Xsto;
+  p10 = mu_A*So/(K_A_O + So)*Snh/(K_A_NH + Snh)*Salk/(K_A_ALK + Salk)*Xa;
+  p11 = b_A_O*So/(K_A_O + So)*Xa;
+  p12 = b_A_NOX*K_A_O/(K_A_O + So)*Snox/(K_A_NOX + Snox)*Xa;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// biochemical reactions</font>
+  r1 <span lang="de"> </span>= x2*p2 + x4*p4 + x6*p6 + x8*p8 + x10*p10 + x11*p11;
+  r2 <span lang="de"> </span>= f_Si*p1;
+  r3 <span lang="de"> </span>= x1*p1 - p2 - p3;
+  r4 <span lang="de"> </span>= y1*p1 + y2*p2 + y3*p3 + y4*p4 + y4*p5 + y6*p6 + y7*p7 + y10*p10 
+<span lang="de">       </span>+ y11*p11 + y12*p12;
+  r5 <span lang="de"> </span>= -x3*p3 - x5*p5 - x7*p7 - x9*p9 - x12*p12;
+  r6 <span lang="de"> </span>= x3*p3 + x5*p5 + x7*p7 + x9*p9 + (1/Y_A)*p10 + x12*p12;
+  r7 <span lang="de"> </span>= z1*p1 + z2*p2 + z3*p3 + z4*p4 + z5*p5 + z6*p6 + z7*p7 + z9*p9 + z10*p10
+<span lang="de">  </span>     + z11*p11 + z12*p12;
+  r8 <span lang="de"> </span>= f_Xi*p6 + f_Xi*p7 + f_Xi*p11 + f_Xi*p12;
+  r9 <span lang="de"> </span>= -p1;
+  r10 = p4 + p5 - p6 - p7;
+  r11 = Y_STO_O*p2 + Y_STO_NOX*p3 - (1/Y_H_O)*p4 - (1/Y_H_NOX)*p5 - p8 - p9;
+  r12 = p10 - p11 - p12;
+  r13 = -i_SS_Xs*p1 + t2*p2 + t3*p3 + t4*p4 + t5*p5 + t6*p6 + t7*p7 + t8*p8 
+<span lang="de">        </span>+ t9*p9 + t10*p10 + t11*p11 + t12*p12;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// derivatives</font>
+  <font color="red">der</font>(So) = inputSo + r1 + aeration;
+  <font color="red">der</font>(Si) = inputSi + r2;
+  <font color="red">der</font>(Ss) = inputSs + r3;
+  <font color="red">der</font>(Snh) = inputSnh + r4;
+  <font color="red">der</font>(Sn2) = inputSn2 + r5;
+  <font color="red">der</font>(Snox) = inputSnox + r6;
+  <font color="red">der</font>(Salk) = inputSalk + r7;
+  <font color="red">der</font>(Xi) = inputXi + r8;
+  <font color="red">der</font>(Xs) = inputXs + r9;
+  <font color="red">der</font>(Xh) = inputXh + r10;
+  <font color="red">der</font>(Xsto) = inputXsto + r11;
+  <font color="red">der</font>(Xa) = inputXa + r12;
+  <font color="red">der</font>(Xss) = inputXss + r13;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Outputs</font>
+  Out.Q + In.Q = 0;
+  Out.So = So;
+  Out.Si = Si;
+  Out.Ss = Ss;
+  Out.Snh = Snh;
+  Out.Sn2 = Sn2;
+  Out.Snox = Snox;
+  Out.Salk = Salk;
+  Out.Xi = Xi;
+  Out.Xs = Xs;
+  Out.Xh = Xh;
+  Out.Xsto = Xsto;
+  Out.Xa = Xa;
+  Out.Xss = Xss;
+  <font color="darkgreen"></font>
+  MeasurePort.So = So;
+  MeasurePort.Si = Si;
+  MeasurePort.Ss = Ss;
+  MeasurePort.Snh = Snh;
+  MeasurePort.Sn2 = Sn2;
+  MeasurePort.Snox = Snox;
+  MeasurePort.Salk = Salk;
+  MeasurePort.Xi = Xi;
+  MeasurePort.Xs = Xs;
+  MeasurePort.Xh = Xh;
+  MeasurePort.Xsto = Xsto;
+  MeasurePort.Xa = Xa;
+  MeasurePort.Xss = Xss;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>ASM3base;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM3.Interfaces.WWFlowAsm3inI.png" ALT="WasteWater.ASM3.Interfaces.WWFlowAsm3in" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM3.Interfaces.WWFlowAsm3in"></A><A HREF="WasteWater_ASM3_Interfaces.html#WasteWater.ASM3.Interfaces"
+>WasteWater.ASM3.Interfaces</A>.WWFlowAsm3in</H2>
+<B>Inflow connector of ASM3 components</B><p>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">Connectors WWFlowAsm3in and WWFlowAsm3out are nearly identical.
+The difference is in the icons to more easily identify the inflow and outflow
+side of a component.
+The connector consists of one flow variable and 13 potential variables (ASM3 concentrations).
+</font></PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">connector</font> WWFlowAsm3in <font color="darkgreen">&quot;Inflow connector of ASM3 components&quot;</font> 
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <font color="darkgreen"></font>
+  <font color="blue">flow </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.VolumeFlowRate"
+>WWU.VolumeFlowRate</A> Q;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> So;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Si;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Ss;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snh;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sn2;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snox;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.Alkalinity"
+>WWU.Alkalinity</A> Salk;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xi;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xs;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xh;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xsto;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xa;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xss;
+  <font color="darkgreen"></font>
+  <font color="darkgreen"></font>
+<font color="blue">end </font>WWFlowAsm3in;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM3.Interfaces.WWFlowAsm3outI.png" ALT="WasteWater.ASM3.Interfaces.WWFlowAsm3out" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM3.Interfaces.WWFlowAsm3out"></A><A HREF="WasteWater_ASM3_Interfaces.html#WasteWater.ASM3.Interfaces"
+>WasteWater.ASM3.Interfaces</A>.WWFlowAsm3out</H2>
+<B>Outflow connector of ASM3 components</B><p>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">Connectors WWFlowAsm3in and WWFlowAsm3out are nearly identical.
+The difference is in the icons to more easily identify the inflow and outflow
+side of a component.
+The connector consists of one flow variable and 13 potential variables (ASM3 concentrations).</font>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">connector</font> WWFlowAsm3out <font color="darkgreen">&quot;Outflow connector of ASM3 components&quot;</font> 
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <font color="darkgreen"></font>
+  <font color="blue">flow </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.VolumeFlowRate"
+>WWU.VolumeFlowRate</A> Q;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> So;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Si;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Ss;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snh;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sn2;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snox;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.Alkalinity"
+>WWU.Alkalinity</A> Salk;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xi;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xs;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xh;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xsto;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xa;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xss;
+  <font color="darkgreen"></font>
+  <font color="darkgreen"></font>
+<font color="blue">end </font>WWFlowAsm3out;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM3.Interfaces.AirFlowI.png" ALT="WasteWater.ASM3.Interfaces.AirFlow" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM3.Interfaces.AirFlow"></A><A HREF="WasteWater_ASM3_Interfaces.html#WasteWater.ASM3.Interfaces"
+>WasteWater.ASM3.Interfaces</A>.AirFlow</H2>
+<B>Airflow connector</B><p>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">The Airflow connector consits of a flow variable describing the exchange of
+air between blower and nitrification tank.</font></PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">connector</font> AirFlow <font color="darkgreen">&quot;Airflow connector&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <font color="blue">flow </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.VolumeFlowRate"
+>WWU.VolumeFlowRate</A> Q_air;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>AirFlow;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM3.Interfaces.stoichiometryI.png" ALT="WasteWater.ASM3.Interfaces.stoichiometry" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM3.Interfaces.stoichiometry"></A><A HREF="WasteWater_ASM3_Interfaces.html#WasteWater.ASM3.Interfaces"
+>WasteWater.ASM3.Interfaces</A>.stoichiometry</H2>
+<B>ASM3 stoichiometric coefficients</B><p>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This is a partial model providing the stoichiometric coefficients of the ASM3 model.</font></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>f_Si</TD><TD>0.0</TD><TD>Production of Si in hydrolysis [g COD_Si/(g COD_Xs)]</TD></TR>
+<TR><TD>Y_STO_O</TD><TD>0.85</TD><TD>Aerobic yield of stored product per Ss [g COD_Xsto/(g COD_Ss)]</TD></TR>
+<TR><TD>Y_STO_NOX</TD><TD>0.80</TD><TD>Anoxic yield of stored product per Ss [g OD_Xsto/(g COD_Ss)]</TD></TR>
+<TR><TD>Y_H_O</TD><TD>0.63</TD><TD>Aerobic yield of heterotrophic biomass [g COD_Xh/(g COD_Xsto)]</TD></TR>
+<TR><TD>Y_H_NOX</TD><TD>0.54</TD><TD>Anoxic yield of heterotrophic biomass [g COD_Xh/(g COD_Xsto)]</TD></TR>
+<TR><TD>Y_A</TD><TD>0.24</TD><TD>Yield of autotrophic biomass per NO3-N [g COD_Xa/(g N_Snox)]</TD></TR>
+<TR><TD>f_Xi</TD><TD>0.20</TD><TD>Production of Xi in endog. respiration [g COD_Xi/(g COD_Xbm)]</TD></TR>
+<TR><TD>i_N_Si</TD><TD>0.01</TD><TD>N content of Si [g N/(g COD_Si)]</TD></TR>
+<TR><TD>i_N_Ss</TD><TD>0.03</TD><TD>N content of Ss [g N/(g COD_Ss)]</TD></TR>
+<TR><TD>i_N_Xi</TD><TD>0.02</TD><TD>N content of Xi [g N/(g COD_Xi)]</TD></TR>
+<TR><TD>i_N_Xs</TD><TD>0.04</TD><TD>N content of Xs [g N/(g COD_Xs)]</TD></TR>
+<TR><TD>i_N_BM</TD><TD>0.07</TD><TD>N content of biomass Xh,Xa [g N/(g COD_bm)]</TD></TR>
+<TR><TD>i_SS_Xi</TD><TD>0.75</TD><TD>SS to COD ratio for Xi [g SS/(g COD_Xi)]</TD></TR>
+<TR><TD>i_SS_Xs</TD><TD>0.75</TD><TD>SS to COD ratio for Xs [g SS/(g COD_Xs)]</TD></TR>
+<TR><TD>i_SS_BM</TD><TD>0.90</TD><TD>SS to COD ratio for biomass Xh,Xa [g SS/(g COD_Xbm)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">partial </font><font color="blue">model</font> stoichiometry <font color="darkgreen">&quot;ASM3 stoichiometric coefficients&quot;</font> 
+  <font color="darkgreen">// Typical stoichiometric and composition parameters based on ASM3</font>
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font>Real f_Si=0.0 <font color="darkgreen">
+    &quot;Production of Si in hydrolysis [g COD_Si/(g COD_Xs)]&quot;</font>;
+  <font color="blue">parameter </font>Real Y_STO_O=0.85 <font color="darkgreen">
+    &quot;Aerobic yield of stored product per Ss [g COD_Xsto/(g COD_Ss)]&quot;</font>;
+  <font color="blue">parameter </font>Real Y_STO_NOX=0.80 <font color="darkgreen">
+    &quot;Anoxic yield of stored product per Ss [g OD_Xsto/(g COD_Ss)]&quot;</font>;
+  <font color="blue">parameter </font>Real Y_H_O=0.63 <font color="darkgreen">
+    &quot;Aerobic yield of heterotrophic biomass [g COD_Xh/(g COD_Xsto)]&quot;</font>;
+  <font color="blue">parameter </font>Real Y_H_NOX=0.54 <font color="darkgreen">
+    &quot;Anoxic yield of heterotrophic biomass [g COD_Xh/(g COD_Xsto)]&quot;</font>;
+  <font color="blue">parameter </font>Real Y_A=0.24 <font color="darkgreen">
+    &quot;Yield of autotrophic biomass per NO3-N [g COD_Xa/(g N_Snox)]&quot;</font>;
+  <font color="blue">parameter </font>Real f_Xi=0.20 <font color="darkgreen">
+    &quot;Production of Xi in endog. respiration [g COD_Xi/(g COD_Xbm)]&quot;</font>;
+  <font color="blue">parameter </font>Real i_N_Si=0.01 <font color="darkgreen">&quot;N content of Si [g N/(g COD_Si)]&quot;</font>;
+  <font color="blue">parameter </font>Real i_N_Ss=0.03 <font color="darkgreen">&quot;N content of Ss [g N/(g COD_Ss)]&quot;</font>;
+  <font color="blue">parameter </font>Real i_N_Xi=0.02 <font color="darkgreen">&quot;N content of Xi [g N/(g COD_Xi)]&quot;</font>;
+  <font color="blue">parameter </font>Real i_N_Xs=0.04 <font color="darkgreen">&quot;N content of Xs [g N/(g COD_Xs)]&quot;</font>;
+  <font color="blue">parameter </font>Real i_N_BM=0.07 <font color="darkgreen">&quot;N content of biomass Xh,Xa [g N/(g COD_bm)]&quot;</font>;
+  <font color="blue">parameter </font>Real i_SS_Xi=0.75 <font color="darkgreen">&quot;SS to COD ratio for Xi [g SS/(g COD_Xi)]&quot;</font>;
+  <font color="blue">parameter </font>Real i_SS_Xs=0.75 <font color="darkgreen">&quot;SS to COD ratio for Xs [g SS/(g COD_Xs)]&quot;</font>;
+  <font color="blue">parameter </font>Real i_SS_BM=0.90 <font color="darkgreen">
+    &quot;SS to COD ratio for biomass Xh,Xa [g SS/(g COD_Xbm)]&quot;</font>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen"></font>
+<font color="blue">end </font>stoichiometry;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Aug 18 11:15:50 2003
+.
+</address></BODY>
+</HTML>

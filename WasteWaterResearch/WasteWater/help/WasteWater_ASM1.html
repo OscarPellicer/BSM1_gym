@@ -1,0 +1,1144 @@
+<HTML>
+<HEAD>
+<META name="HTML-Generator" content="Dymola"><TITLE>WasteWater</TITLE></HEAD>
+<BODY><P>
+<H2><A NAME="WasteWater.ASM1"></A><A HREF="WasteWater.html#WasteWater"
+>WasteWater</A>.ASM1</H2>
+<B>Component models for the Activated Sludge Model No.1</B>
+<P>
+<A HREF="WasteWater_ASM1.html#WasteWater.ASM1.deni"
+><IMG SRC="WasteWater.ASM1.deniI.png" ALT="WasteWater.ASM1.deni" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1.html#WasteWater.ASM1.nitri"
+><IMG SRC="WasteWater.ASM1.nitriI.png" ALT="WasteWater.ASM1.nitri" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1.html#WasteWater.ASM1.SecClarModTakacs"
+><IMG SRC="WasteWater.ASM1.SecClarModTakacsI.png" ALT="WasteWater.ASM1.SecClarModTakacs" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1.html#WasteWater.ASM1.blower"
+><IMG SRC="WasteWater.ASM1.blowerI.png" ALT="WasteWater.ASM1.blower" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1.html#WasteWater.ASM1.pump"
+><IMG SRC="WasteWater.ASM1.pumpI.png" ALT="WasteWater.ASM1.pump" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1.html#WasteWater.ASM1.FlowSource"
+><IMG SRC="WasteWater.ASM1.FlowSourceI.png" ALT="WasteWater.ASM1.FlowSource" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1.html#WasteWater.ASM1.WWSource"
+><IMG SRC="WasteWater.ASM1.WWSourceI.png" ALT="WasteWater.ASM1.WWSource" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1.html#WasteWater.ASM1.EffluentSink"
+><IMG SRC="WasteWater.ASM1.EffluentSinkI.png" ALT="WasteWater.ASM1.EffluentSink" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1.html#WasteWater.ASM1.SludgeSink"
+><IMG SRC="WasteWater.ASM1.SludgeSinkI.png" ALT="WasteWater.ASM1.SludgeSink" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1.html#WasteWater.ASM1.ControlledDivider2"
+><IMG SRC="WasteWater.ASM1.ControlledDivider2I.png" ALT="WasteWater.ASM1.ControlledDivider2" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1.html#WasteWater.ASM1.divider2"
+><IMG SRC="WasteWater.ASM1.divider2I.png" ALT="WasteWater.ASM1.divider2" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1.html#WasteWater.ASM1.mixer2"
+><IMG SRC="WasteWater.ASM1.mixer2I.png" ALT="WasteWater.ASM1.mixer2" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1.html#WasteWater.ASM1.mixer3"
+><IMG SRC="WasteWater.ASM1.mixer3I.png" ALT="WasteWater.ASM1.mixer3" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1.html#WasteWater.ASM1.sensor_COD"
+><IMG SRC="WasteWater.ASM1.sensor_CODI.png" ALT="WasteWater.ASM1.sensor_COD" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1.html#WasteWater.ASM1.sensor_NH"
+><IMG SRC="WasteWater.ASM1.sensor_NHI.png" ALT="WasteWater.ASM1.sensor_NH" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1.html#WasteWater.ASM1.sensor_NO"
+><IMG SRC="WasteWater.ASM1.sensor_NOI.png" ALT="WasteWater.ASM1.sensor_NO" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1.html#WasteWater.ASM1.sensor_O2"
+><IMG SRC="WasteWater.ASM1.sensor_O2I.png" ALT="WasteWater.ASM1.sensor_O2" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1.html#WasteWater.ASM1.sensor_Q"
+><IMG SRC="WasteWater.ASM1.sensor_QI.png" ALT="WasteWater.ASM1.sensor_Q" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1.html#WasteWater.ASM1.sensor_TKN"
+><IMG SRC="WasteWater.ASM1.sensor_TKNI.png" ALT="WasteWater.ASM1.sensor_TKN" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1.html#WasteWater.ASM1.sensor_TSS"
+><IMG SRC="WasteWater.ASM1.sensor_TSSI.png" ALT="WasteWater.ASM1.sensor_TSS" WIDTH=80  HEIGHT=80 ></A><font face="Times New Roman">
+</font>
+<A HREF="WasteWater_ASM1_Examples.html#WasteWater.ASM1.Examples"
+><IMG SRC="WasteWater.ASM1.ExamplesI.png" ALT="WasteWater.ASM1.Examples" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces"
+><IMG SRC="WasteWater.ASM1.InterfacesI.png" ALT="WasteWater.ASM1.Interfaces" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1_PreClar.html#WasteWater.ASM1.PreClar"
+><IMG SRC="WasteWater.ASM1.PreClarI.png" ALT="WasteWater.ASM1.PreClar" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1_SecClar.html#WasteWater.ASM1.SecClar"
+><IMG SRC="WasteWater.ASM1.SecClarI.png" ALT="WasteWater.ASM1.SecClar" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3><font face="Times New Roman">Information</font></H3>
+<PRE><font face="Times New Roman" size="3">This library contains components to build models of biological municipal<span lang="de"> </span>wastewater treatment plants<span lang="de"> </span>based
+on the <b>A</b><i>ctivated </i><b>S</b><i>ludge</i> <b>M</b><i>odel</i> <i>No.</i><b>1</b> (<b>ASM1</b>) by the<span lang="de"> </span><b>I</b><i>nternational </i><b>A</b><i>ssociation on</i> <b>W</b><i>ater </i><b>Q</b><i>uality </i>(<b>IAWQ</b>) [1,2].
+
+
+<b>The library currently is structured in following sub-libraries<span lang="de">:</span></b>
+<span lang="de"> </span></font></PRE>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="1035" id="AutoNumber1">
+  <tr>
+    <td width="91">
+<PRE><font face="Times New Roman" size="3"><span lang="de"> </span> <a href="WasteWater_ASM1_Interfaces.html">Interfaces</a></font></PRE>
+    </td>
+    <td width="941">
+<PRE><font face="Times New Roman" size="3"><span lang="de"> - </span>partial ASM1 models and connectors</font></PRE>
+    </td>
+  </tr>
+  <tr>
+    <td width="91">
+<PRE><font face="Times New Roman" size="3"><span lang="de"> </span> <a href="WasteWater_ASM1_PreClar.html">PreClar</a></font></PRE>
+    </td>
+    <td width="941">
+<PRE><font face="Times New Roman" size="3"><span lang="de"> - </span>primary clarifier models</font></PRE>
+    </td>
+  </tr>
+  <tr>
+    <td width="91">
+<PRE><font face="Times New Roman" size="3"><span lang="de"> </span> <a href="WasteWater_ASM1_SecClar.html">SecClar</a></font></PRE>
+    </td>
+    <td width="941">
+<PRE><font face="Times New Roman" size="3"><span lang="de"> - </span>several secondary settling tank models</font></PRE>
+    </td>
+  </tr>
+  <tr>
+    <td width="91">
+<PRE><font face="Times New Roman" size="3"><span lang="de"> </span> <a href="WasteWater_ASM1_Examples.html">Examples</a></font></PRE>
+    </td>
+    <td width="941">
+<PRE><font face="Times New Roman" size="3"><span lang="de"> - </span>wastewater treatment plant models</font></PRE>
+    </td>
+  </tr>
+</table>
+<PRE><font face="Times New Roman" size="3">
+
+&nbsp;
+<b><span lang="de">M</span>ain Author:</b><i>
+<span lang="de"> </span></i>
+&nbsp;<i><span lang="de">         </span></i>Gerald Reichl
+<span lang="de">         </span> Technische Universitaet Ilmenau
+<span lang="de">          </span>Faculty of Informatics and Automation
+<span lang="de">          </span>Department Dynamics and Simulation of ecological Systems
+<span lang="de">          </span>P.O. Box 10 05 65
+<span lang="de">          </span>98684 Ilmenau
+<span lang="de">          </span>Germany
+<span lang="de">          email</span>: <a href="mailto:gerald.reichl@tu-ilmenau.de">gerald.reichl@tu-ilmenau.de</a>
+
+&nbsp;
+<b>References:</b>
+
+[1] <span lang="de"> </span>M. Henze and C.P.L. Grady Jr and W. Gujer and G.v.R. Marais and T. Matsuo:
+<span lang="de"> </span>   <span lang="de">   </span>Activated Sludge Model No.1. IAWQ, 1987.</font></PRE>
+<PRE><font face="Times New Roman" size="3">[2] <span lang="de"> </span>M. Henze and W.Gujer and T. Mino and. M.v. Loosdrecht: Activated Sludge
+    <span lang="de">   </span>Models ASM1, ASM2, ASM2d, and ASM3. IWA Task Group on Mathematical Modelling
+    <span lang="de">   </span>for Design and Operation of Biological Wastewater Treatment, 2000.
+&nbsp;
+&nbsp;
+<b><span lang="de">C</span>opyright (C) 2000 - 200<span lang="de">2</span>, </b>Gerald Reichl</font></PRE>
+
+<p><i>
+The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the<span lang="de"> </span>accompanying <b>disclaimer</b> in the documentation of package 
+Modelica in file "Modelica/package.mo".
+</i></p>
+<PRE></PRE><P>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.deniI.png" ALT="WasteWater.ASM1.deni" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.deni"></A><A HREF="WasteWater_ASM1.html#WasteWater.ASM1"
+>WasteWater.ASM1</A>.deni</H2>
+<B>ASM1 denitrification tank</B><p>
+<IMG SRC="WasteWater.ASM1.deniD.png" ALT="WasteWater.ASM1.deni" width="101" height="82">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component models the ASM1 processes and reactions taking place in an unaerated 
+(denitrification) tank of a wastewater treatment plant.
+
+The InPort signal gives the tank temperature to the model.
+</font></PRE>
+<H3>Parameters</H3>
+<p><font face="Times New Roman" size="3"><span lang="de">A</span>ll 
+stoichiometric and kinetic parameters of the activated sludge model No.1 (ASM1)<span lang="de">.</span></font></p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Y_h</TD><TD>0.67</TD><TD>Heterotrophic Yield [g Xbh COD formed/(g COD utilised)]</TD></TR>
+<TR><TD>Y_a</TD><TD>0.24</TD><TD>Autotrophic Yield [g Xba COD formed/(g N utilised)]</TD></TR>
+<TR><TD>f_p</TD><TD>0.08</TD><TD>Fraction of biomass to particulate products [-]</TD></TR>
+<TR><TD>i_xb</TD><TD>0.086</TD><TD>Fraction nitrogen in biomass [g N/(g COD)]</TD></TR>
+<TR><TD>i_xp</TD><TD>0.06</TD><TD>Fraction nitrogen in particulate products [g N/(g COD)]</TD></TR>
+<TR><TD>mu_h_T</TD><TD>4.0</TD><TD>Maximum heterotrophic growth rate at T=15 deg C [day^-1]</TD></TR>
+<TR><TD>b_h_T</TD><TD>0.28</TD><TD>Heterotrophic decay rate at T=15 deg C [day^-1]</TD></TR>
+<TR><TD>mu_a_T</TD><TD>0.5</TD><TD>Maximum autotrophic growth rate at T=15 deg C[day^-1]</TD></TR>
+<TR><TD>b_a_T</TD><TD>0.1</TD><TD>Autotrophic decay rate at T=15 deg C [day^-1]</TD></TR>
+<TR><TD>k_a_T</TD><TD>0.06</TD><TD>Ammonification rate at T=15 deg C [m3/(g COD day)]</TD></TR>
+<TR><TD>k_h_T</TD><TD>1.75</TD><TD>Maximum specific hydrolysis rate at T=15 deg C [g Xs/(g Xbh COD day)]</TD></TR>
+<TR><TD>K_x_T</TD><TD>0.0175</TD><TD>Half-saturation (hydrolysis) at T=15 deg C [g Xs/(g Xbh COD)]</TD></TR>
+<TR><TD>K_nh</TD><TD>1.0</TD><TD>Half-saturation (auto. growth) [g NH-N/m3]</TD></TR>
+<TR><TD>K_s</TD><TD>20.0</TD><TD>Half-saturation (hetero. growth) [g COD/m3]</TD></TR>
+<TR><TD>K_oh</TD><TD>0.2</TD><TD>Half-saturation (hetero. oxygen) [g O/m3]</TD></TR>
+<TR><TD>K_no</TD><TD>0.5</TD><TD>Half-saturation (nitrate) [g NO-N/m3]</TD></TR>
+<TR><TD>K_oa</TD><TD>0.4</TD><TD>Half-saturation (auto. oxygen) [g O/m3]</TD></TR>
+<TR><TD>ny_g</TD><TD>0.8</TD><TD>Anoxic growth rate correction factor [-]</TD></TR>
+<TR><TD>ny_h</TD><TD>0.4</TD><TD>Anoxic hydrolysis rate correction factor [-]</TD></TR>
+<TR><TD>V</TD><TD>1000</TD><TD>Volume of denitrification tank [m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> deni <font color="darkgreen">&quot;ASM1 denitrification tank&quot;</font> 
+  <font color="darkgreen">//denitrification tank based on the ASM1 model</font>
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.deni"
+>WasteWater.Icons.deni</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.ASM1base"
+>Interfaces.ASM1base</A>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// tank specific parameters</font>
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Volume"
+>Modelica.SIunits.Volume</A> V=1000 <font color="darkgreen">&quot;Volume of denitrification tank&quot;</font>;
+    <font face="Times New Roman" size="3">
+</font><font color="#008000">  // following 4 connectors are already in ASM1base and are inherited,
+  // but listed hear again to avoid an icon related problem
+  // with the sequence of extends-clauses
+</font>  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1in"
+>Interfaces.WWFlowAsm1in</A> In;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1out"
+>Interfaces.WWFlowAsm1out</A> Out;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1out"
+>Interfaces.WWFlowAsm1out</A> MeasurePort;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> T(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  aeration = 0;
+  <font color="darkgreen">// no aeration in this tank //</font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// volume dependent dilution term of each concentration</font>
+  <font color="darkgreen"></font>
+  inputSi = (In.Si - Si)*In.Q/V;
+  inputSs = (In.Ss - Ss)*In.Q/V;
+  inputXi = (In.Xi - Xi)*In.Q/V;
+  inputXs = (In.Xs - Xs)*In.Q/V;
+  inputXbh = (In.Xbh - Xbh)*In.Q/V;
+  inputXba = (In.Xba - Xba)*In.Q/V;
+  inputXp = (In.Xp - Xp)*In.Q/V;
+  inputSo = (In.So - So)*In.Q/V;
+  inputSno = (In.Sno - Sno)*In.Q/V;
+  inputSnh = (In.Snh - Snh)*In.Q/V;
+  inputSnd = (In.Snd - Snd)*In.Q/V;
+  inputXnd = (In.Xnd - Xnd)*In.Q/V;
+  inputSalk = (In.Salk - Salk)*In.Q/V;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>deni;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.nitriI.png" ALT="WasteWater.ASM1.nitri" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.nitri"></A><A HREF="WasteWater_ASM1.html#WasteWater.ASM1"
+>WasteWater.ASM1</A>.nitri</H2>
+<B>ASM1 nitrification tank</B><p>
+<IMG SRC="WasteWater.ASM1.nitriD.png" ALT="WasteWater.ASM1.nitri" width="101" height="91">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component models the ASM1 processes and reactions taking place in an aerated<span lang="de"> </span>(nitrification)</font>
+<font face="Times New Roman" size="3">tank<span lang="de"> </span>of a wastewater treatment plant.
+
+The InPort signal gives the tank temperature to the model.</font>
+
+</PRE>
+<H3>Parameters</H3>
+<p><span lang="de">A</span>ll soichiometric and kinetic parameters of the activated sludge model No.1 (ASM1)<span lang="de">.</span></p><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Y_h</TD><TD>0.67</TD><TD>Heterotrophic Yield [g Xbh COD formed/(g COD utilised)]</TD></TR>
+<TR><TD>Y_a</TD><TD>0.24</TD><TD>Autotrophic Yield [g Xba COD formed/(g N utilised)]</TD></TR>
+<TR><TD>f_p</TD><TD>0.08</TD><TD>Fraction of biomass to particulate products [-]</TD></TR>
+<TR><TD>i_xb</TD><TD>0.086</TD><TD>Fraction nitrogen in biomass [g N/(g COD)]</TD></TR>
+<TR><TD>i_xp</TD><TD>0.06</TD><TD>Fraction nitrogen in particulate products [g N/(g COD)]</TD></TR>
+<TR><TD>mu_h_T</TD><TD>4.0</TD><TD>Maximum heterotrophic growth rate at T=15 deg C [day^-1]</TD></TR>
+<TR><TD>b_h_T</TD><TD>0.28</TD><TD>Heterotrophic decay rate at T=15 deg C [day^-1]</TD></TR>
+<TR><TD>mu_a_T</TD><TD>0.5</TD><TD>Maximum autotrophic growth rate at T=15 deg C[day^-1]</TD></TR>
+<TR><TD>b_a_T</TD><TD>0.1</TD><TD>Autotrophic decay rate at T=15 deg C [day^-1]</TD></TR>
+<TR><TD>k_a_T</TD><TD>0.06</TD><TD>Ammonification rate at T=15 deg C [m3/(g COD day)]</TD></TR>
+<TR><TD>k_h_T</TD><TD>1.75</TD><TD>Maximum specific hydrolysis rate at T=15 deg C [g Xs/(g Xbh COD day)]</TD></TR>
+<TR><TD>K_x_T</TD><TD>0.0175</TD><TD>Half-saturation (hydrolysis) at T=15 deg C [g Xs/(g Xbh COD)]</TD></TR>
+<TR><TD>K_nh</TD><TD>1.0</TD><TD>Half-saturation (auto. growth) [g NH-N/m3]</TD></TR>
+<TR><TD>K_s</TD><TD>20.0</TD><TD>Half-saturation (hetero. growth) [g COD/m3]</TD></TR>
+<TR><TD>K_oh</TD><TD>0.2</TD><TD>Half-saturation (hetero. oxygen) [g O/m3]</TD></TR>
+<TR><TD>K_no</TD><TD>0.5</TD><TD>Half-saturation (nitrate) [g NO-N/m3]</TD></TR>
+<TR><TD>K_oa</TD><TD>0.4</TD><TD>Half-saturation (auto. oxygen) [g O/m3]</TD></TR>
+<TR><TD>ny_g</TD><TD>0.8</TD><TD>Anoxic growth rate correction factor [-]</TD></TR>
+<TR><TD>ny_h</TD><TD>0.4</TD><TD>Anoxic hydrolysis rate correction factor [-]</TD></TR>
+<TR><TD>V</TD><TD>1000</TD><TD>Volume of nitrification tank [m3]</TD></TR>
+<TR><TD>alpha</TD><TD>0.7</TD><TD>Oxygen transfer factor</TD></TR>
+<TR><TD>de</TD><TD>4.5</TD><TD>depth of aeration [m]</TD></TR>
+<TR><TD>R_air</TD><TD>23.5</TD><TD>specific oxygen feed factor [gO2/(m^3*m)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> nitri <font color="darkgreen">&quot;ASM1 nitrification tank&quot;</font> 
+  <font color="darkgreen">// nitrification (aerated) tank, based on the ASM1 model</font>
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.nitri"
+>WasteWater.Icons.nitri</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.ASM1base"
+>Interfaces.ASM1base</A>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// tank specific parameters</font>
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Volume"
+>Modelica.SIunits.Volume</A> V=1000 <font color="darkgreen">&quot;Volume of nitrification tank&quot;</font>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// aeration system dependent parameters</font>
+  <font color="blue">parameter </font>Real alpha=0.7 <font color="darkgreen">&quot;Oxygen transfer factor&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Modelica.SIunits.Length</A> de=4.5 <font color="darkgreen">&quot;depth of aeration&quot;</font>;
+  <font color="blue">parameter </font>Real R_air=23.5 <font color="darkgreen">&quot;specific oxygen feed factor [gO2/(m^3*m)]&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> So_sat <font color="darkgreen">&quot;Dissolved oxygen saturation&quot;</font>;
+  <font color="darkgreen"></font>
+  <font face="Times New Roman" size="3">
+</font><font color="#008000">  // following 4 connectors are already in ASM1base and are inherited,
+  // but listed hear again to avoid an icon related problem
+  // with the sequence of extends-clauses</font><font face="Times New Roman" size="3">
+    </font><A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1in"
+>Interfaces.WWFlowAsm1in</A> In;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1out"
+>Interfaces.WWFlowAsm1out</A> Out;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1out"
+>Interfaces.WWFlowAsm1out</A> MeasurePort;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> T(<font color="blue">final </font>n=1);<font face="Times New Roman" size="3">
+</font>
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.AirFlow"
+>Interfaces.AirFlow</A> AirIn;
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Temperature dependent oxygen saturation by Simba</font>
+  So_sat = 13.89 + (-0.3825 + (0.007311 - 0.00006588*T.signal[1])*T.signal[1])*
+    T.signal[1];
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// extends the Oxygen differential equation by an aeration term</font>
+  <font color="darkgreen">// aeration [mgO2/l]; AirIn.Q_air needs to be in </font>
+  <font color="darkgreen">// Simulationtimeunit [m3*day^-1]</font>
+  aeration = (alpha*(So_sat - So)/So_sat*AirIn.Q_air*R_air*de)/V;
+  <font color="darkgreen">// aeration = Kla * (So_sat - So);</font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// volume dependent dilution term of each concentration</font>
+  <font color="darkgreen"></font>
+  inputSi = (In.Si - Si)*In.Q/V;
+  inputSs = (In.Ss - Ss)*In.Q/V;
+  inputXi = (In.Xi - Xi)*In.Q/V;
+  inputXs = (In.Xs - Xs)*In.Q/V;
+  inputXbh = (In.Xbh - Xbh)*In.Q/V;
+  inputXba = (In.Xba - Xba)*In.Q/V;
+  inputXp = (In.Xp - Xp)*In.Q/V;
+  inputSo = (In.So - So)*In.Q/V;
+  inputSno = (In.Sno - Sno)*In.Q/V;
+  inputSnh = (In.Snh - Snh)*In.Q/V;
+  inputSnd = (In.Snd - Snd)*In.Q/V;
+  inputXnd = (In.Xnd - Xnd)*In.Q/V;
+  inputSalk = (In.Salk - Salk)*In.Q/V;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>nitri;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.SecClarModTakacsI.png" ALT="WasteWater.ASM1.SecClarModTakacs" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.SecClarModTakacs"></A><A HREF="WasteWater_ASM1.html#WasteWater.ASM1"
+>WasteWater.ASM1</A>.SecClarModTakacs</H2>
+<B>Secondary Clarifier ASM1 Model based on Takacs</B><p>
+<IMG SRC="WasteWater.ASM1.SecClarModTakacsD.png" ALT="WasteWater.ASM1.SecClarModTakacs" width="368" height="332">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component models an ASM1 10 - layer secondary clarifier model with 4 layers above the feed_layer 
+(including top_layer)<span lang="de"> </span>and 5 layers below the feed_layer (including bottom_layer) based on Takac<span lang="de">s</span>` theory.
+</font></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>hsc</TD><TD>4.0</TD><TD>height of secondary clarifier [m]</TD></TR>
+<TR><TD>n</TD><TD>10</TD><TD>number of layers of SC model</TD></TR>
+<TR><TD>zm</TD><TD>hsc/(1.0*n)</TD><TD>height of m-th secondary clarifier layer [m]</TD></TR>
+<TR><TD>Asc</TD><TD>1500.0</TD><TD>area of secondary clarifier [m2]</TD></TR>
+<TR><TD>Xt</TD><TD>3000.0</TD><TD>threshold for X [mg/l]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> SecClarModTakacs <font color="darkgreen">
+  &quot;Secondary Clarifier ASM1 Model based on Takacs&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.SecClar"
+>WasteWater.Icons.SecClar</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM1_SecClar_Takacs_Interfaces.html#WasteWater.ASM1.SecClar.Takacs.Interfaces.ratios"
+>ASM1.SecClar.Takacs.Interfaces.ratios</A>;
+  <font color="blue">package</font> SCP = <A HREF="WasteWater_ASM1_SecClar_Takacs.html#WasteWater.ASM1.SecClar.Takacs"
+>ASM1.SecClar.Takacs</A>;
+  <font color="blue">package</font> SI = <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">package</font> WI = <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces"
+>WasteWater.ASM1.Interfaces</A>;
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> hsc=4.0 <font color="darkgreen">&quot;height of secondary clarifier&quot;</font>;
+  <font color="blue">parameter </font>Integer n=10 <font color="darkgreen">&quot;number of layers of SC model&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> zm=hsc/(1.0*n) <font color="darkgreen">&quot;height of m-th secondary clarifier layer&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> Asc=1500.0 <font color="darkgreen">&quot;area of secondary clarifier&quot;</font>;
+  <font color="blue">parameter </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xt=3000.0 <font color="darkgreen">&quot;threshold for X&quot;</font>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// total sludge concentration in clarifier feed</font>
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xf;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1in"
+>WI.WWFlowAsm1in</A> Feed;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1out"
+>WI.WWFlowAsm1out</A> Effluent;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1out"
+>WI.WWFlowAsm1out</A> Return;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1out"
+>WI.WWFlowAsm1out</A> Waste;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// layers 1 to 10</font>
+  <A HREF="WasteWater_ASM1_SecClar_Takacs.html#WasteWater.ASM1.SecClar.Takacs.bottom_layer"
+>SCP.bottom_layer</A> S1(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf, 
+    rXs=rXs, 
+    rXbh=rXbh, 
+    rXba=rXba, 
+    rXp=rXp, 
+    rXi=rXi, 
+    rXnd=rXnd);
+  <A HREF="WasteWater_ASM1_SecClar_Takacs.html#WasteWater.ASM1.SecClar.Takacs.lower_layer"
+>SCP.lower_layer</A> S2(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf);
+  <A HREF="WasteWater_ASM1_SecClar_Takacs.html#WasteWater.ASM1.SecClar.Takacs.lower_layer"
+>SCP.lower_layer</A> S3(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf);
+  <A HREF="WasteWater_ASM1_SecClar_Takacs.html#WasteWater.ASM1.SecClar.Takacs.lower_layer"
+>SCP.lower_layer</A> S4(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf);
+  <A HREF="WasteWater_ASM1_SecClar_Takacs.html#WasteWater.ASM1.SecClar.Takacs.lower_layer"
+>SCP.lower_layer</A> S5(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf);
+  <A HREF="WasteWater_ASM1_SecClar_Takacs.html#WasteWater.ASM1.SecClar.Takacs.feed_layer"
+>SCP.feed_layer</A> S6(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf);
+  <A HREF="WasteWater_ASM1_SecClar_Takacs.html#WasteWater.ASM1.SecClar.Takacs.upper_layer"
+>SCP.upper_layer</A> S7(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf, 
+    Xt=Xt);
+  <A HREF="WasteWater_ASM1_SecClar_Takacs.html#WasteWater.ASM1.SecClar.Takacs.upper_layer"
+>SCP.upper_layer</A> S8(
+    zm=zm, 
+    Asc=Asc, 
+    Xt=Xt, 
+    Xf=Xf);
+  <A HREF="WasteWater_ASM1_SecClar_Takacs.html#WasteWater.ASM1.SecClar.Takacs.upper_layer"
+>SCP.upper_layer</A> S9(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf, 
+    Xt=Xt);
+  <A HREF="WasteWater_ASM1_SecClar_Takacs.html#WasteWater.ASM1.SecClar.Takacs.top_layer"
+>SCP.top_layer</A> S10(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf, 
+    Xt=Xt, 
+    rXs=rXs, 
+    rXbh=rXbh, 
+    rXba=rXba, 
+    rXp=rXp, 
+    rXi=rXi, 
+    rXnd=rXnd);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  <font color="red">connect</font>(S1.Up, S2.Dn);
+  <font color="red">connect</font>(S2.Up, S3.Dn);
+  <font color="red">connect</font>(S3.Up, S4.Dn);
+  <font color="red">connect</font>(S5.Up, S6.Dn);
+  <font color="red">connect</font>(S6.Up, S7.Dn);
+  <font color="red">connect</font>(S7.Up, S8.Dn);
+  <font color="red">connect</font>(S9.Up, S10.Dn);
+  <font color="red">connect</font>(S4.Up, S5.Dn);
+  <font color="red">connect</font>(S8.Up, S9.Dn);
+  <font color="red">connect</font>(Feed, S6.In);
+  <font color="red">connect</font>(S1.PQw, Waste);
+  <font color="red">connect</font>(S10.Out, Effluent);
+  <font color="red">connect</font>(S1.PQr, Return);
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// total sludge concentration in clarifier feed</font>
+  Xf = 0.75*(Feed.Xs + Feed.Xbh + Feed.Xba + Feed.Xp + Feed.Xi);
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// ratios of solid components</font>
+  rXs = Feed.Xs/Xf;
+  rXbh = Feed.Xbh/Xf;
+  rXba = Feed.Xba/Xf;
+  rXp = Feed.Xp/Xf;
+  rXi = Feed.Xi/Xf;
+  rXnd = Feed.Xnd/Xf;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>SecClarModTakacs;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.blowerI.png" ALT="WasteWater.ASM1.blower" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.blower"></A><A HREF="WasteWater_ASM1.html#WasteWater.ASM1"
+>WasteWater.ASM1</A>.blower</H2>
+<B>Blower for the aeration of the nitrification tanks</B><p>
+<IMG SRC="WasteWater.ASM1.blowerD.png" ALT="WasteWater.ASM1.blower" width="92" height="94">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component models a blower of a wastewater treatment plant which generates an airflow that is needed
+for the nitrification.
+
+The blower is connected to the nitrification tank.
+
+The airflow is controlled by a signal u (-1 &lt;= u &lt;= 1).
+</font>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Q_max</TD><TD>20000</TD><TD><font face="Times New Roman" size="3">
+  maximum blower capacity [m3 Air/d], this is produced when the control signal u 
+  is 1 or greater</font></TD></TR>
+<TR><TD>Q_min</TD><TD>0.0</TD><TD><font face="Times New Roman" size="3">minimum 
+  blower capacity [m3 Air/d], this is produced when the control signal u is -1 
+  or below</font></TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> blower <font color="darkgreen">&quot;Blower for the aeration of the nitrification tanks&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.blower"
+>WasteWater.Icons.blower</A>;
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.VolumeFlowRate"
+>WWU.VolumeFlowRate</A> Q_max=20000 <font color="darkgreen">&quot;maximum blower capacity&quot;</font>;
+  <font color="blue">parameter </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.VolumeFlowRate"
+>WWU.VolumeFlowRate</A> Q_min=0.0 <font color="darkgreen">&quot;minimum blower capacity&quot;</font>;
+  Real H;
+  <font color="darkgreen">// this is just a help variable to reduce expressions</font>
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.AirFlow"
+>Interfaces.AirFlow</A> AirOut;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> u(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  H = 0.5*(-Q_min + Q_max) + u.signal[1]*0.5*(-Q_min + Q_max) + Q_min;
+  AirOut.Q_air = -(<font color="blue">if </font>H &gt; Q_max<font color="blue"> then </font>Q_max<font color="blue"> else </font><font color="blue">if </font>H &lt; Q_min<font color="blue"> then </font>Q_min<font color="blue"> else </font>H)
+    ;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>blower;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.pumpI.png" ALT="WasteWater.ASM1.pump" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.pump"></A><A HREF="WasteWater_ASM1.html#WasteWater.ASM1"
+>WasteWater.ASM1</A>.pump</H2>
+<B>ASM1 wastewater pump</B><p>
+<IMG SRC="WasteWater.ASM1.pumpD.png" ALT="WasteWater.ASM1.pump" width="101" height="71">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component models an ASM1 wastewater pump. It generates a wastewater flow
+that is controlled by the signal u (-1 &lt;= u &lt;=1).
+</font>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Q_min</TD><TD>0.0</TD><TD><font face="Times New Roman" size="3">maximum pump capacity [m3/d], this is produced when the control signal u is 1 or greater</font></TD></TR>
+<TR><TD>Q_max</TD><TD>20000</TD><TD><font face="Times New Roman" size="3">minimum pump capacity [m3/d], this is produced when the control signal u is -1 or below</font></TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> pump <font color="darkgreen">&quot;ASM1 wastewater pump&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.pump"
+>WasteWater.Icons.pump</A>;
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.VolumeFlowRate"
+>WWU.VolumeFlowRate</A> Q_min=0.0 <font color="darkgreen">&quot;minimum pump capacity&quot;</font>;
+  <font color="blue">parameter </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.VolumeFlowRate"
+>WWU.VolumeFlowRate</A> Q_max=20000 <font color="darkgreen">&quot;maximum pump capacity&quot;</font>;
+  Real H;
+  <font color="darkgreen">// this is just a help variable to reduce expressions</font>
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1in"
+>Interfaces.WWFlowAsm1in</A> In;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1out"
+>Interfaces.WWFlowAsm1out</A> Out;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> u(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  H = 0.5*(-Q_min + Q_max) + u.signal[1]*0.5*(-Q_min + Q_max) + Q_min;
+  Out.Q = -(<font color="blue">if </font>H &gt; Q_max<font color="blue"> then </font>Q_max<font color="blue"> else </font><font color="blue">if </font>H &lt; Q_min<font color="blue"> then </font>Q_min<font color="blue"> else </font>H);
+  <font color="darkgreen"></font>
+  Out.Q + In.Q = 0;
+  Out.Si = In.Si;
+  Out.Ss = In.Ss;
+  Out.Xi = In.Xi;
+  Out.Xs = In.Xs;
+  Out.Xbh = In.Xbh;
+  Out.Xba = In.Xba;
+  Out.Xp = In.Xp;
+  Out.So = In.So;
+  Out.Sno = In.Sno;
+  Out.Snh = In.Snh;
+  Out.Snd = In.Snd;
+  Out.Xnd = In.Xnd;
+  Out.Salk = In.Salk;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>pump;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.FlowSourceI.png" ALT="WasteWater.ASM1.FlowSource" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.FlowSource"></A><A HREF="WasteWater_ASM1.html#WasteWater.ASM1"
+>WasteWater.ASM1</A>.FlowSource</H2>
+<B>Flowsource</B><p>
+<IMG SRC="WasteWater.ASM1.FlowSourceD.png" ALT="WasteWater.ASM1.FlowSource" width="138" height="116">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component is used to feed an ASM1 wwtp model with flow data from measurement
+when e.g. concentration is measured after the primary clarifier.
+
+The <b>dimension</b> of InPort is <b>1</b>.
+
+  <b>1</b> volumeflowrate Q of incoming wastewater [m3/d]</font></PRE>
+<H3>&nbsp;</H3>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> FlowSource <font color="darkgreen">&quot;Flow source&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.FlowSource"
+>WasteWater.Icons.FlowSource</A>;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1out"
+>Interfaces.WWFlowAsm1out</A> Out;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> data(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  Out.Q = -data.signal[1];
+  <font color="darkgreen"></font>
+<font color="blue">end </font>FlowSource;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.WWSourceI.png" ALT="WasteWater.ASM1.WWSource" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.WWSource"></A><A HREF="WasteWater_ASM1.html#WasteWater.ASM1"
+>WasteWater.ASM1</A>.WWSource</H2>
+<B>Wastewater source</B><p>
+<IMG SRC="WasteWater.ASM1.WWSourceD.png" ALT="WasteWater.ASM1.WWSource" width="96" height="82">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component provides all ASM1 data at the influent of a wastewater treatment plant.
+The <b>dimension</b> of InPort is <b>14</b>.
+
+  <b>1</b><span lang="de">  </span>volumeflowrate Q of incoming wastewater [m3/d]
+  <b>2</b> <span lang="de"> </span>Si  [g COD/m3]
+  <b>3</b> <span lang="de"> </span>Ss  [g COD/m3]
+  <b>4</b> <span lang="de"> </span>Xi  [g COD/m3]
+  <b>5</b> <span lang="de"> </span>Xs  [g COD/m3]
+  <b>6</b> <span lang="de"> </span>Xbh [g COD/m3]
+  <b>7</b> <span lang="de"> </span>Xba [g COD/m3]
+  <b>8</b> <span lang="de"> </span>Xp  [g COD/m3]
+  <b>9</b> <span lang="de"> </span>So  [g O2/m3]
+ <b>10</b> Sno [g N/m3]
+ <b>11</b> Snh [g N/m3]
+ <b>12</b> Snd [g N/m3]
+ <b>13</b> Xnd [g N/m3]
+ <b>14</b> Salk[mmol/l]
+</font></PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> WWSource <font color="darkgreen">&quot;Wastewater source&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.WWSource"
+>WasteWater.Icons.WWSource</A>;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1out"
+>Interfaces.WWFlowAsm1out</A> Out;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> data(<font color="blue">final </font>n=14);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  Out.Q = -data.signal[1];
+  Out.Si = data.signal[2];
+  Out.Ss = data.signal[3];
+  Out.Xi = data.signal[4];
+  Out.Xs = data.signal[5];
+  Out.Xbh = data.signal[6];
+  Out.Xba = data.signal[7];
+  Out.Xp = data.signal[8];
+  Out.So = data.signal[9];
+  Out.Sno = data.signal[10];
+  Out.Snh = data.signal[11];
+  Out.Snd = data.signal[12];
+  Out.Xnd = data.signal[13];
+  Out.Salk = data.signal[14];
+  <font color="darkgreen"></font>
+<font color="blue">end </font>WWSource;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.EffluentSinkI.png" ALT="WasteWater.ASM1.EffluentSink" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.EffluentSink"></A><A HREF="WasteWater_ASM1.html#WasteWater.ASM1"
+>WasteWater.ASM1</A>.EffluentSink</H2>
+<B>Receiving water (river)</B><p>
+<IMG SRC="WasteWater.ASM1.EffluentSinkD.png" ALT="WasteWater.ASM1.EffluentSink" width="95" height="88">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component terminates an ASM1 wastewater treatment plant model e.g. the wastewater
+flow to the receiving water.</font>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> EffluentSink <font color="darkgreen">&quot;Receiving water (river)&quot;</font> 
+  <font color="darkgreen">// only for graphical termination in diagram layer, no equation needed</font>
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.EffluentSink"
+>WasteWater.Icons.EffluentSink</A>;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1in"
+>Interfaces.WWFlowAsm1in</A> In;
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+<font color="blue">end </font>EffluentSink;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.SludgeSinkI.png" ALT="WasteWater.ASM1.SludgeSink" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.SludgeSink"></A><A HREF="WasteWater_ASM1.html#WasteWater.ASM1"
+>WasteWater.ASM1</A>.SludgeSink</H2>
+<B>Wastesludge sink</B><p>
+<IMG SRC="WasteWater.ASM1.SludgeSinkD.png" ALT="WasteWater.ASM1.SludgeSink" width="97" height="90">
+<H3>Information</H3>
+<PRE>This component terminates the waste sludge stream of an ASM1 wastewater <font face="Times New Roman" size="3">
+</font>treatment plant model.<span lang="de"> </span></PRE>
+<PRE>Storage or further sludge treatment is not jet considered.</PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> SludgeSink <font color="darkgreen">&quot;Wastesludge sink&quot;</font> 
+  <font color="darkgreen">// only for graphical termination in diagram layer, no equation needed</font>
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.SludgeSink"
+>WasteWater.Icons.SludgeSink</A>;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1in"
+>Interfaces.WWFlowAsm1in</A> In;
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+<font color="blue">end </font>SludgeSink;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.ControlledDivider2I.png" ALT="WasteWater.ASM1.ControlledDivider2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.ControlledDivider2"></A><A HREF="WasteWater_ASM1.html#WasteWater.ASM1"
+>WasteWater.ASM1</A>.ControlledDivider2</H2>
+<B>Controlled flow divider</B><p>
+<IMG SRC="WasteWater.ASM1.ControlledDivider2D.png" ALT="WasteWater.ASM1.ControlledDivider2" width="101" height="73">
+<H3>Information</H3>
+<PRE><font size="3" face="Times New Roman">This component divides one wastewater flow (ASM1) into two flows which are controlled by 
+the signal u (0...1).<span lang="de"> </span>Is u.signal=1, the flow goes to output 1 (Out1) and is u.signal=0, the flow goes
+to output 2 (Out2). The concentrations of the outport-flows are equal to the concentration at inport.</font></PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> ControlledDivider2 <font color="darkgreen">&quot;Controlled flow divider&quot;</font> 
+  <font color="darkgreen">// divides one flow of wastewater into 2 Flows controlled by the</font>  <font color="darkgreen"></font>
+  <font color="darkgreen">// input signal u; u=1 means Out1.Q=In.Q and u=0 means Out2.Q=In.Q</font>
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.ControlledDivider2"
+>WasteWater.Icons.ControlledDivider2</A>;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1in"
+>Interfaces.WWFlowAsm1in</A> In;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1out"
+>Interfaces.WWFlowAsm1out</A> Out1;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1out"
+>Interfaces.WWFlowAsm1out</A> Out2;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> u(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  Out1.Q = -In.Q*u.signal[1];
+  Out2.Q = -In.Q*(1 - u.signal[1]);
+  <font color="darkgreen"></font>
+  Out1.Si = In.Si;
+  Out1.Ss = In.Ss;
+  Out1.Xi = In.Xi;
+  Out1.Xs = In.Xs;
+  Out1.Xbh = In.Xbh;
+  Out1.Xba = In.Xba;
+  Out1.Xp = In.Xp;
+  Out1.So = In.So;
+  Out1.Sno = In.Sno;
+  Out1.Snh = In.Snh;
+  Out1.Snd = In.Snd;
+  Out1.Xnd = In.Xnd;
+  Out1.Salk = In.Salk;
+  <font color="darkgreen"></font>
+  Out2.Si = In.Si;
+  Out2.Ss = In.Ss;
+  Out2.Xi = In.Xi;
+  Out2.Xs = In.Xs;
+  Out2.Xbh = In.Xbh;
+  Out2.Xba = In.Xba;
+  Out2.Xp = In.Xp;
+  Out2.So = In.So;
+  Out2.Sno = In.Sno;
+  Out2.Snh = In.Snh;
+  Out2.Snd = In.Snd;
+  Out2.Xnd = In.Xnd;
+  Out2.Salk = In.Salk;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>ControlledDivider2;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.divider2I.png" ALT="WasteWater.ASM1.divider2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.divider2"></A><A HREF="WasteWater_ASM1.html#WasteWater.ASM1"
+>WasteWater.ASM1</A>.divider2</H2>
+<B>Flowdivider</B><p>
+<IMG SRC="WasteWater.ASM1.divider2D.png" ALT="WasteWater.ASM1.divider2" width="101" height="64">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component divides one ASM1 wastewater flow into two ASM1 wastewater flows.</font></PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> divider2 <font color="darkgreen">&quot;Flowdivider&quot;</font>  <font color="darkgreen">
+    // divides one flow of wastewater into 2 Flows; one amount needs to be specified</font>
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.divider2"
+>WasteWater.Icons.divider2</A>;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1in"
+>Interfaces.WWFlowAsm1in</A> In;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1out"
+>Interfaces.WWFlowAsm1out</A> Out1;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1out"
+>Interfaces.WWFlowAsm1out</A> Out2;
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  In.Q + Out1.Q + Out2.Q = 0;
+  <font color="darkgreen"></font>
+  Out1.Si = In.Si;
+  Out1.Ss = In.Ss;
+  Out1.Xi = In.Xi;
+  Out1.Xs = In.Xs;
+  Out1.Xbh = In.Xbh;
+  Out1.Xba = In.Xba;
+  Out1.Xp = In.Xp;
+  Out1.So = In.So;
+  Out1.Sno = In.Sno;
+  Out1.Snh = In.Snh;
+  Out1.Snd = In.Snd;
+  Out1.Xnd = In.Xnd;
+  Out1.Salk = In.Salk;
+  <font color="darkgreen"></font>
+  Out2.Si = In.Si;
+  Out2.Ss = In.Ss;
+  Out2.Xi = In.Xi;
+  Out2.Xs = In.Xs;
+  Out2.Xbh = In.Xbh;
+  Out2.Xba = In.Xba;
+  Out2.Xp = In.Xp;
+  Out2.So = In.So;
+  Out2.Sno = In.Sno;
+  Out2.Snh = In.Snh;
+  Out2.Snd = In.Snd;
+  Out2.Xnd = In.Xnd;
+  Out2.Salk = In.Salk;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>divider2;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.mixer2I.png" ALT="WasteWater.ASM1.mixer2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.mixer2"></A><A HREF="WasteWater_ASM1.html#WasteWater.ASM1"
+>WasteWater.ASM1</A>.mixer2</H2>
+<B>Mixer of two ASM1 characterised flows</B><p>
+<IMG SRC="WasteWater.ASM1.mixer2D.png" ALT="WasteWater.ASM1.mixer2" width="101" height="63">
+<H3>Information</H3>
+<PRE><font size="3" face="Times New Roman">This component mixes two flows of wastewater (ASM1) of different concentration and different amount.</font></PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> mixer2 <font color="darkgreen">&quot;Mixer of two ASM1 characterised flows&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.mixer2"
+>WasteWater.Icons.mixer2</A>;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1in"
+>Interfaces.WWFlowAsm1in</A> In1;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1in"
+>Interfaces.WWFlowAsm1in</A> In2;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1out"
+>Interfaces.WWFlowAsm1out</A> Out;
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  In1.Q + In2.Q + Out.Q = 0;
+  Out.Si = (In1.Si*In1.Q + In2.Si*In2.Q)/(In1.Q + In2.Q);
+  Out.Ss = (In1.Ss*In1.Q + In2.Ss*In2.Q)/(In1.Q + In2.Q);
+  Out.Xi = (In1.Xi*In1.Q + In2.Xi*In2.Q)/(In1.Q + In2.Q);
+  Out.Xs = (In1.Xs*In1.Q + In2.Xs*In2.Q)/(In1.Q + In2.Q);
+  Out.Xbh = (In1.Xbh*In1.Q + In2.Xbh*In2.Q)/(In1.Q + In2.Q);
+  Out.Xba = (In1.Xba*In1.Q + In2.Xba*In2.Q)/(In1.Q + In2.Q);
+  Out.Xp = (In1.Xp*In1.Q + In2.Xp*In2.Q)/(In1.Q + In2.Q);
+  Out.So = (In1.So*In1.Q + In2.So*In2.Q)/(In1.Q + In2.Q);
+  Out.Sno = (In1.Sno*In1.Q + In2.Sno*In2.Q)/(In1.Q + In2.Q);
+  Out.Snh = (In1.Snh*In1.Q + In2.Snh*In2.Q)/(In1.Q + In2.Q);
+  Out.Snd = (In1.Snd*In1.Q + In2.Snd*In2.Q)/(In1.Q + In2.Q);
+  Out.Xnd = (In1.Xnd*In1.Q + In2.Xnd*In2.Q)/(In1.Q + In2.Q);
+  Out.Salk = (In1.Salk*In1.Q + In2.Salk*In2.Q)/(In1.Q + In2.Q);
+  <font color="darkgreen"></font>
+<font color="blue">end </font>mixer2;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.mixer3I.png" ALT="WasteWater.ASM1.mixer3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.mixer3"></A><A HREF="WasteWater_ASM1.html#WasteWater.ASM1"
+>WasteWater.ASM1</A>.mixer3</H2>
+<B>Mixer of 3 ASM1 characterised flows</B><p>
+<IMG SRC="WasteWater.ASM1.mixer3D.png" ALT="WasteWater.ASM1.mixer3" width="101" height="75">
+<H3>Information</H3>
+<PRE><font size="3" face="Times New Roman">This component mixes 3 flows of wastewater (ASM1) of different concentration and different amount.</font></PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> mixer3 <font color="darkgreen">&quot;Mixer of 3 ASM1 characterised flows&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.mixer3"
+>WasteWater.Icons.mixer3</A>;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1in"
+>Interfaces.WWFlowAsm1in</A> In1;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1in"
+>Interfaces.WWFlowAsm1in</A> In2;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1in"
+>Interfaces.WWFlowAsm1in</A> In3;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1out"
+>Interfaces.WWFlowAsm1out</A> Out;
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  In1.Q + In2.Q + In3.Q + Out.Q = 0;
+  Out.Si = (In1.Si*In1.Q + In2.Si*In2.Q + In3.Si*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.Ss = (In1.Ss*In1.Q + In2.Ss*In2.Q + In3.Ss*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.Xi = (In1.Xi*In1.Q + In2.Xi*In2.Q + In3.Xi*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.Xs = (In1.Xs*In1.Q + In2.Xs*In2.Q + In3.Xs*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.Xbh = (In1.Xbh*In1.Q + In2.Xbh*In2.Q + In3.Xbh*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.Xba = (In1.Xba*In1.Q + In2.Xba*In2.Q + In3.Xba*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.Xp = (In1.Xp*In1.Q + In2.Xp*In2.Q + In3.Xp*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.So = (In1.So*In1.Q + In2.So*In2.Q + In3.So*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.Sno = (In1.Sno*In1.Q + In2.Sno*In2.Q + In3.Sno*In3.Q)/(In1.Q + In2.Q +<span lang="de"> </span>In3.Q);
+  Out.Snh = (In1.Snh*In1.Q + In2.Snh*In2.Q + In3.Snh*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.Snd = (In1.Snd*In1.Q + In2.Snd*In2.Q + In3.Snd*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.Xnd = (In1.Xnd*In1.Q + In2.Xnd*In2.Q + In3.Xnd*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.Salk = (In1.Salk*In1.Q + In2.Salk*In2.Q + In3.Salk*In3.Q)/(In1.Q + In2.Q
+     + In3.Q);
+  <font color="darkgreen"></font>
+<font color="blue">end </font>mixer3;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.sensor_CODI.png" ALT="WasteWater.ASM1.sensor_COD" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.sensor_COD"></A><A HREF="WasteWater_ASM1.html#WasteWater.ASM1"
+>WasteWater.ASM1</A>.sensor_COD</H2>
+<B>Ideal sensor to measure chemical oxygen demand (COD)</B><p>
+<IMG SRC="WasteWater.ASM1.sensor_CODD.png" ALT="WasteWater.ASM1.sensor_COD" width="92" height="94">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component measures the chemical oxygen demand (COD) concentration [g/m3]
+of ASM1 wastewater and provides the result as output signal (to be
+further processed with blocks of the Modelica.Blocks library).</font>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> sensor_COD <font color="darkgreen">
+  &quot;Ideal sensor to measure chemical oxygen demand (COD)&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.sensor_COD"
+>WasteWater.Icons.sensor_COD</A>;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1in"
+>Interfaces.WWFlowAsm1in</A> In;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
+>Modelica.Blocks.Interfaces.OutPort</A> COD(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  In.Q = 0.0;
+  COD.signal[1] = In.Si + In.Ss + In.Xi + In.Xs + In.Xbh + In.Xba + In.Xp;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>sensor_COD;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.sensor_NHI.png" ALT="WasteWater.ASM1.sensor_NH" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.sensor_NH"></A><A HREF="WasteWater_ASM1.html#WasteWater.ASM1"
+>WasteWater.ASM1</A>.sensor_NH</H2>
+<B>Ideal sensor to measure ammonium nitrogen</B><p>
+<IMG SRC="WasteWater.ASM1.sensor_NHD.png" ALT="WasteWater.ASM1.sensor_NH" width="87" height="94">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component measures the ammonium nitrogen concentration [g/m3]
+of ASM1 wastewater and provides the result as output signal (to be
+further processed with blocks of the Modelica.Blocks library).
+</font></PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> sensor_NH <font color="darkgreen">&quot;Ideal sensor to measure ammonium nitrogen&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.sensor_NH"
+>WasteWater.Icons.sensor_NH</A>;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1in"
+>Interfaces.WWFlowAsm1in</A> In;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
+>Modelica.Blocks.Interfaces.OutPort</A> Snh(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  In.Q = 0;
+  Snh.signal[1] = In.Snh;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>sensor_NH;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.sensor_NOI.png" ALT="WasteWater.ASM1.sensor_NO" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.sensor_NO"></A><A HREF="WasteWater_ASM1.html#WasteWater.ASM1"
+>WasteWater.ASM1</A>.sensor_NO</H2>
+<B>Ideal sensor to measure nitrate nitrogen</B><p>
+<IMG SRC="WasteWater.ASM1.sensor_NOD.png" ALT="WasteWater.ASM1.sensor_NO" width="88" height="94">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component measures the nitrate nitrogen concentration [g/m3]
+of ASM1 wastewater and provides the result as output signal (to be
+further processed with blocks of the Modelica.Blocks library).</font>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> sensor_NO <font color="darkgreen">&quot;Ideal sensor to measure nitrate nitrogen&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.sensor_NO"
+>WasteWater.Icons.sensor_NO</A>;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1in"
+>Interfaces.WWFlowAsm1in</A> In;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
+>Modelica.Blocks.Interfaces.OutPort</A> Sno(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  In.Q = 0;
+  Sno.signal[1] = In.Sno;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>sensor_NO;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.sensor_O2I.png" ALT="WasteWater.ASM1.sensor_O2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.sensor_O2"></A><A HREF="WasteWater_ASM1.html#WasteWater.ASM1"
+>WasteWater.ASM1</A>.sensor_O2</H2>
+<B>Ideal sensor to measure dissolved oxygen concentration</B><p>
+<IMG SRC="WasteWater.ASM1.sensor_O2D.png" ALT="WasteWater.ASM1.sensor_O2" width="126" height="135">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component measures the dissolved oxygen concentration [g/m3]
+of ASM1 wastewater and provides the result as output signal (to be
+further processed with blocks of the Modelica.Blocks library).</font>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> sensor_O2 <font color="darkgreen">
+  &quot;Ideal sensor to measure dissolved oxygen concentration&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.sensor_O2"
+>WasteWater.Icons.sensor_O2</A>;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1in"
+>Interfaces.WWFlowAsm1in</A> In;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
+>Modelica.Blocks.Interfaces.OutPort</A> So(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  In.Q = 0;
+  So.signal[1] = In.So;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>sensor_O2;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.sensor_QI.png" ALT="WasteWater.ASM1.sensor_Q" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.sensor_Q"></A><A HREF="WasteWater_ASM1.html#WasteWater.ASM1"
+>WasteWater.ASM1</A>.sensor_Q</H2>
+<B>Ideal sensor to measure the flow rate of an ASM1 wastewater stream</B><p>
+<IMG SRC="WasteWater.ASM1.sensor_QD.png" ALT="WasteWater.ASM1.sensor_Q" width="101" height="93">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component measures the flow of an ASM1 wastewater stream and provides
+the result as output signal (to be further processed with blocks of
+the Modelica.Blocks library).</font>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> sensor_Q <font color="darkgreen">
+  &quot;Ideal sensor to measure the flow rate of an ASM1 wastewater stream&quot;</font>
+   
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.sensor_Q"
+>WasteWater.Icons.sensor_Q</A>;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1in"
+>Interfaces.WWFlowAsm1in</A> In;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1out"
+>Interfaces.WWFlowAsm1out</A> Out;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
+>Modelica.Blocks.Interfaces.OutPort</A> Q(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  In.Q + Out.Q = 0;
+  Q.signal[1] = In.Q;
+  <font color="darkgreen">// eventually abs(In.Q) to be sure to have pos. signal</font><font face="Times New Roman" size="3">
+</font>
+  In.Si = Out.Si;
+  In.Ss = Out.Ss;
+  In.Xi = Out.Xi;
+  In.Xs = Out.Xs;
+  In.Xbh = Out.Xbh;
+  In.Xba = Out.Xba;
+  In.Xp = Out.Xp;
+  In.So = Out.So;
+  In.Sno = Out.Sno;
+  In.Snh = Out.Snh;
+  In.Snd = Out.Snd;
+  In.Xnd = Out.Xnd;
+  In.Salk = Out.Salk;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>sensor_Q;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.sensor_TKNI.png" ALT="WasteWater.ASM1.sensor_TKN" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.sensor_TKN"></A><A HREF="WasteWater_ASM1.html#WasteWater.ASM1"
+>WasteWater.ASM1</A>.sensor_TKN</H2>
+<B>Ideal TKN and total nitrogen sensor</B><p>
+<IMG SRC="WasteWater.ASM1.sensor_TKND.png" ALT="WasteWater.ASM1.sensor_TKN" width="91" height="94">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component measures the Total Kjeldal Nitrogen (TKN) and the<span lang="de"> </span>total nitrogen (N_total)
+concentration [g/m3] of ASM1 wastewater<span lang="de"> </span>and provides the result as output signal
+(to be further processed<span lang="de"> </span>with blocks of the Modelica.Blocks library).
+
+<span lang="de">   </span>signal[1] - TKN
+<span lang="de">   </span>signal[2] - N_total</font>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Y_h</TD><TD>0.67</TD><TD>Heterotrophic Yield [g Xbh COD formed/(g COD utilised)]</TD></TR>
+<TR><TD>Y_a</TD><TD>0.24</TD><TD>Autotrophic Yield [g Xba COD formed/(g N utilised)]</TD></TR>
+<TR><TD>f_p</TD><TD>0.08</TD><TD>Fraction of biomass to particulate products [-]</TD></TR>
+<TR><TD>i_xb</TD><TD>0.086</TD><TD>Fraction nitrogen in biomass [g N/(g COD)]</TD></TR>
+<TR><TD>i_xp</TD><TD>0.06</TD><TD>Fraction nitrogen in particulate products [g N/(g COD)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> sensor_TKN <font color="darkgreen">&quot;Ideal TKN and total nitrogen sensor&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.sensor_TKN"
+>WasteWater.Icons.sensor_TKN</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.stoichiometry"
+>Interfaces.stoichiometry</A>;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1in"
+>Interfaces.WWFlowAsm1in</A> In;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
+>Modelica.Blocks.Interfaces.OutPort</A> TKN(<font color="blue">final </font>n=2);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  In.Q = 0.0;
+  TKN.signal[1] = In.Snh + In.Snd + In.Xnd + i_xb*(In.Xbh + In.Xba)<font face="Times New Roman" size="3">
+<span lang="de">      </span></font> + i_xp*(In.Xp + In.Xi);
+  TKN.signal[2] = TKN.signal[1] + In.Sno;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>sensor_TKN;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.sensor_TSSI.png" ALT="WasteWater.ASM1.sensor_TSS" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.sensor_TSS"></A><A HREF="WasteWater_ASM1.html#WasteWater.ASM1"
+>WasteWater.ASM1</A>.sensor_TSS</H2>
+<B>Ideal sensor to measure total suspended solids concentration (ASM1)</B><p>
+<IMG SRC="WasteWater.ASM1.sensor_TSSD.png" ALT="WasteWater.ASM1.sensor_TSS" width="91" height="94">
+<H3>Information</H3>
+<PRE><font size="3" face="Times New Roman">This component measures the total suspended solids concentration [g/m3]<span lang="de"> </span>of ASM1 wastewater
+and provides the result as output signal (to be<span lang="de"> </span>further processed with blocks of the Modelica.Blocks library).
+</font></PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> sensor_TSS <font color="darkgreen">
+  &quot;Ideal sensor to measure total suspended solids concentration (ASM1)&quot;</font>
+   
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.sensor_TSS"
+>WasteWater.Icons.sensor_TSS</A>;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1in"
+>Interfaces.WWFlowAsm1in</A> In;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
+>Modelica.Blocks.Interfaces.OutPort</A> TSS(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  In.Q = 0;
+  <font color="darkgreen"></font>
+  TSS.signal[1] = 0.75*(In.Xs + In.Xbh + In.Xba + In.Xp + In.Xi);
+  <font color="darkgreen">// the factor 0.75 needs to be adapted due to plant dependency</font>
+  <font color="darkgreen">// 0.75 is from the COST Benchmark configuration</font>
+  <font color="darkgreen"></font>
+<font color="blue">end </font>sensor_TSS;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Aug 18 11:14:37 2003
+.
+</address></BODY>
+</HTML>

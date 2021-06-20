@@ -1,0 +1,435 @@
+<HTML>
+<HEAD>
+<META name="HTML-Generator" content="Dymola"><TITLE>WasteWater</TITLE></HEAD>
+<BODY><P>
+<H2><A NAME="WasteWater.ASM1.Interfaces"></A><A HREF="WasteWater_ASM1.html#WasteWater.ASM1"
+>WasteWater.ASM1</A>.Interfaces</H2>
+<B>Connectors and partial ASM1 model for wastewater treatment modelling</B>
+<P>
+<A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1in"
+><IMG SRC="WasteWater.ASM1.Interfaces.WWFlowAsm1inI.png" ALT="WasteWater.ASM1.Interfaces.WWFlowAsm1in" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1out"
+><IMG SRC="WasteWater.ASM1.Interfaces.WWFlowAsm1outI.png" ALT="WasteWater.ASM1.Interfaces.WWFlowAsm1out" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.AirFlow"
+><IMG SRC="WasteWater.ASM1.Interfaces.AirFlowI.png" ALT="WasteWater.ASM1.Interfaces.AirFlow" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.stoichiometry"
+><IMG SRC="WasteWater.ASM1.Interfaces.stoichiometryI.png" ALT="WasteWater.ASM1.Interfaces.stoichiometry" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.ASM1base"
+><IMG SRC="WasteWater.ASM1.Interfaces.ASM1baseI.png" ALT="WasteWater.ASM1.Interfaces.ASM1base" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This package contains connectors and interfaces (partial models) for
+wastewater treatment components based on the <span lang="en-gb"><b>A</b></span><i><span lang="en-gb">cti</span><span lang="de">v</span>ated</i> <b>S</b><i>ludge</i> <b>M</b><i>odel</i> <i>No.</i><b>1</b> (<b>ASM1</b>).</font></PRE>
+<PRE><font face="Times New Roman" size="3"><b>Main Author:</b><i>
+<span lang="de"> </span></i>
+&nbsp;<i><span lang="de">         </span></i>Gerald Reichl
+<span lang="de">         </span> Technische Universitaet Ilmenau
+<span lang="de">          </span>Faculty of Informatics and Automation
+<span lang="de">          </span>Department Dynamics and Simulation of ecological Systems
+<span lang="de">          </span>P.O. Box 10 05 65
+<span lang="de">          </span>98684 Ilmenau
+<span lang="de">          </span>Germany
+<span lang="de">          email</span>: <a href="mailto:gerald.reichl@tu-ilmenau.de">gerald.reichl@tu-ilmenau.de</a>
+&nbsp;&nbsp;
+&nbsp;
+<b>Copyright (C) 2000 - 200<span lang="de">1</span>, </b>Gerald Reichl</font></PRE>
+
+<p><i>
+The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the<span lang="de"> </span>accompanying <b>disclaimer</b> in the documentation of package 
+Modelica in file "Modelica/package.mo".
+</i></p>
+<PRE></PRE><P>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.Interfaces.ASM1baseI.png" ALT="WasteWater.ASM1.Interfaces.ASM1base" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.Interfaces.ASM1base"></A><A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces"
+>WasteWater.ASM1.Interfaces</A>.ASM1base</H2>
+<B>Base class of WWTP modelling by ASM1</B><p>
+<IMG SRC="WasteWater.ASM1.Interfaces.ASM1baseD.png" ALT="WasteWater.ASM1.Interfaces.ASM1base" width="101" height="37">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This partial model provides connectors and equations that are needed in the biological 
+components (nitrification and denitrification tank) for ASM1 wastewater treatment plant models.
+Parameters are coded according the ASM1 [1,2] standard distribution.
+Changes to this parameters are subject to the modeller.
+
+<b>
+References:</b>
+
+[1]<b> <span lang="de"> </span></b>M. Henze and C.P.L. Grady Jr and W. Gujer and G.v.R. Marais and T. Matsuo:
+     <span lang="de"> </span>Activated Sludge Model No.1. IAWQ, 1987.
+
+[2] <span lang="de"> </span>M. Henze and W.Gujer and T. Mino and. M.v. Loosdrecht: Activated Sludge
+     <span lang="de"> </span>Models ASM1, ASM2, ASM2d, and ASM3. IWA Task Group on Mathematical Modelling
+     <span lang="de"> </span>for Design and Operation of Biological Wastewater Treatment, 2000.</font>
+
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Y_h</TD><TD>0.67</TD><TD>Heterotrophic Yield [g Xbh COD formed/(g COD utilised)]</TD></TR>
+<TR><TD>Y_a</TD><TD>0.24</TD><TD>Autotrophic Yield [g Xba COD formed/(g N utilised)]</TD></TR>
+<TR><TD>f_p</TD><TD>0.08</TD><TD>Fraction of biomass to particulate products [-]</TD></TR>
+<TR><TD>i_xb</TD><TD>0.086</TD><TD>Fraction nitrogen in biomass [g N/(g COD)]</TD></TR>
+<TR><TD>i_xp</TD><TD>0.06</TD><TD>Fraction nitrogen in particulate products [g N/(g COD)]</TD></TR>
+<TR><TD>mu_h_T</TD><TD>4.0</TD><TD>Maximum heterotrophic growth rate at T=15 deg C [day^-1]</TD></TR>
+<TR><TD>b_h_T</TD><TD>0.28</TD><TD>Heterotrophic decay rate at T=15 deg C [day^-1]</TD></TR>
+<TR><TD>mu_a_T</TD><TD>0.5</TD><TD>Maximum autotrophic growth rate at T=15 deg C[day^-1]</TD></TR>
+<TR><TD>b_a_T</TD><TD>0.1</TD><TD>Autotrophic decay rate at T=15 deg C [day^-1]</TD></TR>
+<TR><TD>k_a_T</TD><TD>0.06</TD><TD>Ammonification rate at T=15 deg C [m3/(g COD day)]</TD></TR>
+<TR><TD>k_h_T</TD><TD>1.75</TD><TD>Maximum specific hydrolysis rate at T=15 deg C [g Xs/(g Xbh COD day)]</TD></TR>
+<TR><TD>K_x_T</TD><TD>0.0175</TD><TD>Half-saturation (hydrolysis) at T=15 deg C [g Xs/(g Xbh COD)]</TD></TR>
+<TR><TD>K_nh</TD><TD>1.0</TD><TD>Half-saturation (auto. growth) [g NH-N/m3]</TD></TR>
+<TR><TD>K_s</TD><TD>20.0</TD><TD>Half-saturation (hetero. growth) [g COD/m3]</TD></TR>
+<TR><TD>K_oh</TD><TD>0.2</TD><TD>Half-saturation (hetero. oxygen) [g O/m3]</TD></TR>
+<TR><TD>K_no</TD><TD>0.5</TD><TD>Half-saturation (nitrate) [g NO-N/m3]</TD></TR>
+<TR><TD>K_oa</TD><TD>0.4</TD><TD>Half-saturation (auto. oxygen) [g O/m3]</TD></TR>
+<TR><TD>ny_g</TD><TD>0.8</TD><TD>Anoxic growth rate correction factor [-]</TD></TR>
+<TR><TD>ny_h</TD><TD>0.4</TD><TD>Anoxic hydrolysis rate correction factor [-]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">partial </font><font color="blue">model</font> ASM1base <font color="darkgreen">&quot;Base class of WWTP modelling by ASM1&quot;</font> 
+  <font color="blue">extends </font><A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.stoichiometry"
+>Interfaces.stoichiometry</A>;
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// parameters based on the original ASM1 publication based on 15 deg C    </font>
+  Real mu_h <font color="darkgreen">&quot;Maximum heterotrophic growth rate f(T) [day^-1]&quot;</font>;
+  Real b_h <font color="darkgreen">&quot;Heterotrophic decay rate f(T) [day^-1]&quot;</font>;
+  Real mu_a <font color="darkgreen">&quot;Maximum autotrophic growth rate f(T) [day^-1]&quot;</font>;
+  <font color="darkgreen">//Real K_nh &quot;Half-saturation (auto. growth) f(T) [g NH-N/m3]&quot;;</font>
+  Real b_a <font color="darkgreen">&quot;Autotrophic decay rate f(T) [day^-1]&quot;</font>;
+  Real k_a <font color="darkgreen">&quot;Ammonification rate f(T) [m3/(g COD day)]&quot;</font>;
+  Real k_h <font color="darkgreen">&quot;Maximum specific hydrolysis rate f(T) [g Xs/(g Xbh COD day)]&quot;</font>;
+  Real K_x <font color="darkgreen">&quot;Half-saturation (hydrolysis) f(T) [g Xs/(g Xbh COD)]&quot;</font>;
+  <font color="blue">parameter </font>Real mu_h_T=4.0 <font color="darkgreen">
+    &quot;Maximum heterotrophic growth rate at T=15 deg C [day^-1]&quot;</font>;
+  <font color="blue">parameter </font>Real b_h_T=0.28 <font color="darkgreen">&quot;Heterotrophic decay rate at T=15 deg C [day^-1]&quot;</font>;
+  <font color="blue">parameter </font>Real mu_a_T=0.5 <font color="darkgreen">
+    &quot;Maximum autotrophic growth rate at T=15 deg C[day^-1]&quot;</font>;
+  <font color="blue">parameter </font>Real b_a_T=0.1 <font color="darkgreen">&quot;Autotrophic decay rate at T=15 deg C [day^-1]&quot;</font>;
+  <font color="blue">parameter </font>Real k_a_T=0.06 <font color="darkgreen">
+    &quot;Ammonification rate at T=15 deg C [m3/(g COD day)]&quot;</font>;
+  <font color="blue">parameter </font>Real k_h_T=1.75 <font color="darkgreen">
+    &quot;Maximum specific hydrolysis rate at T=15 deg C [g Xs/(g Xbh COD day)]&quot;</font>;
+  <font color="blue">parameter </font>Real K_x_T=0.0175 <font color="darkgreen">
+    &quot;Half-saturation (hydrolysis) at T=15 deg C [g Xs/(g Xbh COD)]&quot;</font>;
+  <font color="blue">parameter </font>Real K_nh=1.0 <font color="darkgreen">&quot;Half-saturation (auto. growth) [g NH-N/m3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_s=20.0 <font color="darkgreen">&quot;Half-saturation (hetero. growth) [g COD/m3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_oh=0.2 <font color="darkgreen">&quot;Half-saturation (hetero. oxygen) [g O/m3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_no=0.5 <font color="darkgreen">&quot;Half-saturation (nitrate) [g NO-N/m3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_oa=0.4 <font color="darkgreen">&quot;Half-saturation (auto. oxygen) [g O/m3]&quot;</font>;
+  <font color="blue">parameter </font>Real ny_g=0.8 <font color="darkgreen">&quot;Anoxic growth rate correction factor [-]&quot;</font>;
+  <font color="blue">parameter </font>Real ny_h=0.4 <font color="darkgreen">&quot;Anoxic hydrolysis rate correction factor [-]&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Si <font color="darkgreen">&quot;Soluble inert organic matter&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Ss <font color="darkgreen">&quot;Readily biodegradable substrate&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xi <font color="darkgreen">&quot;Particulate inert organic matter&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xs <font color="darkgreen">&quot;Slowly biodegradable substrate&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xbh <font color="darkgreen">&quot;Active heterotrophic biomass&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xba <font color="darkgreen">&quot;Active autotrophic biomass&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xp <font color="darkgreen">&quot;Particulate products from biomass decay&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> So <font color="darkgreen">&quot;Dissolved oxygen&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sno <font color="darkgreen">&quot;Nitrate and nitrite nitrogen&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snh <font color="darkgreen">&quot;Ammonium nitrogen&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snd <font color="darkgreen">&quot;Soluble biodegradable organic nitrogen&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xnd <font color="darkgreen">&quot;Particulate biodegradable organic nitrogen&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.Alkalinity"
+>WWU.Alkalinity</A> Salk <font color="darkgreen">&quot;Alkalinity&quot;</font>;
+  Real p1;
+  Real p2;
+  Real p3;
+  Real p4;
+  Real p5;
+  Real p6;
+  Real p7;
+  Real p8;
+  Real r1;
+  Real r2;
+  Real r3;
+  Real r4;
+  Real r5;
+  Real r6;
+  Real r7;
+  Real r8;
+  Real r9;
+  Real r10;
+  Real r11;
+  Real r12;
+  Real r13;
+  Real inputSi;
+  Real inputSs;
+  Real inputXi;
+  Real inputXs;
+  Real inputXbh;
+  Real inputXba;
+  Real inputXp;
+  Real inputSo;
+  Real inputSno;
+  Real inputSnh;
+  Real inputSnd;
+  Real inputXnd;
+  Real inputSalk;
+  Real aeration;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1in"
+>Interfaces.WWFlowAsm1in</A> In;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1out"
+>Interfaces.WWFlowAsm1out</A> Out;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1out"
+>Interfaces.WWFlowAsm1out</A> MeasurePort;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> T(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Temperature dependent Kinetic parameters based on 15 deg C</font>
+  <font color="darkgreen">// may be adapted to 10 or 20 deg C</font>
+  <font color="darkgreen"></font>
+  mu_h = mu_h_T*<font color="red">exp</font>(0.069*(T.signal[1] - 15));
+  b_h = b_h_T*<font color="red">exp</font>(0.069*(T.signal[1] - 15));
+  mu_a = mu_a_T*<font color="red">exp</font>(0.098*(T.signal[1] - 15));
+  <font color="darkgreen">//K_nh=1.0*exp(0.069*(T.signal[1]-15));</font>
+  b_a = b_a_T*<font color="red">exp</font>(0.08*(T.signal[1] - 15));
+  k_a = k_a_T*<font color="red">exp</font>(0.069*(T.signal[1] - 15));
+  k_h = k_h_T*<font color="red">exp</font>(0.11*(T.signal[1] - 15));
+  K_x = K_x_T*<font color="red">exp</font>(0.11*(T.signal[1] - 15));
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Process Rates</font>
+  <font color="darkgreen"></font>
+  p1 = mu_h*(Ss/(K_s + Ss))*(So/(K_oh + So))*Xbh;
+  p2 = mu_h*(Ss/(K_s + Ss))*(K_oh/(K_oh + So))*(Sno/(K_no + Sno))*ny_g*Xbh;
+  p3 = mu_a*(Snh/(K_nh + Snh))*(So/(K_oa + So))*Xba;
+  p4 = b_h*Xbh;
+  p5 = b_a*Xba;
+  p6 = k_a*Snd*Xbh;
+  p7 = k_h*((Xs/Xbh)/(K_x + (Xs/Xbh)))*((So/(K_oh + So)) + ny_h*(K_oh/(K_oh + 
+    So))*(Sno/(K_no + Sno)))*Xbh;
+  p8 = p7*Xnd/Xs;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// biochemical reactions</font>
+  <font color="darkgreen"></font>
+  r1 = 0;
+  r2 = (-p1 - p2)/Y_h + p7;
+  r3 = 0;
+  r4 = (1 - f_p)*(p4 + p5) - p7;
+  r5 = p1 + p2 - p4;
+  r6 = p3 - p5;
+  r7 = f_p*(p4 + p5);
+  r8 = -((1 - Y_h)/Y_h)*p1 - ((4.57 - Y_a)/Y_a)*p3;
+  r9 = -((1 - Y_h)/(2.86*Y_h))*p2 + p3/Y_a;
+  r10 = -i_xb*(p1 + p2) - (i_xb + (1/Y_a))*p3 + p6;
+  r11 = -p6 + p8;
+  r12 = (i_xb - f_p*i_xp)*(p4 + p5) - p8;
+  r13 = -i_xb/14*p1 + ((1 - Y_h)/(14*2.86*Y_h) - (i_xb/14))*p2 - ((i_xb/14) + 1
+    /(7*Y_a))*p3 + p6/14;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// derivatives</font>
+  <font color="darkgreen"></font>
+  <font color="red">der</font>(Si) = inputSi + r1;
+  <font color="red">der</font>(Ss) = inputSs + r2;
+  <font color="red">der</font>(Xi) = inputXi + r3;
+  <font color="red">der</font>(Xs) = inputXs + r4;
+  <font color="red">der</font>(Xbh) = inputXbh + r5;
+  <font color="red">der</font>(Xba) = inputXba + r6;
+  <font color="red">der</font>(Xp) = inputXp + r7;
+  <font color="red">der</font>(So) = inputSo + r8 + aeration;
+  <font color="red">der</font>(Sno) = inputSno + r9;
+  <font color="red">der</font>(Snh) = inputSnh + r10;
+  <font color="red">der</font>(Snd) = inputSnd + r11;
+  <font color="red">der</font>(Xnd) = inputXnd + r12;
+  <font color="red">der</font>(Salk) = inputSalk + r13;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Outputs</font>
+  <font color="darkgreen"></font>
+  Out.Q + In.Q = 0;
+  Out.Si = Si;
+  Out.Ss = Ss;
+  Out.Xi = Xi;
+  Out.Xs = Xs;
+  Out.Xbh = Xbh;
+  Out.Xba = Xba;
+  Out.Xp = Xp;
+  Out.So = So;
+  Out.Sno = Sno;
+  Out.Snh = Snh;
+  Out.Snd = Snd;
+  Out.Xnd = Xnd;
+  Out.Salk = Salk;
+  <font color="darkgreen"></font>
+  MeasurePort.Si = Si;
+  MeasurePort.Ss = Ss;
+  MeasurePort.Xi = Xi;
+  MeasurePort.Xs = Xs;
+  MeasurePort.Xbh = Xbh;
+  MeasurePort.Xba = Xba;
+  MeasurePort.Xp = Xp;
+  MeasurePort.So = So;
+  MeasurePort.Sno = Sno;
+  MeasurePort.Snh = Snh;
+  MeasurePort.Snd = Snd;
+  MeasurePort.Xnd = Xnd;
+  MeasurePort.Salk = Salk;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>ASM1base;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.Interfaces.WWFlowAsm1inI.png" ALT="WasteWater.ASM1.Interfaces.WWFlowAsm1in" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.Interfaces.WWFlowAsm1in"></A><A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces"
+>WasteWater.ASM1.Interfaces</A>.WWFlowAsm1in</H2>
+<B>Inflow connector of ASM1 components</B><font face="Times New Roman" size="3"><br>
+&nbsp;</font><H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">Connectors WWFlowAsm1in and WWFlowAsm1out are nearly identical.
+The difference is in the icons to more easily identify the inflow and outflow
+side of a component.
+The connector consists of one flow variable and 13 potential variables (ASM1 concentrations).
+</font>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">connector</font> WWFlowAsm1in <font color="darkgreen">&quot;Inflow connector of ASM1 components&quot;</font> 
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <font color="blue">flow </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.VolumeFlowRate"
+>WWU.VolumeFlowRate</A> Q;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Si;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Ss;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xi;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xs;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xbh;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xba;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xp;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> So;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sno;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snh;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snd;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xnd;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.Alkalinity"
+>WWU.Alkalinity</A> Salk;
+  <font color="darkgreen"></font>
+  <font color="darkgreen"></font>
+<font color="blue">end </font>WWFlowAsm1in;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.Interfaces.WWFlowAsm1outI.png" ALT="WasteWater.ASM1.Interfaces.WWFlowAsm1out" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.Interfaces.WWFlowAsm1out"></A><A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces"
+>WasteWater.ASM1.Interfaces</A>.WWFlowAsm1out</H2>
+<B>Outflow connector of ASM1 components</B><font face="Times New Roman" size="3"><br>
+&nbsp;</font><p>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">Connectors WWFlowAsm1in and WWFlowAsm1out are nearly identical.
+The difference is in the icons to more easily identify the inflow and outflow
+side of a component.
+The connector consists of one flow variable and 13 potential variables (ASM1 concentrations).
+</font>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">connector</font> WWFlowAsm1out <font color="darkgreen">&quot;Outflow connector of ASM1 components&quot;</font> 
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <font color="blue">flow </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.VolumeFlowRate"
+>WWU.VolumeFlowRate</A> Q;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Si;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Ss;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xi;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xs;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xbh;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xba;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xp;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> So;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sno;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snh;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snd;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xnd;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.Alkalinity"
+>WWU.Alkalinity</A> Salk;
+<font color="blue">end </font>WWFlowAsm1out;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.Interfaces.AirFlowI.png" ALT="WasteWater.ASM1.Interfaces.AirFlow" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.Interfaces.AirFlow"></A><A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces"
+>WasteWater.ASM1.Interfaces</A>.AirFlow</H2>
+<B>Airflow connector</B><font face="Times New Roman" size="3"><br>
+&nbsp;</font><p>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">The Airflow connector consists of a flow variable describing the exchange of
+air between blower and nitrification tank.
+</font></PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">connector</font> AirFlow <font color="darkgreen">&quot;Airflow connector&quot;</font> 
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <font color="darkgreen"></font>
+  <font color="blue">flow </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.VolumeFlowRate"
+>WWU.VolumeFlowRate</A> Q_air;
+<font color="blue">end </font>AirFlow;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.Interfaces.stoichiometryI.png" ALT="WasteWater.ASM1.Interfaces.stoichiometry" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.Interfaces.stoichiometry"></A><A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces"
+>WasteWater.ASM1.Interfaces</A>.stoichiometry</H2>
+<B>ASM1 stoichiometric coefficients</B><font face="Times New Roman" size="3"><br>
+&nbsp;</font><p>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This is a partial model providing the stoichiometric coefficients of the ASM1 model.</font></PRE>
+<H3><font face="Times New Roman" size="3"><br>
+</font>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Y_h</TD><TD>0.67</TD><TD>Heterotrophic Yield [g Xbh COD formed/(g COD utilised)]</TD></TR>
+<TR><TD>Y_a</TD><TD>0.24</TD><TD>Autotrophic Yield [g Xba COD formed/(g N utilised)]</TD></TR>
+<TR><TD>f_p</TD><TD>0.08</TD><TD>Fraction of biomass to particulate products [-]</TD></TR>
+<TR><TD>i_xb</TD><TD>0.086</TD><TD>Fraction nitrogen in biomass [g N/(g COD)]</TD></TR>
+<TR><TD>i_xp</TD><TD>0.06</TD><TD>Fraction nitrogen in particulate products [g N/(g COD)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">partial </font><font color="blue">model</font> stoichiometry <font color="darkgreen">&quot;ASM1 stoichiometric coefficients&quot;</font> 
+  <font color="darkgreen">// Stoichiometric parameters based on the original ASM1 publication</font>
+  <font color="blue">parameter </font>Real Y_h=0.67 <font color="darkgreen">&quot;Heterotrophic Yield [g Xbh COD formed/(g COD utilised)]&quot;</font>;
+  <font color="blue">parameter </font>Real Y_a=0.24 <font color="darkgreen">
+    &quot;Autotrophic Yield [g Xba COD formed/(g N utilised)]&quot;</font>;
+  <font color="blue">parameter </font>Real f_p=0.08 <font color="darkgreen">&quot;Fraction of biomass to particulate products [-]&quot;</font>;
+  <font color="blue">parameter </font>Real i_xb=0.086 <font color="darkgreen">&quot;Fraction nitrogen in biomass [g N/(g COD)]&quot;</font>;
+  <font color="blue">parameter </font>Real i_xp=0.06 <font color="darkgreen">
+    &quot;Fraction nitrogen in particulate products [g N/(g COD)]&quot;</font>;
+<font color="blue">end </font>stoichiometry;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Aug 18 11:15:05 2003
+.
+</address></BODY>
+</HTML>

@@ -1,0 +1,282 @@
+<HTML>
+<HEAD>
+<META name="HTML-Generator" content="Dymola"><TITLE>WasteWater</TITLE></HEAD>
+<BODY><P>
+<H2><A NAME="WasteWater.ASM3.SecClar.Takacs.Interfaces"></A><A HREF="WasteWater_ASM3_SecClar_Takacs.html#WasteWater.ASM3.SecClar.Takacs"
+>WasteWater.ASM3.SecClar.Takacs</A>.Interfaces</H2>
+<B>Connectors and partial models for Secondary Clarifier Model by Takacs</B>
+<P>
+<A HREF="WasteWater_ASM3_SecClar_Takacs_Interfaces.html#WasteWater.ASM3.SecClar.Takacs.Interfaces.UpperLayerPin"
+><IMG SRC="WasteWater.ASM3.SecClar.Takacs.Interfaces.UpperLayerPinI.png" ALT="WasteWater.ASM3.SecClar.Takacs.Interfaces.UpperLayerPin" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM3_SecClar_Takacs_Interfaces.html#WasteWater.ASM3.SecClar.Takacs.Interfaces.LowerLayerPin"
+><IMG SRC="WasteWater.ASM3.SecClar.Takacs.Interfaces.LowerLayerPinI.png" ALT="WasteWater.ASM3.SecClar.Takacs.Interfaces.LowerLayerPin" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM3_SecClar_Takacs_Interfaces.html#WasteWater.ASM3.SecClar.Takacs.Interfaces.SCParam"
+><IMG SRC="WasteWater.ASM3.SecClar.Takacs.Interfaces.SCParamI.png" ALT="WasteWater.ASM3.SecClar.Takacs.Interfaces.SCParam" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM3_SecClar_Takacs_Interfaces.html#WasteWater.ASM3.SecClar.Takacs.Interfaces.SCVar"
+><IMG SRC="WasteWater.ASM3.SecClar.Takacs.Interfaces.SCVarI.png" ALT="WasteWater.ASM3.SecClar.Takacs.Interfaces.SCVar" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM3_SecClar_Takacs_Interfaces.html#WasteWater.ASM3.SecClar.Takacs.Interfaces.ratios"
+><IMG SRC="WasteWater.ASM3.SecClar.Takacs.Interfaces.ratiosI.png" ALT="WasteWater.ASM3.SecClar.Takacs.Interfaces.ratios" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM3_SecClar_Takacs_Interfaces.html#WasteWater.ASM3.SecClar.Takacs.Interfaces.vSfun"
+><IMG SRC="WasteWater.ASM3.SecClar.Takacs.Interfaces.vSfunI.png" ALT="WasteWater.ASM3.SecClar.Takacs.Interfaces.vSfun" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This package contains connectors and interfaces (partial models) for<span lang="de"> </span>the ASM3 
+secondary clarifier model based on Takacs [1] (double-exponential settling velocity).
+</font></PRE>
+<PRE><font face="Times New Roman" size="3"><b>Main Author:</b><i>
+<span lang="de"> </span></i>
+&nbsp;<i><span lang="de">         </span></i>Gerald Reichl
+<span lang="de">         </span> Technische Universitaet Ilmenau
+<span lang="de">          </span>Faculty of Informatics and Automation
+<span lang="de">          </span>Department Dynamics and Simulation of ecological Systems
+<span lang="de">          </span>P.O. Box 10 05 65
+<span lang="de">          </span>98684 Ilmenau
+<span lang="de">          </span>Germany
+<span lang="de">          email</span>: <a href="mailto:gerald.reichl@tu-ilmenau.de">gerald.reichl@tu-ilmenau.de</a>
+</font></PRE>
+<PRE><font face="Times New Roman" size="3"><b>References:
+</b>
+[1]<span lang="de"> </span> I. Takacs and G.G. Patry and D. Nolasco: A dynamic model of the clarification-thickening
+   <span lang="de">  </span> process. Water Research. 25 (1991) 10, pp 1263-1271.
+
+</font></PRE>
+<PRE><font face="Times New Roman" size="3"><b><span lang="de">C</span>opyright (C) 2003, </b>Gerald Reichl</font></PRE>
+
+<p><i>
+The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the<span lang="de"> </span>accompanying <b>disclaimer</b> in the documentation of package 
+Modelica in file "Modelica/package.mo".
+</i></p>
+<HR>
+<H2><IMG SRC="WasteWater.ASM3.SecClar.Takacs.Interfaces.ratiosI.png" ALT="WasteWater.ASM3.SecClar.Takacs.Interfaces.ratios" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM3.SecClar.Takacs.Interfaces.ratios"></A><A HREF="WasteWater_ASM3_SecClar_Takacs_Interfaces.html#WasteWater.ASM3.SecClar.Takacs.Interfaces"
+>WasteWater.ASM3.SecClar.Takacs.Interfaces</A>.ratios</H2>
+<B>partial model for ratios of solid components</B><p>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">partial model for ASM3 ratios of solid components</font></PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">partial </font><font color="blue">model</font> ratios <font color="darkgreen">&quot;partial model for ratios of solid components&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// ratios of solid components</font>
+  Real rXi;
+  Real rXs;
+  Real rXh;
+  Real rXsto;
+  Real rXa;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>ratios;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM3.SecClar.Takacs.Interfaces.SCParamI.png" ALT="WasteWater.ASM3.SecClar.Takacs.Interfaces.SCParam" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM3.SecClar.Takacs.Interfaces.SCParam"></A><A HREF="WasteWater_ASM3_SecClar_Takacs_Interfaces.html#WasteWater.ASM3.SecClar.Takacs.Interfaces"
+>WasteWater.ASM3.SecClar.Takacs.Interfaces</A>.SCParam</H2>
+<B>partial model providing clarifier parameters</B><p>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">partial model providing clarifier parameters</font></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<tr>
+  <TH>Name</TH><TH>Default</TH><TH>Description</TH>
+</tr>
+<tr>
+  <TD>zm</TD><TD>&nbsp;</TD><TD>height of m-th secondary clarifier layer [m]</TD>
+</tr>
+<tr>
+  <TD>Asc</TD><TD>&nbsp;</TD><TD>area of secondary clarifier [m2]</TD>
+</tr>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">partial </font><font color="blue">model</font> SCParam <font color="darkgreen">&quot;partial model providing clarifier parameters&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">package</font> SI = <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> zm;
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> Asc;
+  <font color="darkgreen"></font>
+  <font color="darkgreen"></font>
+<font color="blue">end </font>SCParam;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM3.SecClar.Takacs.Interfaces.SCVarI.png" ALT="WasteWater.ASM3.SecClar.Takacs.Interfaces.SCVar" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM3.SecClar.Takacs.Interfaces.SCVar"></A><A HREF="WasteWater_ASM3_SecClar_Takacs_Interfaces.html#WasteWater.ASM3.SecClar.Takacs.Interfaces"
+>WasteWater.ASM3.SecClar.Takacs.Interfaces</A>.SCVar</H2>
+<B>partial models providing variables</B><p>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">partial model providing ASM3 variables</font></PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">partial </font><font color="blue">model</font> SCVar <font color="darkgreen">&quot;partial models providing variables&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> X <font color="darkgreen">&quot;total sludge concentraton in m-th layer&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xf <font color="darkgreen">&quot;total sludge concentration in clarifier feed&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.SedimentationVelocity"
+>WWU.SedimentationVelocity</A> vS <font color="darkgreen">&quot;sink velocity in m-th layer&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.SedimentationFlux"
+>WWU.SedimentationFlux</A> Jsm <font color="darkgreen">&quot;sedimentation flux m-th layer&quot;</font>;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> So <font color="darkgreen">&quot;Dissolved oxygen&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Si <font color="darkgreen">&quot;Soluble inert organics&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Ss <font color="darkgreen">&quot;Readily biodegradable substrates&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snh <font color="darkgreen">&quot;Ammonium&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sn2 <font color="darkgreen">&quot;Dinitrogen, released by nitrification&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snox <font color="darkgreen">&quot;Nitrite plus nitrate&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.Alkalinity"
+>WWU.Alkalinity</A> Salk <font color="darkgreen">&quot;Alkalinity, bicarbonate&quot;</font>;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>SCVar;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM3.SecClar.Takacs.Interfaces.LowerLayerPinI.png" ALT="WasteWater.ASM3.SecClar.Takacs.Interfaces.LowerLayerPin" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM3.SecClar.Takacs.Interfaces.LowerLayerPin"></A><A HREF="WasteWater_ASM3_SecClar_Takacs_Interfaces.html#WasteWater.ASM3.SecClar.Takacs.Interfaces"
+>WasteWater.ASM3.SecClar.Takacs.Interfaces</A>.LowerLayerPin</H2>
+<B>Connector below influent layer</B><p>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">Connector for ASM3 information and mass exchange between layers
+below the influent layer (feed_layer).</font></PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">connector</font> LowerLayerPin <font color="darkgreen">&quot;Connector below influent layer&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// return and waste sludge flow Qr, Qw    </font>
+  <font color="blue">flow </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.VolumeFlowRate"
+>WWU.VolumeFlowRate</A> Qr;
+  <font color="blue">flow </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.VolumeFlowRate"
+>WWU.VolumeFlowRate</A> Qw;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// sedimentation flux</font>
+  <font color="blue">flow </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.SedimentationFlux"
+>WWU.SedimentationFlux</A> SedFlux;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// total sludge concentration in m-th layer</font>
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> X;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// total sludge concentration and sink velocity in</font>
+  <font color="darkgreen">// (m-1)-th layer (dn=down)</font>
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> X_dn;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.SedimentationVelocity"
+>WWU.SedimentationVelocity</A> vS_dn;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// soluble components</font>
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> So;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Si;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Ss;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snh;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sn2;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snox;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.Alkalinity"
+>WWU.Alkalinity</A> Salk;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>LowerLayerPin;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM3.SecClar.Takacs.Interfaces.UpperLayerPinI.png" ALT="WasteWater.ASM3.SecClar.Takacs.Interfaces.UpperLayerPin" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM3.SecClar.Takacs.Interfaces.UpperLayerPin"></A><A HREF="WasteWater_ASM3_SecClar_Takacs_Interfaces.html#WasteWater.ASM3.SecClar.Takacs.Interfaces"
+>WasteWater.ASM3.SecClar.Takacs.Interfaces</A>.UpperLayerPin</H2>
+<B>Connector above influent layer</B><p>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">Connector for ASM3 information and mass exchange 
+between layers above the influent layer (feed_layer).</font></PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">connector</font> UpperLayerPin <font color="darkgreen">&quot;Connector above influent layer&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <font color="darkgreen">// effluent flow</font>
+  <font color="blue">flow </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.VolumeFlowRate"
+>WWU.VolumeFlowRate</A> Qe;
+  <font color="darkgreen">// sedimentation flux</font>
+  <font color="blue">flow </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.SedimentationFlux"
+>WWU.SedimentationFlux</A> SedFlux;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// total sludge concentration and sink velocity in (m-1)-th layer (dn=down)</font>
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> X_dn;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.SedimentationVelocity"
+>WWU.SedimentationVelocity</A> vS_dn;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// soluble components</font>
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> So;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Si;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Ss;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snh;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sn2;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snox;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.Alkalinity"
+>WWU.Alkalinity</A> Salk;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>UpperLayerPin;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM3.SecClar.Takacs.Interfaces.vSfunI.png" ALT="WasteWater.ASM3.SecClar.Takacs.Interfaces.vSfun" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM3.SecClar.Takacs.Interfaces.vSfun"></A><A HREF="WasteWater_ASM3_SecClar_Takacs_Interfaces.html#WasteWater.ASM3.SecClar.Takacs.Interfaces"
+>WasteWater.ASM3.SecClar.Takacs.Interfaces</A>.vSfun</H2>
+<B>Sedimentation velocity function</B><p>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">Takacs<span lang="de">'</span> double-exponential sedimentation velocity function.</font></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>v0slash</TD><TD>250.0</TD><TD>max. settling velocity in m/d</TD></TR>
+<TR><TD>v0</TD><TD>474.0</TD><TD>max. Vesilind settl. veloc. in m/d</TD></TR>
+<TR><TD>rh</TD><TD>0.000576</TD><TD>hindered zone settl. param. in m3/(g SS)</TD></TR>
+<TR><TD>rp</TD><TD>0.00286</TD><TD>flocculant zone settl. param. in m3/(g SS)</TD></TR>
+<TR><TD>fns</TD><TD>0.00228</TD><TD>non-settleable fraction in -</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">function</font> vSfun <font color="darkgreen">&quot;Sedimentation velocity function&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// total sludge concentration in m-th layer in g/m3 or mg/l</font>
+  <font color="blue">input </font>Real X;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// total sludge concentration in clarifier feed in g/m3 or mg/l</font>
+  <font color="blue">input </font>Real Xf;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// sink velocity in m/d</font>
+  <font color="blue">output </font>Real vS;
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font>Real v0slash=250.0 <font color="darkgreen">&quot;max. settling velocity in m/d&quot;</font>;
+  <font color="blue">parameter </font>Real v0=474.0 <font color="darkgreen">&quot;max. Vesilind settl. veloc. in m/d&quot;</font>;
+  <font color="blue">parameter </font>Real rh=0.000576 <font color="darkgreen">&quot;hindered zone settl. param. in m3/(g SS)&quot;</font>;
+  <font color="blue">parameter </font>Real rp=0.00286 <font color="darkgreen">&quot;flocculant zone settl. param. in m3/(g SS)&quot;</font>;
+  <font color="blue">parameter </font>Real fns=0.00228 <font color="darkgreen">&quot;non-settleable fraction in -&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// computation of sink velocity</font>
+  vS := <font color="red">max</font>(0.0, <font color="red">min</font>(v0slash, v0*(<font color="red">exp</font>(-rh*(X - fns*Xf)) - <font color="red">exp</font>(-rp*(X - fns*Xf))
+    )));
+  <font color="darkgreen"></font>
+<font color="blue">end </font>vSfun;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Aug 18 11:15:53 2003
+.
+</address></BODY>
+</HTML>

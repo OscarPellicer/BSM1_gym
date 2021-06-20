@@ -1,0 +1,179 @@
+<HTML>
+<HEAD>
+<META name="HTML-Generator" content="Dymola"><TITLE>WasteWater</TITLE></HEAD>
+<BODY><P>
+<H2><A NAME="WasteWater.ASM3.SecClar.Simple"></A><A HREF="WasteWater_ASM3_SecClar.html#WasteWater.ASM3.SecClar"
+>WasteWater.ASM3.SecClar</A>.Simple</H2>
+<B>Simple ASM3 Secondary clarifier model</B>
+<P>
+<A HREF="WasteWater_ASM3_SecClar_Simple.html#WasteWater.ASM3.SecClar.Simple.SimpleSecClarMod"
+><IMG SRC="WasteWater.ASM3.SecClar.Simple.SimpleSecClarModI.png" ALT="WasteWater.ASM3.SecClar.Simple.SimpleSecClarMod" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This package just provides a very simple ASM3 secondary clarifier model
+with no sludge storage, no sludge sedimentation and no use of layers.
+The model consists of one tank removing all particulate substances.
+</font></PRE>
+<PRE><font face="Times New Roman" size="3"><b>Main Author:</b><i>
+<span lang="de"> </span></i>
+&nbsp;<i><span lang="de">         </span></i>Gerald Reichl
+<span lang="de">         </span> Technische Universitaet Ilmenau
+<span lang="de">          </span>Faculty of Informatics and Automation
+<span lang="de">          </span>Department Dynamics and Simulation of ecological Systems
+<span lang="de">          </span>P.O. Box 10 05 65
+<span lang="de">          </span>98684 Ilmenau
+<span lang="de">          </span>Germany
+<span lang="de">          email</span>: <a href="mailto:gerald.reichl@tu-ilmenau.de">gerald.reichl@tu-ilmenau.de</a></font></PRE>
+<PRE>&nbsp;</PRE>
+<PRE><font face="Times New Roman" size="3"><b><span lang="de">C</span>opyright (C) 2003, </b>Gerald Reichl</font></PRE>
+
+<p><i>
+The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the<span lang="de"> </span>accompanying <b>disclaimer</b> in the documentation of package 
+Modelica in file "Modelica/package.mo".
+</i><br>
+</p>
+<P>
+<HR>
+<H2><IMG SRC="WasteWater.ASM3.SecClar.Simple.SimpleSecClarModI.png" ALT="WasteWater.ASM3.SecClar.Simple.SimpleSecClarMod" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM3.SecClar.Simple.SimpleSecClarMod"></A><A HREF="WasteWater_ASM3_SecClar_Simple.html#WasteWater.ASM3.SecClar.Simple"
+>WasteWater.ASM3.SecClar.Simple</A>.SimpleSecClarMod</H2>
+<B>Simple ASM3 Secondary Clarifier Model</B><p>
+<IMG SRC="WasteWater.ASM3.SecClar.Simple.SimpleSecClarModD.png" ALT="WasteWater.ASM3.SecClar.Simple.SimpleSecClarMod" width="146" height="131">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component models very simple the secondary clarification process by
+just using a single fully mixed tank which removes all particulate substances from the effluent
+and returns the sludge. No sedimentation and compression, etc. is considered (for ASM3).
+</font></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>hsc</TD><TD>4.0</TD><TD>height of secondary clarifier [m]</TD></TR>
+<TR><TD>Asc</TD><TD>1500.0</TD><TD>area of secondary clarifier [m2]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> SimpleSecClarMod <font color="darkgreen">&quot;Simple ASM3 Secondary Clarifier Model&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.SecClarSimple"
+>WasteWater.Icons.SecClarSimple</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM3_SecClar_Takacs_Interfaces.html#WasteWater.ASM3.SecClar.Takacs.Interfaces.ratios"
+>WasteWater.ASM3.SecClar.Takacs.Interfaces.ratios</A>;
+  <font color="blue">package</font> SI = <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">package</font> WI = <A HREF="WasteWater_ASM3_Interfaces.html#WasteWater.ASM3.Interfaces"
+>WasteWater.ASM3.Interfaces</A>;
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> hsc=4.0 <font color="darkgreen">&quot;height of secondary clarifier&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> Asc=1500.0 <font color="darkgreen">&quot;area of secondary clarifier&quot;</font>;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xf <font color="darkgreen">&quot;total slduge concentration in clarifier feed&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> X <font color="darkgreen">&quot;total sludge concentration&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> So <font color="darkgreen">&quot;Dissolved oxygen&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Si <font color="darkgreen">&quot;Soluble inert organics&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Ss <font color="darkgreen">&quot;Readily biodegradable substrates&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snh <font color="darkgreen">&quot;Ammonium&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sn2 <font color="darkgreen">&quot;Dinitrogen, released by nitrification&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snox <font color="darkgreen">&quot;Nitrite plus nitrate&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.Alkalinity"
+>WWU.Alkalinity</A> Salk <font color="darkgreen">&quot;Alkalinity, bicarbonate&quot;</font>;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_ASM3_Interfaces.html#WasteWater.ASM3.Interfaces.WWFlowAsm3in"
+>WI.WWFlowAsm3in</A> Feed;
+  <A HREF="WasteWater_ASM3_Interfaces.html#WasteWater.ASM3.Interfaces.WWFlowAsm3out"
+>WI.WWFlowAsm3out</A> Effluent;
+  <A HREF="WasteWater_ASM3_Interfaces.html#WasteWater.ASM3.Interfaces.WWFlowAsm3out"
+>WI.WWFlowAsm3out</A> Return;
+  <A HREF="WasteWater_ASM3_Interfaces.html#WasteWater.ASM3.Interfaces.WWFlowAsm3out"
+>WI.WWFlowAsm3out</A> Waste;
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// total sludge concentration in clarifier feed</font>
+  Xf = Feed.Xss;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// ratios of solid components</font>
+  rXi = Feed.Xi/Xf;
+  rXs = Feed.Xs/Xf;
+  rXh = Feed.Xh/Xf;
+  rXsto = Feed.Xsto/Xf;
+  rXa = Feed.Xa/Xf;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// ODEof sludge concentration</font>
+  <font color="red">der</font>(X) = (Feed.Q*Xf - (-(Waste.Q + Return.Q))*X)/(Asc*hsc);
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// ODE of soluble components</font>
+  <font color="red">der</font>(So) = (Feed.Q*Feed.So - (-Effluent.Q)*So - (-(Waste.Q + Return.Q))*So)/(Asc*hsc);
+  <font color="red">der</font>(Si) = (Feed.Q*Feed.Si - (-Effluent.Q)*Si - (-(Waste.Q + Return.Q))*Si)/(Asc*hsc);
+  <font color="red">der</font>(Ss) = (Feed.Q*Feed.Ss - (-Effluent.Q)*Ss - (-(Waste.Q + Return.Q))*Ss)/(Asc*hsc);
+  <font color="red">der</font>(Snh) = (Feed.Q*Feed.Snh - (-Effluent.Q)*Snh - (-(Waste.Q + Return.Q))*Snh)/(Asc*hsc);
+  <font color="red">der</font>(Sn2) = (Feed.Q*Feed.Sn2 - (-Effluent.Q)*Sn2 - (-(Waste.Q + Return.Q))*Sn2<span lang="de">)</span>/(Asc*hsc);
+  <font color="red">der</font>(Snox) = (Feed.Q*Feed.Snox - (-Effluent.Q)*Snox - (-(Waste.Q + Return.Q))* Snox)/(Asc*hsc);
+  <font color="red">der</font>(Salk) = (Feed.Q*Feed.Salk - (-Effluent.Q)*Salk - (-(Waste.Q + Return.Q))* Salk)/(Asc*hsc);
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// volume flow rates</font>
+  Feed.Q + Effluent.Q + Return.Q + Waste.Q = 0;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// effluent, solid and soluble components (ASM3)</font>
+  Effluent.So = So;
+  Effluent.Si = Si;
+  Effluent.Ss = Ss;
+  Effluent.Snh = Snh;
+  Effluent.Sn2 = Sn2;
+  Effluent.Snox = Snox;
+  Effluent.Salk = Salk;
+  Effluent.Xi = 0.0*X;
+  Effluent.Xs = 0.0*X;
+  Effluent.Xh = 0.0*X;
+  Effluent.Xsto = 0.0*X;
+  Effluent.Xa = 0.0*X;
+  Effluent.Xss = 0.0*X;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// return sludge flow, solid and soluble components (ASM3)</font>
+  Return.So = So;
+  Return.Si = Si;
+  Return.Ss = Ss;
+  Return.Snh = Snh;
+  Return.Sn2 = Sn2;
+  Return.Snox = Snox;
+  Return.Salk = Salk;
+  Return.Xi = rXi*X;
+  Return.Xs = rXs*X;
+  Return.Xh = rXh*X;
+  Return.Xsto = rXsto*X;
+  Return.Xa = rXa*X;
+  Return.Xss = X;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// waste sludge flow, solid and soluble components (ASM3)</font>
+  Waste.So = So;
+  Waste.Si = Si;
+  Waste.Ss = Ss;
+  Waste.Snh = Snh;
+  Waste.Sn2 = Sn2;
+  Waste.Snox = Snox;
+  Waste.Salk = Salk;
+  Waste.Xi = rXi*X;
+  Waste.Xs = rXs*X;
+  Waste.Xh = rXh*X;
+  Waste.Xsto = rXsto*X;
+  Waste.Xa = rXa*X;
+  Waste.Xss = X;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>SimpleSecClarMod;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Aug 18 11:16:15 2003
+.
+</address></BODY>
+</HTML>

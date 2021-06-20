@@ -1,0 +1,125 @@
+<HTML>
+<HEAD><META name="HTML-Generator" content="Dymola"><TITLE>WasteWater</TITLE></HEAD>
+<BODY><P>
+<H2><A NAME="WasteWater.ASM3.SecClar.Krebs.Interfaces"></A><A HREF="WasteWater_ASM3_SecClar_Krebs.html#WasteWater.ASM3.SecClar.Krebs"
+>WasteWater.ASM3.SecClar.Krebs</A>.Interfaces</H2>
+<B>Partial models for Secondary Clarifier Model by Krebs</B>
+<P>
+<A HREF="WasteWater_ASM3_SecClar_Krebs_Interfaces.html#WasteWater.ASM3.SecClar.Krebs.Interfaces.SCVar"
+><IMG SRC="WasteWater.ASM3.SecClar.Krebs.Interfaces.SCVarI.png" ALT="WasteWater.ASM3.SecClar.Krebs.Interfaces.SCVar" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM3_SecClar_Krebs_Interfaces.html#WasteWater.ASM3.SecClar.Krebs.Interfaces.ratios"
+><IMG SRC="WasteWater.ASM3.SecClar.Krebs.Interfaces.ratiosI.png" ALT="WasteWater.ASM3.SecClar.Krebs.Interfaces.ratios" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This package contains partial models for ASM3 secondary clarifier models.
+
+
+<b>Main Author:</b><i>
+<span lang="de"> </span></i>
+&nbsp;<i><span lang="de">         </span></i>Gerald Reichl
+<span lang="de">         </span> Technische Universitaet Ilmenau
+<span lang="de">          </span>Faculty of Informatics and Automation
+<span lang="de">          </span>Department Dynamics and Simulation of ecological Systems
+<span lang="de">          </span>P.O. Box 10 05 65
+<span lang="de">          </span>98684 Ilmenau
+<span lang="de">          </span>Germany
+<span lang="de">          email</span>: <a href="mailto:gerald.reichl@tu-ilmenau.de">gerald.reichl@tu-ilmenau.de</a>
+</font></PRE>
+<PRE><font face="Times New Roman" size="3"><b><span lang="de">C</span>opyright (C) 2003, </b>Gerald Reichl</font></PRE>
+
+<p><i>
+The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the<span lang="de"> </span>accompanying <b>disclaimer</b> in the documentation of package 
+Modelica in file "Modelica/package.mo".
+</i></p>
+<P>
+<HR>
+<H2><IMG SRC="WasteWater.ASM3.SecClar.Krebs.Interfaces.SCVarI.png" ALT="WasteWater.ASM3.SecClar.Krebs.Interfaces.SCVar" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM3.SecClar.Krebs.Interfaces.SCVar"></A><A HREF="WasteWater_ASM3_SecClar_Krebs_Interfaces.html#WasteWater.ASM3.SecClar.Krebs.Interfaces"
+>WasteWater.ASM3.SecClar.Krebs.Interfaces</A>.SCVar</H2>
+<B>partial models providing variables</B><p>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">partial models providing ASM3 variables</font></PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">partial </font><font color="blue">model</font> SCVar <font color="darkgreen">&quot;partial models providing variables&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xf <font color="darkgreen">&quot;total sludge concentration&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> XB <font color="darkgreen">&quot;sludge concentration in sludge layer&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> XR <font color="darkgreen">&quot;sludge concentration of return&quot;</font>;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> So1 <font color="darkgreen">
+    &quot;Dissolved oxygen in first stirrer tank of the excess layer&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Si1 <font color="darkgreen">
+    &quot;Soluble inert organics in first stirrer tank of the excess layer&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Ss1 <font color="darkgreen">
+    &quot;Readily biodegradable substrates in first stirrer tank of the excess layer&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snh1 <font color="darkgreen">
+    &quot;Ammonium in first stirrer tank of the excess layer&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sn2_1 <font color="darkgreen">
+    &quot;Dinitrogen, released by nitrification in first stirrer tank of the excess layer&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snox1 <font color="darkgreen">
+    &quot;Nitrite plus nitrate in first stirrer tank of the excess layer&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.Alkalinity"
+>WWU.Alkalinity</A> Salk1 <font color="darkgreen">
+    &quot;Alkalinity, bicarbonate in first stirrer tank of the excess layer&quot;</font>;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> So2 <font color="darkgreen">
+    &quot;Dissolved oxygen in second stirrer tank of the excess layer&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Si2 <font color="darkgreen">
+    &quot;Soluble inert organics in second stirrer tank of the excess layer&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Ss2 <font color="darkgreen">
+    &quot;Readily biodegradable substrates in second stirrer tank of the excess layer&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snh2 <font color="darkgreen">
+    &quot;Ammonium in second stirrer tank of the excess layer&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sn2_2 <font color="darkgreen">
+    &quot;Dinitrogen, released by nitrification in second stirrer tank of the excess layer&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snox2 <font color="darkgreen">
+    &quot;Nitrite plus nitrate in second stirrer tank of the excess layer&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.Alkalinity"
+>WWU.Alkalinity</A> Salk2 <font color="darkgreen">
+    &quot;Alkalinity, bicarbonate in second stirrer tank of the excess layer&quot;</font>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen"></font>
+<font color="blue">end </font>SCVar;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM3.SecClar.Krebs.Interfaces.ratiosI.png" ALT="WasteWater.ASM3.SecClar.Krebs.Interfaces.ratios" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM3.SecClar.Krebs.Interfaces.ratios"></A><A HREF="WasteWater_ASM3_SecClar_Krebs_Interfaces.html#WasteWater.ASM3.SecClar.Krebs.Interfaces"
+>WasteWater.ASM3.SecClar.Krebs.Interfaces</A>.ratios</H2>
+<B>partial model for ratios of solid components</B><p>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">partial model for ASM3 ratios of solid components</font></PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">partial </font><font color="blue">model</font> ratios <font color="darkgreen">&quot;partial model for ratios of solid components&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// ratios of solid components</font>
+  Real rXi;
+  Real rXs;
+  Real rXh;
+  Real rXsto;
+  Real rXa;
+<font color="blue">end </font>ratios;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Aug 18 11:16:16 2003
+.
+</address></BODY>
+</HTML>

@@ -1,0 +1,762 @@
+<HTML>
+<HEAD>
+<META name="HTML-Generator" content="Dymola"><TITLE>WasteWater</TITLE></HEAD>
+<BODY><P>
+<H2><A NAME="WasteWater.ASM1.SecClar.Otterpohl"></A><A HREF="WasteWater_ASM1_SecClar.html#WasteWater.ASM1.SecClar"
+>WasteWater.ASM1.SecClar</A>.Otterpohl</H2>
+<B>Secondary settling tank modelling by Otterpohl</B>
+<P>
+<A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces"
+><IMG SRC="WasteWater.ASM1.SecClar.Otterpohl.InterfacesI.png" ALT="WasteWater.ASM1.SecClar.Otterpohl.Interfaces" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1_SecClar_Otterpohl.html#WasteWater.ASM1.SecClar.Otterpohl.SecClarModOtter"
+><IMG SRC="WasteWater.ASM1.SecClar.Otterpohl.SecClarModOtterI.png" ALT="WasteWater.ASM1.SecClar.Otterpohl.SecClarModOtter" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1_SecClar_Otterpohl.html#WasteWater.ASM1.SecClar.Otterpohl.bottom_layer"
+><IMG SRC="WasteWater.ASM1.SecClar.Otterpohl.bottom_layerI.png" ALT="WasteWater.ASM1.SecClar.Otterpohl.bottom_layer" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1_SecClar_Otterpohl.html#WasteWater.ASM1.SecClar.Otterpohl.lower_layer"
+><IMG SRC="WasteWater.ASM1.SecClar.Otterpohl.lower_layerI.png" ALT="WasteWater.ASM1.SecClar.Otterpohl.lower_layer" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1_SecClar_Otterpohl.html#WasteWater.ASM1.SecClar.Otterpohl.feed_layer"
+><IMG SRC="WasteWater.ASM1.SecClar.Otterpohl.feed_layerI.png" ALT="WasteWater.ASM1.SecClar.Otterpohl.feed_layer" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1_SecClar_Otterpohl.html#WasteWater.ASM1.SecClar.Otterpohl.upper_layer"
+><IMG SRC="WasteWater.ASM1.SecClar.Otterpohl.upper_layerI.png" ALT="WasteWater.ASM1.SecClar.Otterpohl.upper_layer" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM1_SecClar_Otterpohl.html#WasteWater.ASM1.SecClar.Otterpohl.top_layer"
+><IMG SRC="WasteWater.ASM1.SecClar.Otterpohl.top_layerI.png" ALT="WasteWater.ASM1.SecClar.Otterpohl.top_layer" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This package contains classes (layer models) to built ASM1 secondary clarifier models, 
+an Interfaces sub-library and provides an ASM1 10-layer secondary clarifier model all 
+bases on Otterpohls`s [1] sedimentation velocities for macro and micro flocs and the omega 
+correction function.
+
+A secondary clarifier layer model needs at least a top_layer, a feed_layer and a bottom_layer
+and may have several upper_layer in between above the feed_layer and several lower_layer in
+between below the feed_layer.
+</font>
+<font face="Times New Roman" size="3"><b>Main Author:</b><i>
+<span lang="de"> </span></i>
+&nbsp;<i><span lang="de">         </span></i>Gerald Reichl
+<span lang="de">         </span> Technische Universitaet Ilmenau
+<span lang="de">          </span>Faculty of Informatics and Automation
+<span lang="de">          </span>Department Dynamics and Simulation of ecological Systems
+<span lang="de">          </span>P.O. Box 10 05 65
+<span lang="de">          </span>98684 Ilmenau
+<span lang="de">          </span>Germany
+<span lang="de">          email</span>: <a href="mailto:gerald.reichl@tu-ilmenau.de">gerald.reichl@tu-ilmenau.de</a></font>
+
+
+<font face="Times New Roman" size="3"><b>References:</b>
+
+[1] R. Otterpohl and M. Freund: Dynamic models for clarifiers of activated sludge plants
+     with dry and wet weather flows. Water Science and Technology. 26 (1992), pp 1391-1400.</font>
+
+
+<font face="Times New Roman" size="3"><b>Copyright (C) 2003, </b>Gerald Reichl</font></PRE>
+
+<p><i>
+The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the<span lang="de"> </span>accompanying <b>disclaimer</b> in the documentation of package 
+Modelica in file "Modelica/package.mo".
+</i><br>
+</p>
+<P>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.SecClar.Otterpohl.SecClarModOtterI.png" ALT="WasteWater.ASM1.SecClar.Otterpohl.SecClarModOtter" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.SecClar.Otterpohl.SecClarModOtter"></A><A HREF="WasteWater_ASM1_SecClar_Otterpohl.html#WasteWater.ASM1.SecClar.Otterpohl"
+>WasteWater.ASM1.SecClar.Otterpohl</A>.SecClarModOtter</H2>
+<B>Secondary <span lang="de">C</span>larifier Model based on Otterpohl (ASM1)</B><p>
+<IMG SRC="WasteWater.ASM1.SecClar.Otterpohl.SecClarModOtterD.png" ALT="WasteWater.ASM1.SecClar.Otterpohl.SecClarModOtter" width="368" height="332">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component models an ASM1 10 - layer secondary clarifier model with 4 layers above</font>
+<font face="Times New Roman" size="3">the feed_layer (including top_layer)<span lang="de"> </span>and 5 layers below the feed_layer (including bottom_layer)</font>
+<font face="Times New Roman" size="3">based on Otterpohl`s theory.
+</font>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>hsc</TD><TD>4.0</TD><TD>height of secondary clarifier [m]</TD></TR>
+<TR><TD>n</TD><TD>10</TD><TD>number of layers of SC model</TD></TR>
+<TR><TD>zm</TD><TD>hsc/(1.0*n)</TD><TD>height of m-th secondary clarifier layer [m]</TD></TR>
+<TR><TD>Asc</TD><TD>1500.0</TD><TD>area of secondary clarifier [m2]</TD></TR>
+<TR><TD>ISV</TD><TD>130</TD><TD>Sludge Volume Index [ml/g]</TD></TR>
+<TR><TD>i</TD><TD>2</TD><TD>number of layers above current feed layer in this model</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> SecClarModOtter <font color="darkgreen">
+  &quot;Secondary Clarifier Model based on Otterpohl (ASM1)&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.SecClar"
+>WasteWater.Icons.SecClar</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces.ratios"
+>ASM1.SecClar.Otterpohl.Interfaces.ratios</A>;
+  <font color="blue">package</font> SCP = <A HREF="WasteWater_ASM1_SecClar_Otterpohl.html#WasteWater.ASM1.SecClar.Otterpohl"
+>ASM1.SecClar.Otterpohl</A>;
+  <font color="blue">package</font> SI = <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">package</font> WI = <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces"
+>ASM1.Interfaces</A>;
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> hsc=4.0 <font color="darkgreen">&quot;height of secondary clarifier&quot;</font>;
+  <font color="blue">parameter </font>Integer n=10 <font color="darkgreen">&quot;number of layers of SC model&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> zm=hsc/(1.0*n) <font color="darkgreen">&quot;height of m-th secondary clarifier layer&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> Asc=1500.0 <font color="darkgreen">&quot;area of secondary clarifier&quot;</font>;
+  <font color="blue">parameter </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.SludgeVolumeIndex"
+>WWU.SludgeVolumeIndex</A> ISV=130 <font color="darkgreen">&quot;Sludge Volume Index&quot;</font>;
+  <font color="blue">parameter </font>Integer i=2 <font color="darkgreen">
+    &quot;number of layers above current feed layer in this model&quot;</font>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// total sludge concentration in clarifier feed</font>
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xf;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// layers 1 to 10  </font>
+  <A HREF="WasteWater_ASM1_SecClar_Otterpohl.html#WasteWater.ASM1.SecClar.Otterpohl.bottom_layer"
+>SCP.bottom_layer</A> S1(
+    zm=zm, 
+    Asc=Asc, 
+    ISV=ISV, 
+    rXs=rXs, 
+    rXbh=rXbh, 
+    rXba=rXba, 
+    rXp=rXp, 
+    rXi=rXi, 
+    rXnd=rXnd);
+  <A HREF="WasteWater_ASM1_SecClar_Otterpohl.html#WasteWater.ASM1.SecClar.Otterpohl.lower_layer"
+>SCP.lower_layer</A> S2(
+    hsc=hsc, 
+    zm=zm, 
+    z=(zm + zm/2), 
+    Asc=Asc, 
+    ISV=ISV, 
+    i=i, 
+    Xf=Xf);
+  <A HREF="WasteWater_ASM1_SecClar_Otterpohl.html#WasteWater.ASM1.SecClar.Otterpohl.lower_layer"
+>SCP.lower_layer</A> S3(
+    hsc=hsc, 
+    zm=zm, 
+    z=(2*zm + zm/2), 
+    Asc=Asc, 
+    ISV=ISV, 
+    i=i, 
+    Xf=Xf);
+  <A HREF="WasteWater_ASM1_SecClar_Otterpohl.html#WasteWater.ASM1.SecClar.Otterpohl.lower_layer"
+>SCP.lower_layer</A> S4(
+    hsc=hsc, 
+    zm=zm, 
+    z=(3*zm + zm/2), 
+    Asc=Asc, 
+    ISV=ISV, 
+    i=i, 
+    Xf=Xf);
+  <A HREF="WasteWater_ASM1_SecClar_Otterpohl.html#WasteWater.ASM1.SecClar.Otterpohl.lower_layer"
+>SCP.lower_layer</A> S5(
+    hsc=hsc, 
+    zm=zm, 
+    z=(4*zm + zm/2), 
+    Asc=Asc, 
+    ISV=ISV, 
+    i=i, 
+    Xf=Xf);
+  <A HREF="WasteWater_ASM1_SecClar_Otterpohl.html#WasteWater.ASM1.SecClar.Otterpohl.lower_layer"
+>SCP.lower_layer</A> S6(
+    hsc=hsc, 
+    zm=zm, 
+    z=(5*zm + zm/2), 
+    Asc=Asc, 
+    ISV=ISV, 
+    i=i, 
+    Xf=Xf);
+  <A HREF="WasteWater_ASM1_SecClar_Otterpohl.html#WasteWater.ASM1.SecClar.Otterpohl.lower_layer"
+>SCP.lower_layer</A> S7(
+    hsc=hsc, 
+    zm=zm, 
+    z=(6*zm + zm/2), 
+    Asc=Asc, 
+    ISV=ISV, 
+    i=i, 
+    Xf=Xf);
+  <A HREF="WasteWater_ASM1_SecClar_Otterpohl.html#WasteWater.ASM1.SecClar.Otterpohl.feed_layer"
+>SCP.feed_layer</A> S8(
+    hsc=hsc, 
+    zm=zm, 
+    z=(7*zm + zm/2), 
+    Asc=Asc, 
+    ISV=ISV, 
+    i=i, 
+    Xf=Xf);
+  <A HREF="WasteWater_ASM1_SecClar_Otterpohl.html#WasteWater.ASM1.SecClar.Otterpohl.upper_layer"
+>SCP.upper_layer</A> S9(
+    zm=zm, 
+    Asc=Asc, 
+    ISV=ISV);
+  <A HREF="WasteWater_ASM1_SecClar_Otterpohl.html#WasteWater.ASM1.SecClar.Otterpohl.top_layer"
+>SCP.top_layer</A> S10(
+    zm=zm, 
+    Asc=Asc, 
+    ISV=ISV, 
+    rXs=rXs, 
+    rXbh=rXbh, 
+    rXba=rXba, 
+    rXp=rXp, 
+    rXi=rXi, 
+    rXnd=rXnd);
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1in"
+>WI.WWFlowAsm1in</A> Feed;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1out"
+>WI.WWFlowAsm1out</A> Effluent;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1out"
+>WI.WWFlowAsm1out</A> Return;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1out"
+>WI.WWFlowAsm1out</A> Waste;
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  <font color="red">connect</font>(S1.Up, S2.Dn);
+  <font color="red">connect</font>(S2.Up, S3.Dn);
+  <font color="red">connect</font>(S3.Up, S4.Dn);
+  <font color="red">connect</font>(S5.Up, S6.Dn);
+  <font color="red">connect</font>(S6.Up, S7.Dn);
+  <font color="red">connect</font>(S7.Up, S8.Dn);
+  <font color="red">connect</font>(S9.Up, S10.Dn);
+  <font color="red">connect</font>(S4.Up, S5.Dn);
+  <font color="red">connect</font>(S8.Up, S9.Dn);
+  <font color="red">connect</font>(Feed, S8.In);
+  <font color="red">connect</font>(S1.PQw, Waste);
+  <font color="red">connect</font>(S10.Out, Effluent);
+  <font color="red">connect</font>(S1.PQr, Return);
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// total sludge concentration in clarifier feed</font>
+  Xf = 0.75*(Feed.Xs + Feed.Xbh + Feed.Xba + Feed.Xp + Feed.Xi);
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// ratios of solid components</font>
+  rXs = Feed.Xs/Xf;
+  rXbh = Feed.Xbh/Xf;
+  rXba = Feed.Xba/Xf;
+  rXp = Feed.Xp/Xf;
+  rXi = Feed.Xi/Xf;
+  rXnd = Feed.Xnd/Xf;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>SecClarModOtter;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.SecClar.Otterpohl.bottom_layerI.png" ALT="WasteWater.ASM1.SecClar.Otterpohl.bottom_layer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.SecClar.Otterpohl.bottom_layer"></A><A HREF="WasteWater_ASM1_SecClar_Otterpohl.html#WasteWater.ASM1.SecClar.Otterpohl"
+>WasteWater.ASM1.SecClar.Otterpohl</A>.bottom_layer</H2>
+<B>Bottom layer of Otterpohls`s SC model</B><p>
+<IMG SRC="WasteWater.ASM1.SecClar.Otterpohl.bottom_layerD.png" ALT="WasteWater.ASM1.SecClar.Otterpohl.bottom_layer" width="133" height="145">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This class models the lowest layer of an ASM1 secondary clarifier based on Otterpohl.
+
+No sedimentation flux (mass exchange) with underneath but hydraulic and sedimentation</font>
+<font face="Times New Roman" size="3">flux (same direction)<span lang="de"> </span>with above layer.<span lang="de"> </span>From here return and waste sludge is removed.</font>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>zm</TD><TD>&nbsp;</TD><TD>height of m-th secondary clarifier layer [m]</TD></TR>
+<TR><TD>Asc</TD><TD>&nbsp;</TD><TD>area of secondary clarifier [m2]</TD></TR>
+<TR><TD>ISV</TD><TD>&nbsp;</TD><TD>Sludge Volume Index [ml/g]</TD></TR>
+<TR><TD>vS_S</TD><TD>0.24</TD><TD><span lang="de">sink velocity of micro flocs
+  </span>[m/d]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> bottom_layer <font color="darkgreen">&quot;Bottom layer of Otterpohls`s SC model&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">package</font> WWSC = <A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces"
+>WasteWater.ASM1.SecClar.Otterpohl.Interfaces</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces.SCParam"
+>WWSC.SCParam</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces.SCVar"
+>WWSC.SCVar</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces.ratios"
+>WWSC.ratios</A>;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1out"
+>ASM1.Interfaces.WWFlowAsm1out</A> PQr;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1out"
+>ASM1.Interfaces.WWFlowAsm1out</A> PQw;
+  <A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces.LowerLayerPin"
+>WWSC.LowerLayerPin</A> Up;
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// sink velocity</font>
+  vS_F = <font color="red">WWSC.vSfun</font>(X_F, ISV);
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// sedimentation flux in bottom layer</font>
+  Jsm_F = 0.0;
+  Jsm_S = 0.0;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// ODE of solid component</font>
+  <font color="red">der</font>(X_F) = ((Up.Qr + Up.Qw)/Asc*(Up.X_F - X_F) + Up.SedFlux_F)/zm;
+  <font color="red">der</font>(X_S) = ((Up.Qr + Up.Qw)/Asc*(Up.X_S - X_S) + Up.SedFlux_S)/zm;
+  <font color="darkgreen"></font>
+  X = X_F + X_S;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// ODEs of soluble components</font>
+  <font color="red">der</font>(Si) = (Up.Qr + Up.Qw)*(Up.Si - Si)/(Asc*zm);
+  <font color="red">der</font>(Ss) = (Up.Qr + Up.Qw)*(Up.Ss - Ss)/(Asc*zm);
+  <font color="red">der</font>(So) = (Up.Qr + Up.Qw)*(Up.So - So)/(Asc*zm);
+  <font color="red">der</font>(Sno) = (Up.Qr + Up.Qw)*(Up.Sno - Sno)/(Asc*zm);
+  <font color="red">der</font>(Snh) = (Up.Qr + Up.Qw)*(Up.Snh - Snh)/(Asc*zm);
+  <font color="red">der</font>(Snd) = (Up.Qr + Up.Qw)*(Up.Snd - Snd)/(Asc*zm);
+  <font color="red">der</font>(Salk) = (Up.Qr + Up.Qw)*(Up.Salk - Salk)/(Asc*zm);
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// upward connection</font>
+  Up.vS_dn_F = vS_F;
+  Up.X_dn_F = X_F;
+  Up.X_dn_S = X_S;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// return and waste sludge volume flow rates</font>
+  PQr.Q + Up.Qr = 0;
+  PQw.Q + Up.Qw = 0;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// return sludge flow, solid and soluble components (ASM1)</font>
+  PQr.Si = Si;
+  PQr.Ss = Ss;
+  PQr.Xi = rXi*X;
+  PQr.Xs = rXs*X;
+  PQr.Xbh = rXbh*X;
+  PQr.Xba = rXba*X;
+  PQr.Xp = rXp*X;
+  PQr.So = So;
+  PQr.Sno = Sno;
+  PQr.Snh = Snh;
+  PQr.Snd = Snd;
+  PQr.Xnd = rXnd*X;
+  PQr.Salk = Salk;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// waste sludge flow, solid and soluble components (ASM1)</font>
+  PQw.Si = Si;
+  PQw.Ss = Ss;
+  PQw.Xi = rXi*X;
+  PQw.Xs = rXs*X;
+  PQw.Xbh = rXbh*X;
+  PQw.Xba = rXba*X;
+  PQw.Xp = rXp*X;
+  PQw.So = So;
+  PQw.Sno = Sno;
+  PQw.Snh = Snh;
+  PQw.Snd = Snd;
+  PQw.Xnd = rXnd*X;
+  PQw.Salk = Salk;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>bottom_layer;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.SecClar.Otterpohl.lower_layerI.png" ALT="WasteWater.ASM1.SecClar.Otterpohl.lower_layer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.SecClar.Otterpohl.lower_layer"></A><A HREF="WasteWater_ASM1_SecClar_Otterpohl.html#WasteWater.ASM1.SecClar.Otterpohl"
+>WasteWater.ASM1.SecClar.Otterpohl</A>.lower_layer</H2>
+<B>Layer below influent of Otterpohl`s SC model</B><p>
+<IMG SRC="WasteWater.ASM1.SecClar.Otterpohl.lower_layerD.png" ALT="WasteWater.ASM1.SecClar.Otterpohl.lower_layer" width="133" height="145">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This class models the layers between the influent layer (feed_layer) and the lowest layer (bottom_layer)
+of an ASM1 secondary clarifier based on Otterpohl.
+
+Hydraulic and sedimentation flux (mass exchange in same direction) with above and underneath layer.
+
+Sedimentation flux is calculated based on two sedimentation velocities
+(for macro and micro flocs) and the omega correction function by Haertel.</font>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>zm</TD><TD>&nbsp;</TD><TD>height of m-th secondary clarifier layer [m]</TD></TR>
+<TR><TD>Asc</TD><TD>&nbsp;</TD><TD>area of secondary clarifier [m2]</TD></TR>
+<TR><TD>ISV</TD><TD>&nbsp;</TD><TD>Sludge Volume Index [ml/g]</TD></TR>
+<TR><TD>vS_S</TD><TD>0.24</TD><TD><span lang="de">sink velocity of micro flocs
+  </span>[m/d]</TD></TR>
+<TR><TD>hsc</TD><TD>&nbsp;</TD><TD>height of secondary clarifier [m]</TD></TR>
+<TR><TD>i</TD><TD>&nbsp;</TD><TD>number of layers above feed layer</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> lower_layer <font color="darkgreen">&quot;Layer below influent of Otterpohl`s SC model&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">package</font> WWSC = <A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces"
+>WasteWater.ASM1.SecClar.Otterpohl.Interfaces</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces.SCParam"
+>WWSC.SCParam</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces.SCVar"
+>WWSC.SCVar</A>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xf <font color="darkgreen">&quot;sludge concentration in clarifier feed&quot;</font>;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> z <font color="darkgreen">&quot;vertical coordinate of current layer&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> hsc;
+  <font color="blue">parameter </font>Integer i <font color="darkgreen">&quot;number of layers above feed layer&quot;</font>;
+  Real omega;
+  <A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces.LowerLayerPin"
+>WWSC.LowerLayerPin</A> Up;
+  <A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces.LowerLayerPin"
+>WWSC.LowerLayerPin</A> Dn;
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// sink velocity</font>
+  vS_F = <font color="red">WWSC.vSfun</font>(X_F, ISV);
+  omega = <font color="red">WWSC.omega</font>(z, Xf, hsc, zm, ISV, i);
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// sedimentation flux in m-th layer sinking to lower layer</font>
+  Jsm_F = <font color="blue">if </font>vS_F &lt; Dn.vS_dn_F<font color="blue"> then </font>omega*(vS_F*X_F)<font color="blue"> else </font>omega*<font color="red">min</font>(vS_F*X_F, 
+    Dn.vS_dn_F*Dn.X_dn_F);
+  Jsm_S = omega*<font color="red">min</font>(vS_S*X_S, vS_S*Dn.X_dn_S);
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// ODE of solid component</font>
+  <font color="red">der</font>(X_F) = ((Up.Qr + Up.Qw)/Asc*(Up.X_F - X_F) + Up.SedFlux_F - Jsm_F)/zm;
+  <font color="red">der</font>(X_S) = ((Up.Qr + Up.Qw)/Asc*(Up.X_S - X_S) + Up.SedFlux_S - Jsm_S)/zm;
+  <font color="darkgreen"></font>
+  X = X_F + X_S;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// ODEs of soluble components</font>
+  <font color="red">der</font>(Si) = (Up.Qr + Up.Qw)*(Up.Si - Si)/(Asc*zm);
+  <font color="red">der</font>(Ss) = (Up.Qr + Up.Qw)*(Up.Ss - Ss)/(Asc*zm);
+  <font color="red">der</font>(So) = (Up.Qr + Up.Qw)*(Up.So - So)/(Asc*zm);
+  <font color="red">der</font>(Sno) = (Up.Qr + Up.Qw)*(Up.Sno - Sno)/(Asc*zm);
+  <font color="red">der</font>(Snh) = (Up.Qr + Up.Qw)*(Up.Snh - Snh)/(Asc*zm);
+  <font color="red">der</font>(Snd) = (Up.Qr + Up.Qw)*(Up.Snd - Snd)/(Asc*zm);
+  <font color="red">der</font>(Salk) = (Up.Qr + Up.Qw)*(Up.Salk - Salk)/(Asc*zm);
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// downward connections</font>
+  Dn.Qr + Up.Qr = 0;
+  Dn.Qw + Up.Qw = 0;
+  <font color="darkgreen"></font>
+  Dn.X_F = X_F;
+  Dn.X_S = X_S;
+  Dn.SedFlux_F = -Jsm_F;
+  Dn.SedFlux_S = -Jsm_S;
+  <font color="darkgreen"></font>
+  Dn.Si = Si;
+  Dn.Ss = Ss;
+  Dn.So = So;
+  Dn.Sno = Sno;
+  Dn.Snh = Snh;
+  Dn.Snd = Snd;
+  Dn.Salk = Salk;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// upward connections</font>
+  Up.vS_dn_F = vS_F;
+  Up.X_dn_F = X_F;
+  Up.X_dn_S = X_S;
+<font color="blue">end </font>lower_layer;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.SecClar.Otterpohl.feed_layerI.png" ALT="WasteWater.ASM1.SecClar.Otterpohl.feed_layer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.SecClar.Otterpohl.feed_layer"></A><A HREF="WasteWater_ASM1_SecClar_Otterpohl.html#WasteWater.ASM1.SecClar.Otterpohl"
+>WasteWater.ASM1.SecClar.Otterpohl</A>.feed_layer</H2>
+<B>Influent layer of Otterpohl`s SC model</B><p>
+<IMG SRC="WasteWater.ASM1.SecClar.Otterpohl.feed_layerD.png" ALT="WasteWater.ASM1.SecClar.Otterpohl.feed_layer" width="139" height="145">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This class models the influent layer of an ASM1 secondary clarifier based on Otterpohl.
+
+It receives the wastewater stream from the biological part (feed).
+Hydraulic and sedimentation flux (mass exchange in opposite directions) with above layer
+and hydraulic and sedimentation flux (mass exchange in same direction) with underneath layer.
+
+Sedimentation flux is calculated based on two sedimentation velocities
+(for macro and micro flocs) and the omega correction function by Haertel.</font>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<tr>
+  <TH>Name</TH><TH>Default</TH><TH>Description</TH>
+</tr>
+<tr>
+  <TD>zm</TD><TD>&nbsp;</TD><TD>height of m-th secondary clarifier layer [m]</TD>
+</tr>
+<tr>
+  <TD>Asc</TD><TD>&nbsp;</TD><TD>area of secondary clarifier [m2]</TD>
+</tr>
+<tr>
+  <TD>ISV</TD><TD>&nbsp;</TD><TD>Sludge Volume Index [ml/g]</TD>
+</tr>
+<tr>
+  <TD>vS_S</TD><TD>0.24</TD><TD><span lang="de">sink velocity of micro flocs
+  </span>[m/d]</TD>
+</tr>
+<tr>
+  <TD>hsc</TD><TD>&nbsp;</TD><TD>height of secondary clarifier [m]</TD>
+</tr>
+<tr>
+  <TD>i</TD><TD>&nbsp;</TD><TD>number of layers above feed layer</TD>
+</tr>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> feed_layer <font color="darkgreen">&quot;Influent layer of Otterpohl`s SC model&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">package</font> WWSC = <A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces"
+>WasteWater.ASM1.SecClar.Otterpohl.Interfaces</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces.SCParam"
+>WWSC.SCParam</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces.SCVar"
+>WWSC.SCVar</A>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xf <font color="darkgreen">&quot;sludge concentration in clarifier feed&quot;</font>;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> z <font color="darkgreen">&quot;vertical coordinate of current layer&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> hsc;
+  <font color="blue">parameter </font>Integer i <font color="darkgreen">&quot;number of layers above feed layer&quot;</font>;
+  Real omega;
+  Real fl;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces.LowerLayerPin"
+>WWSC.LowerLayerPin</A> Dn;
+  <A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces.UpperLayerPin"
+>WWSC.UpperLayerPin</A> Up;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1in"
+>ASM1.Interfaces.WWFlowAsm1in</A> In;
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// sink velocity</font>
+  vS_F = <font color="red">WWSC.vSfun</font>(X_F, ISV);
+  omega = <font color="red">WWSC.omega</font>(z, Xf, hsc, zm, ISV, i);
+  fl = (9.4/ISV)*<font color="red">exp</font>(-1.07*Xf/1000);
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// sedimentation flux in m-th layer sinking to lower layer</font>
+  Jsm_F = <font color="blue">if </font>vS_F &lt; Dn.vS_dn_F<font color="blue"> then </font>omega*(vS_F*X_F)<font color="blue"> else </font>omega*<font color="red">min</font>(vS_F*X_F, 
+    Dn.vS_dn_F*Dn.X_dn_F);
+  Jsm_S = omega*<font color="red">min</font>(vS_S*X_S, vS_S*Dn.X_dn_S);
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// ODE of solid component</font>
+  <font color="red">der</font>(X_F) = (In.Q/Asc*Xf*(1 - fl) - (-Up.Qe)/Asc*X_F - (-(Dn.Qr + Dn.Qw))/Asc*
+    X_F + Up.SedFlux_F - Jsm_F)/zm;
+  <font color="red">der</font>(X_S) = (In.Q/Asc*Xf*fl - (-Up.Qe)/Asc*X_S - (-(Dn.Qr + Dn.Qw))/Asc*X_S + 
+    Up.SedFlux_S - Jsm_S)/zm;
+  <font color="darkgreen"></font>
+  X = X_F + X_S;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// ODE of soluble components</font>
+  <font color="red">der</font>(Si) = (In.Q*In.Si - (-Up.Qe)*Si - (-(Dn.Qr + Dn.Qw))*Si)/(Asc*zm);
+  <font color="red">der</font>(Ss) = (In.Q*In.Ss - (-Up.Qe)*Ss - (-(Dn.Qr + Dn.Qw))*Ss)/(Asc*zm);
+  <font color="red">der</font>(So) = (In.Q*In.So - (-Up.Qe)*So - (-(Dn.Qr + Dn.Qw))*So)/(Asc*zm);
+  <font color="red">der</font>(Sno) = (In.Q*In.Sno - (-Up.Qe)*Sno - (-(Dn.Qr + Dn.Qw))*Sno)/(Asc*zm);
+  <font color="red">der</font>(Snh) = (In.Q*In.Snh - (-Up.Qe)*Snh - (-(Dn.Qr + Dn.Qw))*Snh)/(Asc*zm);
+  <font color="red">der</font>(Snd) = (In.Q*In.Snd - (-Up.Qe)*Snd - (-(Dn.Qr + Dn.Qw))*Snd)/(Asc*zm);
+  <font color="red">der</font>(Salk) = (In.Q*In.Salk - (-Up.Qe)*Salk - (-(Dn.Qr + Dn.Qw))*Salk)/(Asc*zm);
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// volume flow rates</font>
+  In.Q + Up.Qe + Dn.Qr + Dn.Qw = 0;
+  <font color="darkgreen"></font>
+  Dn.SedFlux_F = -Jsm_F;
+  Dn.SedFlux_S = -Jsm_S;
+  Dn.X_F = X_F;
+  Dn.X_S = X_S;
+  <font color="darkgreen"></font>
+  Dn.Si = Si;
+  Dn.Ss = Ss;
+  Dn.So = So;
+  Dn.Sno = Sno;
+  Dn.Snh = Snh;
+  Dn.Snd = Snd;
+  Dn.Salk = Salk;
+  <font color="darkgreen"></font>
+  Up.X_dn_F = X_F;
+  Up.X_dn_S = X_S;
+  <font color="darkgreen"></font>
+  Up.Si = Si;
+  Up.Ss = Ss;
+  Up.So = So;
+  Up.Sno = Sno;
+  Up.Snh = Snh;
+  Up.Snd = Snd;
+  Up.Salk = Salk;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>feed_layer;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.SecClar.Otterpohl.upper_layerI.png" ALT="WasteWater.ASM1.SecClar.Otterpohl.upper_layer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.SecClar.Otterpohl.upper_layer"></A><A HREF="WasteWater_ASM1_SecClar_Otterpohl.html#WasteWater.ASM1.SecClar.Otterpohl"
+>WasteWater.ASM1.SecClar.Otterpohl</A>.upper_layer</H2>
+<B>Layer above influent of Otterpohl`s SC</B><p>
+<IMG SRC="WasteWater.ASM1.SecClar.Otterpohl.upper_layerD.png" ALT="WasteWater.ASM1.SecClar.Otterpohl.upper_layer" width="133" height="145">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This class models the layers between the influent layer (feed_layer) and the effluent layer (top_layer)
+of an ASM1 secondary clarifier based on Otterpohl.
+
+Hydraulic and sedimentation flux (mass exchange in opposite directions) with above and underneath layer.
+
+Sedimentation flux is calculated based on two sedimentation velocities
+(for macro and micro floc<span lang="de">s</span>).</font></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<tr>
+  <TH>Name</TH><TH>Default</TH><TH>Description</TH>
+</tr>
+<tr>
+  <TD>zm</TD><TD>&nbsp;</TD><TD>height of m-th secondary clarifier layer [m]</TD>
+</tr>
+<tr>
+  <TD>Asc</TD><TD>&nbsp;</TD><TD>area of secondary clarifier [m2]</TD>
+</tr>
+<tr>
+  <TD>ISV</TD><TD>&nbsp;</TD><TD>Sludge Volume Index [ml/g]</TD>
+</tr>
+<tr>
+  <TD>vS_S</TD><TD>0.24</TD><TD><span lang="de">sink velocity of micro flocs
+  </span>[m/d]</TD>
+</tr>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> upper_layer <font color="darkgreen">&quot;Layer above influent of Otterpohl`s SC&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">package</font> WWSC = <A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces"
+>WasteWater.ASM1.SecClar.Otterpohl.Interfaces</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces.SCParam"
+>WWSC.SCParam</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces.SCVar"
+>WWSC.SCVar</A>;
+  <A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces.UpperLayerPin"
+>WWSC.UpperLayerPin</A> Dn;
+  <A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces.UpperLayerPin"
+>WWSC.UpperLayerPin</A> Up;
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// sink velocity</font>
+  vS_F = <font color="red">WWSC.vSfun</font>(X_F, ISV);
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// sedimentation flux in m-th layer sinking to lower layer</font>
+  Jsm_F = vS_F*X_F;
+  Jsm_S = vS_S*X_S;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// ODE of solid component</font>
+  <font color="red">der</font>(X_F) = (Dn.Qe/Asc*(Dn.X_dn_F - X_F) + Up.SedFlux_F - Jsm_F)/zm;
+  <font color="red">der</font>(X_S) = (Dn.Qe/Asc*(Dn.X_dn_S - X_S) + Up.SedFlux_S - Jsm_S)/zm;
+  <font color="darkgreen"></font>
+  X = X_F + X_S;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// ODEs of soluble components</font>
+  <font color="red">der</font>(Si) = Dn.Qe*(Dn.Si - Si)/(Asc*zm);
+  <font color="red">der</font>(Ss) = Dn.Qe*(Dn.Ss - Ss)/(Asc*zm);
+  <font color="red">der</font>(So) = Dn.Qe*(Dn.So - So)/(Asc*zm);
+  <font color="red">der</font>(Sno) = Dn.Qe*(Dn.Sno - Sno)/(Asc*zm);
+  <font color="red">der</font>(Snh) = Dn.Qe*(Dn.Snh - Snh)/(Asc*zm);
+  <font color="red">der</font>(Snd) = Dn.Qe*(Dn.Snd - Snd)/(Asc*zm);
+  <font color="red">der</font>(Salk) = Dn.Qe*(Dn.Salk - Salk)/(Asc*zm);
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// downward connection</font>
+  Dn.SedFlux_F = -Jsm_F;
+  Dn.SedFlux_S = -Jsm_S;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// upward connections</font>
+  Up.Qe + Dn.Qe = 0;
+  <font color="darkgreen"></font>
+  Up.X_dn_F = X_F;
+  Up.X_dn_S = X_S;
+  <font color="darkgreen"></font>
+  Up.Si = Si;
+  Up.Ss = Ss;
+  Up.So = So;
+  Up.Sno = Sno;
+  Up.Snh = Snh;
+  Up.Snd = Snd;
+  Up.Salk = Salk;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>upper_layer;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM1.SecClar.Otterpohl.top_layerI.png" ALT="WasteWater.ASM1.SecClar.Otterpohl.top_layer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM1.SecClar.Otterpohl.top_layer"></A><A HREF="WasteWater_ASM1_SecClar_Otterpohl.html#WasteWater.ASM1.SecClar.Otterpohl"
+>WasteWater.ASM1.SecClar.Otterpohl</A>.top_layer</H2>
+<B>Effluent layer of Otterpohl`s SC model</B><p>
+<IMG SRC="WasteWater.ASM1.SecClar.Otterpohl.top_layerD.png" ALT="WasteWater.ASM1.SecClar.Otterpohl.top_layer" width="139" height="139">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This class models the top layer of an ASM1 secondary clarifier based on Otterpohl.
+
+No sedimentation flux (mass exchange) with above but hydraulic and sedimentation flux
+(opposite directions) underneath.
+From here effluent goes to the receiving water.
+
+Sedimentation flux is calculated based on two sedimentation velocities
+(for micro and macro flocs).</font>
+</PRE>
+<H3>Parameters</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<tr>
+  <TH>Name</TH><TH>Default</TH><TH>Description</TH>
+</tr>
+<tr>
+  <TD>zm</TD><TD>&nbsp;</TD><TD>height of m-th secondary clarifier layer [m]</TD>
+</tr>
+<tr>
+  <TD>Asc</TD><TD>&nbsp;</TD><TD>area of secondary clarifier [m2]</TD>
+</tr>
+<tr>
+  <TD>ISV</TD><TD>&nbsp;</TD><TD>Sludge Volume Index [ml/g]</TD>
+</tr>
+<tr>
+  <TD>vS_S</TD><TD>0.24</TD><TD><span lang="de">sink velocity of micro flocs
+  </span>[m/d]</TD>
+</tr>
+</TABLE>
+<P>
+<P>
+<P>
+<P>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> top_layer <font color="darkgreen">&quot;Effluent layer of Otterpohl`s SC model&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">package</font> WWSC = <A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces"
+>WasteWater.ASM1.SecClar.Otterpohl.Interfaces</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces.SCParam"
+>WWSC.SCParam</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces.SCVar"
+>WWSC.SCVar</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces.ratios"
+>WWSC.ratios</A>;
+  <A HREF="WasteWater_ASM1_SecClar_Otterpohl_Interfaces.html#WasteWater.ASM1.SecClar.Otterpohl.Interfaces.UpperLayerPin"
+>WWSC.UpperLayerPin</A> Dn;
+  <A HREF="WasteWater_ASM1_Interfaces.html#WasteWater.ASM1.Interfaces.WWFlowAsm1out"
+>ASM1.Interfaces.WWFlowAsm1out</A> Out;
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// sink velocity</font>
+  vS_F = <font color="red">WWSC.vSfun</font>(X_F, ISV);
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// sedimentation flux in m-th layer sinking to lower layer</font>
+  Jsm_F = vS_F*X_F;
+  Jsm_S = vS_S*X_S;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// ODE of solid component</font>
+  <font color="red">der</font>(X_F) = (Dn.Qe/Asc*(Dn.X_dn_F - X_F) - Jsm_F)/zm;
+  <font color="red">der</font>(X_S) = (Dn.Qe/Asc*(Dn.X_dn_S - X_S) - Jsm_S)/zm;
+  <font color="darkgreen"></font>
+  X = X_F + X_S;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// ODEs of soluble components</font>
+  <font color="red">der</font>(Si) = Dn.Qe*(Dn.Si - Si)/(Asc*zm);
+  <font color="red">der</font>(Ss) = Dn.Qe*(Dn.Ss - Ss)/(Asc*zm);
+  <font color="red">der</font>(So) = Dn.Qe*(Dn.So - So)/(Asc*zm);
+  <font color="red">der</font>(Sno) = Dn.Qe*(Dn.Sno - Sno)/(Asc*zm);
+  <font color="red">der</font>(Snh) = Dn.Qe*(Dn.Snh - Snh)/(Asc*zm);
+  <font color="red">der</font>(Snd) = Dn.Qe*(Dn.Snd - Snd)/(Asc*zm);
+  <font color="red">der</font>(Salk) = Dn.Qe*(Dn.Salk - Salk)/(Asc*zm);
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// downward connection</font>
+  Dn.SedFlux_F = -Jsm_F;
+  Dn.SedFlux_S = -Jsm_S;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// effluent volume flow rate</font>
+  Out.Q + Dn.Qe = 0;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// effluent, solid and soluble components (ASM1)</font>
+  Out.Si = Si;
+  Out.Ss = Ss;
+  Out.Xi = rXi*X;
+  Out.Xs = rXs*X;
+  Out.Xbh = rXbh*X;
+  Out.Xba = rXba*X;
+  Out.Xp = rXp*X;
+  Out.So = So;
+  Out.Sno = Sno;
+  Out.Snh = Snh;
+  Out.Snd = Snd;
+  Out.Xnd = rXnd*X;
+  Out.Salk = Salk;
+<font color="blue">end </font>top_layer;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Aug 18 11:16:00 2003
+.
+</address></BODY>
+</HTML>

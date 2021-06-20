@@ -1,0 +1,683 @@
+<HTML>
+<HEAD>
+<META name="HTML-Generator" content="Dymola"><TITLE>WasteWater</TITLE></HEAD>
+<BODY><P>
+<H2><A NAME="WasteWater.ASM2d.PreClar"></A><A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d"
+>WasteWater.ASM2d</A>.PreClar</H2>
+<B>Primary clarifier modelling based on ASM2d</B>
+<P>
+<A HREF="WasteWater_ASM2d_PreClar.html#WasteWater.ASM2d.PreClar.preclar1"
+><IMG SRC="WasteWater.ASM2d.PreClar.preclar1I.png" ALT="WasteWater.ASM2d.PreClar.preclar1" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d_PreClar.html#WasteWater.ASM2d.PreClar.preclar2"
+><IMG SRC="WasteWater.ASM2d.PreClar.preclar2I.png" ALT="WasteWater.ASM2d.PreClar.preclar2" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d_PreClar.html#WasteWater.ASM2d.PreClar.preclar3"
+><IMG SRC="WasteWater.ASM2d.PreClar.preclar3I.png" ALT="WasteWater.ASM2d.PreClar.preclar3" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This package provides one dynamic and two static ASM2d primary clarifier
+models based on Otterpohl [1].
+
+<b>Main Author:</b><i>
+<span lang="de"> </span></i>
+&nbsp;<i><span lang="de">         </span></i>Gerald Reichl
+<span lang="de">         </span> Technische Universitaet Ilmenau
+<span lang="de">          </span>Faculty of Informatics and Automation
+<span lang="de">          </span>Department Dynamics and Simulation of ecological Systems
+<span lang="de">          </span>P.O. Box 10 05 65
+<span lang="de">          </span>98684 Ilmenau
+<span lang="de">          </span>Germany
+<span lang="de">          email</span>: <a href="mailto:gerald.reichl@tu-ilmenau.de">gerald.reichl@tu-ilmenau.de</a>
+
+
+<b>Reference:</b>
+
+[1]  R. Otterpohl and M. Freund: Dynamic models for clarifier of activated sludge
+      plants with dry and wet weather flows. Water Science and Technology. 26 (1992), pp. 1391-1400.
+</font></PRE>
+<PRE><font face="Times New Roman" size="3"><b>Copyright (C) 2001 - 2002, </b>Gerald Reichl</font></PRE>
+
+<p><i>
+The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the<span lang="de"> </span>accompanying <b>disclaimer</b> in the documentation of package 
+Modelica in file "Modelica/package.mo".
+</i></p>
+<PRE><font face="Times New Roman" size="3">
+</font></PRE><P>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.PreClar.preclar3I.png" ALT="WasteWater.ASM2d.PreClar.preclar3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.PreClar.preclar3"></A><A HREF="WasteWater_ASM2d_PreClar.html#WasteWater.ASM2d.PreClar"
+>WasteWater.ASM2d.PreClar</A>.preclar3</H2>
+<B>Inverse ASM2d Static Primary Clarifier Model</B><p>
+<IMG SRC="WasteWater.ASM2d.PreClar.preclar3D.png" ALT="WasteWater.ASM2d.PreClar.preclar3" width="101" height="85">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This is a special case of the ASM2d static primary clarifier model.
+Here measurement data at the end (effluent) of the preclaryfier needs to be provided.
+This is typical for some real plants. Influent is then calculated.
+
+<b>Dimension </b>of InPort is <b>4</b>: 
+
+  <b>1</b> - Chemical Oxygen Demand (COD) at effluent of primary clarifier
+  <b>2</b> - annonium nitrogen (Snh) at effluent of primary clarifier
+  <b>3</b> - phosphorus (Spo) at effluent of primary clarifier
+  <b>4</b> - pH-value at effluent of primary clarifier
+</font>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>i_N_Si</TD><TD>0.01</TD><TD>N content of inert soluble COD Si [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Sf</TD><TD>0.03</TD><TD>N content of fermentable substrates Sf [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Xi</TD><TD>0.02</TD><TD>N content of inert particulate COD Xi [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Xs</TD><TD>0.04</TD><TD>N content of slowly biodegradable substrate Xs [gN/gCOD]</TD></TR>
+<TR><TD>i_N_BM</TD><TD>0.07</TD><TD>N content of biomass, Xh, Xpao, Xa [gN/gCOD]</TD></TR>
+<TR><TD>i_P_Si</TD><TD>0.0</TD><TD>P content of inert soluble COD Si [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Sf</TD><TD>0.01</TD><TD>P content of fermentable substrates Sf [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Xi</TD><TD>0.01</TD><TD>P content of inert particulate COD Xi [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Xs</TD><TD>0.01</TD><TD>P content of slowly biodegradable substrate Xs [gP/gCOD]</TD></TR>
+<TR><TD>i_P_BM</TD><TD>0.02</TD><TD>P content of biomass, Xh, Xpao, Xa [gP/gCOD]</TD></TR>
+<TR><TD>i_TSS_Xi</TD><TD>0.75</TD><TD>TSS to COD ratio for Xi [gTSS/gCOD]</TD></TR>
+<TR><TD>i_TSS_Xs</TD><TD>0.75</TD><TD>TSS to COD ratio for Xs [gTSS/gCOD]</TD></TR>
+<TR><TD>i_TSS_BM</TD><TD>0.9</TD><TD>TSS to COD ratio for biomass, Xh, Xpao, Xa [gTSS/gCOD]</TD></TR>
+<TR><TD>V</TD><TD>500</TD><TD>Volume of primary clarifier tank [m3]</TD></TR>
+<TR><TD>aSi</TD><TD>5/100</TD><TD>Fraction of Si of the total COD in the influent</TD></TR>
+<TR><TD>aSf</TD><TD>9/100</TD><TD>Fraction of Sf of the total COD in the influent</TD></TR>
+<TR><TD>aSa</TD><TD>6/100</TD><TD>Fraction of Sa of the total COD in the influent</TD></TR>
+<TR><TD>aXi</TD><TD>15/100</TD><TD>Fraction of Xi of the total COD in the influent</TD></TR>
+<TR><TD>aXs</TD><TD>45/100</TD><TD>Fraction of Xs of the total COD in the influent</TD></TR>
+<TR><TD>aXh</TD><TD>20/100</TD><TD>Fraction of Xh of the total COD in the influent</TD></TR>
+<TR><TD>aXa</TD><TD>0/100</TD><TD>Fraction of Xa of the total COD in the influent</TD></TR>
+<TR><TD>aSo</TD><TD>0.0</TD><TD>Dissolved oxygen in the inflow [mg/l]</TD></TR>
+<TR><TD>n_corr</TD><TD>1.0</TD><TD>Correction faktor for the efficiency function</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> preclar3 <font color="darkgreen">&quot;Inverse ASM2d Static Primary Clarifier Model&quot;</font> 
+  <font color="darkgreen">// static primary clarifier tank</font>
+  <font color="darkgreen">// to be used for backward calculation, e.g. effluent data for total</font>
+  <font color="darkgreen">// signals need to be in the sequence COD, Snh, Spo, pH in the input<span lang="de">-</span>table</font>
+  <font color="darkgreen"></font>
+  <font color="blue">import </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Math.html#Modelica.Math.log"
+>Modelica.Math.log</A>;
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.preclar2"
+>WasteWater.Icons.preclar2</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.conversion_factors"
+>Interfaces.conversion_factors</A>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// tank specific parameters</font>
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Volume"
+>Modelica.SIunits.Volume</A> V=500 <font color="darkgreen">&quot;Volume of primary clarifier tank&quot;</font>;
+  <font color="blue">parameter </font>Real aSi=5/100 <font color="darkgreen">&quot;Fraction of Si of the total COD in the influent&quot;</font>;
+  <font color="blue">parameter </font>Real aSf=9/100 <font color="darkgreen">&quot;Fraction of Sf of the total COD in the influent&quot;</font>;
+  <font color="blue">parameter </font>Real aSa=6/100 <font color="darkgreen">&quot;Fraction of Sa of the total COD in the influent&quot;</font>;
+  <font color="blue">parameter </font>Real aXi=15/100 <font color="darkgreen">&quot;Fraction of Xi of the total COD in the influent&quot;</font>;
+  <font color="blue">parameter </font>Real aXs=45/100 <font color="darkgreen">&quot;Fraction of Xs of the total COD in the influent&quot;</font>;
+  <font color="blue">parameter </font>Real aXh=20/100 <font color="darkgreen">&quot;Fraction of Xh of the total COD in the influent&quot;</font>;
+  <font color="blue">parameter </font>Real aXa=0/100 <font color="darkgreen">&quot;Fraction of Xa of the total COD in the influent&quot;</font>;
+  <font color="darkgreen">// parameter Real aXp=0/100 &quot;Fraction of Xp of the total COD in the influent&quot;;</font>
+  <font color="blue">parameter </font>Real aSo=0.0 <font color="darkgreen">&quot;Dissolved oxygen in the inflow [mg/l]&quot;</font>;
+  <font color="darkgreen">// parameter Real aSnd=1/100 &quot;Fraction Snd of Ss in the influent&quot;;</font>
+  <font color="darkgreen">// parameter Real aXnd=3/100 &quot;Fraction Xnd of Xs in the influent&quot;;</font>
+  <font color="blue">parameter </font>Real n_corr=1.0 <font color="darkgreen">&quot;Correction faktor for the efficiency function&quot;</font>;
+  <font color="darkgreen"></font>
+  Real hrt_h <font color="darkgreen">&quot;hydraulic residence time in primary sedimentation tank [h]&quot;</font>;  <font color="darkgreen">
+  //Real hrt_min &quot;hydraulic residence time in primary sedimentation tank [min]&quot;;</font>
+  Real n_COD <font color="darkgreen">&quot;efficiency of COD removal [%]&quot;</font>;
+  Real n_X <font color="darkgreen">&quot;efficiency transformed to particulate fractions [%]&quot;</font>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Interfaces.MeasurePort MeasurePort annotation (extent=[32, 90; 42, 100]);</font>
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> So <font color="darkgreen">&quot;Dissolved oxygen&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sf <font color="darkgreen">&quot;Readily biodegradable substrate&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sa <font color="darkgreen">&quot;Fermentation products&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snh <font color="darkgreen">&quot;Ammonium&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sno <font color="darkgreen">&quot;Nitrate (plus nitrite)&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Spo <font color="darkgreen">&quot;Phosphate&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Si <font color="darkgreen">&quot;Inert, non biodegradable organics&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.Alkalinity"
+>WWU.Alkalinity</A> Salk <font color="darkgreen">&quot;Bicarbonate alkalinity&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sn2 <font color="darkgreen">&quot;Dinitrogen&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xi <font color="darkgreen">&quot;Inert, non biodegradable organics&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xs <font color="darkgreen">&quot;Slowly biodegradable substrate&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xh <font color="darkgreen">&quot;Heterotrophic biomass&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xpao <font color="darkgreen">&quot;Phosphorus-accumulating organisms, PAO&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xpp <font color="darkgreen">&quot;Stored poly-phosphate of PAO&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xpha <font color="darkgreen">&quot;Oragnic storage products of PAO&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xa <font color="darkgreen">&quot;Autotrophic, nitrifying biomass&quot;</font>;
+  <font color="darkgreen">//WWU.MassConcentration Xmeoh &quot;Ferric-hydroxide Fe(OH)3&quot;;</font>
+  <font color="darkgreen">//WWU.MassConcentration Xmep &quot;Ferric-phosphate FePO4&quot;;</font>
+  <font color="darkgreen">//WWU.MassConcentration Xtss &quot;Particulate material as model component&quot;;</font>
+  <font color="darkgreen"></font>
+  Real COD;
+  Real CODin;
+  Real CODout;
+  Real XCOD;
+  Real H;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>ASM2d.Interfaces.WWFlowAsm2din</A> In;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>ASM2d.Interfaces.WWFlowAsm2dout</A> Out;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> MeasurePort(<font color="blue">final </font>n=4);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// calculation of the hydraulic residence time</font>
+  hrt_h = V/In.Q*24;
+  <font color="darkgreen">// hrt_h * In.Q = V * 24;</font>
+  <font color="darkgreen">//hrt_min = V/In.Q * 24 * 60;</font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// n_COD according Otterpohl and Freund 1992 &quot;Dynamic Models for Clarifiers&quot;</font>
+  n_COD = n_corr*2.7*(<font color="red">log</font>(hrt_h*hrt_h) + 9)/100;
+  <font color="darkgreen">// n_COD according Otterpohl 1995, Dissertation</font>
+  <font color="darkgreen">// n_COD = n_corr*(1.45 + 6.15 * log(hrt_min))/100;</font>
+  <font color="darkgreen"></font>
+  XCOD = In.Xi + In.Xs + In.Xh + In.Xpao + In.Xpha + In.Xa;
+  <font color="darkgreen">// particulate COD in the influent</font>
+  COD = In.Si + In.Sf + In.Sa + XCOD;
+  <font color="darkgreen">// total COD in the influent</font>
+  <font color="darkgreen"></font>
+  CODin = MeasurePort.signal[1]/(1 - n_COD);
+  <font color="darkgreen">// total COD in the influent</font>
+  <font color="darkgreen">// above two CODs sould be the same</font>
+  <font color="darkgreen"></font>
+  CODout = Out.Si + Out.Sf + Out.Sa + Out.Xi + Out.Xs + Out.Xh + Out.Xpao + Out
+    .Xpha + Out.Xa;
+  <font color="darkgreen">// this should be the same as MeasurePort.signal[1]</font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// n_X can not be greater than 1</font>
+  H = n_COD*COD/XCOD;
+  n_X = <font color="blue">if </font>H &gt; 0.95<font color="blue"> then </font>0.95<font color="blue"> else </font><font color="blue">if </font>H &lt; 0.05<font color="blue"> then </font>0.05<font color="blue"> else </font>H;
+  <font color="darkgreen">// in this case the model needs to be modified by a new n_COD</font>
+  <font color="darkgreen">// n_COD_? = (2.88*XCODin/CODin - 0.118) * n_COD;</font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// volume dependent dilution term of each concentration</font>
+  <font color="darkgreen"></font>
+  0 = (In.So - So)*In.Q/V;
+  0 = (In.Sf - Sf)*In.Q/V;
+  0 = (In.Sa - Sa)*In.Q/V;
+  0 = (In.Snh - Snh)*In.Q/V;
+  0 = (In.Sno - Sno)*In.Q/V;
+  0 = (In.Spo - Spo)*In.Q/V;
+  0 = (In.Si - Si)*In.Q/V;
+  0 = (In.Salk - Salk)*In.Q/V;
+  0 = (In.Sn2 - Sn2)*In.Q/V;
+  0 = (In.Xi - Xi)*In.Q/V;
+  0 = (In.Xs - Xs)*In.Q/V;
+  0 = (In.Xh - Xh)*In.Q/V;
+  0 = (In.Xpao - Xpao)*In.Q/V;
+  0 = (In.Xpp - Xpp)*In.Q/V;
+  0 = (In.Xpha - Xpha)*In.Q/V;
+  0 = (In.Xa - Xa)*In.Q/V;
+  <font color="darkgreen">//0 = (In.Xtss - Xtss)*In.Q/V;</font>
+  <font color="darkgreen">//0 = (In.Xmeoh - Xmeoh)*In.Q/V;</font>
+  <font color="darkgreen">//0 = (In.Xmep - Xmep)*In.Q/V;</font>
+  <font color="darkgreen"></font>
+  Out.Q + In.Q = 0;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Inputs</font>
+  <font color="darkgreen"></font>
+  In.So = aSo;
+  In.Sf = aSf*CODin;
+  In.Sa = aSa*CODin;
+  In.Snh = MeasurePort.signal[2];
+  In.Sno = 0.0;
+  In.Spo = MeasurePort.signal[3];
+  In.Si = aSi*CODin;
+  In.Salk = 1.8*<font color="red">exp</font>(MeasurePort.signal[4] - 6.4);
+  In.Sn2 = 0.0;
+  In.Xi = aXi*CODin;
+  In.Xs = aXs*CODin;
+  In.Xh = aXh*CODin;
+  In.Xpao = 0.0;
+  <font color="darkgreen">// aXpao*CODin;</font>
+  In.Xpp = 0.0;
+  In.Xpha = 0.0;
+  <font color="darkgreen">// aXpha*CODin;</font>
+  In.Xa = aXa*CODin;
+  In.Xtss = i_TSS_Xi*In.Xi + i_TSS_Xs*In.Xs + i_TSS_BM*(In.Xh + In.Xpao + In.Xa
+    ) + 0.6*In.Xpha + In.Xmeoh + In.Xmep + 3.23*In.Xpp;
+  In.Xmeoh = 0.0;
+  In.Xmep = 0.0;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Outputs</font>
+  Out.So = So;
+  Out.Sf = Sf;
+  Out.Sa = Sa;
+  Out.Snh = Snh;
+  Out.Sno = Sno;
+  Out.Spo = Spo;
+  Out.Si = Si;
+  Out.Salk = Salk;
+  Out.Sn2 = Sn2;
+  Out.Xi = (1 - n_X)*Xi;
+  Out.Xs = (1 - n_X)*Xs;
+  Out.Xh = (1 - n_X)*Xh;
+  Out.Xpao = (1 - n_X)*Xpao;
+  Out.Xpp = Xpp;
+  Out.Xpha = (1 - n_X)*Xpha;
+  Out.Xa = (1 - n_X)*Xa;
+  Out.Xtss = i_TSS_Xi*Out.Xi + i_TSS_Xs*Out.Xs + i_TSS_BM*(Out.Xh + Out.Xpao + 
+    Out.Xa) + 0.6*Out.Xpha + Out.Xmeoh + Out.Xmep + 3.23*Out.Xpp;
+  Out.Xmeoh = 0.0;
+  Out.Xmep = 0.0;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>preclar3;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.PreClar.preclar1I.png" ALT="WasteWater.ASM2d.PreClar.preclar1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.PreClar.preclar1"></A><A HREF="WasteWater_ASM2d_PreClar.html#WasteWater.ASM2d.PreClar"
+>WasteWater.ASM2d.PreClar</A>.preclar1</H2>
+<B>Dynamic ASM2d <span lang="de">p</span>rimary <span lang="de">c</span>larifier 
+<span lang="de">m</span>odel</B><p>
+<IMG SRC="WasteWater.ASM2d.PreClar.preclar1D.png" ALT="WasteWater.ASM2d.PreClar.preclar1" width="101" height="85">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This is an ASM2d dynamic primary clarifier model based on the theory
+by Otterpohl and Freund.</font>
+
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>i_N_Si</TD><TD>0.01</TD><TD>N content of inert soluble COD Si [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Sf</TD><TD>0.03</TD><TD>N content of fermentable substrates Sf [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Xi</TD><TD>0.02</TD><TD>N content of inert particulate COD Xi [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Xs</TD><TD>0.04</TD><TD>N content of slowly biodegradable substrate Xs [gN/gCOD]</TD></TR>
+<TR><TD>i_N_BM</TD><TD>0.07</TD><TD>N content of biomass, Xh, Xpao, Xa [gN/gCOD]</TD></TR>
+<TR><TD>i_P_Si</TD><TD>0.0</TD><TD>P content of inert soluble COD Si [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Sf</TD><TD>0.01</TD><TD>P content of fermentable substrates Sf [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Xi</TD><TD>0.01</TD><TD>P content of inert particulate COD Xi [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Xs</TD><TD>0.01</TD><TD>P content of slowly biodegradable substrate Xs [gP/gCOD]</TD></TR>
+<TR><TD>i_P_BM</TD><TD>0.02</TD><TD>P content of biomass, Xh, Xpao, Xa [gP/gCOD]</TD></TR>
+<TR><TD>i_TSS_Xi</TD><TD>0.75</TD><TD>TSS to COD ratio for Xi [gTSS/gCOD]</TD></TR>
+<TR><TD>i_TSS_Xs</TD><TD>0.75</TD><TD>TSS to COD ratio for Xs [gTSS/gCOD]</TD></TR>
+<TR><TD>i_TSS_BM</TD><TD>0.9</TD><TD>TSS to COD ratio for biomass, Xh, Xpao, Xa [gTSS/gCOD]</TD></TR>
+<TR><TD>V</TD><TD>500</TD><TD>Volume of primary clarifier tank [m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> preclar1 <font color="darkgreen">&quot;Dynamic ASM2d Primary Clarifier Model&quot;</font> 
+  <font color="darkgreen">// dynamic primary clarifier tank, based on Otterpohl</font>
+  <font color="darkgreen">// to be used for feed forward calculation, e.g. influent data needed</font>
+  <font color="darkgreen"></font>
+  <font color="blue">import </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Math.html#Modelica.Math.log"
+>Modelica.Math.log</A>;
+  <font color="darkgreen">//WWU.MassConcentration Xmep &quot;Ferric-phosphate FePO4&quot;;</font>
+  <font color="darkgreen"></font>
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWaterUnits</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.preclar1"
+>WasteWater.Icons.preclar1</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.conversion_factors"
+>Interfaces.conversion_factors</A>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// tank specific parameters</font>
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Volume"
+>Modelica.SIunits.Volume</A> V=500 <font color="darkgreen">&quot;Volume of primary clarifier tank&quot;</font>;
+  Real hrt_h <font color="darkgreen">&quot;hydraulic residence time in primary sedimentation tank [h]&quot;</font>;
+  <font color="darkgreen">
+    //Real hrt_min &quot;hydraulic residence time in primary sedimentation tank [min]&quot;;</font>
+  Real n_COD <font color="darkgreen">&quot;efficiency of COD removal [%]&quot;</font>;
+  Real n_X <font color="darkgreen">&quot;efficiency transformed to particulate fractions [%]&quot;</font>;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> So <font color="darkgreen">&quot;Dissolved oxygen&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sf <font color="darkgreen">&quot;Readily biodegradable substrate&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sa <font color="darkgreen">&quot;Fermentation products&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snh <font color="darkgreen">&quot;Ammonium&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sno <font color="darkgreen">&quot;Nitrate (plus nitrite)&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Spo <font color="darkgreen">&quot;Phosphate&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Si <font color="darkgreen">&quot;Inert, non biodegradable organics&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.Alkalinity"
+>WWU.Alkalinity</A> Salk <font color="darkgreen">&quot;Bicarbonate alkalinity&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sn2 <font color="darkgreen">&quot;Dinitrogen&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xi <font color="darkgreen">&quot;Inert, non biodegradable organics&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xs <font color="darkgreen">&quot;Slowly biodegradable substrate&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xh <font color="darkgreen">&quot;Heterotrophic biomass&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xpao <font color="darkgreen">&quot;Phosphorus-accumulating organisms, PAO&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xpp <font color="darkgreen">&quot;Stored poly-phosphate of PAO&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xpha <font color="darkgreen">&quot;Oragnic storage products of PAO&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xa <font color="darkgreen">&quot;Autotrophic, nitrifying biomass&quot;</font>;
+  <font color="darkgreen">//WWU.MassConcentration Xmeoh &quot;Ferric-hydroxide Fe(OH)3&quot;;</font>
+  <font color="darkgreen">//WWU.MassConcentration Xtss &quot;Particulate material as model component&quot;;</font>
+  <font color="darkgreen"></font>
+  Real CODin;
+  Real CODout;
+  Real XCODin;
+  Real H;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>ASM2d.Interfaces.WWFlowAsm2din</A> In;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>ASM2d.Interfaces.WWFlowAsm2dout</A> Out;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>ASM2d.Interfaces.WWFlowAsm2dout</A> MeasurePort;
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// calculation of the hydraulic residence time</font>
+  hrt_h = V/In.Q*24;
+  <font color="darkgreen">//hrt_min = V/In.Q * 24 * 60;</font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// n_COD according Otterpohl and Freund 1992 &quot;Dynamic Models for Clarifiers&quot;</font>
+  n_COD = 2.7*(<font color="red">log</font>(hrt_h*hrt_h) + 9)/100;
+  <font color="darkgreen">// n_COD according Otterpohl 1995, Dissertation</font>
+  <font color="darkgreen">// n_COD = (1.45 + 6.15 * log(hrt_min))/100;</font>
+  <font color="darkgreen"></font>
+  XCODin = In.Xi + In.Xs + In.Xh + In.Xpao + In.Xpha + In.Xa;
+  <font color="darkgreen">// particulate COD in the influent</font>
+  CODin = In.Si + In.Sf + In.Sa + XCODin;
+  <font color="darkgreen">// total COD in the influent</font>
+  <font color="darkgreen"></font>
+  CODout = Out.Si + Out.Sf + Out.Sa + Out.Xi + Out.Xs + Out.Xh + Out.Xpao + Out
+    .Xpha + Out.Xa;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// n_X can not be greater than 1</font>
+  H = n_COD*CODin/XCODin;
+  <font color="darkgreen">// therefore this check</font>
+  n_X = <font color="blue">if </font>H &gt; 0.95<font color="blue"> then </font>0.95<font color="blue"> else </font><font color="blue">if </font>H &lt; 0.05<font color="blue"> then </font>0.05<font color="blue"> else </font>H;
+  <font color="darkgreen">// in this case the model needs to be modified by a new n_COD</font>
+  <font color="darkgreen">// n_COD_? = (2.88*XCODin/CODin - 0.118) * n_COD;</font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// volume dependent dilution term of each concentration</font>
+  <font color="darkgreen"></font>
+  <font color="red">der</font>(So) = (In.So - So)*In.Q/V;
+  <font color="red">der</font>(Sf) = (In.Sf - Sf)*In.Q/V;
+  <font color="red">der</font>(Sa) = (In.Sa - Sa)*In.Q/V;
+  <font color="red">der</font>(Snh) = (In.Snh - Snh)*In.Q/V;
+  <font color="red">der</font>(Sno) = (In.Sno - Sno)*In.Q/V;
+  <font color="red">der</font>(Spo) = (In.Spo - Spo)*In.Q/V;
+  <font color="red">der</font>(Si) = (In.Si - Si)*In.Q/V;
+  <font color="red">der</font>(Salk) = (In.Salk - Salk)*In.Q/V;
+  <font color="red">der</font>(Sn2) = (In.Sn2 - Sn2)*In.Q/V;
+  <font color="red">der</font>(Xi) = (In.Xi - Xi)*In.Q/V;
+  <font color="red">der</font>(Xs) = (In.Xs - Xs)*In.Q/V;
+  <font color="red">der</font>(Xh) = (In.Xh - Xh)*In.Q/V;
+  <font color="red">der</font>(Xpao) = (In.Xpao - Xpao)*In.Q/V;
+  <font color="red">der</font>(Xpp) = (In.Xpp - Xpp)*In.Q/V;
+  <font color="red">der</font>(Xpha) = (In.Xpha - Xpha)*In.Q/V;
+  <font color="red">der</font>(Xa) = (In.Xa - Xa)*In.Q/V;
+  <font color="darkgreen">//der(Xtss) = (In.Xtss - Xtss)*In.Q/V;</font>
+  <font color="darkgreen">//der(Xmeoh) = (In.Xmeoh - Xmeoh)*In.Q/V;</font>
+  <font color="darkgreen">//der(Xmep) = (In.Xmep - Xmep)*In.Q/V;</font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Outputs</font>
+  <font color="darkgreen">// this is just a reduction of particulate substances; n_X*X is not stored</font>
+  <font color="darkgreen">// so the amount of primary sludge removed can not be calculated</font>
+  Out.Q + In.Q = 0;
+  Out.So = So;
+  Out.Sf = Sf;
+  Out.Sa = Sa;
+  Out.Snh = Snh;
+  Out.Sno = Sno;
+  Out.Spo = Spo;
+  Out.Si = Si;
+  Out.Salk = Salk;
+  Out.Sn2 = Sn2;
+  Out.Xi = (1 - n_X)*Xi;
+  Out.Xs = (1 - n_X)*Xs;
+  Out.Xh = (1 - n_X)*Xh;
+  Out.Xpao = (1 - n_X)*Xpao;
+  Out.Xpp = Xpp;
+  Out.Xpha = (1 - n_X)*Xpha;
+  Out.Xa = (1 - n_X)*Xa;
+  Out.Xtss = i_TSS_Xi*Out.Xi + i_TSS_Xs*Out.Xs + i_TSS_BM*(Out.Xh + Out.Xpao + 
+    Out.Xa) + 0.6*Out.Xpha + Out.Xmeoh + Out.Xmep + 3.23*Out.Xpp;
+  Out.Xmeoh = 0.0;
+  Out.Xmep = 0.0;
+  <font color="darkgreen"></font>
+  MeasurePort.So = So;
+  MeasurePort.Sf = Sf;
+  MeasurePort.Sa = Sa;
+  MeasurePort.Snh = Snh;
+  MeasurePort.Sno = Sno;
+  MeasurePort.Spo = Spo;
+  MeasurePort.Si = Si;
+  MeasurePort.Salk = Salk;
+  MeasurePort.Sn2 = Sn2;
+  MeasurePort.Xi = (1 - n_X)*Xi;
+  MeasurePort.Xs = (1 - n_X)*Xs;
+  MeasurePort.Xh = (1 - n_X)*Xh;
+  MeasurePort.Xpao = (1 - n_X)*Xpao;
+  MeasurePort.Xpp = Xpp;
+  MeasurePort.Xpha = (1 - n_X)*Xpha;
+  MeasurePort.Xa = (1 - n_X)*Xa;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">
+    //  MeasurePort.Xtss = 0.75*Out.Xi + 0.75*Out.Xs + 0.9*Out.Xh + 0.9*Out.Xpao + </font>
+  <font color="darkgreen">// 0.9*Out.Xa + 0.6*Out.Xpha;</font>
+  MeasurePort.Xtss = i_TSS_Xi*Out.Xi + i_TSS_Xs*Out.Xs + i_TSS_BM*(Out.Xh + Out
+    .Xpao + Out.Xa) + 0.6*Out.Xpha + Out.Xmeoh + Out.Xmep + 3.23*Out.Xpp;
+  MeasurePort.Xmeoh = 0.0;
+  MeasurePort.Xmep = 0.0;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>preclar1;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.PreClar.preclar2I.png" ALT="WasteWater.ASM2d.PreClar.preclar2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.PreClar.preclar2"></A><A HREF="WasteWater_ASM2d_PreClar.html#WasteWater.ASM2d.PreClar"
+>WasteWater.ASM2d.PreClar</A>.preclar2</H2>
+<B>Static ASM2d <span lang="de">p</span>rimary <span lang="de">c</span>larifier 
+<span lang="de">m</span>odel</B><p>
+<IMG SRC="WasteWater.ASM2d.PreClar.preclar2D.png" ALT="WasteWater.ASM2d.PreClar.preclar2" width="101" height="85">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This is an ASM2d static primary clarifier model based on the theory
+by Otterpohl and Freund.
+</font>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>i_N_Si</TD><TD>0.01</TD><TD>N content of inert soluble COD Si [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Sf</TD><TD>0.03</TD><TD>N content of fermentable substrates Sf [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Xi</TD><TD>0.02</TD><TD>N content of inert particulate COD Xi [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Xs</TD><TD>0.04</TD><TD>N content of slowly biodegradable substrate Xs [gN/gCOD]</TD></TR>
+<TR><TD>i_N_BM</TD><TD>0.07</TD><TD>N content of biomass, Xh, Xpao, Xa [gN/gCOD]</TD></TR>
+<TR><TD>i_P_Si</TD><TD>0.0</TD><TD>P content of inert soluble COD Si [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Sf</TD><TD>0.01</TD><TD>P content of fermentable substrates Sf [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Xi</TD><TD>0.01</TD><TD>P content of inert particulate COD Xi [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Xs</TD><TD>0.01</TD><TD>P content of slowly biodegradable substrate Xs [gP/gCOD]</TD></TR>
+<TR><TD>i_P_BM</TD><TD>0.02</TD><TD>P content of biomass, Xh, Xpao, Xa [gP/gCOD]</TD></TR>
+<TR><TD>i_TSS_Xi</TD><TD>0.75</TD><TD>TSS to COD ratio for Xi [gTSS/gCOD]</TD></TR>
+<TR><TD>i_TSS_Xs</TD><TD>0.75</TD><TD>TSS to COD ratio for Xs [gTSS/gCOD]</TD></TR>
+<TR><TD>i_TSS_BM</TD><TD>0.9</TD><TD>TSS to COD ratio for biomass, Xh, Xpao, Xa [gTSS/gCOD]</TD></TR>
+<TR><TD>V</TD><TD>500</TD><TD>Volume of primary clarifier tank [m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> preclar2 <font color="darkgreen">&quot;Static ASM2d Primary Clarifier Model&quot;</font> 
+  <font color="darkgreen">// static primary clarifier tank, based on Otterpohl</font>
+  <font color="darkgreen">// to be used for feed forward calculation, e.g. influent data needed</font>
+  <font color="darkgreen"></font>
+  <font color="blue">import </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Math.html#Modelica.Math.log"
+>Modelica.Math.log</A>;
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWaterUnits</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.preclar2"
+>WasteWater.Icons.preclar2</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.conversion_factors"
+>Interfaces.conversion_factors</A>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// tank specific parameters  </font>
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Volume"
+>Modelica.SIunits.Volume</A> V=500 <font color="darkgreen">&quot;Volume of primary clarifier tank&quot;</font>;
+  <font color="darkgreen">
+  //Real hrt_min &quot;hydraulic residence time in primary sedimentation tank [min]&quot;;  </font>
+  Real hrt_h <font color="darkgreen">&quot;hydraulic residence time in primary sedimentation tank [h]&quot;</font>;
+  Real n_COD <font color="darkgreen">&quot;efficiency of COD removal [%]&quot;</font>;
+  Real n_X <font color="darkgreen">&quot;efficiency transformed to particulate fractions [%]&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> So <font color="darkgreen">&quot;Dissolved oxygen&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sf <font color="darkgreen">&quot;Readily biodegradable substrate&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sa <font color="darkgreen">&quot;Fermentation products&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snh <font color="darkgreen">&quot;Ammonium&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sno <font color="darkgreen">&quot;Nitrate (plus nitrite)&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Spo <font color="darkgreen">&quot;Phosphate&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Si <font color="darkgreen">&quot;Inert, non biodegradable organics&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.Alkalinity"
+>WWU.Alkalinity</A> Salk <font color="darkgreen">&quot;Bicarbonate alkalinity&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sn2 <font color="darkgreen">&quot;Dinitrogen&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xi <font color="darkgreen">&quot;Inert, non biodegradable organics&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xs <font color="darkgreen">&quot;Slowly biodegradable substrate&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xh <font color="darkgreen">&quot;Heterotrophic biomass&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xpao <font color="darkgreen">&quot;Phosphorus-accumulating organisms, PAO&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xpp <font color="darkgreen">&quot;Stored poly-phosphate of PAO&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xpha <font color="darkgreen">&quot;Oragnic storage products of PAO&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xa <font color="darkgreen">&quot;Autotrophic, nitrifying biomass&quot;</font>;
+  <font color="darkgreen">//WWU.MassConcentration Xmeoh &quot;Ferric-hydroxide Fe(OH)3&quot;;</font>
+  <font color="darkgreen">//WWU.MassConcentration Xmep &quot;Ferric-phosphate FePO4&quot;;</font>
+  <font color="darkgreen">//WWU.MassConcentration Xtss &quot;Particulate material as model component&quot;;</font>
+  <font color="darkgreen"></font>
+  Real CODin;
+  Real CODout;
+  Real XCODin;
+  Real H;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>ASM2d.Interfaces.WWFlowAsm2din</A> In;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>ASM2d.Interfaces.WWFlowAsm2dout</A> Out;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>ASM2d.Interfaces.WWFlowAsm2dout</A> MeasurePort;
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// calculation of the hydraulic residence time</font>
+  hrt_h = V/In.Q*24;
+  <font color="darkgreen">//hrt_min = V/In.Q * 24 * 60;</font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// n_COD according Otterpohl and Freund 1992 &quot;Dynamic Models for Clarifiers&quot;</font>
+  n_COD = 2.7*(<font color="red">log</font>(hrt_h*hrt_h) + 9)/100;
+  <font color="darkgreen">// n_COD according Otterpohl 1995, Dissertation</font>
+  <font color="darkgreen">// n_COD = (1.45 + 6.15 * log(hrt_min))/100;</font>
+  <font color="darkgreen"></font>
+  XCODin = In.Xi + In.Xs + In.Xh + In.Xpao + In.Xpha + In.Xa;
+  <font color="darkgreen">// particulate COD in the influent</font>
+  CODin = In.Si + In.Sf + In.Sa + XCODin;
+  <font color="darkgreen">// total COD in the influent</font>
+  <font color="darkgreen"></font>
+  CODout = Out.Si + Out.Sf + Out.Sa + Out.Xi + Out.Xs + Out.Xh 
+<span lang="de">           </span>+ Out.Xpao + Out.Xpha + Out.Xa;
+  <font color="darkgreen"></font>
+  H = n_COD*CODin/XCODin;
+  <font color="darkgreen">// n_X can not be greater than 1</font>
+  <font color="darkgreen">// therefore this check</font>
+  n_X = <font color="blue">if </font>H &gt; 0.95<font color="blue"> then </font>0.95<font color="blue"> else </font><font color="blue">if </font>H &lt; 0.05<font color="blue"> then </font>0.05<font color="blue"> else </font>H;
+  <font color="darkgreen">// in this case the model needs to be modified by a new n_COD</font>
+  <font color="darkgreen">// n_COD_? = (2.88*XCODin/CODin - 0.118) * n_COD;</font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// volume dependent dilution term of each concentration</font>
+  <font color="darkgreen"></font>
+  0 = (In.So - So)*In.Q/V;
+  0 = (In.Sf - Sf)*In.Q/V;
+  0 = (In.Sa - Sa)*In.Q/V;
+  0 = (In.Snh - Snh)*In.Q/V;
+  0 = (In.Sno - Sno)*In.Q/V;
+  0 = (In.Spo - Spo)*In.Q/V;
+  0 = (In.Si - Si)*In.Q/V;
+  0 = (In.Salk - Salk)*In.Q/V;
+  0 = (In.Sn2 - Sn2)*In.Q/V;
+  0 = (In.Xi - Xi)*In.Q/V;
+  0 = (In.Xs - Xs)*In.Q/V;
+  0 = (In.Xh - Xh)*In.Q/V;
+  0 = (In.Xpao - Xpao)*In.Q/V;
+  0 = (In.Xpp - Xpp)*In.Q/V;
+  0 = (In.Xpha - Xpha)*In.Q/V;
+  0 = (In.Xa - Xa)*In.Q/V;
+  <font color="darkgreen">//0 = (In.Xtss - Xtss)*In.Q/V;</font>
+  <font color="darkgreen">// der(Xmeoh) = (In.Xmeoh - Xmeoh)*In.Q/V;</font>
+  <font color="darkgreen">// der(Xmep) = (In.Xmep - Xmep)*In.Q/V;</font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Outputs</font>
+  <font color="darkgreen">// this is just a reduction of particulate substances; n_X*X is not stored</font>
+  <font color="darkgreen">// so the amount of primary sludge removed can not be calculated</font>
+  Out.Q + In.Q = 0;
+  Out.So = So;
+  Out.Sf = Sf;
+  Out.Sa = Sa;
+  Out.Snh = Snh;
+  Out.Sno = Sno;
+  Out.Spo = Spo;
+  Out.Si = Si;
+  Out.Salk = Salk;
+  Out.Sn2 = Sn2;
+  Out.Xi = (1 - n_X)*Xi;
+  Out.Xs = (1 - n_X)*Xs;
+  Out.Xh = (1 - n_X)*Xh;
+  Out.Xpao = (1 - n_X)*Xpao;
+  Out.Xpp = Xpp;
+  Out.Xpha = (1 - n_X)*Xpha;
+  Out.Xa = (1 - n_X)*Xa;
+  Out.Xtss = i_TSS_Xi*Out.Xi + i_TSS_Xs*Out.Xs + i_TSS_BM*(Out.Xh + Out.Xpao + 
+    Out.Xa) + 0.6*Out.Xpha + Out.Xmeoh + Out.Xmep + 3.23*Out.Xpp;
+  Out.Xmeoh = 0.0;
+  Out.Xmep = 0.0;
+  <font color="darkgreen"></font>
+  MeasurePort.So = So;
+  MeasurePort.Sf = Sf;
+  MeasurePort.Sa = Sa;
+  MeasurePort.Snh = Snh;
+  MeasurePort.Sno = Sno;
+  MeasurePort.Spo = Spo;
+  MeasurePort.Si = Si;
+  MeasurePort.Salk = Salk;
+  MeasurePort.Sn2 = Sn2;
+  MeasurePort.Xi = (1 - n_X)*Xi;
+  MeasurePort.Xs = (1 - n_X)*Xs;
+  MeasurePort.Xh = (1 - n_X)*Xh;
+  MeasurePort.Xpao = (1 - n_X)*Xpao;
+  MeasurePort.Xpp = Xpp;
+  MeasurePort.Xpha = (1 - n_X)*Xpha;
+  MeasurePort.Xa = (1 - n_X)*Xa;
+  MeasurePort.Xtss = i_TSS_Xi*Out.Xi + i_TSS_Xs*Out.Xs + i_TSS_BM*(Out.Xh + Out
+    .Xpao + Out.Xa) + 0.6*Out.Xpha + Out.Xmeoh + Out.Xmep + 3.23*Out.Xpp;
+  MeasurePort.Xmeoh = 0.0;
+  MeasurePort.Xmep = 0.0;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>preclar2;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Aug 18 11:15:28 2003
+.
+</address></BODY>
+</HTML>

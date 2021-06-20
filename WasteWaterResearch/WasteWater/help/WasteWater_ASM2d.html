@@ -1,0 +1,1836 @@
+<HTML>
+<HEAD>
+<META name="HTML-Generator" content="Dymola"><TITLE>WasteWater</TITLE></HEAD>
+<BODY><P>
+<H2><A NAME="WasteWater.ASM2d"></A><A HREF="WasteWater.html#WasteWater"
+>WasteWater</A>.ASM2d</H2>
+<B>Component models for the Activated Sludge Model No.2d</B>
+<P>
+<A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.deni"
+><IMG SRC="WasteWater.ASM2d.deniI.png" ALT="WasteWater.ASM2d.deni" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.nitri"
+><IMG SRC="WasteWater.ASM2d.nitriI.png" ALT="WasteWater.ASM2d.nitri" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.precipitation"
+><IMG SRC="WasteWater.ASM2d.precipitationI.png" ALT="WasteWater.ASM2d.precipitation" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.SecClarModTakacs"
+><IMG SRC="WasteWater.ASM2d.SecClarModTakacsI.png" ALT="WasteWater.ASM2d.SecClarModTakacs" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.blower"
+><IMG SRC="WasteWater.ASM2d.blowerI.png" ALT="WasteWater.ASM2d.blower" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.pump"
+><IMG SRC="WasteWater.ASM2d.pumpI.png" ALT="WasteWater.ASM2d.pump" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.FlowSource"
+><IMG SRC="WasteWater.ASM2d.FlowSourceI.png" ALT="WasteWater.ASM2d.FlowSource" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.WWSource"
+><IMG SRC="WasteWater.ASM2d.WWSourceI.png" ALT="WasteWater.ASM2d.WWSource" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.EffluentSink"
+><IMG SRC="WasteWater.ASM2d.EffluentSinkI.png" ALT="WasteWater.ASM2d.EffluentSink" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.SludgeSink"
+><IMG SRC="WasteWater.ASM2d.SludgeSinkI.png" ALT="WasteWater.ASM2d.SludgeSink" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.ControlledDivider2"
+><IMG SRC="WasteWater.ASM2d.ControlledDivider2I.png" ALT="WasteWater.ASM2d.ControlledDivider2" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.divider2"
+><IMG SRC="WasteWater.ASM2d.divider2I.png" ALT="WasteWater.ASM2d.divider2" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.mixer2"
+><IMG SRC="WasteWater.ASM2d.mixer2I.png" ALT="WasteWater.ASM2d.mixer2" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.mixer3"
+><IMG SRC="WasteWater.ASM2d.mixer3I.png" ALT="WasteWater.ASM2d.mixer3" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_COD"
+><IMG SRC="WasteWater.ASM2d.sensor_CODI.png" ALT="WasteWater.ASM2d.sensor_COD" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_NH"
+><IMG SRC="WasteWater.ASM2d.sensor_NHI.png" ALT="WasteWater.ASM2d.sensor_NH" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_NO"
+><IMG SRC="WasteWater.ASM2d.sensor_NOI.png" ALT="WasteWater.ASM2d.sensor_NO" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_O2"
+><IMG SRC="WasteWater.ASM2d.sensor_O2I.png" ALT="WasteWater.ASM2d.sensor_O2" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_PO"
+><IMG SRC="WasteWater.ASM2d.sensor_POI.png" ALT="WasteWater.ASM2d.sensor_PO" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_Q"
+><IMG SRC="WasteWater.ASM2d.sensor_QI.png" ALT="WasteWater.ASM2d.sensor_Q" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_TKN"
+><IMG SRC="WasteWater.ASM2d.sensor_TKNI.png" ALT="WasteWater.ASM2d.sensor_TKN" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_TP"
+><IMG SRC="WasteWater.ASM2d.sensor_TPI.png" ALT="WasteWater.ASM2d.sensor_TP" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d.sensor_TSS"
+><IMG SRC="WasteWater.ASM2d.sensor_TSSI.png" ALT="WasteWater.ASM2d.sensor_TSS" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d_Examples.html#WasteWater.ASM2d.Examples"
+><IMG SRC="WasteWater.ASM2d.ExamplesI.png" ALT="WasteWater.ASM2d.Examples" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces"
+><IMG SRC="WasteWater.ASM2d.InterfacesI.png" ALT="WasteWater.ASM2d.Interfaces" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d_PreClar.html#WasteWater.ASM2d.PreClar"
+><IMG SRC="WasteWater.ASM2d.PreClarI.png" ALT="WasteWater.ASM2d.PreClar" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d_SecClar.html#WasteWater.ASM2d.SecClar"
+><IMG SRC="WasteWater.ASM2d.SecClarI.png" ALT="WasteWater.ASM2d.SecClar" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This library contains components to build models of biological municipal
+wastewater treatment plants based on the <b>A</b><i>ctivated</i> <b>S</b><i>ludge</i> <b>M</b><i>odel No.</i><b>2d</b> (<b>ASM2d</b>) by the
+<b>I</b><i>nternational</i> <b>A</b><i>ssociation</i> <i>on </i><b>W</b><i>ater</i> <b>Q</b><i>uality</i> (<b>IAWQ</b>) [1].
+
+
+<b>The library currently is structured in following sub-libraries.
+</b>
+</font></PRE>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="1035" id="AutoNumber1">
+  <tr>
+    <td width="77">
+<PRE><font face="Times New Roman" size="3">  <a href="WasteWater_ASM2d_Interfaces.html">Interfaces</a> </font></PRE>
+    </td>
+    <td width="955">
+<PRE><font face="Times New Roman" size="3"> - partial ASM2d models and connectors</font></PRE>
+    </td>
+  </tr>
+  <tr>
+    <td width="77">
+<PRE><font face="Times New Roman" size="3">  <a href="WasteWater_ASM2d_PreClar.html">PreClar</a> </font></PRE>
+    </td>
+    <td width="955">
+<PRE><font face="Times New Roman" size="3"> - primary clarifier models</font></PRE>
+    </td>
+  </tr>
+  <tr>
+    <td width="77">
+<PRE><font face="Times New Roman" size="3">  <a href="WasteWater_ASM2d_SecClar.html">SecClar</a> </font></PRE>
+    </td>
+    <td width="955">
+<PRE><font face="Times New Roman" size="3"> - several secondary settling tank models</font></PRE>
+    </td>
+  </tr>
+  <tr>
+    <td width="77">
+<PRE><font face="Times New Roman" size="3">  <a href="WasteWater_ASM2d_Examples.html">Examples</a> </font></PRE>
+    </td>
+    <td width="955">
+<PRE><font face="Times New Roman" size="3"> - wastewater treatment plant models</font></PRE>
+    </td>
+  </tr>
+</table>
+<PRE><font face="Times New Roman" size="3">
+<b>Main Author:</b><i>
+<span lang="de"> </span></i>
+&nbsp;<i><span lang="de">         </span></i>Gerald Reichl
+<span lang="de">         </span> Technische Universitaet Ilmenau
+<span lang="de">          </span>Faculty of Informatics and Automation
+<span lang="de">          </span>Department Dynamics and Simulation of ecological Systems
+<span lang="de">          </span>P.O. Box 10 05 65
+<span lang="de">          </span>98684 Ilmenau
+<span lang="de">          </span>Germany
+<span lang="de">          email</span>: <a href="mailto:gerald.reichl@tu-ilmenau.de">gerald.reichl@tu-ilmenau.de</a>
+
+
+<b>References:</b>
+
+[1] M. Henze and W.Gujer and T. Mino and. M.v. Loosdrecht: Activated Sludge
+      Models ASM1, ASM2, ASM2d, and ASM3. IWA Task Group on Mathematical Modelling
+      for Design and Operation of Biological Wastewater Treatment, 2000.
+
+
+<b>Copyright (C) 2002 - 2003, </b>Gerald Reichl</font></PRE>
+
+<p><i>
+The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the<span lang="de"> </span>accompanying <b>disclaimer</b> in the documentation of package 
+Modelica in file "Modelica/package.mo".
+</i></p>
+<P>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.deniI.png" ALT="WasteWater.ASM2d.deni" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.deni"></A><A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d"
+>WasteWater.ASM2d</A>.deni</H2>
+<B>ASM2d denitrification tank</B><p>
+<IMG SRC="WasteWater.ASM2d.deniD.png" ALT="WasteWater.ASM2d.deni" width="101" height="82">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component models the ASM2d processes and reactions taking place in an unaerated (denitrification) tank
+of a wastewater treatment plant.
+
+The InPort signal gives the tank temperature to the model.</font>
+</PRE>
+<H3>Parameters</H3>
+<p><font face="Times New Roman" size="3">All conversion factors and soichiometric and kinetic parameters of the activated sludge model No.2d (ASM2d).</font></p><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 width="849">
+<TR><TH width="94">Name</TH><TH width="349">Default</TH><TH width="386">Description</TH></TR>
+<TR><TD width="94">i_N_Si</TD><TD width="349">0.01</TD><TD width="386">N content of inert soluble COD Si [gN/gCOD]</TD></TR>
+<TR><TD width="94">i_N_Sf</TD><TD width="349">0.03</TD><TD width="386">N content of fermentable substrates Sf [gN/gCOD]</TD></TR>
+<TR><TD width="94">i_N_Xi</TD><TD width="349">0.02</TD><TD width="386">N content of inert particulate COD Xi [gN/gCOD]</TD></TR>
+<TR><TD width="94">i_N_Xs</TD><TD width="349">0.04</TD><TD width="386">N content of slowly biodegradable substrate Xs [gN/gCOD]</TD></TR>
+<TR><TD width="94">i_N_BM</TD><TD width="349">0.07</TD><TD width="386">N content of biomass, Xh, Xpao, Xa [gN/gCOD]</TD></TR>
+<TR><TD width="94">i_P_Si</TD><TD width="349">0.0</TD><TD width="386">P content of inert soluble COD Si [gP/gCOD]</TD></TR>
+<TR><TD width="94">i_P_Sf</TD><TD width="349">0.01</TD><TD width="386">P content of fermentable substrates Sf [gP/gCOD]</TD></TR>
+<TR><TD width="94">i_P_Xi</TD><TD width="349">0.01</TD><TD width="386">P content of inert particulate COD Xi [gP/gCOD]</TD></TR>
+<TR><TD width="94">i_P_Xs</TD><TD width="349">0.01</TD><TD width="386">P content of slowly biodegradable substrate Xs [gP/gCOD]</TD></TR>
+<TR><TD width="94">i_P_BM</TD><TD width="349">0.02</TD><TD width="386">P content of biomass, Xh, Xpao, Xa [gP/gCOD]</TD></TR>
+<TR><TD width="94">i_TSS_Xi</TD><TD width="349">0.75</TD><TD width="386">TSS to COD ratio for Xi [gTSS/gCOD]</TD></TR>
+<TR><TD width="94">i_TSS_Xs</TD><TD width="349">0.75</TD><TD width="386">TSS to COD ratio for Xs [gTSS/gCOD]</TD></TR>
+<TR><TD width="94">i_TSS_BM</TD><TD width="349">0.9</TD><TD width="386">TSS to COD ratio for biomass, Xh, Xpao, Xa [gTSS/gCOD]</TD></TR>
+<TR><TD width="94">f_Si</TD><TD width="349">0.0</TD><TD width="386">Production of Si in hydrolysis [gCOD/gCOD]</TD></TR>
+<TR><TD width="94">Y_H</TD><TD width="349">0.625</TD><TD width="386">Yield coefficient [gCOD/gCOD]</TD></TR>
+<TR><TD width="94">f_Xih</TD><TD width="349">0.1</TD><TD width="386">Fraction of inert COD generated in biomass lysis [gCOD/gCOD]</TD></TR>
+<TR><TD width="94">Y_PAO</TD><TD width="349">0.625</TD><TD width="386">Yield coefficient (biomass/PHA) [gCOD/gCOD]</TD></TR>
+<TR><TD width="94">Y_PO</TD><TD width="349">0.4</TD><TD width="386">PP requirement (PO4 release) per PHA stored [gP/gCOD]</TD></TR>
+<TR><TD width="94">Y_PHA</TD><TD width="349">0.2</TD><TD width="386">PHA requirement for PP storage [gCOD/gP]</TD></TR>
+<TR><TD width="94">f_Xip</TD><TD width="349">0.1</TD><TD width="386">Fraction of inert COD generated in biomass lysis [gCOD/gCOD]</TD></TR>
+<TR><TD width="94">Y_A</TD><TD width="349">0.24</TD><TD width="386">Yield of autotrophic biomass per NO3-N [gCOD/gN]</TD></TR>
+<TR><TD width="94">f_Xia</TD><TD width="349">0.1</TD><TD width="386">Fraction of inert COD generated in biomass lysis [gCOD/gCOD]</TD></TR>
+<TR><TD width="94">v_1_NH</TD><TD width="349">i_N_Xs - (1 - f_Si)*i_N_Sf - f_Si*i_N_Si</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_2_NH</TD><TD width="349">i_N_Xs - (1 - f_Si)*i_N_Sf - f_Si*i_N_Si</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_3_NH</TD><TD width="349">i_N_Xs - (1 - f_Si)*i_N_Sf - f_Si*i_N_Si</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_4_NH</TD><TD width="349">i_N_Sf/Y_H - i_N_BM</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_5_NH</TD><TD width="349">-i_N_BM</TD><TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_6_NH</TD><TD width="349">i_N_Sf/Y_H - i_N_BM</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_7_NH</TD><TD width="349">-i_N_BM</TD><TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_8_NH</TD><TD width="349">i_N_Sf</TD><TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_9_NH</TD><TD width="349">i_N_BM - f_Xih*i_N_Xi - (1 - f_Xih)*i_N_Xs</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_13_NH</TD><TD width="349">-i_N_BM</TD><TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_14_NH</TD><TD width="349">-i_N_BM</TD><TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_15_NH</TD><TD width="349">i_N_BM - f_Xip*i_N_Xi - (1 - f_Xip)*i_N_Xs</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_18_NH</TD><TD width="349">-1/Y_A - i_N_BM</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_19_NH</TD><TD width="349">i_N_BM - f_Xia*i_N_Xi - (1 - f_Xia)*i_N_Xs</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_1_PO</TD><TD width="349">i_P_Xs - (1 - f_Si)*i_P_Sf - f_Si*i_P_Si</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_2_PO</TD><TD width="349">i_P_Xs - (1 - f_Si)*i_P_Sf - f_Si*i_P_Si</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_3_PO</TD><TD width="349">i_P_Xs - (1 - f_Si)*i_P_Sf - f_Si*i_P_Si</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_4_PO</TD><TD width="349">i_P_Sf/Y_H - i_P_BM</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_5_PO</TD><TD width="349">-i_P_BM</TD><TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_6_PO</TD><TD width="349">i_P_Sf/Y_H - i_P_BM</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_7_PO</TD><TD width="349">-i_P_BM</TD><TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_8_PO</TD><TD width="349">i_P_Sf</TD><TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_9_PO</TD><TD width="349">i_P_BM - f_Xih*i_P_Xi - (1 - f_Xih)*i_P_Xs</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_15_PO</TD><TD width="349">i_P_BM - f_Xip*i_P_Xi - (1 - f_Xip)*i_P_Xs</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_19_PO</TD><TD width="349">i_P_BM - f_Xia*i_P_Xi - (1 - f_Xia)*i_P_Xs</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_12_NO</TD><TD width="349">-Y_PHA/2.86</TD><TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_14_NO</TD><TD width="349">-(1 - Y_PAO)/(2.86*Y_PAO)</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_12_N2</TD><TD width="349">-v_12_NO</TD><TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_14_N2</TD><TD width="349">-v_14_NO</TD><TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_1_ALK</TD><TD width="349">v_1_NH/14 + v_1_PO*(-1.5/31)</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_2_ALK</TD><TD width="349">v_2_NH/14 + v_2_PO*(-1.5/31)</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_3_ALK</TD><TD width="349">v_3_NH/14 + v_3_PO*(-1.5/31)</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_4_ALK</TD><TD width="349">v_4_NH/14 + v_4_PO*(-1.5/31)</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_5_ALK</TD><TD width="349">1/(Y_H*64) + v_5_NH/14 + v_5_PO*(-1.5/31)</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_6_ALK</TD><TD width="349">v_6_NH/14 + (1 - Y_H)/(2.86*Y_H*14) + v_6_PO*(-1.5/31)</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_7_ALK</TD><TD width="349">1/(Y_H*64) + v_7_NH/14 + (1 - Y_H)/(2.86*Y_H*14) + v_7_PO*(-1.5/31)</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_8_ALK</TD><TD width="349">v_8_NH/14 + v_8_PO*(-1.5/31) - 1/64</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_9_ALK</TD><TD width="349">v_9_NH/14 + v_9_PO*(-1.5/31)</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_10_ALK</TD><TD width="349">1/64 + Y_PO*(-1.5/31) - Y_PO*(-1/31)</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_11_ALK</TD><TD width="349">(1.5 - 1)/31</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_12_ALK</TD><TD width="349">v_12_NO*(-1/14) + (1.5 - 1)/31</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_13_ALK</TD><TD width="349">v_13_NH/14 - i_P_BM*(-1.5/31)</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_14_ALK</TD><TD width="349">v_14_NH/14 - v_14_NO/14 - i_P_BM*(-1.5/31)</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_15_ALK</TD><TD width="349">v_15_NH/14 + v_15_PO*(-1.5/31)</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_16_ALK</TD><TD width="349">(1 - 1.5)/31</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_17_ALK</TD><TD width="349">-1/64</TD><TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_18_ALK</TD><TD width="349">v_18_NH/14 - 1/(Y_A*14) - i_P_BM*(-1.5/31)</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_19_ALK</TD><TD width="349">v_19_NH/14 + v_19_PO*(-1.5/31)</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_20_ALK</TD><TD width="349">1.5/31</TD><TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_21_ALK</TD><TD width="349">-1.5/31</TD><TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_1_TSS</TD><TD width="349">-i_TSS_Xs</TD><TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_2_TSS</TD><TD width="349">-i_TSS_Xs</TD><TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_3_TSS</TD><TD width="349">-i_TSS_Xs</TD><TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_4_TSS</TD><TD width="349">i_TSS_BM</TD><TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_5_TSS</TD><TD width="349">i_TSS_BM</TD><TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_6_TSS</TD><TD width="349">i_TSS_BM</TD><TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_7_TSS</TD><TD width="349">i_TSS_BM</TD><TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_9_TSS</TD><TD width="349">f_Xih*i_TSS_Xi + (1 - f_Xih)*i_TSS_Xs - i_TSS_BM</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_10_TSS</TD><TD width="349">-Y_PO*3.23 + 0.6</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_11_TSS</TD><TD width="349">3.23 - Y_PHA*0.6</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_12_TSS</TD><TD width="349">3.23 - Y_PHA*0.6</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_13_TSS</TD><TD width="349">i_TSS_BM - 0.6/Y_PAO</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_14_TSS</TD><TD width="349">i_TSS_BM - 0.6/Y_PAO</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_15_TSS</TD><TD width="349">f_Xip*i_TSS_Xi + (1 - f_Xip)*i_TSS_Xs - i_TSS_BM</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_16_TSS</TD><TD width="349">-3.23</TD><TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_17_TSS</TD><TD width="349">-0.6</TD><TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_18_TSS</TD><TD width="349">i_TSS_BM</TD><TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_19_TSS</TD><TD width="349">f_Xia*i_TSS_Xi + (1 - f_Xia)*i_TSS_Xs - i_TSS_BM</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">v_13_O</TD><TD width="349">-(1 - Y_PAO)/Y_PAO</TD>
+  <TD width="386">&nbsp;</TD></TR>
+<TR><TD width="94">K_h_T</TD><TD width="349">3.0</TD><TD width="386">Hydrolysis rate at T=20 deg C [d^-1]</TD></TR>
+<TR><TD width="94">eta_NO_Xs</TD><TD width="349">0.6</TD><TD width="386">Anoxic hydrolysis reduction factor [-]</TD></TR>
+<TR><TD width="94">eta_fe</TD><TD width="349">0.4</TD><TD width="386">Anaerobic hydrolysis reduction factor [-]</TD></TR>
+<TR><TD width="94">K_O_Xs</TD><TD width="349">0.2</TD><TD width="386">Saturation/inhibition coefficient for oxygen [g O2/m3]</TD></TR>
+<TR><TD width="94">K_NO_Xs</TD><TD width="349">0.5</TD><TD width="386">Saturation/inhibition coefficient for nitrate [g N/m3]</TD></TR>
+<TR><TD width="94">K_X</TD><TD width="349">0.1</TD><TD width="386">Saturation coefficient for particulate COD [g Xs/(g Xh)]</TD></TR>
+<TR><TD width="94">mu_H_T</TD><TD width="349">6.0</TD><TD width="386">Maximum growth rate on substrate at T=20 deg C [g Xs/(g Xh)/d]</TD></TR>
+<TR><TD width="94">rho_fe_T</TD><TD width="349">3.0</TD><TD width="386">Maximum rate for fermentation at T=20 deg C [g Sf/(g Xh)/d]</TD></TR>
+<TR><TD width="94">eta_NO_Xh</TD><TD width="349">0.8</TD><TD width="386">Reduction factor for denitrification [-]</TD></TR>
+<TR><TD width="94">b_H_T</TD><TD width="349">0.4</TD><TD width="386">Rate for lysis and decay at T=20 deg C [d^-1]</TD></TR>
+<TR><TD width="94">K_O_Xh</TD><TD width="349">0.2</TD><TD width="386">Saturation/inhibition coefficient for oxygen [g O2/m3]</TD></TR>
+<TR><TD width="94">K_F</TD><TD width="349">4.0</TD><TD width="386">Saturation coefficient for growth on Sf [g COD/m3]</TD></TR>
+<TR><TD width="94">K_fe</TD><TD width="349">4.0</TD><TD width="386">Saturation coefficient for fermentation of Sf [g COD/m3]</TD></TR>
+<TR><TD width="94">K_A_Xh</TD><TD width="349">4.0</TD><TD width="386">Saturation coefficient for growth on acetate Sa [g COD/m3]</TD></TR>
+<TR><TD width="94">K_NO_Xh</TD><TD width="349">0.5</TD><TD width="386">Saturation/inhibition coefficient for nitrate [g N/m3]</TD></TR>
+<TR><TD width="94">K_NH_Xh</TD><TD width="349">0.05</TD><TD width="386">Saturation coefficient for ammonium (nutrient) [g N/m3]</TD></TR>
+<TR><TD width="94">K_P_Xh</TD><TD width="349">0.01</TD><TD width="386">Saturation coefficient for phosphate (nutrient) [g P/m3]</TD></TR>
+<TR><TD width="94">K_ALK_Xh</TD><TD width="349">0.1</TD><TD width="386">Saturation coefficient for alkalinity (HCO3) [mole HCO3/m3]</TD></TR>
+<TR><TD width="94">rho_PHA_T</TD><TD width="349">3.0</TD><TD width="386">Rate for storage of Xpha (base Xpp) at T=20 deg C [g Xpha/(g Xpao)/d]</TD></TR>
+<TR><TD width="94">rho_PP_T</TD><TD width="349">1.5</TD><TD width="386">Rate for storage of Xpp at T=20 deg C [g Xpp/(g Xpao)/d]</TD></TR>
+<TR><TD width="94">mu_PAO_T</TD><TD width="349">1.0</TD><TD width="386">Maximum growth rate of PAO at T=20 deg C [d^-1]</TD></TR>
+<TR><TD width="94">eta_NO_Xpao</TD><TD width="349">0.6</TD><TD width="386">Reduction factor for anoxic activity [-]</TD></TR>
+<TR><TD width="94">b_PAO_T</TD><TD width="349">0.2</TD><TD width="386">Rate for lysis of Xpao at T=20 deg C [d^-1]</TD></TR>
+<TR><TD width="94">b_PP_T</TD><TD width="349">0.2</TD><TD width="386">Rate for lysis of Xpp at T=20 dedg C [d^-1]</TD></TR>
+<TR><TD width="94">b_PHA_T</TD><TD width="349">0.2</TD><TD width="386">Rate for lysis of Xpha at T=20 deg C [d^-1]</TD></TR>
+<TR><TD width="94">K_O_Xpao</TD><TD width="349">0.2</TD><TD width="386">Saturation/inhibition coefficient for oxygen [g O2/m3]</TD></TR>
+<TR><TD width="94">K_NO_Xpao</TD><TD width="349">0.5</TD><TD width="386">Saturation coefficient for nitrate, Sno3 [g N/m3]</TD></TR>
+<TR><TD width="94">K_A_Xpao</TD><TD width="349">4.0</TD><TD width="386">Saturation coefficient for acetate, Sa [g COD/m3]</TD></TR>
+<TR><TD width="94">K_NH_Xpao</TD><TD width="349">0.05</TD><TD width="386">Saturation coefficient for ammonium (nutrient) [g N/m3]</TD></TR>
+<TR><TD width="94">K_PS</TD><TD width="349">0.2</TD><TD width="386">Saturation coefficient for phosphorus in storage of PP [g P/m3]</TD></TR>
+<TR><TD width="94">K_P_Xpao</TD><TD width="349">0.01</TD><TD width="386">Saturation coefficient for phosphate (nutrient) [g P/m3]</TD></TR>
+<TR><TD width="94">K_ALK_Xpao</TD><TD width="349">0.1</TD><TD width="386">Saturation coefficient for alkalinity (HCO3) [mole HCO3/m3]</TD></TR>
+<TR><TD width="94">K_PP</TD><TD width="349">0.01</TD><TD width="386">Saturation coefficient for poly-phosphate [g Xpp/(g Xpao)]</TD></TR>
+<TR><TD width="94">K_MAX</TD><TD width="349">0.34</TD><TD width="386">Maximum ratio of Xpp/Xpao [g Xpp/(g Xpao)]</TD></TR>
+<TR><TD width="94">K_IPP</TD><TD width="349">0.02</TD><TD width="386">Inhibition coefficient for PP storage [g Xpp/(g Xpao)]</TD></TR>
+<TR><TD width="94">K_PHA</TD><TD width="349">0.01</TD><TD width="386">Saturation coefficient for PHA [g Xpha/(g Xpao)]</TD></TR>
+<TR><TD width="94">mu_AUT_T</TD><TD width="349">1.0</TD><TD width="386">Maximum growth rate of Xa at T=20 deg C [d^-1]</TD></TR>
+<TR><TD width="94">b_AUT_T</TD><TD width="349">0.15</TD><TD width="386">Decay rate of Xa at T=20 deg C [d^-1]</TD></TR>
+<TR><TD width="94">K_O_Xa</TD><TD width="349">0.5</TD><TD width="386">Saturation coefficient for oxygen [g O2/m3]</TD></TR>
+<TR><TD width="94">K_NH_Xa</TD><TD width="349">1.0</TD><TD width="386">Saturation coefficient for ammonium (substrate) [g N/m3]</TD></TR>
+<TR><TD width="94">K_ALK_Xa</TD><TD width="349">0.5</TD><TD width="386">Saturation coefficient for alkalinity (HCO3) [mole HCO3/m3]</TD></TR>
+<TR><TD width="94">K_P_Xa</TD><TD width="349">0.01</TD><TD width="386">Saturation coefficient for phosphate (nutrient) [g P/m3]</TD></TR>
+<TR><TD width="94">k_PRE</TD><TD width="349">1.0</TD><TD width="386">Rate constant for P precipitation [m3/(g Fe(OH3))/d]</TD></TR>
+<TR><TD width="94">k_RED</TD><TD width="349">0.6</TD><TD width="386">Rate constant for redissolution [d^-1]</TD></TR>
+<TR><TD width="94">K_ALK_Pre</TD><TD width="349">0.5</TD><TD width="386">Saturation coefficient for alkalinity [mole HCO3/m3]</TD></TR>
+<TR><TD width="94">V</TD><TD width="349">1000</TD><TD width="386">Volume of denitrification tank [m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> deni <font color="darkgreen">&quot;ASM2d denitrification tank&quot;</font> 
+  <font color="darkgreen">//denitrifikation tank based on the ASM2d model</font>
+
+<font color="blue"><span lang="de">  </span>extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.deni"
+>WasteWater.Icons.deni</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.ASM2dbase"
+>Interfaces.ASM2dbase</A>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// tank specific parameters</font>
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Volume"
+>Modelica.SIunits.Volume</A> V=1000 <font color="darkgreen">&quot;Volume of denitrification tank&quot;</font>;
+  <font face="Times New Roman" size="3">
+</font><font color="#008000">  // following 4 connectors are already in ASM<span lang="de">2d</span>base and are inherited,
+  // but listed hear again to avoid an icon related problem
+  // with the sequence of extends-clauses</font><font face="Times New Roman" size="3">
+<span lang="de">    </span></font><A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>Interfaces.WWFlowAsm2din</A> In;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>Interfaces.WWFlowAsm2dout</A> Out;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>Interfaces.WWFlowAsm2dout</A> MeasurePort;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> T(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  aeration = 0;
+  <font color="darkgreen">// no aeration in this tank //</font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// volume dependent dilution term of each concentration</font>
+  <font color="darkgreen"></font>
+  inputSo = (In.So - So)*In.Q/V;
+  inputSf = (In.Sf - Sf)*In.Q/V;
+  inputSa = (In.Sa - Sa)*In.Q/V;
+  inputSnh = (In.Snh - Snh)*In.Q/V;
+  inputSno = (In.Sno - Sno)*In.Q/V;
+  inputSpo = (In.Spo - Spo)*In.Q/V;
+  inputSi = (In.Si - Si)*In.Q/V;
+  inputSalk = (In.Salk - Salk)*In.Q/V;
+  inputSn2 = (In.Sn2 - Sn2)*In.Q/V;
+  inputXi = (In.Xi - Xi)*In.Q/V;
+  inputXs = (In.Xs - Xs)*In.Q/V;
+  inputXh = (In.Xh - Xh)*In.Q/V;
+  inputXpao = (In.Xpao - Xpao)*In.Q/V;
+  inputXpp = (In.Xpp - Xpp)*In.Q/V;
+  inputXpha = (In.Xpha - Xpha)*In.Q/V;
+  inputXa = (In.Xa - Xa)*In.Q/V;
+  inputXtss = (In.Xtss - Xtss)*In.Q/V;
+  inputXmeoh = (In.Xmeoh - Xmeoh)*In.Q/V;
+  inputXmep = (In.Xmep - Xmep)*In.Q/V;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>deni;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.nitriI.png" ALT="WasteWater.ASM2d.nitri" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.nitri"></A><A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d"
+>WasteWater.ASM2d</A>.nitri</H2>
+<B>ASM2d nitrification tank</B><p>
+<IMG SRC="WasteWater.ASM2d.nitriD.png" ALT="WasteWater.ASM2d.nitri" width="101" height="91">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component models the ASM2d processes and reactions taking place in an 
+aerated (nitrification) tank<span lang="de"> </span>of a wastewater treatment plant.
+
+The InPort signal gives the tank temperature to the model.</font>
+
+</PRE>
+<H3>Parameters</H3>
+<p><font face="Times New Roman"><span lang="de">A</span>ll conversion factors and soichiometric and kinetic parameters of the activated sludge model No.2d (ASM2d)</font></p><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>i_N_Si</TD><TD>0.01</TD><TD>N content of inert soluble COD Si [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Sf</TD><TD>0.03</TD><TD>N content of fermentable substrates Sf [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Xi</TD><TD>0.02</TD><TD>N content of inert particulate COD Xi [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Xs</TD><TD>0.04</TD><TD>N content of slowly biodegradable substrate Xs [gN/gCOD]</TD></TR>
+<TR><TD>i_N_BM</TD><TD>0.07</TD><TD>N content of biomass, Xh, Xpao, Xa [gN/gCOD]</TD></TR>
+<TR><TD>i_P_Si</TD><TD>0.0</TD><TD>P content of inert soluble COD Si [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Sf</TD><TD>0.01</TD><TD>P content of fermentable substrates Sf [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Xi</TD><TD>0.01</TD><TD>P content of inert particulate COD Xi [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Xs</TD><TD>0.01</TD><TD>P content of slowly biodegradable substrate Xs [gP/gCOD]</TD></TR>
+<TR><TD>i_P_BM</TD><TD>0.02</TD><TD>P content of biomass, Xh, Xpao, Xa [gP/gCOD]</TD></TR>
+<TR><TD>i_TSS_Xi</TD><TD>0.75</TD><TD>TSS to COD ratio for Xi [gTSS/gCOD]</TD></TR>
+<TR><TD>i_TSS_Xs</TD><TD>0.75</TD><TD>TSS to COD ratio for Xs [gTSS/gCOD]</TD></TR>
+<TR><TD>i_TSS_BM</TD><TD>0.9</TD><TD>TSS to COD ratio for biomass, Xh, Xpao, Xa [gTSS/gCOD]</TD></TR>
+<TR><TD>f_Si</TD><TD>0.0</TD><TD>Production of Si in hydrolysis [gCOD/gCOD]</TD></TR>
+<TR><TD>Y_H</TD><TD>0.625</TD><TD>Yield coefficient [gCOD/gCOD]</TD></TR>
+<TR><TD>f_Xih</TD><TD>0.1</TD><TD>Fraction of inert COD generated in biomass lysis [gCOD/gCOD]</TD></TR>
+<TR><TD>Y_PAO</TD><TD>0.625</TD><TD>Yield coefficient (biomass/PHA) [gCOD/gCOD]</TD></TR>
+<TR><TD>Y_PO</TD><TD>0.4</TD><TD>PP requirement (PO4 release) per PHA stored [gP/gCOD]</TD></TR>
+<TR><TD>Y_PHA</TD><TD>0.2</TD><TD>PHA requirement for PP storage [gCOD/gP]</TD></TR>
+<TR><TD>f_Xip</TD><TD>0.1</TD><TD>Fraction of inert COD generated in biomass lysis [gCOD/gCOD]</TD></TR>
+<TR><TD>Y_A</TD><TD>0.24</TD><TD>Yield of autotrophic biomass per NO3-N [gCOD/gN]</TD></TR>
+<TR><TD>f_Xia</TD><TD>0.1</TD><TD>Fraction of inert COD generated in biomass lysis [gCOD/gCOD]</TD></TR>
+<TR><TD>v_1_NH</TD><TD>i_N_Xs - (1 - f_Si)*i_N_Sf - f_Si*i_N_Si</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_2_NH</TD><TD>i_N_Xs - (1 - f_Si)*i_N_Sf - f_Si*i_N_Si</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_3_NH</TD><TD>i_N_Xs - (1 - f_Si)*i_N_Sf - f_Si*i_N_Si</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_4_NH</TD><TD>i_N_Sf/Y_H - i_N_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_5_NH</TD><TD>-i_N_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_6_NH</TD><TD>i_N_Sf/Y_H - i_N_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_7_NH</TD><TD>-i_N_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_8_NH</TD><TD>i_N_Sf</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_9_NH</TD><TD>i_N_BM - f_Xih*i_N_Xi - (1 - f_Xih)*i_N_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_13_NH</TD><TD>-i_N_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_14_NH</TD><TD>-i_N_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_15_NH</TD><TD>i_N_BM - f_Xip*i_N_Xi - (1 - f_Xip)*i_N_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_18_NH</TD><TD>-1/Y_A - i_N_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_19_NH</TD><TD>i_N_BM - f_Xia*i_N_Xi - (1 - f_Xia)*i_N_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_1_PO</TD><TD>i_P_Xs - (1 - f_Si)*i_P_Sf - f_Si*i_P_Si</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_2_PO</TD><TD>i_P_Xs - (1 - f_Si)*i_P_Sf - f_Si*i_P_Si</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_3_PO</TD><TD>i_P_Xs - (1 - f_Si)*i_P_Sf - f_Si*i_P_Si</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_4_PO</TD><TD>i_P_Sf/Y_H - i_P_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_5_PO</TD><TD>-i_P_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_6_PO</TD><TD>i_P_Sf/Y_H - i_P_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_7_PO</TD><TD>-i_P_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_8_PO</TD><TD>i_P_Sf</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_9_PO</TD><TD>i_P_BM - f_Xih*i_P_Xi - (1 - f_Xih)*i_P_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_15_PO</TD><TD>i_P_BM - f_Xip*i_P_Xi - (1 - f_Xip)*i_P_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_19_PO</TD><TD>i_P_BM - f_Xia*i_P_Xi - (1 - f_Xia)*i_P_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_12_NO</TD><TD>-Y_PHA/2.86</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_14_NO</TD><TD>-(1 - Y_PAO)/(2.86*Y_PAO)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_12_N2</TD><TD>-v_12_NO</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_14_N2</TD><TD>-v_14_NO</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_1_ALK</TD><TD>v_1_NH/14 + v_1_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_2_ALK</TD><TD>v_2_NH/14 + v_2_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_3_ALK</TD><TD>v_3_NH/14 + v_3_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_4_ALK</TD><TD>v_4_NH/14 + v_4_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_5_ALK</TD><TD>1/(Y_H*64) + v_5_NH/14 + v_5_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_6_ALK</TD><TD>v_6_NH/14 + (1 - Y_H)/(2.86*Y_H*14) + v_6_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_7_ALK</TD><TD>1/(Y_H*64) + v_7_NH/14 + (1 - Y_H)/(2.86*Y_H*14) + v_7_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_8_ALK</TD><TD>v_8_NH/14 + v_8_PO*(-1.5/31) - 1/64</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_9_ALK</TD><TD>v_9_NH/14 + v_9_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_10_ALK</TD><TD>1/64 + Y_PO*(-1.5/31) - Y_PO*(-1/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_11_ALK</TD><TD>(1.5 - 1)/31</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_12_ALK</TD><TD>v_12_NO*(-1/14) + (1.5 - 1)/31</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_13_ALK</TD><TD>v_13_NH/14 - i_P_BM*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_14_ALK</TD><TD>v_14_NH/14 - v_14_NO/14 - i_P_BM*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_15_ALK</TD><TD>v_15_NH/14 + v_15_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_16_ALK</TD><TD>(1 - 1.5)/31</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_17_ALK</TD><TD>-1/64</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_18_ALK</TD><TD>v_18_NH/14 - 1/(Y_A*14) - i_P_BM*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_19_ALK</TD><TD>v_19_NH/14 + v_19_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_20_ALK</TD><TD>1.5/31</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_21_ALK</TD><TD>-1.5/31</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_1_TSS</TD><TD>-i_TSS_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_2_TSS</TD><TD>-i_TSS_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_3_TSS</TD><TD>-i_TSS_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_4_TSS</TD><TD>i_TSS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_5_TSS</TD><TD>i_TSS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_6_TSS</TD><TD>i_TSS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_7_TSS</TD><TD>i_TSS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_9_TSS</TD><TD>f_Xih*i_TSS_Xi + (1 - f_Xih)*i_TSS_Xs - i_TSS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_10_TSS</TD><TD>-Y_PO*3.23 + 0.6</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_11_TSS</TD><TD>3.23 - Y_PHA*0.6</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_12_TSS</TD><TD>3.23 - Y_PHA*0.6</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_13_TSS</TD><TD>i_TSS_BM - 0.6/Y_PAO</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_14_TSS</TD><TD>i_TSS_BM - 0.6/Y_PAO</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_15_TSS</TD><TD>f_Xip*i_TSS_Xi + (1 - f_Xip)*i_TSS_Xs - i_TSS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_16_TSS</TD><TD>-3.23</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_17_TSS</TD><TD>-0.6</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_18_TSS</TD><TD>i_TSS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_19_TSS</TD><TD>f_Xia*i_TSS_Xi + (1 - f_Xia)*i_TSS_Xs - i_TSS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_13_O</TD><TD>-(1 - Y_PAO)/Y_PAO</TD><TD>&nbsp;</TD></TR>
+<TR><TD>K_h_T</TD><TD>3.0</TD><TD>Hydrolysis rate at T=20 deg C [d^-1]</TD></TR>
+<TR><TD>eta_NO_Xs</TD><TD>0.6</TD><TD>Anoxic hydrolysis reduction factor [-]</TD></TR>
+<TR><TD>eta_fe</TD><TD>0.4</TD><TD>Anaerobic hydrolysis reduction factor [-]</TD></TR>
+<TR><TD>K_O_Xs</TD><TD>0.2</TD><TD>Saturation/inhibition coefficient for oxygen [g O2/m3]</TD></TR>
+<TR><TD>K_NO_Xs</TD><TD>0.5</TD><TD>Saturation/inhibition coefficient for nitrate [g N/m3]</TD></TR>
+<TR><TD>K_X</TD><TD>0.1</TD><TD>Saturation coefficient for particulate COD [g Xs/(g Xh)]</TD></TR>
+<TR><TD>mu_H_T</TD><TD>6.0</TD><TD>Maximum growth rate on substrate at T=20 deg C [g Xs/(g Xh)/d]</TD></TR>
+<TR><TD>rho_fe_T</TD><TD>3.0</TD><TD>Maximum rate for fermentation at T=20 deg C [g Sf/(g Xh)/d]</TD></TR>
+<TR><TD>eta_NO_Xh</TD><TD>0.8</TD><TD>Reduction factor for denitrification [-]</TD></TR>
+<TR><TD>b_H_T</TD><TD>0.4</TD><TD>Rate for lysis and decay at T=20 deg C [d^-1]</TD></TR>
+<TR><TD>K_O_Xh</TD><TD>0.2</TD><TD>Saturation/inhibition coefficient for oxygen [g O2/m3]</TD></TR>
+<TR><TD>K_F</TD><TD>4.0</TD><TD>Saturation coefficient for growth on Sf [g COD/m3]</TD></TR>
+<TR><TD>K_fe</TD><TD>4.0</TD><TD>Saturation coefficient for fermentation of Sf [g COD/m3]</TD></TR>
+<TR><TD>K_A_Xh</TD><TD>4.0</TD><TD>Saturation coefficient for growth on acetate Sa [g COD/m3]</TD></TR>
+<TR><TD>K_NO_Xh</TD><TD>0.5</TD><TD>Saturation/inhibition coefficient for nitrate [g N/m3]</TD></TR>
+<TR><TD>K_NH_Xh</TD><TD>0.05</TD><TD>Saturation coefficient for ammonium (nutrient) [g N/m3]</TD></TR>
+<TR><TD>K_P_Xh</TD><TD>0.01</TD><TD>Saturation coefficient for phosphate (nutrient) [g P/m3]</TD></TR>
+<TR><TD>K_ALK_Xh</TD><TD>0.1</TD><TD>Saturation coefficient for alkalinity (HCO3) [mole HCO3/m3]</TD></TR>
+<TR><TD>rho_PHA_T</TD><TD>3.0</TD><TD>Rate for storage of Xpha (base Xpp) at T=20 deg C [g Xpha/(g Xpao)/d]</TD></TR>
+<TR><TD>rho_PP_T</TD><TD>1.5</TD><TD>Rate for storage of Xpp at T=20 deg C [g Xpp/(g Xpao)/d]</TD></TR>
+<TR><TD>mu_PAO_T</TD><TD>1.0</TD><TD>Maximum growth rate of PAO at T=20 deg C [d^-1]</TD></TR>
+<TR><TD>eta_NO_Xpao</TD><TD>0.6</TD><TD>Reduction factor for anoxic activity [-]</TD></TR>
+<TR><TD>b_PAO_T</TD><TD>0.2</TD><TD>Rate for lysis of Xpao at T=20 deg C [d^-1]</TD></TR>
+<TR><TD>b_PP_T</TD><TD>0.2</TD><TD>Rate for lysis of Xpp at T=20 dedg C [d^-1]</TD></TR>
+<TR><TD>b_PHA_T</TD><TD>0.2</TD><TD>Rate for lysis of Xpha at T=20 deg C [d^-1]</TD></TR>
+<TR><TD>K_O_Xpao</TD><TD>0.2</TD><TD>Saturation/inhibition coefficient for oxygen [g O2/m3]</TD></TR>
+<TR><TD>K_NO_Xpao</TD><TD>0.5</TD><TD>Saturation coefficient for nitrate, Sno3 [g N/m3]</TD></TR>
+<TR><TD>K_A_Xpao</TD><TD>4.0</TD><TD>Saturation coefficient for acetate, Sa [g COD/m3]</TD></TR>
+<TR><TD>K_NH_Xpao</TD><TD>0.05</TD><TD>Saturation coefficient for ammonium (nutrient) [g N/m3]</TD></TR>
+<TR><TD>K_PS</TD><TD>0.2</TD><TD>Saturation coefficient for phosphorus in storage of PP [g P/m3]</TD></TR>
+<TR><TD>K_P_Xpao</TD><TD>0.01</TD><TD>Saturation coefficient for phosphate (nutrient) [g P/m3]</TD></TR>
+<TR><TD>K_ALK_Xpao</TD><TD>0.1</TD><TD>Saturation coefficient for alkalinity (HCO3) [mole HCO3/m3]</TD></TR>
+<TR><TD>K_PP</TD><TD>0.01</TD><TD>Saturation coefficient for poly-phosphate [g Xpp/(g Xpao)]</TD></TR>
+<TR><TD>K_MAX</TD><TD>0.34</TD><TD>Maximum ratio of Xpp/Xpao [g Xpp/(g Xpao)]</TD></TR>
+<TR><TD>K_IPP</TD><TD>0.02</TD><TD>Inhibition coefficient for PP storage [g Xpp/(g Xpao)]</TD></TR>
+<TR><TD>K_PHA</TD><TD>0.01</TD><TD>Saturation coefficient for PHA [g Xpha/(g Xpao)]</TD></TR>
+<TR><TD>mu_AUT_T</TD><TD>1.0</TD><TD>Maximum growth rate of Xa at T=20 deg C [d^-1]</TD></TR>
+<TR><TD>b_AUT_T</TD><TD>0.15</TD><TD>Decay rate of Xa at T=20 deg C [d^-1]</TD></TR>
+<TR><TD>K_O_Xa</TD><TD>0.5</TD><TD>Saturation coefficient for oxygen [g O2/m3]</TD></TR>
+<TR><TD>K_NH_Xa</TD><TD>1.0</TD><TD>Saturation coefficient for ammonium (substrate) [g N/m3]</TD></TR>
+<TR><TD>K_ALK_Xa</TD><TD>0.5</TD><TD>Saturation coefficient for alkalinity (HCO3) [mole HCO3/m3]</TD></TR>
+<TR><TD>K_P_Xa</TD><TD>0.01</TD><TD>Saturation coefficient for phosphate (nutrient) [g P/m3]</TD></TR>
+<TR><TD>k_PRE</TD><TD>1.0</TD><TD>Rate constant for P precipitation [m3/(g Fe(OH3))/d]</TD></TR>
+<TR><TD>k_RED</TD><TD>0.6</TD><TD>Rate constant for redissolution [d^-1]</TD></TR>
+<TR><TD>K_ALK_Pre</TD><TD>0.5</TD><TD>Saturation coefficient for alkalinity [mole HCO3/m3]</TD></TR>
+<TR><TD>V</TD><TD>1000</TD><TD>Volume of nitrification tank [m3]</TD></TR>
+<TR><TD>alpha</TD><TD>0.7</TD><TD>Oxygen transfer factor</TD></TR>
+<TR><TD>de</TD><TD>4.5</TD><TD>depth of aeration [m]</TD></TR>
+<TR><TD>R_air</TD><TD>23.5</TD><TD>specific oxygen feed factor [gO2/(m^3*m)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> nitri <font color="darkgreen">&quot;ASM2d nitrification tank&quot;</font> 
+  <font color="darkgreen">// nitrification (aerated) tank, based on the ASM2d model</font>
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.nitri"
+>WasteWater.Icons.nitri</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.ASM2dbase"
+>Interfaces.ASM2dbase</A>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// aeration system dependend parameters</font>
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Volume"
+>Modelica.SIunits.Volume</A> V=1000 <font color="darkgreen">&quot;Volume of nitrification tank&quot;</font>;
+  <font color="blue">parameter </font>Real alpha=0.7 <font color="darkgreen">&quot;Oxygen transfer factor&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>Modelica.SIunits.Length</A> de=4.5 <font color="darkgreen">&quot;depth of aeration&quot;</font>;
+  <font color="blue">parameter </font>Real R_air=23.5 <font color="darkgreen">&quot;specific oxygen feed factor [gO2/(m^3*m)]&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> So_sat <font color="darkgreen">&quot;Dissolved oxygen saturation&quot;</font>;
+  <font face="Times New Roman" size="3">
+</font><font color="#008000">  // following 4 connectors are already in ASM<span lang="de">2d</span>base and are inherited,
+  // but listed hear again to avoid an icon related problem
+  // with the sequence of extends-clauses</font><font face="Times New Roman" size="3">
+<span lang="de">    </span></font><A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>Interfaces.WWFlowAsm2din</A> In;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>Interfaces.WWFlowAsm2dout</A> Out;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>Interfaces.WWFlowAsm2dout</A> MeasurePort;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> T(<font color="blue">final </font>n=1);<font face="Times New Roman" size="3">
+</font>
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.AirFlow"
+>Interfaces.AirFlow</A> AirIn;
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Temperature dependend oxygen saturation by Simba</font>
+  So_sat = 13.89 + (-0.3825 + (0.007311 - 0.00006588*T.signal[1])*T.signal[1])*
+    T.signal[1];
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// extends the Oxygen differential equation by an aeration term</font>
+  <font color="darkgreen">// aeration [mgO2/l]; AirIn.Q_air needs to be in </font>
+  <font color="darkgreen">// Simulationtimeunit [m3/day^-1]</font>
+  aeration = (alpha*(So_sat - So)/So_sat*AirIn.Q_air*R_air*de)/V;
+  <font color="darkgreen">// aeration = Kla * (So_sat -So);</font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// volume dependent dilution term of each concentration  </font>
+  inputSo = (In.So - So)*In.Q/V;
+  inputSf = (In.Sf - Sf)*In.Q/V;
+  inputSa = (In.Sa - Sa)*In.Q/V;
+  inputSnh = (In.Snh - Snh)*In.Q/V;
+  inputSno = (In.Sno - Sno)*In.Q/V;
+  inputSpo = (In.Spo - Spo)*In.Q/V;
+  inputSi = (In.Si - Si)*In.Q/V;
+  inputSalk = (In.Salk - Salk)*In.Q/V;
+  inputSn2 = (In.Sn2 - Sn2)*In.Q/V;
+  inputXi = (In.Xi - Xi)*In.Q/V;
+  inputXs = (In.Xs - Xs)*In.Q/V;
+  inputXh = (In.Xh - Xh)*In.Q/V;
+  inputXpao = (In.Xpao - Xpao)*In.Q/V;
+  inputXpp = (In.Xpp - Xpp)*In.Q/V;
+  inputXpha = (In.Xpha - Xpha)*In.Q/V;
+  inputXa = (In.Xa - Xa)*In.Q/V;
+  inputXtss = (In.Xtss - Xtss)*In.Q/V;
+  inputXmeoh = (In.Xmeoh - Xmeoh)*In.Q/V;
+  inputXmep = (In.Xmep - Xmep)*In.Q/V;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>nitri;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.precipitationI.png" ALT="WasteWater.ASM2d.precipitation" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.precipitation"></A><A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d"
+>WasteWater.ASM2d</A>.precipitation</H2>
+<B>Phosphorus precipitation tank</B><p>
+<IMG SRC="WasteWater.ASM2d.precipitationD.png" ALT="WasteWater.ASM2d.precipitation" width="101" height="83">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This ASM2d component is used to model the chemical Phosphorus precipitation
+with FeCl3 as precipitant.</font>
+</PRE>
+<H3>Parameters</H3>
+<p><span lang="de">A</span>ll ASM2d conversion factors and stoichiometric and kinetic parameters<span lang="de">.</span></p><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>i_N_Si</TD><TD>0.01</TD><TD>N content of inert soluble COD Si [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Sf</TD><TD>0.03</TD><TD>N content of fermentable substrates Sf [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Xi</TD><TD>0.02</TD><TD>N content of inert particulate COD Xi [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Xs</TD><TD>0.04</TD><TD>N content of slowly biodegradable substrate Xs [gN/gCOD]</TD></TR>
+<TR><TD>i_N_BM</TD><TD>0.07</TD><TD>N content of biomass, Xh, Xpao, Xa [gN/gCOD]</TD></TR>
+<TR><TD>i_P_Si</TD><TD>0.0</TD><TD>P content of inert soluble COD Si [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Sf</TD><TD>0.01</TD><TD>P content of fermentable substrates Sf [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Xi</TD><TD>0.01</TD><TD>P content of inert particulate COD Xi [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Xs</TD><TD>0.01</TD><TD>P content of slowly biodegradable substrate Xs [gP/gCOD]</TD></TR>
+<TR><TD>i_P_BM</TD><TD>0.02</TD><TD>P content of biomass, Xh, Xpao, Xa [gP/gCOD]</TD></TR>
+<TR><TD>i_TSS_Xi</TD><TD>0.75</TD><TD>TSS to COD ratio for Xi [gTSS/gCOD]</TD></TR>
+<TR><TD>i_TSS_Xs</TD><TD>0.75</TD><TD>TSS to COD ratio for Xs [gTSS/gCOD]</TD></TR>
+<TR><TD>i_TSS_BM</TD><TD>0.9</TD><TD>TSS to COD ratio for biomass, Xh, Xpao, Xa [gTSS/gCOD]</TD></TR>
+<TR><TD>f_Si</TD><TD>0.0</TD><TD>Production of Si in hydrolysis [gCOD/gCOD]</TD></TR>
+<TR><TD>Y_H</TD><TD>0.625</TD><TD>Yield coefficient [gCOD/gCOD]</TD></TR>
+<TR><TD>f_Xih</TD><TD>0.1</TD><TD>Fraction of inert COD generated in biomass lysis [gCOD/gCOD]</TD></TR>
+<TR><TD>Y_PAO</TD><TD>0.625</TD><TD>Yield coefficient (biomass/PHA) [gCOD/gCOD]</TD></TR>
+<TR><TD>Y_PO</TD><TD>0.4</TD><TD>PP requirement (PO4 release) per PHA stored [gP/gCOD]</TD></TR>
+<TR><TD>Y_PHA</TD><TD>0.2</TD><TD>PHA requirement for PP storage [gCOD/gP]</TD></TR>
+<TR><TD>f_Xip</TD><TD>0.1</TD><TD>Fraction of inert COD generated in biomass lysis [gCOD/gCOD]</TD></TR>
+<TR><TD>Y_A</TD><TD>0.24</TD><TD>Yield of autotrophic biomass per NO3-N [gCOD/gN]</TD></TR>
+<TR><TD>f_Xia</TD><TD>0.1</TD><TD>Fraction of inert COD generated in biomass lysis [gCOD/gCOD]</TD></TR>
+<TR><TD>v_1_NH</TD><TD>i_N_Xs - (1 - f_Si)*i_N_Sf - f_Si*i_N_Si</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_2_NH</TD><TD>i_N_Xs - (1 - f_Si)*i_N_Sf - f_Si*i_N_Si</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_3_NH</TD><TD>i_N_Xs - (1 - f_Si)*i_N_Sf - f_Si*i_N_Si</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_4_NH</TD><TD>i_N_Sf/Y_H - i_N_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_5_NH</TD><TD>-i_N_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_6_NH</TD><TD>i_N_Sf/Y_H - i_N_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_7_NH</TD><TD>-i_N_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_8_NH</TD><TD>i_N_Sf</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_9_NH</TD><TD>i_N_BM - f_Xih*i_N_Xi - (1 - f_Xih)*i_N_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_13_NH</TD><TD>-i_N_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_14_NH</TD><TD>-i_N_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_15_NH</TD><TD>i_N_BM - f_Xip*i_N_Xi - (1 - f_Xip)*i_N_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_18_NH</TD><TD>-1/Y_A - i_N_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_19_NH</TD><TD>i_N_BM - f_Xia*i_N_Xi - (1 - f_Xia)*i_N_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_1_PO</TD><TD>i_P_Xs - (1 - f_Si)*i_P_Sf - f_Si*i_P_Si</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_2_PO</TD><TD>i_P_Xs - (1 - f_Si)*i_P_Sf - f_Si*i_P_Si</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_3_PO</TD><TD>i_P_Xs - (1 - f_Si)*i_P_Sf - f_Si*i_P_Si</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_4_PO</TD><TD>i_P_Sf/Y_H - i_P_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_5_PO</TD><TD>-i_P_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_6_PO</TD><TD>i_P_Sf/Y_H - i_P_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_7_PO</TD><TD>-i_P_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_8_PO</TD><TD>i_P_Sf</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_9_PO</TD><TD>i_P_BM - f_Xih*i_P_Xi - (1 - f_Xih)*i_P_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_15_PO</TD><TD>i_P_BM - f_Xip*i_P_Xi - (1 - f_Xip)*i_P_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_19_PO</TD><TD>i_P_BM - f_Xia*i_P_Xi - (1 - f_Xia)*i_P_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_12_NO</TD><TD>-Y_PHA/2.86</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_14_NO</TD><TD>-(1 - Y_PAO)/(2.86*Y_PAO)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_12_N2</TD><TD>-v_12_NO</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_14_N2</TD><TD>-v_14_NO</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_1_ALK</TD><TD>v_1_NH/14 + v_1_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_2_ALK</TD><TD>v_2_NH/14 + v_2_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_3_ALK</TD><TD>v_3_NH/14 + v_3_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_4_ALK</TD><TD>v_4_NH/14 + v_4_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_5_ALK</TD><TD>1/(Y_H*64) + v_5_NH/14 + v_5_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_6_ALK</TD><TD>v_6_NH/14 + (1 - Y_H)/(2.86*Y_H*14) + v_6_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_7_ALK</TD><TD>1/(Y_H*64) + v_7_NH/14 + (1 - Y_H)/(2.86*Y_H*14) + v_7_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_8_ALK</TD><TD>v_8_NH/14 + v_8_PO*(-1.5/31) - 1/64</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_9_ALK</TD><TD>v_9_NH/14 + v_9_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_10_ALK</TD><TD>1/64 + Y_PO*(-1.5/31) - Y_PO*(-1/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_11_ALK</TD><TD>(1.5 - 1)/31</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_12_ALK</TD><TD>v_12_NO*(-1/14) + (1.5 - 1)/31</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_13_ALK</TD><TD>v_13_NH/14 - i_P_BM*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_14_ALK</TD><TD>v_14_NH/14 - v_14_NO/14 - i_P_BM*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_15_ALK</TD><TD>v_15_NH/14 + v_15_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_16_ALK</TD><TD>(1 - 1.5)/31</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_17_ALK</TD><TD>-1/64</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_18_ALK</TD><TD>v_18_NH/14 - 1/(Y_A*14) - i_P_BM*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_19_ALK</TD><TD>v_19_NH/14 + v_19_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_20_ALK</TD><TD>1.5/31</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_21_ALK</TD><TD>-1.5/31</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_1_TSS</TD><TD>-i_TSS_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_2_TSS</TD><TD>-i_TSS_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_3_TSS</TD><TD>-i_TSS_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_4_TSS</TD><TD>i_TSS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_5_TSS</TD><TD>i_TSS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_6_TSS</TD><TD>i_TSS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_7_TSS</TD><TD>i_TSS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_9_TSS</TD><TD>f_Xih*i_TSS_Xi + (1 - f_Xih)*i_TSS_Xs - i_TSS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_10_TSS</TD><TD>-Y_PO*3.23 + 0.6</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_11_TSS</TD><TD>3.23 - Y_PHA*0.6</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_12_TSS</TD><TD>3.23 - Y_PHA*0.6</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_13_TSS</TD><TD>i_TSS_BM - 0.6/Y_PAO</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_14_TSS</TD><TD>i_TSS_BM - 0.6/Y_PAO</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_15_TSS</TD><TD>f_Xip*i_TSS_Xi + (1 - f_Xip)*i_TSS_Xs - i_TSS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_16_TSS</TD><TD>-3.23</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_17_TSS</TD><TD>-0.6</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_18_TSS</TD><TD>i_TSS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_19_TSS</TD><TD>f_Xia*i_TSS_Xi + (1 - f_Xia)*i_TSS_Xs - i_TSS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_13_O</TD><TD>-(1 - Y_PAO)/Y_PAO</TD><TD>&nbsp;</TD></TR>
+<TR><TD>K_h_T</TD><TD>3.0</TD><TD>Hydrolysis rate at T=20 deg C [d^-1]</TD></TR>
+<TR><TD>eta_NO_Xs</TD><TD>0.6</TD><TD>Anoxic hydrolysis reduction factor [-]</TD></TR>
+<TR><TD>eta_fe</TD><TD>0.4</TD><TD>Anaerobic hydrolysis reduction factor [-]</TD></TR>
+<TR><TD>K_O_Xs</TD><TD>0.2</TD><TD>Saturation/inhibition coefficient for oxygen [g O2/m3]</TD></TR>
+<TR><TD>K_NO_Xs</TD><TD>0.5</TD><TD>Saturation/inhibition coefficient for nitrate [g N/m3]</TD></TR>
+<TR><TD>K_X</TD><TD>0.1</TD><TD>Saturation coefficient for particulate COD [g Xs/(g Xh)]</TD></TR>
+<TR><TD>mu_H_T</TD><TD>6.0</TD><TD>Maximum growth rate on substrate at T=20 deg C [g Xs/(g Xh)/d]</TD></TR>
+<TR><TD>rho_fe_T</TD><TD>3.0</TD><TD>Maximum rate for fermentation at T=20 deg C [g Sf/(g Xh)/d]</TD></TR>
+<TR><TD>eta_NO_Xh</TD><TD>0.8</TD><TD>Reduction factor for denitrification [-]</TD></TR>
+<TR><TD>b_H_T</TD><TD>0.4</TD><TD>Rate for lysis and decay at T=20 deg C [d^-1]</TD></TR>
+<TR><TD>K_O_Xh</TD><TD>0.2</TD><TD>Saturation/inhibition coefficient for oxygen [g O2/m3]</TD></TR>
+<TR><TD>K_F</TD><TD>4.0</TD><TD>Saturation coefficient for growth on Sf [g COD/m3]</TD></TR>
+<TR><TD>K_fe</TD><TD>4.0</TD><TD>Saturation coefficient for fermentation of Sf [g COD/m3]</TD></TR>
+<TR><TD>K_A_Xh</TD><TD>4.0</TD><TD>Saturation coefficient for growth on acetate Sa [g COD/m3]</TD></TR>
+<TR><TD>K_NO_Xh</TD><TD>0.5</TD><TD>Saturation/inhibition coefficient for nitrate [g N/m3]</TD></TR>
+<TR><TD>K_NH_Xh</TD><TD>0.05</TD><TD>Saturation coefficient for ammonium (nutrient) [g N/m3]</TD></TR>
+<TR><TD>K_P_Xh</TD><TD>0.01</TD><TD>Saturation coefficient for phosphate (nutrient) [g P/m3]</TD></TR>
+<TR><TD>K_ALK_Xh</TD><TD>0.1</TD><TD>Saturation coefficient for alkalinity (HCO3) [mole HCO3/m3]</TD></TR>
+<TR><TD>rho_PHA_T</TD><TD>3.0</TD><TD>Rate for storage of Xpha (base Xpp) at T=20 deg C [g Xpha/(g Xpao)/d]</TD></TR>
+<TR><TD>rho_PP_T</TD><TD>1.5</TD><TD>Rate for storage of Xpp at T=20 deg C [g Xpp/(g Xpao)/d]</TD></TR>
+<TR><TD>mu_PAO_T</TD><TD>1.0</TD><TD>Maximum growth rate of PAO at T=20 deg C [d^-1]</TD></TR>
+<TR><TD>eta_NO_Xpao</TD><TD>0.6</TD><TD>Reduction factor for anoxic activity [-]</TD></TR>
+<TR><TD>b_PAO_T</TD><TD>0.2</TD><TD>Rate for lysis of Xpao at T=20 deg C [d^-1]</TD></TR>
+<TR><TD>b_PP_T</TD><TD>0.2</TD><TD>Rate for lysis of Xpp at T=20 dedg C [d^-1]</TD></TR>
+<TR><TD>b_PHA_T</TD><TD>0.2</TD><TD>Rate for lysis of Xpha at T=20 deg C [d^-1]</TD></TR>
+<TR><TD>K_O_Xpao</TD><TD>0.2</TD><TD>Saturation/inhibition coefficient for oxygen [g O2/m3]</TD></TR>
+<TR><TD>K_NO_Xpao</TD><TD>0.5</TD><TD>Saturation coefficient for nitrate, Sno3 [g N/m3]</TD></TR>
+<TR><TD>K_A_Xpao</TD><TD>4.0</TD><TD>Saturation coefficient for acetate, Sa [g COD/m3]</TD></TR>
+<TR><TD>K_NH_Xpao</TD><TD>0.05</TD><TD>Saturation coefficient for ammonium (nutrient) [g N/m3]</TD></TR>
+<TR><TD>K_PS</TD><TD>0.2</TD><TD>Saturation coefficient for phosphorus in storage of PP [g P/m3]</TD></TR>
+<TR><TD>K_P_Xpao</TD><TD>0.01</TD><TD>Saturation coefficient for phosphate (nutrient) [g P/m3]</TD></TR>
+<TR><TD>K_ALK_Xpao</TD><TD>0.1</TD><TD>Saturation coefficient for alkalinity (HCO3) [mole HCO3/m3]</TD></TR>
+<TR><TD>K_PP</TD><TD>0.01</TD><TD>Saturation coefficient for poly-phosphate [g Xpp/(g Xpao)]</TD></TR>
+<TR><TD>K_MAX</TD><TD>0.34</TD><TD>Maximum ratio of Xpp/Xpao [g Xpp/(g Xpao)]</TD></TR>
+<TR><TD>K_IPP</TD><TD>0.02</TD><TD>Inhibition coefficient for PP storage [g Xpp/(g Xpao)]</TD></TR>
+<TR><TD>K_PHA</TD><TD>0.01</TD><TD>Saturation coefficient for PHA [g Xpha/(g Xpao)]</TD></TR>
+<TR><TD>mu_AUT_T</TD><TD>1.0</TD><TD>Maximum growth rate of Xa at T=20 deg C [d^-1]</TD></TR>
+<TR><TD>b_AUT_T</TD><TD>0.15</TD><TD>Decay rate of Xa at T=20 deg C [d^-1]</TD></TR>
+<TR><TD>K_O_Xa</TD><TD>0.5</TD><TD>Saturation coefficient for oxygen [g O2/m3]</TD></TR>
+<TR><TD>K_NH_Xa</TD><TD>1.0</TD><TD>Saturation coefficient for ammonium (substrate) [g N/m3]</TD></TR>
+<TR><TD>K_ALK_Xa</TD><TD>0.5</TD><TD>Saturation coefficient for alkalinity (HCO3) [mole HCO3/m3]</TD></TR>
+<TR><TD>K_P_Xa</TD><TD>0.01</TD><TD>Saturation coefficient for phosphate (nutrient) [g P/m3]</TD></TR>
+<TR><TD>k_PRE</TD><TD>1.0</TD><TD>Rate constant for P precipitation [m3/(g Fe(OH3))/d]</TD></TR>
+<TR><TD>k_RED</TD><TD>0.6</TD><TD>Rate constant for redissolution [d^-1]</TD></TR>
+<TR><TD>K_ALK_Pre</TD><TD>0.5</TD><TD>Saturation coefficient for alkalinity [mole HCO3/m3]</TD></TR>
+<TR><TD>V</TD><TD>50</TD><TD>Volume of precipitation tank [m3]</TD></TR>
+<TR><TD>Wsub</TD><TD>2.5</TD><TD>effective substance in precipitant [mol/kg]</TD></TR>
+<TR><TD>D</TD><TD>1.4</TD><TD>density of precipitant [kg/l]</TD></TR>
+<TR><TD>beta</TD><TD>5.0</TD><TD>precipitant surplus</TD></TR>
+<TR><TD>Qmin</TD><TD>5.0</TD><TD>Minimum flow of precipitant [l/h]</TD></TR>
+<TR><TD>MP</TD><TD>30.97</TD><TD>Molar Mass of Phosphorus [g/mol]</TD></TR>
+<TR><TD>Mpre</TD><TD>55.85</TD><TD>Molar Mass of precipitant [g/mol]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> precipitation <font color="darkgreen">&quot;Phosphorus precipitation tank&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.precipitation"
+>WasteWater.Icons.precipitation</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.ASM2dbase"
+>Interfaces.ASM2dbase</A>;
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Volume"
+>Modelica.SIunits.Volume</A> V=50 <font color="darkgreen">&quot;Volume of precipitation tank&quot;</font>;
+  <font color="blue">parameter </font>Real Wsub=2.5 <font color="darkgreen">&quot;effective substance in precipitant [mol/kg]&quot;</font>;
+  <font color="blue">parameter </font>Real D=1.4 <font color="darkgreen">&quot;density of precipitant [kg/l]&quot;</font>;
+  <font color="blue">parameter </font>Real beta=5.0 <font color="darkgreen">&quot;precipitant surplus&quot;</font>;
+  <font color="blue">parameter </font>Real Qmin=5.0 <font color="darkgreen">&quot;Minimum flow of precipitant [l/h]&quot;</font>;
+  <font color="blue">parameter </font>Real MP=30.97 <font color="darkgreen">&quot;Molar Mass of Phosphorus [g/mol]&quot;</font>;
+  <font color="blue">parameter </font>Real Mpre=55.85 <font color="darkgreen">&quot;Molar Mass of precipitant [g/mol]&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.VolumeFlowRate"
+>WWU.VolumeFlowRate</A> Qpreci <font color="darkgreen">&quot;Dosage flow of precipitant used&quot;</font>;
+  Real Preci <font color="darkgreen">&quot;Concentration of effective substance in precipitant flow
+  [g/m³]&quot;</font>;
+  Real H;<font face="Times New Roman" size="3">
+</font>
+<font color="#008000">  // following 4 connectors are already in ASM<span lang="de">2d</span>base and are inherited,
+  // but listed hear again to avoid an icon related problem
+  // with the sequence of extends-clauses</font><font face="Times New Roman" size="3">
+<span lang="de">    </span></font><A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>Interfaces.WWFlowAsm2din</A> In;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>Interfaces.WWFlowAsm2dout</A> Out;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>Interfaces.WWFlowAsm2dout</A> MeasurePort;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> T(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  aeration = 0;
+  <font color="darkgreen">//no aerotation in this tank</font>
+  <font color="darkgreen"></font>
+  H = (1/Wsub)*(1/(D*1000))*(1/Mpre)*Mpre/MP*beta*In.Spo*In.Q;
+  Qpreci = <font color="blue">if </font>H &lt; (Qmin*24/1000)<font color="blue"> then </font>Qmin*24/1000<font color="blue"> else </font>H;
+  <font color="darkgreen">// the factor 1.91 is a stoichiometric coefficient between Fe3+ and Xmeoh</font>
+  Preci = 1.91*Wsub*D*Mpre*1000;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// volume dependent dilution term of each concentration  </font>
+  inputSo = (In.So - So)*In.Q/V;
+  inputSf = (In.Sf - Sf)*In.Q/V;
+  inputSa = (In.Sa - Sa)*In.Q/V;
+  inputSnh = (In.Snh - Snh)*In.Q/V;
+  inputSno = (In.Sno - Sno)*In.Q/V;
+  inputSpo = (In.Spo - Spo)*In.Q/V;
+  inputSi = (In.Si - Si)*In.Q/V;
+  inputSalk = (In.Salk - Salk)*In.Q/V;
+  inputSn2 = (In.Sn2 - Sn2)*In.Q/V;
+  inputXi = (In.Xi - Xi)*In.Q/V;
+  inputXs = (In.Xs - Xs)*In.Q/V;
+  inputXh = (In.Xh - Xh)*In.Q/V;
+  inputXpao = (In.Xpao - Xpao)*In.Q/V;
+  inputXpp = (In.Xpp - Xpp)*In.Q/V;
+  inputXpha = (In.Xpha - Xpha)*In.Q/V;
+  inputXa = (In.Xa - Xa)*In.Q/V;
+  inputXtss = (In.Xtss - Xtss)*In.Q/V;
+  inputXmeoh = (In.Xmeoh - Xmeoh)*In.Q/V + Qpreci*Preci/V;
+  inputXmep = (In.Xmep - Xmep)*In.Q/V;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>precipitation;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.SecClarModTakacsI.png" ALT="WasteWater.ASM2d.SecClarModTakacs" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.SecClarModTakacs"></A><A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d"
+>WasteWater.ASM2d</A>.SecClarModTakacs</H2>
+<B>ASM2d Secondary Clarifier Model based on Takacs</B><p>
+<IMG SRC="WasteWater.ASM2d.SecClarModTakacsD.png" ALT="WasteWater.ASM2d.SecClarModTakacs" width="368" height="332">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component models an ASM2d 10 - layer secondary clarifier model with 4 layers 
+above the <span lang="de"> </span>feed_layer (including top_layer)<span lang="de"> </span>and 5 layers below the feed_layer 
+(including bottom_layer) based on Takac<span lang="de">s</span>` theory.
+</font>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>hsc</TD><TD>4.0</TD><TD>height of secondary clarifier [m]</TD></TR>
+<TR><TD>n</TD><TD>10</TD><TD>number of layers of SC model</TD></TR>
+<TR><TD>zm</TD><TD>hsc/(1.0*n)</TD><TD>height of m-th secondary clarifier layer [m]</TD></TR>
+<TR><TD>Asc</TD><TD>1500.0</TD><TD>area of secondary clarifier [m2]</TD></TR>
+<TR><TD>Xt</TD><TD>3000.0</TD><TD>threshold for X [mg/l]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> SecClarModTakacs <font color="darkgreen">
+  &quot;ASM2d Secondary Clarifier Model based on Takacs&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.SecClar"
+>WasteWater.Icons.SecClar</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM2d_SecClar_Takacs_Interfaces.html#WasteWater.ASM2d.SecClar.Takacs.Interfaces.ratios"
+>ASM2d.SecClar.Takacs.Interfaces.ratios</A>;
+  <font color="blue">package</font> SCP = <A HREF="WasteWater_ASM2d_SecClar_Takacs.html#WasteWater.ASM2d.SecClar.Takacs"
+>ASM2d.SecClar.Takacs</A>;
+  <font color="blue">package</font> SI = <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">package</font> WI = <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces"
+>ASM2d.Interfaces</A>;
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> hsc=4.0 <font color="darkgreen">&quot;height of secondary clarifier&quot;</font>;
+  <font color="blue">parameter </font>Integer n=10 <font color="darkgreen">&quot;number of layers of SC model&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> zm=hsc/(1.0*n) <font color="darkgreen">&quot;height of m-th secondary clarifier layer&quot;</font>;
+  <font color="blue">parameter </font><A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> Asc=1500.0 <font color="darkgreen">&quot;area of secondary clarifier&quot;</font>;
+  <font color="blue">parameter </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xt=3000.0 <font color="darkgreen">&quot;threshold for X&quot;</font>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// total sludge concentration in clarifier feed</font>
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xf;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>WI.WWFlowAsm2din</A> Feed;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>WI.WWFlowAsm2dout</A> Effluent;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>WI.WWFlowAsm2dout</A> Return;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>WI.WWFlowAsm2dout</A> Waste;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// layers 1 to 10</font>
+  <A HREF="WasteWater_ASM2d_SecClar_Takacs.html#WasteWater.ASM2d.SecClar.Takacs.bottom_layer"
+>SCP.bottom_layer</A> S1(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf, 
+    rXi=rXi, 
+    rXs=rXs, 
+    rXh=rXh, 
+    rXpao=rXpao, 
+    rXpp=rXpp, 
+    rXpha=rXpha, 
+    rXa=rXa, 
+    rXmeoh=rXmeoh, 
+    rXmep=rXmep);
+  <A HREF="WasteWater_ASM2d_SecClar_Takacs.html#WasteWater.ASM2d.SecClar.Takacs.lower_layer"
+>SCP.lower_layer</A> S2(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf);
+  <A HREF="WasteWater_ASM2d_SecClar_Takacs.html#WasteWater.ASM2d.SecClar.Takacs.lower_layer"
+>SCP.lower_layer</A> S3(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf);
+  <A HREF="WasteWater_ASM2d_SecClar_Takacs.html#WasteWater.ASM2d.SecClar.Takacs.lower_layer"
+>SCP.lower_layer</A> S4(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf);
+  <A HREF="WasteWater_ASM2d_SecClar_Takacs.html#WasteWater.ASM2d.SecClar.Takacs.lower_layer"
+>SCP.lower_layer</A> S5(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf);
+  <A HREF="WasteWater_ASM2d_SecClar_Takacs.html#WasteWater.ASM2d.SecClar.Takacs.feed_layer"
+>SCP.feed_layer</A> S6(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf);
+  <A HREF="WasteWater_ASM2d_SecClar_Takacs.html#WasteWater.ASM2d.SecClar.Takacs.upper_layer"
+>SCP.upper_layer</A> S7(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf, 
+    Xt=Xt);
+  <A HREF="WasteWater_ASM2d_SecClar_Takacs.html#WasteWater.ASM2d.SecClar.Takacs.upper_layer"
+>SCP.upper_layer</A> S8(
+    zm=zm, 
+    Asc=Asc, 
+    Xt=Xt, 
+    Xf=Xf);
+  <A HREF="WasteWater_ASM2d_SecClar_Takacs.html#WasteWater.ASM2d.SecClar.Takacs.upper_layer"
+>SCP.upper_layer</A> S9(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf, 
+    Xt=Xt);
+  <A HREF="WasteWater_ASM2d_SecClar_Takacs.html#WasteWater.ASM2d.SecClar.Takacs.top_layer"
+>SCP.top_layer</A> S10(
+    zm=zm, 
+    Asc=Asc, 
+    Xf=Xf, 
+    Xt=Xt, 
+    rXi=rXi, 
+    rXs=rXs, 
+    rXh=rXh, 
+    rXpao=rXpao, 
+    rXpp=rXpp, 
+    rXpha=rXpha, 
+    rXa=rXa, 
+    rXmeoh=rXmeoh, 
+    rXmep=rXmep);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  <font color="red">connect</font>(S1.Up, S2.Dn);
+  <font color="red">connect</font>(S2.Up, S3.Dn);
+  <font color="red">connect</font>(S3.Up, S4.Dn);
+  <font color="red">connect</font>(S5.Up, S6.Dn);
+  <font color="red">connect</font>(S6.Up, S7.Dn);
+  <font color="red">connect</font>(S7.Up, S8.Dn);
+  <font color="red">connect</font>(S9.Up, S10.Dn);
+  <font color="red">connect</font>(S4.Up, S5.Dn);
+  <font color="red">connect</font>(S8.Up, S9.Dn);
+  <font color="red">connect</font>(Feed, S6.In);
+  <font color="red">connect</font>(S1.PQw, Waste);
+  <font color="red">connect</font>(S10.Out, Effluent);
+  <font color="red">connect</font>(S1.PQr, Return);
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// total sludge concentration in clarifier feed</font>
+  Xf = Feed.Xtss;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// ratios of solid components</font>
+  rXi = Feed.Xi/Xf;
+  rXs = Feed.Xs/Xf;
+  rXh = Feed.Xh/Xf;
+  rXpao = Feed.Xpao/Xf;
+  rXpp = Feed.Xpp/Xf;
+  rXpha = Feed.Xpha/Xf;
+  rXa = Feed.Xa/Xf;
+  rXmeoh = Feed.Xmeoh/Xf;
+  rXmep = Feed.Xmep/Xf;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>SecClarModTakacs;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.blowerI.png" ALT="WasteWater.ASM2d.blower" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.blower"></A><A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d"
+>WasteWater.ASM2d</A>.blower</H2>
+<B>Blower for the aeration of the nitrification tanks</B><p>
+<IMG SRC="WasteWater.ASM2d.blowerD.png" ALT="WasteWater.ASM2d.blower" width="92" height="94">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component models a blower of a wastewater treatment plant which generates
+an airflow that is needed<span lang="de"> </span>for the nitrification.
+
+The blower is connected to the nitrification tank.
+
+The airflow is controlled by a signal u (-1 &lt;= u &lt;= 1).</font>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Q_max</TD><TD>20000</TD><TD>maximum blower capacity [m3 Air/d], this is produced when the control signal u is 1 or 
+  greater</TD></TR>
+<TR><TD>Q_min</TD><TD>0.0</TD><TD>minimum blower capacity [m3 Air/d], this is produced when the control signal u is -1 or 
+  below</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> blower <font color="darkgreen">&quot;Blower for the aeration of the nitrification tanks&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.blower"
+>WasteWater.Icons.blower</A>;
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.VolumeFlowRate"
+>WWU.VolumeFlowRate</A> Q_max=20000 <font color="darkgreen">&quot;maximum blower capacity&quot;</font>;
+  <font color="blue">parameter </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.VolumeFlowRate"
+>WWU.VolumeFlowRate</A> Q_min=0.0 <font color="darkgreen">&quot;minimum blower capacity&quot;</font>;
+  Real H; <font color="darkgreen">// this is just a help variable to reduce expressions</font>
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.AirFlow"
+>Interfaces.AirFlow</A> AirOut;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> u(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  H = 0.5*(-Q_min + Q_max) + u.signal[1]*0.5*(-Q_min + Q_max) + Q_min;
+  AirOut.Q_air = -(<font color="blue">if </font>H &gt; Q_max<font color="blue"> then </font>Q_max<font color="blue"> else </font><font color="blue">if </font>H &lt; Q_min<font color="blue"> then </font>Q_min<font color="blue"> else </font>H);
+  <font color="darkgreen"></font>
+<font color="blue">end </font>blower;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.pumpI.png" ALT="WasteWater.ASM2d.pump" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.pump"></A><A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d"
+>WasteWater.ASM2d</A>.pump</H2>
+<B>ASM2d wastewater pump</B><p>
+<IMG SRC="WasteWater.ASM2d.pumpD.png" ALT="WasteWater.ASM2d.pump" width="101" height="71">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component models an ASM2d wastewater pump. It generates a wastewater flow
+that is controlled by the signal u (-1 &lt;= u &lt;=1).</font>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Q_min</TD><TD>0.0</TD><TD>minimum pump capacity [m3/d], this is produced 
+  when the control signal u is -1 or below</TD></TR>
+<TR><TD>Q_max</TD><TD>20000</TD><TD>maximum pump capacity [m3/d], this is 
+  produced when the control signal u is 1 or greater</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> pump <font color="darkgreen">&quot;ASM2d wastewater pump&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.pump"
+>WasteWater.Icons.pump</A>;
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.VolumeFlowRate"
+>WWU.VolumeFlowRate</A> Q_min=0.0 <font color="darkgreen">&quot;minimum pump capacity&quot;</font>;
+  <font color="blue">parameter </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.VolumeFlowRate"
+>WWU.VolumeFlowRate</A> Q_max=20000 <font color="darkgreen">&quot;maximum pump capacity&quot;</font>;
+  <font color="darkgreen"></font>
+  Real H;
+  <font color="darkgreen">//help variable to reduce expressions</font>
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>Interfaces.WWFlowAsm2din</A> In;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>Interfaces.WWFlowAsm2dout</A> Out;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> u(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  H = 0.5*(-Q_min + Q_max) + u.signal[1]*0.5*(-Q_min + Q_max) + Q_min;
+  <font color="darkgreen"></font>
+  Out.Q = -(<font color="blue">if </font>H &gt; Q_max<font color="blue"> then </font>Q_max<font color="blue"> else </font><font color="blue">if </font>H &lt; Q_min<font color="blue"> then </font>Q_min<font color="blue"> else </font>H);
+  Out.Q + In.Q = 0;
+  <font color="darkgreen"></font>
+  Out.So = In.So;
+  Out.Sf = In.Sf;
+  Out.Sa = In.Sa;
+  Out.Snh = In.Snh;
+  Out.Sno = In.Sno;
+  Out.Spo = In.Spo;
+  Out.Si = In.Si;
+  Out.Salk = In.Salk;
+  Out.Sn2 = In.Sn2;
+  Out.Xi = In.Xi;
+  Out.Xs = In.Xs;
+  Out.Xh = In.Xh;
+  Out.Xpao = In.Xpao;
+  Out.Xpp = In.Xpp;
+  Out.Xpha = In.Xpha;
+  Out.Xa = In.Xa;
+  Out.Xtss = In.Xtss;
+  Out.Xmeoh = In.Xmeoh;
+  Out.Xmep = In.Xmep;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>pump;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.FlowSourceI.png" ALT="WasteWater.ASM2d.FlowSource" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.FlowSource"></A><A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d"
+>WasteWater.ASM2d</A>.FlowSource</H2>
+<B>Flowsource</B><p>
+<IMG SRC="WasteWater.ASM2d.FlowSourceD.png" ALT="WasteWater.ASM2d.FlowSource" width="138" height="116">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component is used to feed an ASM2d wwtp model with flow data from measurement
+when e.g. concentration is measured after the primary clarifier.
+
+The <b>dimension</b> of InPort is <b>1</b><span lang="de">:</span>
+
+  <b><span lang="de"> </span>1</b> <span lang="de"> </span>volumeflowrate Q of incoming wastewater [m3/d]</font></PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> FlowSource <font color="darkgreen">&quot;Flowsource&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.FlowSource"
+>WasteWater.Icons.FlowSource</A>;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>Interfaces.WWFlowAsm2dout</A> Out;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> data(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  Out.Q = -data.signal[1];
+  <font color="darkgreen"></font>
+<font color="blue">end </font>FlowSource;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.WWSourceI.png" ALT="WasteWater.ASM2d.WWSource" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.WWSource"></A><A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d"
+>WasteWater.ASM2d</A>.WWSource</H2>
+<B>Wastewater source</B><p>
+<IMG SRC="WasteWater.ASM2d.WWSourceD.png" ALT="WasteWater.ASM2d.WWSource" width="96" height="82">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component provides all ASM2d data at the influent of a wastewater treatment plant.
+</font></PRE>
+<PRE><font face="Times New Roman" size="3">The <b>dimension</b> of InPort is <b>19</b><span lang="de">:</span>
+
+  <b>1</b> <span lang="de"> </span>volumeflowrate Q of incoming wastewater [m3/d]
+  <b>2</b> <span lang="de"> </span>So   [g O2/m3]
+  <b>3</b> <span lang="de"> </span>Sf   [g COD/m3]
+  <b>4 </b><span lang="de"> </span>Sa   [g COD/m3]
+ <b> 5</b> <span lang="de"> </span>Snh  [g N/m3]
+  <b>6</b> <span lang="de"> </span>Sno  [g N/m3]
+  <b>7 <span lang="de"> </span></b>Spo  [g P/m3]
+  <b>8 </b><span lang="de"> </span>Si   [g COD/m3]
+  <b>9</b> <span lang="de"> </span>Salk [mmol/l]
+ <b>10</b> Sn2  [g N/m3]
+ <b>11 </b>Xi   [g COD/m3]
+ <b>12</b> Xs   [g COD/m3]
+ <b>13</b> Xh   [g COD/m3]
+ <b>14</b> Xpao [g COD/m3]
+ <b>15</b> Xpp  [g P/m3]
+ <b>16</b> Xpha [g COD/m3]
+ <b>17</b> Xa   [g COD/m3]
+ <b>18</b> Xmeoh [g TSS/m3]
+ <b>19 </b>Xmep [g TSS/m3]
+</font></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>i_N_Si</TD><TD>0.01</TD><TD>N content of inert soluble COD Si [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Sf</TD><TD>0.03</TD><TD>N content of fermentable substrates Sf [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Xi</TD><TD>0.02</TD><TD>N content of inert particulate COD Xi [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Xs</TD><TD>0.04</TD><TD>N content of slowly biodegradable substrate Xs [gN/gCOD]</TD></TR>
+<TR><TD>i_N_BM</TD><TD>0.07</TD><TD>N content of biomass, Xh, Xpao, Xa [gN/gCOD]</TD></TR>
+<TR><TD>i_P_Si</TD><TD>0.0</TD><TD>P content of inert soluble COD Si [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Sf</TD><TD>0.01</TD><TD>P content of fermentable substrates Sf [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Xi</TD><TD>0.01</TD><TD>P content of inert particulate COD Xi [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Xs</TD><TD>0.01</TD><TD>P content of slowly biodegradable substrate Xs [gP/gCOD]</TD></TR>
+<TR><TD>i_P_BM</TD><TD>0.02</TD><TD>P content of biomass, Xh, Xpao, Xa [gP/gCOD]</TD></TR>
+<TR><TD>i_TSS_Xi</TD><TD>0.75</TD><TD>TSS to COD ratio for Xi [gTSS/gCOD]</TD></TR>
+<TR><TD>i_TSS_Xs</TD><TD>0.75</TD><TD>TSS to COD ratio for Xs [gTSS/gCOD]</TD></TR>
+<TR><TD>i_TSS_BM</TD><TD>0.9</TD><TD>TSS to COD ratio for biomass, Xh, Xpao, Xa [gTSS/gCOD]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> WWSource <font color="darkgreen">&quot;Wastewater source&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.WWSource"
+>WasteWater.Icons.WWSource</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.conversion_factors"
+>ASM2d.Interfaces.conversion_factors</A>;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>Interfaces.WWFlowAsm2dout</A> Out;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> data(<font color="blue">final </font>n=19);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  Out.Q = -data.signal[1];
+  Out.So = data.signal[2];
+  Out.Sf = data.signal[3];
+  Out.Sa = data.signal[4];
+  Out.Snh = data.signal[5];
+  Out.Sno = data.signal[6];
+  Out.Spo = data.signal[7];
+  Out.Si = data.signal[8];
+  Out.Salk = data.signal[9];
+  Out.Sn2 = data.signal[10];
+  Out.Xi = data.signal[11];
+  Out.Xs = data.signal[12];
+  Out.Xh = data.signal[13];
+  Out.Xpao = data.signal[14];
+  Out.Xpp = data.signal[15];
+  Out.Xpha = data.signal[16];
+  Out.Xa = data.signal[17];
+  Out.Xtss = i_TSS_Xi*Out.Xi + i_TSS_Xs*Out.Xs + i_TSS_BM*(Out.Xh + Out.Xpao + 
+    Out.Xa) + 3.23*Out.Xpp + 0.6*Out.Xpha + Out.Xmeoh + Out.Xmep;
+  Out.Xmeoh = data.signal[18];
+  Out.Xmep = data.signal[19];
+  <font color="darkgreen"></font>
+<font color="blue">end </font>WWSource;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.EffluentSinkI.png" ALT="WasteWater.ASM2d.EffluentSink" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.EffluentSink"></A><A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d"
+>WasteWater.ASM2d</A>.EffluentSink</H2>
+<B>Receiving water (river)</B><p>
+<IMG SRC="WasteWater.ASM2d.EffluentSinkD.png" ALT="WasteWater.ASM2d.EffluentSink" width="95" height="88">
+<H3>Information</H3>
+<PRE><font size="3" face="Times New Roman">This component terminates an ASM2d wastewater treatment plant model </font>
+<font size="3" face="Times New Roman">e.g. the wastewater flow to the receiving water.</font>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> EffluentSink <font color="darkgreen">&quot;Receiving water (river)&quot;</font> 
+  <font color="darkgreen">// only for graphical termination in diagram layer, no equations needed</font>
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.EffluentSink"
+>WasteWater.Icons.EffluentSink</A>;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>Interfaces.WWFlowAsm2din</A> In;
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+<font color="blue">end </font>EffluentSink;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.SludgeSinkI.png" ALT="WasteWater.ASM2d.SludgeSink" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.SludgeSink"></A><A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d"
+>WasteWater.ASM2d</A>.SludgeSink</H2>
+<B>Wastesludge sink</B><p>
+<IMG SRC="WasteWater.ASM2d.SludgeSinkD.png" ALT="WasteWater.ASM2d.SludgeSink" width="97" height="90">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component terminates the waste sludge stream of an ASM2d wastewater 
+treatment plant model.<span lang="de"> </span>Storage or further sludge treatment is not jet considered.</font></PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> SludgeSink <font color="darkgreen">&quot;Wastesludge sink&quot;</font> 
+  <font color="darkgreen">// only for graphical termination in diagram layer, no equations needed</font>
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.SludgeSink"
+>WasteWater.Icons.SludgeSink</A>;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>Interfaces.WWFlowAsm2din</A> In;
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+<font color="blue">end </font>SludgeSink;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.ControlledDivider2I.png" ALT="WasteWater.ASM2d.ControlledDivider2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.ControlledDivider2"></A><A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d"
+>WasteWater.ASM2d</A>.ControlledDivider2</H2>
+<B>Controlled flow divider</B><p>
+<IMG SRC="WasteWater.ASM2d.ControlledDivider2D.png" ALT="WasteWater.ASM2d.ControlledDivider2" width="101" height="73">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component divides one wastewater flow (ASM2d) into two flows which are controlled 
+by the signal u (0...1).<span lang="de"> </span>Is u.signal=1, the flow goes to output 1 (Out1) and is u.signal=0,
+ the flow goes to output 2 (Out2).
+
+The concentrations of the outport-flows are equal to the concentration at inport.</font></PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> ControlledDivider2 <font color="darkgreen">&quot;Controlled flow divider&quot;</font> 
+  <font color="darkgreen">// divides one flow of wastewater into 2 Flows controlled by the</font>  <font color="darkgreen"></font>
+  <font color="darkgreen">// input signal u; u=1 means Out1.Q=In.Q and u=0 means Out2.Q=In.Q</font>
+<font face="Times New Roman" size="3">
+&nbsp;</font>  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.ControlledDivider2"
+>WasteWater.Icons.ControlledDivider2</A>;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>Interfaces.WWFlowAsm2din</A> In;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>Interfaces.WWFlowAsm2dout</A> Out1;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>Interfaces.WWFlowAsm2dout</A> Out2;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> u(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  Out1.Q = -In.Q*u.signal[1];
+  Out2.Q = -In.Q*(1 - u.signal[1]);
+  <font color="darkgreen"></font>
+  Out1.So = In.So;
+  Out1.Sf = In.Sf;
+  Out1.Sa = In.Sa;
+  Out1.Snh = In.Snh;
+  Out1.Sno = In.Sno;
+  Out1.Spo = In.Spo;
+  Out1.Si = In.Si;
+  Out1.Salk = In.Salk;
+  Out1.Sn2 = In.Sn2;
+  Out1.Xi = In.Xi;
+  Out1.Xs = In.Xs;
+  Out1.Xh = In.Xh;
+  Out1.Xpao = In.Xpao;
+  Out1.Xpp = In.Xpp;
+  Out1.Xpha = In.Xpha;
+  Out1.Xa = In.Xa;
+  Out1.Xtss = In.Xtss;
+  Out1.Xmeoh = In.Xmeoh;
+  Out1.Xmep = In.Xmep;
+  <font color="darkgreen"></font>
+  Out2.So = In.So;
+  Out2.Sf = In.Sf;
+  Out2.Sa = In.Sa;
+  Out2.Snh = In.Snh;
+  Out2.Sno = In.Sno;
+  Out2.Spo = In.Spo;
+  Out2.Si = In.Si;
+  Out2.Salk = In.Salk;
+  Out2.Sn2 = In.Sn2;
+  Out2.Xi = In.Xi;
+  Out2.Xs = In.Xs;
+  Out2.Xh = In.Xh;
+  Out2.Xpao = In.Xpao;
+  Out2.Xpp = In.Xpp;
+  Out2.Xpha = In.Xpha;
+  Out2.Xa = In.Xa;
+  Out2.Xtss = In.Xtss;
+  Out2.Xmeoh = In.Xmeoh;
+  Out2.Xmep = In.Xmep;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>ControlledDivider2;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.divider2I.png" ALT="WasteWater.ASM2d.divider2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.divider2"></A><A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d"
+>WasteWater.ASM2d</A>.divider2</H2>
+<B>Flowdivider</B><p>
+<IMG SRC="WasteWater.ASM2d.divider2D.png" ALT="WasteWater.ASM2d.divider2" width="101" height="64">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component divides one ASM2d wastewater flow into two ASM2d wastewater flows.</font></PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> divider2 <font color="darkgreen">&quot;Flowdivider&quot;</font>   <font color="darkgreen">
+  // divides one flow of wastewater into 2 Flows; one amout needs to be specified</font>
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.divider2"
+>WasteWater.Icons.divider2</A>;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>Interfaces.WWFlowAsm2din</A> In;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>Interfaces.WWFlowAsm2dout</A> Out1;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>Interfaces.WWFlowAsm2dout</A> Out2;
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  In.Q + Out1.Q + Out2.Q = 0;
+  <font color="darkgreen"></font>
+  Out1.So = In.So;
+  Out1.Sf = In.Sf;
+  Out1.Sa = In.Sa;
+  Out1.Snh = In.Snh;
+  Out1.Sno = In.Sno;
+  Out1.Spo = In.Spo;
+  Out1.Si = In.Si;
+  Out1.Salk = In.Salk;
+  Out1.Sn2 = In.Sn2;
+  Out1.Xi = In.Xi;
+  Out1.Xs = In.Xs;
+  Out1.Xh = In.Xh;
+  Out1.Xpao = In.Xpao;
+  Out1.Xpp = In.Xpp;
+  Out1.Xpha = In.Xpha;
+  Out1.Xa = In.Xa;
+  Out1.Xtss = In.Xtss;
+  Out1.Xmeoh = In.Xmeoh;
+  Out1.Xmep = In.Xmep;
+  <font color="darkgreen"></font>
+  Out2.So = In.So;
+  Out2.Sf = In.Sf;
+  Out2.Sa = In.Sa;
+  Out2.Snh = In.Snh;
+  Out2.Sno = In.Sno;
+  Out2.Spo = In.Spo;
+  Out2.Si = In.Si;
+  Out2.Salk = In.Salk;
+  Out2.Sn2 = In.Sn2;
+  Out2.Xi = In.Xi;
+  Out2.Xs = In.Xs;
+  Out2.Xh = In.Xh;
+  Out2.Xpao = In.Xpao;
+  Out2.Xpp = In.Xpp;
+  Out2.Xpha = In.Xpha;
+  Out2.Xa = In.Xa;
+  Out2.Xtss = In.Xtss;
+  Out2.Xmeoh = In.Xmeoh;
+  Out2.Xmep = In.Xmep;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>divider2;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.mixer2I.png" ALT="WasteWater.ASM2d.mixer2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.mixer2"></A><A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d"
+>WasteWater.ASM2d</A>.mixer2</H2>
+<B>Mixer of two ASM2d characterised flows</B><p>
+<IMG SRC="WasteWater.ASM2d.mixer2D.png" ALT="WasteWater.ASM2d.mixer2" width="101" height="63">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component mixes two flows of wastewater (ASM2d) of different concentration and different amount.</font></PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> mixer2 <font color="darkgreen">&quot;Mixer of two ASM2d characterised flows&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.mixer2"
+>WasteWater.Icons.mixer2</A>;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>Interfaces.WWFlowAsm2din</A> In1;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>Interfaces.WWFlowAsm2din</A> In2;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>Interfaces.WWFlowAsm2dout</A> Out;
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  In1.Q + In2.Q + Out.Q = 0;
+  <font color="darkgreen"></font>
+  Out.So = (In1.So*In1.Q + In2.So*In2.Q)/(In1.Q + In2.Q);
+  Out.Sf = (In1.Sf*In1.Q + In2.Sf*In2.Q)/(In1.Q + In2.Q);
+  Out.Sa = (In1.Sa*In1.Q + In2.Sa*In2.Q)/(In1.Q + In2.Q);
+  Out.Snh = (In1.Snh*In1.Q + In2.Snh*In2.Q)/(In1.Q + In2.Q);
+  Out.Sno = (In1.Sno*In1.Q + In2.Sno*In2.Q)/(In1.Q + In2.Q);
+  Out.Spo = (In1.Spo*In1.Q + In2.Spo*In2.Q)/(In1.Q + In2.Q);
+  Out.Si = (In1.Si*In1.Q + In2.Si*In2.Q)/(In1.Q + In2.Q);
+  Out.Salk = (In1.Salk*In1.Q + In2.Salk*In2.Q)/(In1.Q + In2.Q);
+  Out.Sn2 = (In1.Sn2*In1.Q + In2.Sn2*In2.Q)/(In1.Q + In2.Q);
+  Out.Xi = (In1.Xi*In1.Q + In2.Xi*In2.Q)/(In1.Q + In2.Q);
+  Out.Xs = (In1.Xs*In1.Q + In2.Xs*In2.Q)/(In1.Q + In2.Q);
+  Out.Xh = (In1.Xh*In1.Q + In2.Xh*In2.Q)/(In1.Q + In2.Q);
+  Out.Xpao = (In1.Xpao*In1.Q + In2.Xpao*In2.Q)/(In1.Q + In2.Q);
+  Out.Xpp = (In1.Xpp*In1.Q + In2.Xpp*In2.Q)/(In1.Q + In2.Q);
+  Out.Xpha = (In1.Xpha*In1.Q + In2.Xpha*In2.Q)/(In1.Q + In2.Q);
+  Out.Xa = (In1.Xa*In1.Q + In2.Xa*In2.Q)/(In1.Q + In2.Q);
+  Out.Xtss = (In1.Xtss*In1.Q + In2.Xtss*In2.Q)/(In1.Q + In2.Q);
+  Out.Xmeoh = (In1.Xmeoh*In1.Q + In2.Xmeoh*In2.Q)/(In1.Q + In2.Q);
+  Out.Xmep = (In1.Xmep*In1.Q + In2.Xmep*In2.Q)/(In1.Q + In2.Q);
+  <font color="darkgreen"></font>
+<font color="blue">end </font>mixer2;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.mixer3I.png" ALT="WasteWater.ASM2d.mixer3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.mixer3"></A><A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d"
+>WasteWater.ASM2d</A>.mixer3</H2>
+<B>Mixer of 3 ASM2d characterised flows</B><p>
+<IMG SRC="WasteWater.ASM2d.mixer3D.png" ALT="WasteWater.ASM2d.mixer3" width="101" height="75">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component mixes 3 flows of wastewater (ASM2d) of different concentration and different amount.</font></PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> mixer3 <font color="darkgreen">&quot;Mixer of 3 ASM2d characterised flows&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.mixer3"
+>WasteWater.Icons.mixer3</A>;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>Interfaces.WWFlowAsm2din</A> In1;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>Interfaces.WWFlowAsm2din</A> In2;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>Interfaces.WWFlowAsm2din</A> In3;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>Interfaces.WWFlowAsm2dout</A> Out;
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  In1.Q + In2.Q + In3.Q + Out.Q = 0;
+  Out.So = (In1.So*In1.Q + In2.So*In2.Q + In3.So*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.Sf = (In1.Sf*In1.Q + In2.Sf*In2.Q + In3.Sf*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.Sa = (In1.Sa*In1.Q + In2.Sa*In2.Q + In3.Sa*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.Snh = (In1.Snh*In1.Q + In2.Snh*In2.Q + In3.Snh*In3.Q)/(In1.Q + In2.Q +<span lang="de"> </span>In3.Q);
+  Out.Sno = (In1.Sno*In1.Q + In2.Sno*In2.Q + In3.Sno*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.Spo = (In1.Spo*In1.Q + In2.Spo*In2.Q + In3.Spo*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.Si = (In1.Si*In1.Q + In2.Si*In2.Q + In3.Si*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.Salk = (In1.Salk*In1.Q + In2.Salk*In2.Q + In3.Salk*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.Sn2 = (In1.Sn2*In1.Q + In2.Sn2*In2.Q + In3.Sn2*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.Xi = (In1.Xi*In1.Q + In2.Xi*In2.Q + In3.Xi*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.Xs = (In1.Xs*In1.Q + In2.Xs*In2.Q + In3.Xs*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.Xh = (In1.Xh*In1.Q + In2.Xh*In2.Q + In3.Xh*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.Xpao = (In1.Xpao*In1.Q + In2.Xpao*In2.Q + In3.Xpao*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.Xpp = (In1.Xpp*In1.Q + In2.Xpp*In2.Q + In3.Xpp*In3.Q)/(In1.Q + In2.Q +<span lang="de"> </span>In3.Q);
+  Out.Xpha = (In1.Xpha*In1.Q + In2.Xpha*In2.Q + In3.Xpha*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.Xa = (In1.Xa*In1.Q + In2.Xa*In2.Q + In3.Xa*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.Xtss = (In1.Xtss*In1.Q + In2.Xtss*In2.Q + In3.Xtss*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.Xmeoh = (In1.Xmeoh*In1.Q + In2.Xmeoh*In2.Q + In3.Xmeoh*In3.Q)/(In1.Q + In2.Q + In3.Q);
+  Out.Xmep = (In1.Xmep*In1.Q + In2.Xmep*In2.Q + In3.Xmep*In3.Q)/(In1.Q + In2.Q<span lang="de"> </span>+ In3.Q);
+  <font color="darkgreen"></font>
+<font color="blue">end </font>mixer3;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.sensor_CODI.png" ALT="WasteWater.ASM2d.sensor_COD" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.sensor_COD"></A><A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d"
+>WasteWater.ASM2d</A>.sensor_COD</H2>
+<B>Ideal sensor to measure chemical oxygen demand (COD)</B><p>
+<IMG SRC="WasteWater.ASM2d.sensor_CODD.png" ALT="WasteWater.ASM2d.sensor_COD" width="92" height="94">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component measures the chemical oxygen demand (COD) concentration [g/m3]
+of ASM2d wastewater and provides the result as output signal (to be<span lang="de"> </span>further 
+processed with blocks of the Modelica.Blocks library).</font>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> sensor_COD <font color="darkgreen">
+  &quot;Ideal sensor to measure chemical oxygen demand (COD)&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.sensor_COD"
+>WasteWater.Icons.sensor_COD</A>;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>Interfaces.WWFlowAsm2din</A> In;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
+>Modelica.Blocks.Interfaces.OutPort</A> COD(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  In.Q = 0.0;
+  COD.signal[1] = In.Sf + In.Sa + In.Si + In.Xi + In.Xs + In.Xh + In.Xpao + In.
+    Xpha + In.Xa;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>sensor_COD;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.sensor_NHI.png" ALT="WasteWater.ASM2d.sensor_NH" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.sensor_NH"></A><A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d"
+>WasteWater.ASM2d</A>.sensor_NH</H2>
+<B>Ideal sensor to measure ammonium nitrogen</B><p>
+<IMG SRC="WasteWater.ASM2d.sensor_NHD.png" ALT="WasteWater.ASM2d.sensor_NH" width="87" height="94">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component measures the ammonium nitrogen concentration [g/m3]
+of ASM2d wastewater and provides the result as output signal (to be
+further processed with blocks of the Modelica.Blocks library).</font>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> sensor_NH <font color="darkgreen">&quot;Ideal sensor to measure ammonium nitrogen&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.sensor_NH"
+>WasteWater.Icons.sensor_NH</A>;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>Interfaces.WWFlowAsm2din</A> In;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
+>Modelica.Blocks.Interfaces.OutPort</A> Snh(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  In.Q = 0;
+  Snh.signal[1] = In.Snh;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>sensor_NH;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.sensor_NOI.png" ALT="WasteWater.ASM2d.sensor_NO" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.sensor_NO"></A><A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d"
+>WasteWater.ASM2d</A>.sensor_NO</H2>
+<B>Ideal sensor to measure nitrate nitrogen</B><p>
+<IMG SRC="WasteWater.ASM2d.sensor_NOD.png" ALT="WasteWater.ASM2d.sensor_NO" width="88" height="94">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component measures the nitrate nitrogen concentration [g/m3]
+of ASM2d wastewater and provides the result as output signal (to be
+further processed with blocks of the Modelica.Blocks library).</font>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> sensor_NO <font color="darkgreen">&quot;Ideal sensor to measure nitrate nitrogen&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.sensor_NO"
+>WasteWater.Icons.sensor_NO</A>;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>Interfaces.WWFlowAsm2din</A> In;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
+>Modelica.Blocks.Interfaces.OutPort</A> Sno(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  In.Q = 0;
+  Sno.signal[1] = In.Sno;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>sensor_NO;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.sensor_O2I.png" ALT="WasteWater.ASM2d.sensor_O2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.sensor_O2"></A><A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d"
+>WasteWater.ASM2d</A>.sensor_O2</H2>
+<B>Ideal sensor to measure dissolved oxygen concentration</B><p>
+<IMG SRC="WasteWater.ASM2d.sensor_O2D.png" ALT="WasteWater.ASM2d.sensor_O2" width="126" height="135">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component measures the dissolved oxygen concentration [g/m3]
+of ASM2d wastewater and provides the result as output signal (to be
+further processed with blocks of the Modelica.Blocks library).</font>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> sensor_O2 <font color="darkgreen">
+  &quot;Ideal sensor to measure dissolved oxygen concentration&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.sensor_O2"
+>WasteWater.Icons.sensor_O2</A>;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>Interfaces.WWFlowAsm2din</A> In;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
+>Modelica.Blocks.Interfaces.OutPort</A> So(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  In.Q = 0;
+  So.signal[1] = In.So;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>sensor_O2;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.sensor_POI.png" ALT="WasteWater.ASM2d.sensor_PO" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.sensor_PO"></A><A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d"
+>WasteWater.ASM2d</A>.sensor_PO</H2>
+<B>Ideal sensor to measure dissolved phosphorus</B><p>
+<IMG SRC="WasteWater.ASM2d.sensor_POD.png" ALT="WasteWater.ASM2d.sensor_PO" width="87" height="94">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component measures the dissolves phosphorus concentration [g/m3]
+of ASM2d wastewater and provides the result as output signal (to be
+further processed with blocks of the Modelica.Blocks library).</font>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> sensor_PO <font color="darkgreen">&quot;Ideal sensor to measure dissolved phosphorus&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.sensor_PO"
+>WasteWater.Icons.sensor_PO</A>;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>Interfaces.WWFlowAsm2din</A> In;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
+>Modelica.Blocks.Interfaces.OutPort</A> Spo(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  In.Q = 0;
+  Spo.signal[1] = In.Spo;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>sensor_PO;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.sensor_QI.png" ALT="WasteWater.ASM2d.sensor_Q" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.sensor_Q"></A><A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d"
+>WasteWater.ASM2d</A>.sensor_Q</H2>
+<B>Ideal sensor to measure the flow rate of an ASM2d wastewater stream</B><p>
+<IMG SRC="WasteWater.ASM2d.sensor_QD.png" ALT="WasteWater.ASM2d.sensor_Q" width="102" height="94">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component measures the flow of an ASM2d wastewater stream and provides
+the result as output signal (to be further processed with blocks of
+the Modelica.Blocks library).
+</font></PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> sensor_Q <font color="darkgreen">
+  &quot;Ideal sensor to measure the flow rate of an ASM2d wastewater stream&quot;</font>
+   
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.sensor_Q"
+>WasteWater.Icons.sensor_Q</A>;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>Interfaces.WWFlowAsm2din</A> In;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>Interfaces.WWFlowAsm2dout</A> Out;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
+>Modelica.Blocks.Interfaces.OutPort</A> Q(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  In.Q + Out.Q = 0;
+  Q.signal[1] = In.Q;
+  <font color="darkgreen">// eventually abs(In.Q) to be shure to have pos. signal</font>
+  In.So = Out.So;
+  In.Sf = Out.Sf;
+  In.Sa = Out.Sa;
+  In.Snh = Out.Snh;
+  In.Sno = Out.Sno;
+  In.Spo = Out.Spo;
+  In.Si = Out.Si;
+  In.Salk = Out.Salk;
+  In.Sn2 = Out.Sn2;
+  In.Xi = Out.Xi;
+  In.Xs = Out.Xs;
+  In.Xh = Out.Xh;
+  In.Xpao = Out.Xpao;
+  In.Xpp = Out.Xpp;
+  In.Xpha = Out.Xpha;
+  In.Xa = Out.Xa;
+  In.Xtss = Out.Xtss;
+  In.Xmeoh = Out.Xmeoh;
+  In.Xmep = Out.Xmep;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>sensor_Q;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.sensor_TKNI.png" ALT="WasteWater.ASM2d.sensor_TKN" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.sensor_TKN"></A><A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d"
+>WasteWater.ASM2d</A>.sensor_TKN</H2>
+<B>Ideal TKN and total nitrogen sensor</B><p>
+<IMG SRC="WasteWater.ASM2d.sensor_TKND.png" ALT="WasteWater.ASM2d.sensor_TKN" width="91" height="94">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component measures the Total Kjeldal Nitrogen (TKN) and the<span lang="de"> </span>total nitrogen (N_total)
+concentration [g/m3] of ASM2d wastewater<span lang="de"> </span>and provides the result as output signal
+(to be further processed<span lang="de"> </span>with blocks of the Modelica.Blocks library).
+
+signal[1] - TKN
+signal[2] - N_total</font>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>i_N_Si</TD><TD>0.01</TD><TD>N content of inert soluble COD Si [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Sf</TD><TD>0.03</TD><TD>N content of fermentable substrates Sf [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Xi</TD><TD>0.02</TD><TD>N content of inert particulate COD Xi [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Xs</TD><TD>0.04</TD><TD>N content of slowly biodegradable substrate Xs [gN/gCOD]</TD></TR>
+<TR><TD>i_N_BM</TD><TD>0.07</TD><TD>N content of biomass, Xh, Xpao, Xa [gN/gCOD]</TD></TR>
+<TR><TD>i_P_Si</TD><TD>0.0</TD><TD>P content of inert soluble COD Si [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Sf</TD><TD>0.01</TD><TD>P content of fermentable substrates Sf [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Xi</TD><TD>0.01</TD><TD>P content of inert particulate COD Xi [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Xs</TD><TD>0.01</TD><TD>P content of slowly biodegradable substrate Xs [gP/gCOD]</TD></TR>
+<TR><TD>i_P_BM</TD><TD>0.02</TD><TD>P content of biomass, Xh, Xpao, Xa [gP/gCOD]</TD></TR>
+<TR><TD>i_TSS_Xi</TD><TD>0.75</TD><TD>TSS to COD ratio for Xi [gTSS/gCOD]</TD></TR>
+<TR><TD>i_TSS_Xs</TD><TD>0.75</TD><TD>TSS to COD ratio for Xs [gTSS/gCOD]</TD></TR>
+<TR><TD>i_TSS_BM</TD><TD>0.9</TD><TD>TSS to COD ratio for biomass, Xh, Xpao, Xa [gTSS/gCOD]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> sensor_TKN <font color="darkgreen">&quot;Ideal TKN and total nitrogen sensor&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.sensor_TKN"
+>WasteWater.Icons.sensor_TKN</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.conversion_factors"
+>Interfaces.conversion_factors</A>;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>Interfaces.WWFlowAsm2din</A> In;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
+>Modelica.Blocks.Interfaces.OutPort</A> TKN(<font color="blue">final </font>n=2);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  In.Q = 0.0;
+  TKN.signal[1] = In.Snh + i_N_Si*In.Si + i_N_Sf*In.Sf + i_N_Xi*In.Xi<font face="Times New Roman" size="3">
+<span lang="de">    </span></font> <span lang="de">                </span>+ i_N_Xs*In.Xs + i_N_BM*(In.Xh + In.Xpao + In.Xa);
+  TKN.signal[2] = TKN.signal[1] + In.Sno;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>sensor_TKN;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.sensor_TPI.png" ALT="WasteWater.ASM2d.sensor_TP" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.sensor_TP"></A><A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d"
+>WasteWater.ASM2d</A>.sensor_TP</H2>
+<B>Ideal sensor to measure the total phosphorus concentration in ASM2d wastewater</B><p>
+<IMG SRC="WasteWater.ASM2d.sensor_TPD.png" ALT="WasteWater.ASM2d.sensor_TP" width="87" height="94">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component measures the total phosphorus concentration [g/m3]
+of ASM2d wastewater and provides the result as output signal (to be
+further processed with blocks of the Modelica.Blocks library).</font>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>i_N_Si</TD><TD>0.01</TD><TD>N content of inert soluble COD Si [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Sf</TD><TD>0.03</TD><TD>N content of fermentable substrates Sf [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Xi</TD><TD>0.02</TD><TD>N content of inert particulate COD Xi [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Xs</TD><TD>0.04</TD><TD>N content of slowly biodegradable substrate Xs [gN/gCOD]</TD></TR>
+<TR><TD>i_N_BM</TD><TD>0.07</TD><TD>N content of biomass, Xh, Xpao, Xa [gN/gCOD]</TD></TR>
+<TR><TD>i_P_Si</TD><TD>0.0</TD><TD>P content of inert soluble COD Si [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Sf</TD><TD>0.01</TD><TD>P content of fermentable substrates Sf [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Xi</TD><TD>0.01</TD><TD>P content of inert particulate COD Xi [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Xs</TD><TD>0.01</TD><TD>P content of slowly biodegradable substrate Xs [gP/gCOD]</TD></TR>
+<TR><TD>i_P_BM</TD><TD>0.02</TD><TD>P content of biomass, Xh, Xpao, Xa [gP/gCOD]</TD></TR>
+<TR><TD>i_TSS_Xi</TD><TD>0.75</TD><TD>TSS to COD ratio for Xi [gTSS/gCOD]</TD></TR>
+<TR><TD>i_TSS_Xs</TD><TD>0.75</TD><TD>TSS to COD ratio for Xs [gTSS/gCOD]</TD></TR>
+<TR><TD>i_TSS_BM</TD><TD>0.9</TD><TD>TSS to COD ratio for biomass, Xh, Xpao, Xa [gTSS/gCOD]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> sensor_TP <font color="darkgreen">
+  &quot;Ideal sensor to measure the total phosphorus concentration in ASM2d wastewater&quot;</font>
+   
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.sensor_TP"
+>WasteWater.Icons.sensor_TP</A>;
+  <font color="blue">extends </font><A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.conversion_factors"
+>Interfaces.conversion_factors</A>;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>Interfaces.WWFlowAsm2din</A> In;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
+>Modelica.Blocks.Interfaces.OutPort</A> TP(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  In.Q = 0.0;
+  TP.signal[1] = In.Spo + In.Xpp + i_P_Sf*In.Sf + i_P_Si*In.Si + i_P_Xi*In.Xi
+     + i_P_Xs*In.Xs + i_P_BM*(In.Xh + In.Xa + In.Xpao) + In.Xmep/4.87;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>sensor_TP;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.sensor_TSSI.png" ALT="WasteWater.ASM2d.sensor_TSS" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.sensor_TSS"></A><A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d"
+>WasteWater.ASM2d</A>.sensor_TSS</H2>
+<B>Ideal sensor to measure total suspended solids concentration (ASM2d)</B><p>
+<IMG SRC="WasteWater.ASM2d.sensor_TSSD.png" ALT="WasteWater.ASM2d.sensor_TSS" width="91" height="94">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This component measures the total suspended solids concentration [g/m3]
+of ASM2d wastewater and provides the result as output signal (to be
+further processed with blocks of the Modelica.Blocks library).</font>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">model</font> sensor_TSS <font color="darkgreen">
+  &quot;Ideal sensor to measure total suspended solids concentration (ASM2d)&quot;</font>
+   
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_Icons.html#WasteWater.Icons.sensor_TSS"
+>WasteWater.Icons.sensor_TSS</A>;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>Interfaces.WWFlowAsm2din</A> In;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.OutPort"
+>Modelica.Blocks.Interfaces.OutPort</A> TSS(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  In.Q = 0;
+  TSS.signal[1] = In.Xtss;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>sensor_TSS;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Aug 18 11:14:42 2003
+.
+</address></BODY>
+</HTML>

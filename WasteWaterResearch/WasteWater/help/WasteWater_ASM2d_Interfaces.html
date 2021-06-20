@@ -1,0 +1,879 @@
+<HTML>
+<HEAD>
+<META name="HTML-Generator" content="Dymola"><TITLE>WasteWater</TITLE></HEAD>
+<BODY><P>
+<H2><A NAME="WasteWater.ASM2d.Interfaces"></A><A HREF="WasteWater_ASM2d.html#WasteWater.ASM2d"
+>WasteWater.ASM2d</A>.Interfaces</H2>
+<B>Connectors and partial ASM2d model for Waste Water Treatment Modelling</B>
+<P>
+<A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+><IMG SRC="WasteWater.ASM2d.Interfaces.WWFlowAsm2dinI.png" ALT="WasteWater.ASM2d.Interfaces.WWFlowAsm2din" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+><IMG SRC="WasteWater.ASM2d.Interfaces.WWFlowAsm2doutI.png" ALT="WasteWater.ASM2d.Interfaces.WWFlowAsm2dout" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.AirFlow"
+><IMG SRC="WasteWater.ASM2d.Interfaces.AirFlowI.png" ALT="WasteWater.ASM2d.Interfaces.AirFlow" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.conversion_factors"
+><IMG SRC="WasteWater.ASM2d.Interfaces.conversion_factorsI.png" ALT="WasteWater.ASM2d.Interfaces.conversion_factors" WIDTH=80  HEIGHT=80 ></A>
+<A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.ASM2dbase"
+><IMG SRC="WasteWater.ASM2d.Interfaces.ASM2dbaseI.png" ALT="WasteWater.ASM2d.Interfaces.ASM2dbase" WIDTH=80  HEIGHT=80 ></A>
+<P><P>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This package contains connectors and interfaces (partial models) for
+wastewater treatment components based on the Acticated Sludge Model No.2d (ASM2d).</font>
+</PRE>
+<PRE><font face="Times New Roman" size="3"><b>Main Author:</b><i>
+<span lang="de"> </span></i>
+&nbsp;<i><span lang="de">         </span></i>Gerald Reichl
+<span lang="de">         </span> Technische Universitaet Ilmenau
+<span lang="de">          </span>Faculty of Informatics and Automation
+<span lang="de">          </span>Department Dynamics and Simulation of ecological Systems
+<span lang="de">          </span>P.O. Box 10 05 65
+<span lang="de">          </span>98684 Ilmenau
+<span lang="de">          </span>Germany
+<span lang="de">          email</span>: <a href="mailto:gerald.reichl@tu-ilmenau.de">gerald.reichl@tu-ilmenau.de</a>
+&nbsp;
+&nbsp;
+<b>Copyright (C) 2001 - 2002, </b>Gerald Reichl</font></PRE>
+
+<p><i>
+The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the<span lang="de"> </span>accompanying <b>disclaimer</b> in the documentation of package 
+Modelica in file "Modelica/package.mo".
+</i></p>
+<PRE></PRE><P>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.Interfaces.ASM2dbaseI.png" ALT="WasteWater.ASM2d.Interfaces.ASM2dbase" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.Interfaces.ASM2dbase"></A><A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces"
+>WasteWater.ASM2d.Interfaces</A>.ASM2dbase</H2>
+<B>Base class of WWTP modelling by ASM2d</B><p>
+<IMG SRC="WasteWater.ASM2d.Interfaces.ASM2dbaseD.png" ALT="WasteWater.ASM2d.Interfaces.ASM2dbase" width="101" height="37">
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This partial model provides connectors and equations that are needed in the biological 
+components (nitrification and denitrification tank) for ASM2d wastewater treatment plant models.
+Parameters are coded according the ASM2d [1] standard distribution.
+Changes to this parameters are subject to the modeller.
+
+
+<b>References:</b>
+
+[1]  M. Henze and W.Gujer and T. Mino and. M.v. Loosdrecht: Activated Sludge
+       Models ASM1, ASM2, ASM2d, and ASM3. IWA Task Group on Mathematical Modelling
+       for Design and Operation of Biological Wastewater Treatment, 2000.
+</font></PRE>
+<PRE></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>i_N_Si</TD><TD>0.01</TD><TD>N content of inert soluble COD Si [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Sf</TD><TD>0.03</TD><TD>N content of fermentable substrates Sf [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Xi</TD><TD>0.02</TD><TD>N content of inert particulate COD Xi [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Xs</TD><TD>0.04</TD><TD>N content of slowly biodegradable substrate Xs [gN/gCOD]</TD></TR>
+<TR><TD>i_N_BM</TD><TD>0.07</TD><TD>N content of biomass, Xh, Xpao, Xa [gN/gCOD]</TD></TR>
+<TR><TD>i_P_Si</TD><TD>0.0</TD><TD>P content of inert soluble COD Si [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Sf</TD><TD>0.01</TD><TD>P content of fermentable substrates Sf [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Xi</TD><TD>0.01</TD><TD>P content of inert particulate COD Xi [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Xs</TD><TD>0.01</TD><TD>P content of slowly biodegradable substrate Xs [gP/gCOD]</TD></TR>
+<TR><TD>i_P_BM</TD><TD>0.02</TD><TD>P content of biomass, Xh, Xpao, Xa [gP/gCOD]</TD></TR>
+<TR><TD>i_TSS_Xi</TD><TD>0.75</TD><TD>TSS to COD ratio for Xi [gTSS/gCOD]</TD></TR>
+<TR><TD>i_TSS_Xs</TD><TD>0.75</TD><TD>TSS to COD ratio for Xs [gTSS/gCOD]</TD></TR>
+<TR><TD>i_TSS_BM</TD><TD>0.9</TD><TD>TSS to COD ratio for biomass, Xh, Xpao, Xa [gTSS/gCOD]</TD></TR>
+<TR><TD>f_Si</TD><TD>0.0</TD><TD>Production of Si in hydrolysis [gCOD/gCOD]</TD></TR>
+<TR><TD>Y_H</TD><TD>0.625</TD><TD>Yield coefficient [gCOD/gCOD]</TD></TR>
+<TR><TD>f_Xih</TD><TD>0.1</TD><TD>Fraction of inert COD generated in biomass lysis [gCOD/gCOD]</TD></TR>
+<TR><TD>Y_PAO</TD><TD>0.625</TD><TD>Yield coefficient (biomass/PHA) [gCOD/gCOD]</TD></TR>
+<TR><TD>Y_PO</TD><TD>0.4</TD><TD>PP requirement (PO4 release) per PHA stored [gP/gCOD]</TD></TR>
+<TR><TD>Y_PHA</TD><TD>0.2</TD><TD>PHA requirement for PP storage [gCOD/gP]</TD></TR>
+<TR><TD>f_Xip</TD><TD>0.1</TD><TD>Fraction of inert COD generated in biomass lysis [gCOD/gCOD]</TD></TR>
+<TR><TD>Y_A</TD><TD>0.24</TD><TD>Yield of autotrophic biomass per NO3-N [gCOD/gN]</TD></TR>
+<TR><TD>f_Xia</TD><TD>0.1</TD><TD>Fraction of inert COD generated in biomass lysis [gCOD/gCOD]</TD></TR>
+<TR><TD>v_1_NH</TD><TD>i_N_Xs - (1 - f_Si)*i_N_Sf - f_Si*i_N_Si</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_2_NH</TD><TD>i_N_Xs - (1 - f_Si)*i_N_Sf - f_Si*i_N_Si</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_3_NH</TD><TD>i_N_Xs - (1 - f_Si)*i_N_Sf - f_Si*i_N_Si</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_4_NH</TD><TD>i_N_Sf/Y_H - i_N_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_5_NH</TD><TD>-i_N_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_6_NH</TD><TD>i_N_Sf/Y_H - i_N_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_7_NH</TD><TD>-i_N_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_8_NH</TD><TD>i_N_Sf</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_9_NH</TD><TD>i_N_BM - f_Xih*i_N_Xi - (1 - f_Xih)*i_N_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_13_NH</TD><TD>-i_N_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_14_NH</TD><TD>-i_N_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_15_NH</TD><TD>i_N_BM - f_Xip*i_N_Xi - (1 - f_Xip)*i_N_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_18_NH</TD><TD>-1/Y_A - i_N_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_19_NH</TD><TD>i_N_BM - f_Xia*i_N_Xi - (1 - f_Xia)*i_N_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_1_PO</TD><TD>i_P_Xs - (1 - f_Si)*i_P_Sf - f_Si*i_P_Si</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_2_PO</TD><TD>i_P_Xs - (1 - f_Si)*i_P_Sf - f_Si*i_P_Si</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_3_PO</TD><TD>i_P_Xs - (1 - f_Si)*i_P_Sf - f_Si*i_P_Si</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_4_PO</TD><TD>i_P_Sf/Y_H - i_P_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_5_PO</TD><TD>-i_P_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_6_PO</TD><TD>i_P_Sf/Y_H - i_P_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_7_PO</TD><TD>-i_P_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_8_PO</TD><TD>i_P_Sf</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_9_PO</TD><TD>i_P_BM - f_Xih*i_P_Xi - (1 - f_Xih)*i_P_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_15_PO</TD><TD>i_P_BM - f_Xip*i_P_Xi - (1 - f_Xip)*i_P_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_19_PO</TD><TD>i_P_BM - f_Xia*i_P_Xi - (1 - f_Xia)*i_P_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_12_NO</TD><TD>-Y_PHA/2.86</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_14_NO</TD><TD>-(1 - Y_PAO)/(2.86*Y_PAO)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_12_N2</TD><TD>-v_12_NO</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_14_N2</TD><TD>-v_14_NO</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_1_ALK</TD><TD>v_1_NH/14 + v_1_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_2_ALK</TD><TD>v_2_NH/14 + v_2_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_3_ALK</TD><TD>v_3_NH/14 + v_3_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_4_ALK</TD><TD>v_4_NH/14 + v_4_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_5_ALK</TD><TD>1/(Y_H*64) + v_5_NH/14 + v_5_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_6_ALK</TD><TD>v_6_NH/14 + (1 - Y_H)/(2.86*Y_H*14) + v_6_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_7_ALK</TD><TD>1/(Y_H*64) + v_7_NH/14 + (1 - Y_H)/(2.86*Y_H*14) + v_7_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_8_ALK</TD><TD>v_8_NH/14 + v_8_PO*(-1.5/31) - 1/64</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_9_ALK</TD><TD>v_9_NH/14 + v_9_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_10_ALK</TD><TD>1/64 + Y_PO*(-1.5/31) - Y_PO*(-1/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_11_ALK</TD><TD>(1.5 - 1)/31</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_12_ALK</TD><TD>v_12_NO*(-1/14) + (1.5 - 1)/31</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_13_ALK</TD><TD>v_13_NH/14 - i_P_BM*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_14_ALK</TD><TD>v_14_NH/14 - v_14_NO/14 - i_P_BM*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_15_ALK</TD><TD>v_15_NH/14 + v_15_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_16_ALK</TD><TD>(1 - 1.5)/31</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_17_ALK</TD><TD>-1/64</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_18_ALK</TD><TD>v_18_NH/14 - 1/(Y_A*14) - i_P_BM*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_19_ALK</TD><TD>v_19_NH/14 + v_19_PO*(-1.5/31)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_20_ALK</TD><TD>1.5/31</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_21_ALK</TD><TD>-1.5/31</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_1_TSS</TD><TD>-i_TSS_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_2_TSS</TD><TD>-i_TSS_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_3_TSS</TD><TD>-i_TSS_Xs</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_4_TSS</TD><TD>i_TSS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_5_TSS</TD><TD>i_TSS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_6_TSS</TD><TD>i_TSS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_7_TSS</TD><TD>i_TSS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_9_TSS</TD><TD>f_Xih*i_TSS_Xi + (1 - f_Xih)*i_TSS_Xs - i_TSS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_10_TSS</TD><TD>-Y_PO*3.23 + 0.6</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_11_TSS</TD><TD>3.23 - Y_PHA*0.6</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_12_TSS</TD><TD>3.23 - Y_PHA*0.6</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_13_TSS</TD><TD>i_TSS_BM - 0.6/Y_PAO</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_14_TSS</TD><TD>i_TSS_BM - 0.6/Y_PAO</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_15_TSS</TD><TD>f_Xip*i_TSS_Xi + (1 - f_Xip)*i_TSS_Xs - i_TSS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_16_TSS</TD><TD>-3.23</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_17_TSS</TD><TD>-0.6</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_18_TSS</TD><TD>i_TSS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_19_TSS</TD><TD>f_Xia*i_TSS_Xi + (1 - f_Xia)*i_TSS_Xs - i_TSS_BM</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v_13_O</TD><TD>-(1 - Y_PAO)/Y_PAO</TD><TD>&nbsp;</TD></TR>
+<TR><TD>K_h_T</TD><TD>3.0</TD><TD>Hydrolysis rate at T=20 deg C [d^-1]</TD></TR>
+<TR><TD>eta_NO_Xs</TD><TD>0.6</TD><TD>Anoxic hydrolysis reduction factor [-]</TD></TR>
+<TR><TD>eta_fe</TD><TD>0.4</TD><TD>Anaerobic hydrolysis reduction factor [-]</TD></TR>
+<TR><TD>K_O_Xs</TD><TD>0.2</TD><TD>Saturation/inhibition coefficient for oxygen [g O2/m3]</TD></TR>
+<TR><TD>K_NO_Xs</TD><TD>0.5</TD><TD>Saturation/inhibition coefficient for nitrate [g N/m3]</TD></TR>
+<TR><TD>K_X</TD><TD>0.1</TD><TD>Saturation coefficient for particulate COD [g Xs/(g Xh)]</TD></TR>
+<TR><TD>mu_H_T</TD><TD>6.0</TD><TD>Maximum growth rate on substrate at T=20 deg C [g Xs/(g Xh)/d]</TD></TR>
+<TR><TD>rho_fe_T</TD><TD>3.0</TD><TD>Maximum rate for fermentation at T=20 deg C [g Sf/(g Xh)/d]</TD></TR>
+<TR><TD>eta_NO_Xh</TD><TD>0.8</TD><TD>Reduction factor for denitrification [-]</TD></TR>
+<TR><TD>b_H_T</TD><TD>0.4</TD><TD>Rate for lysis and decay at T=20 deg C [d^-1]</TD></TR>
+<TR><TD>K_O_Xh</TD><TD>0.2</TD><TD>Saturation/inhibition coefficient for oxygen [g O2/m3]</TD></TR>
+<TR><TD>K_F</TD><TD>4.0</TD><TD>Saturation coefficient for growth on Sf [g COD/m3]</TD></TR>
+<TR><TD>K_fe</TD><TD>4.0</TD><TD>Saturation coefficient for fermentation of Sf [g COD/m3]</TD></TR>
+<TR><TD>K_A_Xh</TD><TD>4.0</TD><TD>Saturation coefficient for growth on acetate Sa [g COD/m3]</TD></TR>
+<TR><TD>K_NO_Xh</TD><TD>0.5</TD><TD>Saturation/inhibition coefficient for nitrate [g N/m3]</TD></TR>
+<TR><TD>K_NH_Xh</TD><TD>0.05</TD><TD>Saturation coefficient for ammonium (nutrient) [g N/m3]</TD></TR>
+<TR><TD>K_P_Xh</TD><TD>0.01</TD><TD>Saturation coefficient for phosphate (nutrient) [g P/m3]</TD></TR>
+<TR><TD>K_ALK_Xh</TD><TD>0.1</TD><TD>Saturation coefficient for alkalinity (HCO3) [mole HCO3/m3]</TD></TR>
+<TR><TD>rho_PHA_T</TD><TD>3.0</TD><TD>Rate for storage of Xpha (base Xpp) at T=20 deg C [g Xpha/(g Xpao)/d]</TD></TR>
+<TR><TD>rho_PP_T</TD><TD>1.5</TD><TD>Rate for storage of Xpp at T=20 deg C [g Xpp/(g Xpao)/d]</TD></TR>
+<TR><TD>mu_PAO_T</TD><TD>1.0</TD><TD>Maximum growth rate of PAO at T=20 deg C [d^-1]</TD></TR>
+<TR><TD>eta_NO_Xpao</TD><TD>0.6</TD><TD>Reduction factor for anoxic activity [-]</TD></TR>
+<TR><TD>b_PAO_T</TD><TD>0.2</TD><TD>Rate for lysis of Xpao at T=20 deg C [d^-1]</TD></TR>
+<TR><TD>b_PP_T</TD><TD>0.2</TD><TD>Rate for lysis of Xpp at T=20 dedg C [d^-1]</TD></TR>
+<TR><TD>b_PHA_T</TD><TD>0.2</TD><TD>Rate for lysis of Xpha at T=20 deg C [d^-1]</TD></TR>
+<TR><TD>K_O_Xpao</TD><TD>0.2</TD><TD>Saturation/inhibition coefficient for oxygen [g O2/m3]</TD></TR>
+<TR><TD>K_NO_Xpao</TD><TD>0.5</TD><TD>Saturation coefficient for nitrate, Sno3 [g N/m3]</TD></TR>
+<TR><TD>K_A_Xpao</TD><TD>4.0</TD><TD>Saturation coefficient for acetate, Sa [g COD/m3]</TD></TR>
+<TR><TD>K_NH_Xpao</TD><TD>0.05</TD><TD>Saturation coefficient for ammonium (nutrient) [g N/m3]</TD></TR>
+<TR><TD>K_PS</TD><TD>0.2</TD><TD>Saturation coefficient for phosphorus in storage of PP [g P/m3]</TD></TR>
+<TR><TD>K_P_Xpao</TD><TD>0.01</TD><TD>Saturation coefficient for phosphate (nutrient) [g P/m3]</TD></TR>
+<TR><TD>K_ALK_Xpao</TD><TD>0.1</TD><TD>Saturation coefficient for alkalinity (HCO3) [mole HCO3/m3]</TD></TR>
+<TR><TD>K_PP</TD><TD>0.01</TD><TD>Saturation coefficient for poly-phosphate [g Xpp/(g Xpao)]</TD></TR>
+<TR><TD>K_MAX</TD><TD>0.34</TD><TD>Maximum ratio of Xpp/Xpao [g Xpp/(g Xpao)]</TD></TR>
+<TR><TD>K_IPP</TD><TD>0.02</TD><TD>Inhibition coefficient for PP storage [g Xpp/(g Xpao)]</TD></TR>
+<TR><TD>K_PHA</TD><TD>0.01</TD><TD>Saturation coefficient for PHA [g Xpha/(g Xpao)]</TD></TR>
+<TR><TD>mu_AUT_T</TD><TD>1.0</TD><TD>Maximum growth rate of Xa at T=20 deg C [d^-1]</TD></TR>
+<TR><TD>b_AUT_T</TD><TD>0.15</TD><TD>Decay rate of Xa at T=20 deg C [d^-1]</TD></TR>
+<TR><TD>K_O_Xa</TD><TD>0.5</TD><TD>Saturation coefficient for oxygen [g O2/m3]</TD></TR>
+<TR><TD>K_NH_Xa</TD><TD>1.0</TD><TD>Saturation coefficient for ammonium (substrate) [g N/m3]</TD></TR>
+<TR><TD>K_ALK_Xa</TD><TD>0.5</TD><TD>Saturation coefficient for alkalinity (HCO3) [mole HCO3/m3]</TD></TR>
+<TR><TD>K_P_Xa</TD><TD>0.01</TD><TD>Saturation coefficient for phosphate (nutrient) [g P/m3]</TD></TR>
+<TR><TD>k_PRE</TD><TD>1.0</TD><TD>Rate constant for P precipitation [m3/(g Fe(OH3))/d]</TD></TR>
+<TR><TD>k_RED</TD><TD>0.6</TD><TD>Rate constant for redissolution [d^-1]</TD></TR>
+<TR><TD>K_ALK_Pre</TD><TD>0.5</TD><TD>Saturation coefficient for alkalinity [mole HCO3/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">partial </font><font color="blue">model</font> ASM2dbase <font color="darkgreen">&quot;Base class of WWTP modelling by ASM2d&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <font color="darkgreen"></font>
+  <font color="blue">extends </font><A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.conversion_factors"
+>Interfaces.conversion_factors</A>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Typical stoichiometric parameters //</font>
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font>Real f_Si=0.0 <font color="darkgreen">&quot;Production of Si in hydrolysis [gCOD/gCOD]&quot;</font>;
+  <font color="blue">parameter </font>Real Y_H=0.625 <font color="darkgreen">&quot;Yield coefficient [gCOD/gCOD]&quot;</font>;
+  <font color="blue">parameter </font>Real f_Xih=0.1 <font color="darkgreen">
+    &quot;Fraction of inert COD generated in biomass lysis [gCOD/gCOD]&quot;</font>;
+  <font color="blue">parameter </font>Real Y_PAO=0.625 <font color="darkgreen">&quot;Yield coefficient (biomass/PHA) [gCOD/gCOD]&quot;</font>;
+  <font color="blue">parameter </font>Real Y_PO=0.4 <font color="darkgreen">
+    &quot;PP requirement (PO4 release) per PHA stored [gP/gCOD]&quot;</font>;
+  <font color="blue">parameter </font>Real Y_PHA=0.2 <font color="darkgreen">&quot;PHA requirement for PP storage [gCOD/gP]&quot;</font>;
+  <font color="blue">parameter </font>Real f_Xip=0.1 <font color="darkgreen">
+    &quot;Fraction of inert COD generated in biomass lysis [gCOD/gCOD]&quot;</font>;
+  <font color="blue">parameter </font>Real Y_A=0.24 <font color="darkgreen">&quot;Yield of autotrophic biomass per NO3-N [gCOD/gN]&quot;</font>;
+  <font color="blue">parameter </font>Real f_Xia=0.1 <font color="darkgreen">
+    &quot;Fraction of inert COD generated in biomass lysis [gCOD/gCOD]&quot;</font>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Stochiometric coefficients for Snh4, Spo4, Salk and Xtss //</font>
+  <font color="blue">parameter </font>Real v_1_NH=i_N_Xs - (1 - f_Si)*i_N_Sf - f_Si*i_N_Si;
+  <font color="blue">parameter </font>Real v_2_NH=i_N_Xs - (1 - f_Si)*i_N_Sf - f_Si*i_N_Si;
+  <font color="blue">parameter </font>Real v_3_NH=i_N_Xs - (1 - f_Si)*i_N_Sf - f_Si*i_N_Si;
+  <font color="blue">parameter </font>Real v_4_NH=i_N_Sf/Y_H - i_N_BM;
+  <font color="blue">parameter </font>Real v_5_NH=-i_N_BM;
+  <font color="blue">parameter </font>Real v_6_NH=i_N_Sf/Y_H - i_N_BM;
+  <font color="blue">parameter </font>Real v_7_NH=-i_N_BM;
+  <font color="blue">parameter </font>Real v_8_NH=i_N_Sf;
+  <font color="blue">parameter </font>Real v_9_NH=i_N_BM - f_Xih*i_N_Xi - (1 - f_Xih)*i_N_Xs;
+  <font color="darkgreen">//parameter Real v_10_NH =0;</font>
+  <font color="darkgreen">//parameter Real v_11_NH =0;</font>
+  <font color="darkgreen">//parameter Real v_12_NH =0;</font>
+  <font color="blue">parameter </font>Real v_13_NH=-i_N_BM;
+  <font color="blue">parameter </font>Real v_14_NH=-i_N_BM;
+  <font color="blue">parameter </font>Real v_15_NH=i_N_BM - f_Xip*i_N_Xi - (1 - f_Xip)*i_N_Xs;
+  <font color="darkgreen">//parameter Real v_16_NH =0;</font>
+  <font color="darkgreen">//parameter Real v_17_NH =0;</font>
+  <font color="blue">parameter </font>Real v_18_NH=-1/Y_A - i_N_BM;
+  <font color="blue">parameter </font>Real v_19_NH=i_N_BM - f_Xia*i_N_Xi - (1 - f_Xia)*i_N_Xs;
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font>Real v_1_PO=i_P_Xs - (1 - f_Si)*i_P_Sf - f_Si*i_P_Si;
+  <font color="blue">parameter </font>Real v_2_PO=i_P_Xs - (1 - f_Si)*i_P_Sf - f_Si*i_P_Si;
+  <font color="blue">parameter </font>Real v_3_PO=i_P_Xs - (1 - f_Si)*i_P_Sf - f_Si*i_P_Si;
+  <font color="blue">parameter </font>Real v_4_PO=i_P_Sf/Y_H - i_P_BM;
+  <font color="blue">parameter </font>Real v_5_PO=-i_P_BM;
+  <font color="blue">parameter </font>Real v_6_PO=i_P_Sf/Y_H - i_P_BM;
+  <font color="blue">parameter </font>Real v_7_PO=-i_P_BM;
+  <font color="blue">parameter </font>Real v_8_PO=i_P_Sf;
+  <font color="blue">parameter </font>Real v_9_PO=i_P_BM - f_Xih*i_P_Xi - (1 - f_Xih)*i_P_Xs;
+  <font color="blue">parameter </font>Real v_15_PO=i_P_BM - f_Xip*i_P_Xi - (1 - f_Xip)*i_P_Xs;
+  <font color="blue">parameter </font>Real v_19_PO=i_P_BM - f_Xia*i_P_Xi - (1 - f_Xia)*i_P_Xs;
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font>Real v_12_NO=-Y_PHA/2.86;
+  <font color="blue">parameter </font>Real v_14_NO=-(1 - Y_PAO)/(2.86*Y_PAO);
+  <font color="blue">parameter </font>Real v_12_N2=-v_12_NO;
+  <font color="blue">parameter </font>Real v_14_N2=-v_14_NO;
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font>Real v_1_ALK=v_1_NH/14 + v_1_PO*(-1.5/31);
+  <font color="blue">parameter </font>Real v_2_ALK=v_2_NH/14 + v_2_PO*(-1.5/31);
+  <font color="blue">parameter </font>Real v_3_ALK=v_3_NH/14 + v_3_PO*(-1.5/31);
+  <font color="blue">parameter </font>Real v_4_ALK=v_4_NH/14 + v_4_PO*(-1.5/31);
+  <font color="blue">parameter </font>Real v_5_ALK=1/(Y_H*64) + v_5_NH/14 + v_5_PO*(-1.5/31);
+  <font color="blue">parameter </font>Real v_6_ALK=v_6_NH/14 + (1 - Y_H)/(2.86*Y_H*14) + v_6_PO*(-1.5/31);
+  <font color="blue">parameter </font>Real v_7_ALK=1/(Y_H*64) + v_7_NH/14 + (1 - Y_H)/(2.86*Y_H*14) + 
+      v_7_PO*(-1.5/31);
+  <font color="blue">parameter </font>Real v_8_ALK=v_8_NH/14 + v_8_PO*(-1.5/31) - 1/64;
+  <font color="blue">parameter </font>Real v_9_ALK=v_9_NH/14 + v_9_PO*(-1.5/31);
+  <font color="blue">parameter </font>Real v_10_ALK=1/64 + Y_PO*(-1.5/31) - Y_PO*(-1/31);
+  <font color="blue">parameter </font>Real v_11_ALK=(1.5 - 1)/31;
+  <font color="blue">parameter </font>Real v_12_ALK=v_12_NO*(-1/14) + (1.5 - 1)/31;
+  <font color="blue">parameter </font>Real v_13_ALK=v_13_NH/14 - i_P_BM*(-1.5/31);
+  <font color="blue">parameter </font>Real v_14_ALK=v_14_NH/14 - v_14_NO/14 - i_P_BM*(-1.5/31);
+  <font color="blue">parameter </font>Real v_15_ALK=v_15_NH/14 + v_15_PO*(-1.5/31);
+  <font color="blue">parameter </font>Real v_16_ALK=(1 - 1.5)/31;
+  <font color="blue">parameter </font>Real v_17_ALK=-1/64;
+  <font color="blue">parameter </font>Real v_18_ALK=v_18_NH/14 - 1/(Y_A*14) - i_P_BM*(-1.5/31);
+  <font color="blue">parameter </font>Real v_19_ALK=v_19_NH/14 + v_19_PO*(-1.5/31);
+  <font color="blue">parameter </font>Real v_20_ALK=1.5/31;
+  <font color="blue">parameter </font>Real v_21_ALK=-1.5/31;
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font>Real v_1_TSS=-i_TSS_Xs;
+  <font color="blue">parameter </font>Real v_2_TSS=-i_TSS_Xs;
+  <font color="blue">parameter </font>Real v_3_TSS=-i_TSS_Xs;
+  <font color="blue">parameter </font>Real v_4_TSS=i_TSS_BM;
+  <font color="blue">parameter </font>Real v_5_TSS=i_TSS_BM;
+  <font color="blue">parameter </font>Real v_6_TSS=i_TSS_BM;
+  <font color="blue">parameter </font>Real v_7_TSS=i_TSS_BM;
+  <font color="darkgreen">//parameter Real v_8_TSS =0;</font>
+  <font color="blue">parameter </font>Real v_9_TSS=f_Xih*i_TSS_Xi + (1 - f_Xih)*i_TSS_Xs - i_TSS_BM;
+  <font color="blue">parameter </font>Real v_10_TSS=-Y_PO*3.23 + 0.6;
+  <font color="blue">parameter </font>Real v_11_TSS=3.23 - Y_PHA*0.6;
+  <font color="blue">parameter </font>Real v_12_TSS=3.23 - Y_PHA*0.6;
+  <font color="blue">parameter </font>Real v_13_TSS=i_TSS_BM - 0.6/Y_PAO;
+  <font color="blue">parameter </font>Real v_14_TSS=i_TSS_BM - 0.6/Y_PAO;
+  <font color="blue">parameter </font>Real v_15_TSS=f_Xip*i_TSS_Xi + (1 - f_Xip)*i_TSS_Xs - i_TSS_BM;
+  <font color="blue">parameter </font>Real v_16_TSS=-3.23;
+  <font color="blue">parameter </font>Real v_17_TSS=-0.6;
+  <font color="blue">parameter </font>Real v_18_TSS=i_TSS_BM;
+  <font color="blue">parameter </font>Real v_19_TSS=f_Xia*i_TSS_Xi + (1 - f_Xia)*i_TSS_Xs - i_TSS_BM;
+  <font color="darkgreen"></font>
+  <font color="blue">parameter </font>Real v_13_O=-(1 - Y_PAO)/Y_PAO;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Temperature dependency for 20 deg C = a^(T-20) </font>
+  <font color="darkgreen">//</font>
+  <font color="darkgreen">// Heterotrophs, fermentation        a=1.07</font>
+  <font color="darkgreen">// Nitrification                        a=1.12</font>
+  <font color="darkgreen">// Phosphotrophs, hydrolysis        a=1.04</font>
+  <font color="darkgreen">// temperature dependent processes</font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Hydrolysis of particulate substrate: Xs //</font>
+  Real K_h <font color="darkgreen">&quot;Hydrolysis rate [d^-1]&quot;</font>;
+  <font color="blue">parameter </font>Real K_h_T=3.0 <font color="darkgreen">&quot;Hydrolysis rate at T=20 deg C [d^-1]&quot;</font>;
+  <font color="blue">parameter </font>Real eta_NO_Xs=0.6 <font color="darkgreen">&quot;Anoxic hydrolysis reduction factor [-]&quot;</font>;
+  <font color="blue">parameter </font>Real eta_fe=0.4 <font color="darkgreen">&quot;Anaerobic hydrolysis reduction factor [-]&quot;</font>;
+  <font color="blue">parameter </font>Real K_O_Xs=0.2 <font color="darkgreen">
+    &quot;Saturation/inhibition coefficient for oxygen [g O2/m3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_NO_Xs=0.5 <font color="darkgreen">
+    &quot;Saturation/inhibition coefficient for nitrate [g N/m3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_X=0.1 <font color="darkgreen">
+    &quot;Saturation coefficient for particulate COD [g Xs/(g Xh)]&quot;</font>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Heterotrophic organisms: Xh //</font>
+  Real mu_H <font color="darkgreen">&quot;Maximum growth rate on substrate [g Xs/(g Xh)/d]&quot;</font>;
+  <font color="blue">parameter </font>Real mu_H_T=6.0 <font color="darkgreen">
+    &quot;Maximum growth rate on substrate at T=20 deg C [g Xs/(g Xh)/d]&quot;</font>;
+  Real rho_fe <font color="darkgreen">&quot;Maximum rate for fermentation [g Sf/(g Xh)/d]&quot;</font>;
+  <font color="blue">parameter </font>Real rho_fe_T=3.0 <font color="darkgreen">
+    &quot;Maximum rate for fermentation at T=20 deg C [g Sf/(g Xh)/d]&quot;</font>;
+  <font color="blue">parameter </font>Real eta_NO_Xh=0.8 <font color="darkgreen">&quot;Reduction factor for denitrification [-]&quot;</font>;
+  Real b_H <font color="darkgreen">&quot;Rate for lysis and decay [d^-1]&quot;</font>;
+  <font color="blue">parameter </font>Real b_H_T=0.4 <font color="darkgreen">&quot;Rate for lysis and decay at T=20 deg C [d^-1]&quot;</font>;
+  <font color="blue">parameter </font>Real K_O_Xh=0.2 <font color="darkgreen">
+    &quot;Saturation/inhibition coefficient for oxygen [g O2/m3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_F=4.0 <font color="darkgreen">&quot;Saturation coefficient for growth on Sf [g COD/m3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_fe=4.0 <font color="darkgreen">
+    &quot;Saturation coefficient for fermentation of Sf [g COD/m3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_A_Xh=4.0 <font color="darkgreen">
+    &quot;Saturation coefficient for growth on acetate Sa [g COD/m3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_NO_Xh=0.5 <font color="darkgreen">
+    &quot;Saturation/inhibition coefficient for nitrate [g N/m3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_NH_Xh=0.05 <font color="darkgreen">
+    &quot;Saturation coefficient for ammonium (nutrient) [g N/m3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_P_Xh=0.01 <font color="darkgreen">
+    &quot;Saturation coefficient for phosphate (nutrient) [g P/m3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_ALK_Xh=0.1 <font color="darkgreen">
+    &quot;Saturation coefficient for alkalinity (HCO3) [mole HCO3/m3]&quot;</font>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Phosphorus-accumulating organisms: Xpao //</font>
+  Real rho_PHA <font color="darkgreen">&quot;Rate for storage of Xpha (base Xpp) [g Xpha/(g Xpao)/d]&quot;</font>;
+  <font color="blue">parameter </font>Real rho_PHA_T=3.0 <font color="darkgreen">
+    &quot;Rate for storage of Xpha (base Xpp) at T=20 deg C [g Xpha/(g Xpao)/d]&quot;</font>;
+  Real rho_PP <font color="darkgreen">&quot;Rate for storage of Xpp [g Xpp/(g Xpao)/d]&quot;</font>;
+  <font color="blue">parameter </font>Real rho_PP_T=1.5 <font color="darkgreen">
+    &quot;Rate for storage of Xpp at T=20 deg C [g Xpp/(g Xpao)/d]&quot;</font>;
+  Real mu_PAO <font color="darkgreen">&quot;Maximum growth rate of PAO [d^-1]&quot;</font>;
+  <font color="blue">parameter </font>Real mu_PAO_T=1.0 <font color="darkgreen">&quot;Maximum growth rate of PAO at T=20 deg C [d^-1]&quot;</font>    ;
+  <font color="blue">parameter </font>Real eta_NO_Xpao=0.6 <font color="darkgreen">&quot;Reduction factor for anoxic activity [-]&quot;</font>;
+  Real b_PAO <font color="darkgreen">&quot;Rate for lysis of Xpao [d^-1]&quot;</font>;
+  <font color="blue">parameter </font>Real b_PAO_T=0.2 <font color="darkgreen">&quot;Rate for lysis of Xpao at T=20 deg C [d^-1]&quot;</font>;
+  Real b_PP <font color="darkgreen">&quot;Rate for lysis of Xpp [d^-1]&quot;</font>;
+  <font color="blue">parameter </font>Real b_PP_T=0.2 <font color="darkgreen">&quot;Rate for lysis of Xpp at T=20 dedg C [d^-1]&quot;</font>;
+  Real b_PHA <font color="darkgreen">&quot;Rate for lysis of Xpha [d^-1]&quot;</font>;
+  <font color="blue">parameter </font>Real b_PHA_T=0.2 <font color="darkgreen">&quot;Rate for lysis of Xpha at T=20 deg C [d^-1]&quot;</font>;
+  <font color="blue">parameter </font>Real K_O_Xpao=0.2 <font color="darkgreen">
+    &quot;Saturation/inhibition coefficient for oxygen [g O2/m3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_NO_Xpao=0.5 <font color="darkgreen">
+    &quot;Saturation coefficient for nitrate, Sno3 [g N/m3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_A_Xpao=4.0 <font color="darkgreen">
+    &quot;Saturation coefficient for acetate, Sa [g COD/m3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_NH_Xpao=0.05 <font color="darkgreen">
+    &quot;Saturation coefficient for ammonium (nutrient) [g N/m3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_PS=0.2 <font color="darkgreen">
+    &quot;Saturation coefficient for phosphorus in storage of PP [g P/m3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_P_Xpao=0.01 <font color="darkgreen">
+    &quot;Saturation coefficient for phosphate (nutrient) [g P/m3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_ALK_Xpao=0.1 <font color="darkgreen">
+    &quot;Saturation coefficient for alkalinity (HCO3) [mole HCO3/m3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_PP=0.01 <font color="darkgreen">
+    &quot;Saturation coefficient for poly-phosphate [g Xpp/(g Xpao)]&quot;</font>;
+  <font color="blue">parameter </font>Real K_MAX=0.34 <font color="darkgreen">&quot;Maximum ratio of Xpp/Xpao [g Xpp/(g Xpao)]&quot;</font>;
+  <font color="blue">parameter </font>Real K_IPP=0.02 <font color="darkgreen">
+    &quot;Inhibition coefficient for PP storage [g Xpp/(g Xpao)]&quot;</font>;
+  <font color="blue">parameter </font>Real K_PHA=0.01 <font color="darkgreen">&quot;Saturation coefficient for PHA [g Xpha/(g Xpao)]&quot;</font>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Nitrifying organisms (autotrophic organisms): Xa //</font>
+  Real mu_AUT <font color="darkgreen">&quot;Maximum growth rate of Xa [d^-1]&quot;</font>;
+  <font color="blue">parameter </font>Real mu_AUT_T=1.0 <font color="darkgreen">&quot;Maximum growth rate of Xa at T=20 deg C [d^-1]&quot;</font>;
+  Real b_AUT <font color="darkgreen">&quot;Decay rate of Xa [d^-1]&quot;</font>;
+  <font color="blue">parameter </font>Real b_AUT_T=0.15 <font color="darkgreen">&quot;Decay rate of Xa at T=20 deg C [d^-1]&quot;</font>;
+  <font color="blue">parameter </font>Real K_O_Xa=0.5 <font color="darkgreen">&quot;Saturation coefficient for oxygen [g O2/m3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_NH_Xa=1.0 <font color="darkgreen">
+    &quot;Saturation coefficient for ammonium (substrate) [g N/m3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_ALK_Xa=0.5 <font color="darkgreen">
+    &quot;Saturation coefficient for alkalinity (HCO3) [mole HCO3/m3]&quot;</font>;
+  <font color="blue">parameter </font>Real K_P_Xa=0.01 <font color="darkgreen">
+    &quot;Saturation coefficient for phosphate (nutrient) [g P/m3]&quot;</font>;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Precipitation //</font>
+  <font color="blue">parameter </font>Real k_PRE=1.0 <font color="darkgreen">
+    &quot;Rate constant for P precipitation [m3/(g Fe(OH3))/d]&quot;</font>;
+  <font color="blue">parameter </font>Real k_RED=0.6 <font color="darkgreen">&quot;Rate constant for redissolution [d^-1]&quot;</font>;
+  <font color="blue">parameter </font>Real K_ALK_Pre=0.5 <font color="darkgreen">
+    &quot;Saturation coefficient for alkalinity [mole HCO3/m3]&quot;</font>;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> So <font color="darkgreen">&quot;Dissolved oxygen&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sf <font color="darkgreen">&quot;Readily biodegradable substrate&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sa <font color="darkgreen">&quot;Fermentation products&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snh <font color="darkgreen">&quot;Ammonium&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sno <font color="darkgreen">&quot;Nitrate (plus nitrite)&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Spo <font color="darkgreen">&quot;Phosphate&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Si <font color="darkgreen">&quot;Inert, non biodegradable organics&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.Alkalinity"
+>WWU.Alkalinity</A> Salk <font color="darkgreen">&quot;Bicarbonate alkalinity&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sn2 <font color="darkgreen">&quot;Dinitrogen&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xi <font color="darkgreen">&quot;Inert, non biodegradable organics&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xs <font color="darkgreen">&quot;Slowly biodegradable substrate&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xh <font color="darkgreen">&quot;Heterotrophic biomass&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xpao <font color="darkgreen">&quot;Phosphorus-accumulating organisms, PAO&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xpp <font color="darkgreen">&quot;Stored poly-phosphate of PAO&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xpha <font color="darkgreen">&quot;Oragnic storage products of PAO&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xa <font color="darkgreen">&quot;Autotrophic, nitrifying biomass&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xmeoh <font color="darkgreen">&quot;Ferric-hydroxide Fe(OH)3&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xmep <font color="darkgreen">&quot;Ferric-phosphate FePO4&quot;</font>;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xtss <font color="darkgreen">&quot;Particulate material as model component&quot;</font>;
+  <font color="darkgreen"></font>
+  Real p1;
+  Real p2;
+  Real p3;
+  Real p4;
+  Real p5;
+  Real p6;
+  Real p7;
+  Real p8;
+  Real p9;
+  Real p10;
+  Real p11;
+  Real p12;
+  Real p13;
+  Real p14;
+  Real p15;
+  Real p16;
+  Real p17;
+  Real p18;
+  Real p19;
+  Real p20;
+  Real p21;
+  <font color="darkgreen"></font>
+  Real r1;
+  Real r2;
+  Real r3;
+  Real r4;
+  Real r5;
+  Real r6;
+  Real r7;
+  Real r8;
+  Real r9;
+  Real r10;
+  Real r11;
+  Real r12;
+  Real r13;
+  Real r14;
+  Real r15;
+  Real r16;
+  Real r17;
+  Real r18;
+  Real r19;
+  <font color="darkgreen"></font>
+  Real inputSo;
+  Real inputSf;
+  Real inputSa;
+  Real inputSnh;
+  Real inputSno;
+  Real inputSpo;
+  Real inputSi;
+  Real inputSalk;
+  Real inputSn2;
+  Real inputXi;
+  Real inputXs;
+  Real inputXh;
+  Real inputXpao;
+  Real inputXpp;
+  Real inputXpha;
+  Real inputXa;
+  Real inputXtss;
+  Real inputXmeoh;
+  Real inputXmep;
+  Real aeration;
+  <font color="darkgreen"></font>
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2din"
+>Interfaces.WWFlowAsm2din</A> In;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>Interfaces.WWFlowAsm2dout</A> Out;
+  <A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"
+>Interfaces.WWFlowAsm2dout</A> MeasurePort;
+  <A HREF="file:///C:/DYMOLA/Modelica/Library/Modelica/help/Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.InPort"
+>Modelica.Blocks.Interfaces.InPort</A> T(<font color="blue">final </font>n=1);
+<font color="blue">equation </font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Temperature dependent Kinetic parameters based on 20 deg C //</font>
+  K_h = K_h_T*1.0414^(T.signal[1] - 20);
+  mu_H = mu_H_T*1.07177^(T.signal[1] - 20);
+  rho_fe = rho_fe_T*1.07177^(T.signal[1] - 20);
+  b_H = b_H_T*1.07177^(T.signal[1] - 20);
+  rho_PHA = rho_PHA_T*1.0414^(T.signal[1] - 20);
+  rho_PP = rho_PP_T*1.0414^(T.signal[1] - 20);
+  mu_PAO = mu_PAO_T*1.0409^(T.signal[1] - 20);
+  b_PAO = b_PAO_T*1.07177^(T.signal[1] - 20);
+  b_PP = b_PP_T*1.07177^(T.signal[1] - 20);
+  b_PHA = b_PHA_T*1.07177^(T.signal[1] - 20);
+  mu_AUT = mu_AUT_T*1.1107^(T.signal[1] - 20);
+  b_AUT = b_AUT_T*1.1161^(T.signal[1] - 20);
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Process Rates //</font>
+  <font color="darkgreen"></font>
+  <font color="darkgreen">//Hydrolysis processes Xs//</font>
+  p1 = K_h*(So/(K_O_Xs + So))*((Xs/Xh)/(K_X + Xs/Xh))*Xh;
+  p2 = K_h*eta_NO_Xs*(K_O_Xs/(K_O_Xs + So))*(Sno/(K_NO_Xs + Sno))*((Xs/Xh)/(K_X
+     + Xs/Xh))*Xh;
+  p3 = K_h*eta_fe*(K_O_Xs/(K_O_Xs + So))*(K_NO_Xs/(K_NO_Xs + Sno))*((Xs/Xh)/(
+    K_X + Xs/Xh))*Xh;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">//Heterotrophic organisms Xh//</font>
+  p4 = mu_H*(So/(K_O_Xh + So))*(Sf/(K_F + Sf))*(Sf/(Sf + Sa))*(Snh/(K_NH_Xh + 
+    Snh))*(Spo/(K_P_Xh + Spo))*(Salk/(K_ALK_Xh + Salk))*Xh;
+  p5 = mu_H*(So/(K_O_Xh + So))*(Sa/(K_A_Xh + Sa))*(Sa/(Sf + Sa))*(Snh/(K_NH_Xh
+     + Snh))*(Spo/(K_P_Xh + Spo))*(Salk/(K_ALK_Xh + Salk))*Xh;
+  p6 = mu_H*eta_NO_Xh*(K_O_Xh/(K_O_Xh + So))*(Sno/(K_NO_Xh + Sno))*(Sf/(K_F + 
+    Sf))*(Sf/(Sf + Sa))*(Snh/(K_NH_Xh + Snh))*(Spo/(K_P_Xh + Spo))*(Salk/(
+    K_ALK_Xh + Salk))*Xh;
+  p7 = mu_H*eta_NO_Xh*(K_O_Xh/(K_O_Xh + So))*(Sno/(K_NO_Xh + Sno))*(Sa/(K_A_Xh
+     + Sa))*(Sa/(Sf + Sa))*(Snh/(K_NH_Xh + Snh))*(Spo/(K_P_Xh + Spo))*(Salk/(
+    K_ALK_Xh + Salk))*Xh;
+  p8 = rho_fe*(K_O_Xh/(K_O_Xh + So))*(K_NO_Xh/(K_NO_Xh + Sno))*(Sf/(K_F + Sf))*
+    (Salk/(K_ALK_Xh + Salk))*Xh;
+  p9 = b_H*Xh;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">//Phosphorus-accumulating organisms Xpao//</font>
+  p10 = rho_PHA*(Sa/(K_A_Xpao + Sa))*(Salk/(K_ALK_Xpao + Salk))*((Xpp/Xpao)/(
+    K_PP + Xpp/Xpao))*Xpao;
+  p11 = rho_PP*(So/(K_O_Xpao + So))*(Spo/(K_PS + Spo))*(Salk/(K_ALK_Xpao + Salk
+    ))*((Xpha/Xpao)/(K_PHA + Xpha/Xpao))*((K_MAX - Xpp/Xpao)/(K_PP + K_MAX - 
+    Xpp/Xpao))*Xpao;
+  p12 = p11*eta_NO_Xpao*(K_O_Xpao/So)*(Sno/(K_NO_Xpao + Sno));
+  p13 = mu_PAO*(So/(K_O_Xpao + So))*(Snh/(K_NH_Xpao + Snh))*(Spo/(K_P_Xpao + 
+    Spo))*(Salk/(K_ALK_Xpao + Salk))*((Xpha/Xpao)/(K_PHA + Xpha/Xpao))*Xpao;
+  p14 = p13*eta_NO_Xpao*(K_O_Xpao/So)*(Sno/(K_NO_Xpao + Sno));
+  p15 = b_PAO*Xpao*(Salk/(K_ALK_Xpao + Salk));
+  p16 = b_PP*Xpp*(Salk/(K_ALK_Xpao + Salk));
+  p17 = b_PHA*Xpha*(Salk/(K_ALK_Xpao + Salk));
+  <font color="darkgreen"></font>
+  <font color="darkgreen">//Nitirying organisms Xa//</font>
+  p18 = mu_AUT*(So/(K_O_Xa + So))*(Snh/(K_NH_Xa + Snh))*(Spo/(K_P_Xa + Spo))*(
+    Salk/(K_ALK_Xa + Salk))*Xa;
+  p19 = b_AUT*Xa;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">//Precipitation Pre//</font>
+  p20 = k_PRE*Spo*Xmeoh;
+  p21 = k_RED*Xmep*(Salk/(K_ALK_Pre + Salk));
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// biochemical reactions //</font>
+  r1 = (1 - 1/Y_H)*p4 + (1 - 1/Y_H)*p5 - Y_PHA*p11 + v_13_O*p13 - ((4.57 - Y_A)
+    /Y_A)*p18;
+  r2 = (1 - f_Si)*p1 + (1 - f_Si)*p2 + (1 - f_Si)*p3 - (1/Y_H)*p4 - (1/Y_H)*p6
+     - p8;
+  r3 = -(1/Y_H)*p5 - (1/Y_H)*p7 + p8 - p10 + p17;
+  r4 = v_1_NH*p1 + v_2_NH*p2 + v_3_NH*p3 + v_4_NH*p4 + v_5_NH*p5 + v_6_NH*p6 + 
+    v_7_NH*p7 + v_8_NH*p8 + v_9_NH*p9 + v_13_NH*p13 + v_14_NH*p14 + v_15_NH*p15
+     + v_18_NH*p18 + v_19_NH*p19;
+  r5 = -((1 - Y_H)/(2.86*Y_H))*p6 - ((1 - Y_H)/(2.86*Y_H))*p7 + v_12_NO*p12 + 
+    v_14_NO*p14 + (1/Y_A)*p18;
+  r6 = v_1_PO*p1 + v_2_PO*p2 + v_3_PO*p3 + v_4_PO*p4 + v_5_PO*p5 + v_6_PO*p6 + 
+    v_7_PO*p7 + v_8_PO*p8 + v_9_PO*p9 + Y_PO*p10 - p11 - p12 - i_P_BM*p13 - 
+    i_P_BM*p14 + v_15_PO*p15 + p16 - i_P_BM*p18 + v_19_PO*p19 - p20 + p21;
+  r7 = f_Si*p1 + f_Si*p2 + f_Si*p3;
+  r8 = v_1_ALK*p1 + v_2_ALK*p2 + v_3_ALK*p3 + v_4_ALK*p4 + v_5_ALK*p5 + v_6_ALK
+    *p6 + v_7_ALK*p7 + v_8_ALK*p8 + v_9_ALK*p9 + v_10_ALK*p10 + v_11_ALK*p11 + 
+    v_12_ALK*p12 + v_13_ALK*p13 + v_14_ALK*p14 + v_15_ALK*p15 + v_16_ALK*p16 + 
+    v_17_ALK*p17 + v_18_ALK*p18 + v_19_ALK*p19 + v_20_ALK*p20 + v_21_ALK*p21;
+  r9 = ((1 - Y_H)/(2.86*Y_H))*p6 + ((1 - Y_H)/(2.86*Y_H))*p7 + v_12_N2*p12 + 
+    v_14_N2*p14;
+  r10 = f_Xih*p9 + f_Xip*p15 + f_Xia*p19;
+  r11 = -p1 - p2 - p3 + (1 - f_Xih)*p9 + (1 - f_Xip)*p15 + (1 - f_Xia)*p19;
+  r12 = p4 + p5 + p6 + p7 - p9;
+  r13 = p13 + p14 - p15;
+  r14 = -Y_PO*p10 + p11 + p12 - p16;
+  r15 = p10 - Y_PHA*p11 - Y_PHA*p12 - (1/Y_PAO)*p13 - (1/Y_PAO)*p14 - p17;
+  r16 = p18 - p19;
+  r17 = v_1_TSS*p1 + v_2_TSS*p2 + v_3_TSS*p3 + v_4_TSS*p4 + v_5_TSS*p5 + 
+    v_6_TSS*p6 + v_7_TSS*p7 + v_9_TSS*p9 + v_10_TSS*p10 + v_11_TSS*p11 + 
+    v_12_TSS*p12 + v_13_TSS*p13 + v_14_TSS*p14 + v_15_TSS*p15 + v_16_TSS*p16 + 
+    v_17_TSS*p17 + v_18_TSS*p18 + v_19_TSS*p19 + 1.42*p20 - 1.42*p21;
+  r18 = -3.45*p20 + 3.45*p21;
+  r19 = 4.87*p20 - 4.87*p21;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// derivatives //</font>
+  <font color="red">der</font>(So) = inputSo + r1 + aeration;
+  <font color="red">der</font>(Sf) = inputSf + r2;
+  <font color="red">der</font>(Sa) = inputSa + r3;
+  <font color="red">der</font>(Snh) = inputSnh + r4;
+  <font color="red">der</font>(Sno) = inputSno + r5;
+  <font color="red">der</font>(Spo) = inputSpo + r6;
+  <font color="red">der</font>(Si) = inputSi + r7;
+  <font color="red">der</font>(Salk) = inputSalk + r8;
+  <font color="red">der</font>(Sn2) = inputSn2 + r9;
+  <font color="red">der</font>(Xi) = inputXi + r10;
+  <font color="red">der</font>(Xs) = inputXs + r11;
+  <font color="red">der</font>(Xh) = inputXh + r12;
+  <font color="red">der</font>(Xpao) = inputXpao + r13;
+  <font color="red">der</font>(Xpp) = inputXpp + r14;
+  <font color="red">der</font>(Xpha) = inputXpha + r15;
+  <font color="red">der</font>(Xa) = inputXa + r16;
+  <font color="red">der</font>(Xtss) = inputXtss + r17;
+  <font color="red">der</font>(Xmeoh) = inputXmeoh + r18;
+  <font color="red">der</font>(Xmep) = inputXmep + r19;
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Outputs</font>
+  Out.Q + In.Q = 0;
+  Out.So = So;
+  Out.Sf = Sf;
+  Out.Sa = Sa;
+  Out.Snh = Snh;
+  Out.Sno = Sno;
+  Out.Spo = Spo;
+  Out.Si = Si;
+  Out.Salk = Salk;
+  Out.Sn2 = Sn2;
+  Out.Xi = Xi;
+  Out.Xs = Xs;
+  Out.Xh = Xh;
+  Out.Xpao = Xpao;
+  Out.Xpp = Xpp;
+  Out.Xpha = Xpha;
+  Out.Xa = Xa;
+  Out.Xtss = Xtss;
+  Out.Xmeoh = Xmeoh;
+  Out.Xmep = Xmep;
+  <font color="darkgreen"></font>
+  MeasurePort.So = So;
+  MeasurePort.Sf = Sf;
+  MeasurePort.Sa = Sa;
+  MeasurePort.Snh = Snh;
+  MeasurePort.Sno = Sno;
+  MeasurePort.Spo = Spo;
+  MeasurePort.Si = Si;
+  MeasurePort.Salk = Salk;
+  MeasurePort.Sn2 = Sn2;
+  MeasurePort.Xi = Xi;
+  MeasurePort.Xs = Xs;
+  MeasurePort.Xh = Xh;
+  MeasurePort.Xpao = Xpao;
+  MeasurePort.Xpp = Xpp;
+  MeasurePort.Xpha = Xpha;
+  MeasurePort.Xa = Xa;
+  MeasurePort.Xtss = Xtss;
+  MeasurePort.Xmeoh = Xmeoh;
+  MeasurePort.Xmep = Xmep;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>ASM2dbase;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.Interfaces.WWFlowAsm2dinI.png" ALT="WasteWater.ASM2d.Interfaces.WWFlowAsm2din" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.Interfaces.WWFlowAsm2din"></A><A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces"
+>WasteWater.ASM2d.Interfaces</A>.WWFlowAsm2din</H2>
+<B>Inflow connector of ASM2d components</B><p>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">Connectors WWFlowAsm2din and WWFlowAsm2dout are nearly identical.
+The difference is in the icons to more easily identify the inflow and outflow
+side of a component.<span lang="de"> </span>The connector consists of one flow variable and 
+19 potential variables (ASM2d concentrations).
+</font></PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">connector</font> WWFlowAsm2din <font color="darkgreen">&quot;Inflow connector of ASM2d components&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <font color="blue">flow </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.VolumeFlowRate"
+>WWU.VolumeFlowRate</A> Q;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> So;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sf;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sa;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snh;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sno;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Spo;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Si;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.Alkalinity"
+>WWU.Alkalinity</A> Salk;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sn2;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xi;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xs;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xh;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xpao;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xpp;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xpha;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xa;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xtss;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xmeoh;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xmep;
+  <font color="darkgreen"></font>
+  <font color="darkgreen"></font>
+<font color="blue">end </font>WWFlowAsm2din;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.Interfaces.WWFlowAsm2doutI.png" ALT="WasteWater.ASM2d.Interfaces.WWFlowAsm2dout" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.Interfaces.WWFlowAsm2dout"></A><A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces"
+>WasteWater.ASM2d.Interfaces</A>.WWFlowAsm2dout</H2>
+<B>Outflow connector of ASM2d components</B><p>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">Connectors WWFlowAsm2din and WWFlowAsm2dout are nearly identical.
+The difference is in the icons to more easily identify the inflow and outflow
+side of a component.<span lang="de"> </span>The connector consists of one flow variable and 
+19 potential variables (ASM2d concentrations).</font>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">connector</font> WWFlowAsm2dout <font color="darkgreen">&quot;Outflow connector of ASM2d components&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <font color="darkgreen"></font>
+  <font color="blue">flow </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.VolumeFlowRate"
+>WWU.VolumeFlowRate</A> Q;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> So;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sf;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sa;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Snh;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sno;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Spo;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Si;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.Alkalinity"
+>WWU.Alkalinity</A> Salk;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Sn2;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xi;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xs;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xh;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xpao;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xpp;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xpha;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xa;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xtss;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xmeoh;
+  <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.MassConcentration"
+>WWU.MassConcentration</A> Xmep;
+  <font color="darkgreen"></font>
+  <font color="darkgreen"></font>
+<font color="blue">end </font>WWFlowAsm2dout;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.Interfaces.AirFlowI.png" ALT="WasteWater.ASM2d.Interfaces.AirFlow" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.Interfaces.AirFlow"></A><A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces"
+>WasteWater.ASM2d.Interfaces</A>.AirFlow</H2>
+<B>Airflow connector</B><p>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">The Airflow connector consist of a flow variable describing the exchange of
+air between blower and nitrification tank.</font></PRE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">connector</font> AirFlow <font color="darkgreen">&quot;Airflow connector&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="blue">package</font> WWU = <A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits"
+>WasteWater.WasteWaterUnits</A>;
+  <font color="blue">flow </font><A HREF="WasteWater_WasteWaterUnits.html#WasteWater.WasteWaterUnits.VolumeFlowRate"
+>WWU.VolumeFlowRate</A> Q_air;
+  <font color="darkgreen"></font>
+  <font color="darkgreen"></font>
+<font color="blue">end </font>AirFlow;
+</PRE>
+<HR>
+<H2><IMG SRC="WasteWater.ASM2d.Interfaces.conversion_factorsI.png" ALT="WasteWater.ASM2d.Interfaces.conversion_factors" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="WasteWater.ASM2d.Interfaces.conversion_factors"></A><A HREF="WasteWater_ASM2d_Interfaces.html#WasteWater.ASM2d.Interfaces"
+>WasteWater.ASM2d.Interfaces</A>.conversion_factors</H2>
+<B>ASM2d conversion factors</B><p>
+<H3>Information</H3>
+<PRE><font face="Times New Roman" size="3">This is a partial model providing the conversion factors of the ASM2d model.</font></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>i_N_Si</TD><TD>0.01</TD><TD>N content of inert soluble COD Si [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Sf</TD><TD>0.03</TD><TD>N content of fermentable substrates Sf [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Xi</TD><TD>0.02</TD><TD>N content of inert particulate COD Xi [gN/gCOD]</TD></TR>
+<TR><TD>i_N_Xs</TD><TD>0.04</TD><TD>N content of slowly biodegradable substrate Xs [gN/gCOD]</TD></TR>
+<TR><TD>i_N_BM</TD><TD>0.07</TD><TD>N content of biomass, Xh, Xpao, Xa [gN/gCOD]</TD></TR>
+<TR><TD>i_P_Si</TD><TD>0.0</TD><TD>P content of inert soluble COD Si [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Sf</TD><TD>0.01</TD><TD>P content of fermentable substrates Sf [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Xi</TD><TD>0.01</TD><TD>P content of inert particulate COD Xi [gP/gCOD]</TD></TR>
+<TR><TD>i_P_Xs</TD><TD>0.01</TD><TD>P content of slowly biodegradable substrate Xs [gP/gCOD]</TD></TR>
+<TR><TD>i_P_BM</TD><TD>0.02</TD><TD>P content of biomass, Xh, Xpao, Xa [gP/gCOD]</TD></TR>
+<TR><TD>i_TSS_Xi</TD><TD>0.75</TD><TD>TSS to COD ratio for Xi [gTSS/gCOD]</TD></TR>
+<TR><TD>i_TSS_Xs</TD><TD>0.75</TD><TD>TSS to COD ratio for Xs [gTSS/gCOD]</TD></TR>
+<TR><TD>i_TSS_BM</TD><TD>0.9</TD><TD>TSS to COD ratio for biomass, Xh, Xpao, Xa [gTSS/gCOD]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE><font color="blue">partial </font><font color="blue">model</font> conversion_factors <font color="darkgreen">&quot;ASM2d conversion factors&quot;</font> 
+  <font color="darkgreen"></font>
+  <font color="darkgreen">// Typical conversion factors for conservation equation //</font>
+  <font color="blue">parameter </font>Real i_N_Si=0.01 <font color="darkgreen">&quot;N content of inert soluble COD Si [gN/gCOD]&quot;</font>;
+  <font color="blue">parameter </font>Real i_N_Sf=0.03 <font color="darkgreen">&quot;N content of fermentable substrates Sf [gN/gCOD]&quot;</font>;
+  <font color="blue">parameter </font>Real i_N_Xi=0.02 <font color="darkgreen">&quot;N content of inert particulate COD Xi [gN/gCOD]&quot;</font>;
+  <font color="blue">parameter </font>Real i_N_Xs=0.04 <font color="darkgreen">
+    &quot;N content of slowly biodegradable substrate Xs [gN/gCOD]&quot;</font>;
+  <font color="blue">parameter </font>Real i_N_BM=0.07 <font color="darkgreen">&quot;N content of biomass, Xh, Xpao, Xa [gN/gCOD]&quot;</font>;
+  <font color="blue">parameter </font>Real i_P_Si=0.0 <font color="darkgreen">&quot;P content of inert soluble COD Si [gP/gCOD]&quot;</font>;
+  <font color="blue">parameter </font>Real i_P_Sf=0.01 <font color="darkgreen">&quot;P content of fermentable substrates Sf [gP/gCOD]&quot;</font>;
+  <font color="blue">parameter </font>Real i_P_Xi=0.01 <font color="darkgreen">&quot;P content of inert particulate COD Xi [gP/gCOD]&quot;</font>;
+  <font color="blue">parameter </font>Real i_P_Xs=0.01 <font color="darkgreen">
+    &quot;P content of slowly biodegradable substrate Xs [gP/gCOD]&quot;</font>;
+  <font color="blue">parameter </font>Real i_P_BM=0.02 <font color="darkgreen">&quot;P content of biomass, Xh, Xpao, Xa [gP/gCOD]&quot;</font>;
+  <font color="blue">parameter </font>Real i_TSS_Xi=0.75 <font color="darkgreen">&quot;TSS to COD ratio for Xi [gTSS/gCOD]&quot;</font>;
+  <font color="blue">parameter </font>Real i_TSS_Xs=0.75 <font color="darkgreen">&quot;TSS to COD ratio for Xs [gTSS/gCOD]&quot;</font>;
+  <font color="blue">parameter </font>Real i_TSS_BM=0.9 <font color="darkgreen">
+    &quot;TSS to COD ratio for biomass, Xh, Xpao, Xa [gTSS/gCOD]&quot;</font>;
+  <font color="darkgreen"></font>
+<font color="blue">end </font>conversion_factors;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Mon Aug 18 11:15:28 2003
+.
+</address></BODY>
+</HTML>
