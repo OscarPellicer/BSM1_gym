@@ -70,7 +70,7 @@ res= model.simulate(final_time=3)
 - We can do the same for our custom model
 ```{python}
 # Create a FMU using OMPython
-base_path= '.WasteWaterResearch'
+base_path= 'WasteWaterResearch'
 model_name= 'BSM1.BSM1'
 R.run('loadModel(Modelica,{"3.2.3"},true,"",false)')
 R.run('loadFile("%s/WasteWater/package.mo","UTF-8",true,true,false)'%base_path)
@@ -100,8 +100,8 @@ res.result_data.description[res.keys().index('time')]
 
 ## 3. Creating an OpenAI Gym environment and training a Reinforecement Learning agent on it
  - Install OpenAI Gym: `conda install -c conda-forge gym`
- - If you intend to use the deep learning agents, you might want to install pytorch too. You can follow the instructions here: https://pytorch.org/get-started/locally/
  - An example of setting up an environment (BSM1), and training an agent to optimize operation cost on it can be found in [Training.ipynb](Training.ipynb)
+ - In order to use deep learning agents, you need to install pytorch too. It is also needed for running [Training.ipynb](Training.ipynb). You can follow the instructions here: https://pytorch.org/get-started/locally/
  - Obviously, to run the Notebook, Jupyter Notebook must be first installed (see [above](#interacting-with-openmodelica-models-through-ompython)).
  - Please note that BSM1 simulations can sometimes fail due to the agents making a series of actions that yield to division by zero within the model. This is a rare occourance that unfortunately has not yet been solved. If this happens, please rerun the simulation.
  - If you want to adapt the library to your own needs, you should first implement a class similar to `BSM1Env` found in `BSM1Envs/bsm1_env.py`. This class implements the `ModelicaEnv` class, which, in turn inherits from `gym.Env`, which is the parent class for all Gym environments.
