@@ -114,4 +114,4 @@ with different kinds of agents.
    - `training.py`: This file contains all the code for letting an agent interact and learn from the evironment
 as well as to plot the evolution of the values of the variables over time.
 
-This work is part of my end-of-degree project for my Computer Science degree at [UNED University](https://www.uned.es/), which can be found at [*not yet available*]() (in spanish).
+This work is part of my end-of-degree project for my Computer Science degree at [UNED University](https://www.uned.es/), which can be found [in this repository](https://github.com/OscarPellicer/BSM1_gym/blob/main/TFG%20Oscar%20Jos%C3%A9%20Pellicer%20Valero.pdf) (in Spanish).
